@@ -8,24 +8,26 @@ import Footer from './folds/Footer';
 import FoldWrapper from './components/FoldWrapper';
 import data from './data.json';
 
-// Dynamically import all optimized gallery images
+// Separate InShot (3D renders) from PHOTO (construction gallery)
 const galleryModules = import.meta.glob('/public/assets/gallery/*.{webp,jpeg,jpg,png}', { eager: true });
-const galleryImages = Object.keys(galleryModules).map((key, index) => {
-  return { 
-    id: index + 1, 
-    img: galleryModules[key].default,
-    height: 400 + Math.random() * 400 // random height for masonry effect
-  };
-});
+const galleryImages = Object.keys(galleryModules)
+  .filter(key => !key.includes('InShot')) // Only use non-InShot photos for Gallery
+  .map((key, index) => {
+    return { 
+      id: index + 1, 
+      img: galleryModules[key].default,
+      height: 400 + Math.random() * 400 // random height for masonry effect
+    };
+  });
 
 function App() {
   const { docx_content } = data;
   
   const renderCards = [
-    { title: "Front View", desc: "Main entrance and facade", img: galleryModules['/public/assets/gallery/PHOTO-2026-07-28-15-49-42.jpg.webp']?.default },
-    { title: "Axiometric View", desc: "Overall structural perspective", img: galleryModules['/public/assets/gallery/PHOTO-2026-07-28-15-49-44.jpg.webp']?.default },
-    { title: "Sectional & Interior View", desc: "Inner sanctum layout", img: galleryModules['/public/assets/gallery/PHOTO-2026-07-28-15-49-45.jpg.webp']?.default },
-    { title: "Environment Rendering", desc: "Integration with surroundings", img: galleryModules['/public/assets/gallery/PHOTO-2026-07-28-15-47-14.jpg.webp']?.default }
+    { title: "Front View", desc: "Main entrance and facade", img: galleryModules['/public/assets/gallery/InShot_20250701_000923921.jpg.webp']?.default },
+    { title: "Axiometric View", desc: "Overall structural perspective", img: galleryModules['/public/assets/gallery/InShot_20250630_231103059.jpg.webp']?.default },
+    { title: "Sectional & Interior View", desc: "Inner sanctum layout", img: galleryModules['/public/assets/gallery/InShot_20250701_191653072.jpg.webp']?.default },
+    { title: "Environment Rendering", desc: "Integration with surroundings", img: galleryModules['/public/assets/gallery/InShot_20250701_001016010.jpg.webp']?.default }
   ];
 
   // We let the body handle the scrolling and snapping (defined in index.css)

@@ -2,7 +2,7 @@ import React from 'react';
 import Aurora from '../components/Aurora/Aurora';
 import BlurText from '../components/BlurText/BlurText';
 import { MapPin } from '@phosphor-icons/react';
-import heroBg from '../../public/assets/gallery/PHOTO-2026-07-28-15-47-15.jpg.webp';
+import heroBg from '../../public/assets/peace-heaven-green-fields.webp';
 
 export default function Hero() {
   return (
