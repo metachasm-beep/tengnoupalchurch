@@ -7,9 +7,10 @@ export default function Hero() {
   return (
     <section id="hero" className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden pt-20 bg-forest-900">
       <div 
-        className="absolute inset-0 z-0 opacity-40 mix-blend-overlay pointer-events-none bg-cover bg-center"
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-60"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
+      <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col items-start gap-6">
