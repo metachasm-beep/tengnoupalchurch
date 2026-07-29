@@ -37,7 +37,7 @@ function App() {
       <div id="nav-hero" className="snap-start"><FoldWrapper><Hero /></FoldWrapper></div>
       <div id="nav-sermons" className="snap-start"><FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper></div>
       <div id="nav-project" className="snap-start"><FoldWrapper><Project renderCards={renderCards} /></FoldWrapper></div>
-      <div id="nav-gallery" className="snap-start"><Gallery galleryImages={galleryImages.slice(0, 15)} /></div>
+      <div id="nav-gallery" className="snap-start"><FoldWrapper><Gallery galleryImages={galleryImages.slice(0, 15)} /></FoldWrapper></div>
       <div id="nav-footer" className="snap-start"><Footer /></div>
     </div>
   );
