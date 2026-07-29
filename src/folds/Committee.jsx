@@ -24,18 +24,18 @@ export default function Committee({ content }) {
 
         {/* Committee Grid */}
         <div>
-          <h3 className="font-sans text-sm md:text-base tracking-[0.2em] text-bone-200 uppercase font-medium mb-8">
+          <h3 className="font-sans text-sm md:text-base tracking-[0.2em] text-bone-200 uppercase font-medium mb-4 md:mb-8">
             {content?.title}
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 overflow-y-auto max-h-[65vh] md:max-h-none pr-2 pb-8 md:pb-0 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {content?.members?.map((member, i) => (
-              <div key={i} className="glass p-5 rounded-2xl flex items-center gap-4 hover:bg-white/10 transition-all border border-white/5 hover:border-amber-accent/30 group">
-                <div className="w-12 h-12 rounded-full bg-forest-800 flex items-center justify-center flex-shrink-0 text-amber-accent group-hover:scale-110 transition-transform">
+              <div key={i} className="glass p-4 md:p-5 rounded-2xl flex items-center gap-3 md:gap-4 hover:bg-white/10 transition-all border border-white/5 hover:border-amber-accent/30 group">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-forest-800 flex items-center justify-center flex-shrink-0 text-amber-accent group-hover:scale-110 transition-transform">
                   <User weight="fill" size={20} />
                 </div>
                 <div>
-                  <h4 className="font-medium text-bone-50 text-sm md:text-base">{member.name}</h4>
-                  <p className="text-amber-accent/80 text-xs md:text-sm font-medium">{member.role}</p>
+                  <h4 className="font-medium text-bone-50 text-xs md:text-base">{member.name}</h4>
+                  <p className="text-amber-accent/80 text-[10px] md:text-sm font-medium">{member.role}</p>
                 </div>
               </div>
             ))}

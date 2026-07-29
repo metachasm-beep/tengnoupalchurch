@@ -11,12 +11,12 @@ export default function Foundation({ content }) {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-semibold tracking-wider text-amber-accent uppercase mb-6">
              {content?.badge}
           </div>
-          <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight mb-8 leading-tight" dangerouslySetInnerHTML={{ __html: content?.title }} />
-          <div className="space-y-6 text-bone-100 text-base md:text-lg leading-relaxed border-l-2 border-amber-accent/50 pl-6 md:pl-8">
-            <p className="italic font-serif text-lg md:text-xl text-bone-50 opacity-90">
+          <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight mb-6 md:mb-8 leading-tight" dangerouslySetInnerHTML={{ __html: content?.title }} />
+          <div className="space-y-4 md:space-y-6 text-bone-100 text-sm md:text-lg leading-relaxed border-l-2 border-amber-accent/50 pl-4 md:pl-8 overflow-y-auto max-h-[50vh] md:max-h-none pr-2 pb-8 md:pb-0 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <p className="italic font-serif text-base md:text-xl text-bone-50 opacity-90">
               {content?.paragraphs[0]}
             </p>
-            <p className="text-sm md:text-base opacity-80 uppercase tracking-widest font-sans pt-2">
+            <p className="text-xs md:text-base opacity-80 uppercase tracking-widest font-sans pt-2">
               {content?.paragraphs[1]}
             </p>
           </div>
