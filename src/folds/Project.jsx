@@ -12,9 +12,9 @@ export default function Project({ renderCards }) {
   // Item 2, 3: Small squares (1x1)
   const getBentoClasses = (i) => {
     switch (i) {
-      case 0: return 'md:col-span-2 md:row-span-2 h-[400px] md:h-full';
-      case 1: return 'md:col-span-2 h-[300px]';
-      default: return 'md:col-span-1 h-[300px]';
+      case 0: return 'md:col-span-2 md:row-span-2 md:h-full';
+      case 1: return 'md:col-span-2 md:h-[300px]';
+      default: return 'md:col-span-1 md:h-[300px]';
     }
   };
 
@@ -35,9 +35,9 @@ export default function Project({ renderCards }) {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 auto-rows-[220px] md:auto-rows-[auto]">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 pb-6 md:pb-0 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {renderCards?.map((card, i) => (
-            <div key={i} className={`${getBentoClasses(i)}`} onClick={() => setSelectedImage(card)}>
+            <div key={i} className={`flex-shrink-0 w-[85vw] h-[400px] snap-center md:w-auto ${getBentoClasses(i)}`} onClick={() => setSelectedImage(card)}>
               <SpotlightCard className="w-full h-full bg-forest-800 border-forest-700 p-0 overflow-hidden cursor-pointer shadow-lg" spotlightColor="rgba(212, 128, 28, 0.15)">
                 <div className="absolute inset-0 z-0">
                   <img src={card.img} alt={card.title} className="w-full h-full object-cover opacity-60 hover:opacity-100 hover:scale-105 transition-all duration-700" />
