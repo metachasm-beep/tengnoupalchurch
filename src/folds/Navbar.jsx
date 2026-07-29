@@ -9,12 +9,12 @@ export default function Navbar() {
           <span className="font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">Tengnoupal Christian Church</span>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-900 dark:text-zinc-300">
-          <a href="#about" className="hover:text-emerald-600 transition-colors">About</a>
-          <a href="#sermons" className="hover:text-emerald-600 transition-colors">Sermons</a>
-          <a href="#project" className="hover:text-emerald-600 transition-colors">Building Project</a>
-          <a href="#gallery" className="hover:text-emerald-600 transition-colors">Gallery</a>
+          <button onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-600 transition-colors">About</button>
+          <button onClick={() => document.getElementById('sermons')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-600 transition-colors">Sermons</button>
+          <button onClick={() => document.getElementById('project')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-600 transition-colors">Building Project</button>
+          <button onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-600 transition-colors">Gallery</button>
         </div>
-        <button className="bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 px-5 py-2.5 rounded-full text-sm font-medium hover:scale-[0.98] transition-transform">
+        <button onClick={() => document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' })} className="bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 px-5 py-2.5 rounded-full text-sm font-medium hover:scale-[0.98] transition-transform">
           Visit Us
         </button>
       </div>

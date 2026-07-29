@@ -5,7 +5,7 @@ import { MapPin } from '@phosphor-icons/react';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20">
+    <section id="hero" className="relative h-[100dvh] snap-start w-full flex items-center justify-center overflow-hidden pt-20">
       <div className="absolute inset-0 z-0 opacity-40 dark:opacity-20 pointer-events-none">
         <Aurora colorStops={['#10b981', '#059669', '#047857']} blend={0.8} amplitude={1.2} />
       </div>
@@ -29,10 +29,10 @@ export default function Hero() {
           </p>
           
           <div className="flex gap-4 pt-4">
-            <button className="bg-emerald-600 text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-700 transition-colors hover:scale-[0.98]">
+            <button onClick={() => document.getElementById('sermons')?.scrollIntoView({ behavior: 'smooth' })} className="bg-emerald-600 text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-700 transition-colors hover:scale-[0.98]">
               Sunday Services
             </button>
-            <button className="glass px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-colors">
+            <button onClick={() => document.getElementById('project')?.scrollIntoView({ behavior: 'smooth' })} className="glass px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-colors">
               Our Vision
             </button>
           </div>

@@ -28,7 +28,7 @@ function App() {
   ];
 
   return (
-    <div className="min-h-[100dvh] bg-zinc-50 dark:bg-zinc-950 font-sans selection:bg-emerald-600 selection:text-white">
+    <div className="h-[100dvh] w-full snap-y snap-mandatory overflow-y-scroll overflow-x-hidden bg-zinc-50 dark:bg-zinc-950 font-sans selection:bg-emerald-600 selection:text-white">
       <Navbar />
       <Hero />
       <Sermons docx_content={docx_content} />

@@ -3,7 +3,7 @@ import SpotlightCard from '../components/SpotlightCard/SpotlightCard';
 
 export default function Project({ renderCards }) {
   return (
-    <section id="project" className="py-32 bg-zinc-950 text-zinc-50 relative overflow-hidden">
+    <section id="project" className="h-[100dvh] snap-start w-full flex items-center bg-zinc-950 text-zinc-50 relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-50" />
       
       <div className="max-w-7xl mx-auto px-6">
