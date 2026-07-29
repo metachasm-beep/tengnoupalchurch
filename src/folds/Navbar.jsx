@@ -1,4 +1,5 @@
 import React from 'react';
+import { Cross } from '@phosphor-icons/react';
 
 export default function Navbar() {
   const scrollTo = (id) => {
@@ -10,7 +11,7 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 glass">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <img src="/assets/logo.svg" alt="Logo" className="w-20 h-20 object-contain" />
+          <Cross size={40} weight="fill" className="text-amber-accent" />
           <span className="font-semibold tracking-tight text-bone-50">Tengnoupal Christian Church</span>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium text-bone-100">
