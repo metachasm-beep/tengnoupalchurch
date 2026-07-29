@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { CaretLeft, CaretRight, X } from '@phosphor-icons/react';
+import Footer from './Footer';
 
 export default function Gallery({ galleryImages }) {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -134,6 +135,10 @@ export default function Gallery({ galleryImages }) {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      <div className="absolute bottom-0 inset-x-0 z-[60]">
+        <Footer />
+      </div>
     </section>
   );
 }
