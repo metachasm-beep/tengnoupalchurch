@@ -9,6 +9,7 @@ export default function Navbar() {
           <span className="font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">Tengnoupal Christian Church</span>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-900 dark:text-zinc-300">
+          <button onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-600 transition-colors">Home</button>
           <button onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-600 transition-colors">About</button>
           <button onClick={() => document.getElementById('sermons')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-600 transition-colors">Sermons</button>
           <button onClick={() => document.getElementById('project')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-600 transition-colors">Building Project</button>

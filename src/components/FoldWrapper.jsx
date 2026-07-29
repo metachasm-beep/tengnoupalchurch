@@ -31,7 +31,7 @@ export default function FoldWrapper({ children }) {
   const opacity = useTransform(outgoing, [0, 1], [1, 0.4]);
 
   return (
-    <div ref={ref} className="h-[100dvh] w-full sticky top-0 snap-start overflow-hidden">
+    <div ref={ref} className="h-[100dvh] w-full sticky top-0 overflow-hidden">
       <motion.div 
         style={{ filter, opacity }} 
         className="w-full h-full origin-top bg-zinc-950"

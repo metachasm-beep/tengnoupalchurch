@@ -3,7 +3,7 @@ import { Calendar } from '@phosphor-icons/react';
 
 export default function Sermons({ docx_content }) {
   return (
-    <section id="sermons" className="h-[100dvh] snap-start w-full flex items-center bg-white dark:bg-zinc-900">
+    <section id="sermons" className="h-[100dvh] w-full flex items-center bg-white dark:bg-zinc-900">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-12 gap-16">
           <div className="md:col-span-5 flex flex-col gap-6">

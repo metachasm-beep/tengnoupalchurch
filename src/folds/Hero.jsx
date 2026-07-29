@@ -6,7 +6,7 @@ import heroBg from '../../public/assets/peace-heaven-green-fields.webp';
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative h-[100dvh] snap-start w-full flex items-center justify-center overflow-hidden pt-20 bg-zinc-900">
+    <section id="hero" className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden pt-20 bg-zinc-900">
       <div 
         className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
