@@ -3,6 +3,7 @@ import Navbar from './folds/Navbar';
 import Hero from './folds/Hero';
 import Sermons from './folds/Sermons';
 import Project from './folds/Project';
+import Foundation from './folds/Foundation';
 import Committee from './folds/Committee';
 import Gallery from './folds/Gallery';
 import Footer from './folds/Footer';
@@ -38,6 +39,7 @@ function App() {
       <div id="nav-hero" className="snap-start"><FoldWrapper><Hero /></FoldWrapper></div>
       <div id="nav-sermons" className="snap-start"><FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper></div>
       <div id="nav-project" className="snap-start"><FoldWrapper><Project renderCards={renderCards} /></FoldWrapper></div>
+      <div id="nav-foundation" className="snap-start"><FoldWrapper><Foundation /></FoldWrapper></div>
       <div id="nav-committee" className="snap-start"><FoldWrapper><Committee /></FoldWrapper></div>
       <div id="nav-gallery" className="snap-start"><FoldWrapper><Gallery galleryImages={galleryImages.slice(0, 15)} /></FoldWrapper></div>
     </div>
