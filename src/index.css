@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@layer base {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+}
+
 @theme {
   --font-sans: "Inter", "Geist", sans-serif;
   --font-mono: "Geist Mono", monospace;

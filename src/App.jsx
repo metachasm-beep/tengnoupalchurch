@@ -5,6 +5,7 @@ import Sermons from './folds/Sermons';
 import Project from './folds/Project';
 import Gallery from './folds/Gallery';
 import Footer from './folds/Footer';
+import FoldWrapper from './components/FoldWrapper';
 import data from './data.json';
 
 // Dynamically import all optimized gallery images
@@ -27,14 +28,15 @@ function App() {
     { title: "Environment Rendering", desc: "Integration with surroundings", img: galleryModules['/public/assets/gallery/PHOTO-2026-07-28-15-47-14.jpg.webp']?.default }
   ];
 
+  // We let the body handle the scrolling and snapping (defined in index.css)
   return (
-    <div className="h-[100dvh] w-full snap-y snap-mandatory overflow-y-scroll overflow-x-hidden bg-zinc-50 dark:bg-zinc-950 font-sans selection:bg-emerald-600 selection:text-white">
+    <div className="w-full bg-zinc-950 font-sans selection:bg-emerald-600 selection:text-white">
       <Navbar />
-      <Hero />
-      <Sermons docx_content={docx_content} />
-      <Project renderCards={renderCards} />
-      <Gallery galleryImages={galleryImages.slice(0, 15)} />
-      <Footer />
+      <FoldWrapper><Hero /></FoldWrapper>
+      <FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper>
+      <FoldWrapper><Project renderCards={renderCards} /></FoldWrapper>
+      <FoldWrapper><Gallery galleryImages={galleryImages.slice(0, 15)} /></FoldWrapper>
+      <FoldWrapper><Footer /></FoldWrapper>
     </div>
   );
 }
