@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
 @import "tailwindcss";
 
 @layer base {
@@ -7,25 +8,30 @@
 }
 
 @theme {
-  --font-sans: "Inter", "Geist", sans-serif;
-  --font-mono: "Geist Mono", monospace;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-forest-900: #09150E;
+  --color-forest-800: #102619;
+  --color-forest-700: #173825;
+  
+  --color-bone-50: #F6F4F0;
+  --color-bone-100: #EAE5D9;
+  --color-bone-200: #DCD3BF;
+  
+  --color-amber-accent: #D4801C;
+  --color-amber-accent-hover: #B46B17;
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)];
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)];
   }
   .glass-dark {
-    @apply bg-zinc-900/60 backdrop-blur-md border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)];
+    @apply bg-forest-900/60 backdrop-blur-md border border-bone-50/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)];
   }
 }
 
 body {
-  @apply bg-zinc-50 text-zinc-900 antialiased;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    @apply bg-zinc-950 text-zinc-50;
-  }
+  @apply bg-forest-900 text-bone-50 antialiased;
 }

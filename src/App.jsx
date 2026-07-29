@@ -32,7 +32,7 @@ function App() {
 
   // We let the body handle the scrolling and snapping (defined in index.css)
   return (
-    <div className="w-full bg-zinc-950 font-sans selection:bg-emerald-600 selection:text-white">
+    <div className="w-full bg-forest-900 font-sans selection:bg-amber-accent selection:text-forest-900 text-bone-50">
       <Navbar />
       <div id="nav-hero"><FoldWrapper><Hero /></FoldWrapper></div>
       <div id="nav-sermons"><FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper></div>
