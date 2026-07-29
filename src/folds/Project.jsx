@@ -21,10 +21,9 @@ export default function Project({ renderCards }) {
   return (
     <section id="project" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-32 overflow-hidden">
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-30 pointer-events-none"
+        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
         style={{ backgroundImage: `url('/assets/bg_project.png')` }}
       />
-      <div className="absolute inset-0 z-0 bg-forest-900/70 pointer-events-none" />
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-accent to-transparent opacity-50 z-10" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">

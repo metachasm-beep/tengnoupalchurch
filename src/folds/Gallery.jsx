@@ -43,10 +43,9 @@ export default function Gallery({ galleryImages }) {
   return (
     <section id="gallery" className="h-[100dvh] w-full flex flex-col items-center justify-center bg-forest-900 relative overflow-hidden">
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-30 pointer-events-none"
+        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
         style={{ backgroundImage: `url('/assets/bg_gallery.png')` }}
       />
-      <div className="absolute inset-0 z-0 bg-forest-900/70 pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 mb-4 md:mb-8 text-center flex-shrink-0">
         <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight text-bone-50">Community & Construction</h2>

@@ -5,10 +5,9 @@ export default function Sermons({ docx_content }) {
   return (
     <section id="sermons" className="relative h-[100dvh] w-full flex items-center bg-forest-900 overflow-hidden">
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-30 pointer-events-none"
+        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
         style={{ backgroundImage: `url('/assets/bg_sermons.png')` }}
       />
-      <div className="absolute inset-0 z-0 bg-forest-900/70 pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="grid md:grid-cols-12 gap-16">
