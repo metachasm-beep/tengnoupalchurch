@@ -19,7 +19,7 @@ export default function Project({ renderCards }) {
   };
 
   return (
-    <section id="project" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-32 overflow-hidden">
+    <section id="project" className="min-h-[100dvh] w-full flex flex-col justify-center bg-forest-900 text-bone-50 relative py-20 md:py-32 overflow-hidden">
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
         style={{ backgroundImage: `url('/assets/bg_project.png')` }}
@@ -27,15 +27,15 @@ export default function Project({ renderCards }) {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-accent to-transparent opacity-50 z-10" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="max-w-2xl mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-tight mb-6">The New Church Project</h2>
-          <p className="text-bone-100 text-lg leading-relaxed">
+        <div className="max-w-2xl mb-10 md:mb-16 mt-8 md:mt-0">
+          <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight mb-4 md:mb-6">The New Church Project</h2>
+          <p className="text-bone-100 text-base md:text-lg leading-relaxed">
             We are embarking on a journey to build a new sanctuary for the Tengnoupal Christian Church. 
             Here are the proposed 3D renderings and structural perspectives.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 auto-rows-[300px] md:auto-rows-[auto]">
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 auto-rows-[220px] md:auto-rows-[auto]">
           {renderCards?.map((card, i) => (
             <div key={i} className={`${getBentoClasses(i)}`} onClick={() => setSelectedImage(card)}>
               <SpotlightCard className="w-full h-full bg-forest-800 border-forest-700 p-0 overflow-hidden cursor-pointer shadow-lg" spotlightColor="rgba(212, 128, 28, 0.15)">

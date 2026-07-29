@@ -7,8 +7,17 @@ export default function Gallery({ galleryImages }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
 
-  const itemsPerPage = 6;
+  React.useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(window.innerWidth < 768 ? 1 : 6);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const totalPages = Math.ceil(galleryImages.length / itemsPerPage);
 
   const handleNext = () => {
@@ -73,12 +82,12 @@ export default function Gallery({ galleryImages }) {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
               }}
-              className="absolute inset-0 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 px-12 md:px-24 content-center"
+              className="absolute inset-0 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 px-12 md:px-24 content-center"
             >
               {currentImages.map((item, idx) => (
                 <div 
                   key={idx} 
-                  className="relative group cursor-pointer overflow-hidden rounded-xl bg-forest-700 shadow-md aspect-square md:aspect-[4/3]"
+                  className="relative group cursor-pointer overflow-hidden rounded-xl bg-forest-700 shadow-md aspect-[4/3]"
                   onClick={() => setSelectedImage(item)}
                 >
                   <img src={item.img} alt={`Gallery image ${idx}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />

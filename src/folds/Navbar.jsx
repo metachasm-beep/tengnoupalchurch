@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Cross size={40} weight="fill" className="text-amber-accent" />
-          <span className="font-semibold tracking-tight text-bone-50">Tengnoupal Christian Church</span>
+          <span className="hidden sm:inline font-semibold tracking-tight text-bone-50">Tengnoupal Christian Church</span>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium text-bone-100">
           <button onClick={() => scrollTo('nav-hero')} className="hover:text-amber-accent transition-colors">Home</button>
