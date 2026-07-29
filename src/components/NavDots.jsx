@@ -8,6 +8,7 @@ export const sections = [
   { id: 'nav-foundation', label: 'History' },
   { id: 'nav-committee', label: 'Committee' },
   { id: 'nav-gallery', label: 'Gallery' },
+  { id: 'nav-footer', label: 'Visit Us' },
 ];
 
 export default function NavDots() {

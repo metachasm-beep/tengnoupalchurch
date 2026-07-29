@@ -5,7 +5,7 @@ export default function Sermons({ docx_content }) {
   return (
     <section id="sermons" className="relative h-[100dvh] w-full flex items-center bg-forest-900 overflow-hidden">
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-fixed pointer-events-none"
         style={{ backgroundImage: `url('/assets/bg_sermons.png')` }}
       />
       

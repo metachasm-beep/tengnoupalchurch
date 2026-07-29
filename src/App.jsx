@@ -32,7 +32,7 @@ function App() {
         <div id="nav-foundation" className="snap-start"><FoldWrapper><Foundation content={foundation} /></FoldWrapper></div>
         <div id="nav-committee" className="snap-start"><FoldWrapper><Committee content={committee} /></FoldWrapper></div>
         <div id="nav-gallery" className="snap-start"><FoldWrapper><Gallery galleryImages={galleryImages} /></FoldWrapper></div>
-        <Footer content={footer} />
+        <div id="nav-footer" className="snap-start"><FoldWrapper><Footer content={footer} /></FoldWrapper></div>
       </div>
     </ScrollProvider>
   );
