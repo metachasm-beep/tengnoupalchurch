@@ -8,9 +8,9 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50 glass">
-      <div className="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <img src="/assets/logo.svg" alt="Logo" className="w-24 h-24 object-contain bg-bone-50 rounded-full p-1 shadow-md" />
+          <img src="/assets/logo.svg" alt="Logo" className="w-20 h-20 object-contain" />
           <span className="font-semibold tracking-tight text-bone-50">Tengnoupal Christian Church</span>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium text-bone-100">
