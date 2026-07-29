@@ -37,8 +37,8 @@ function App() {
       <FoldWrapper><Hero /></FoldWrapper>
       <FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper>
       <FoldWrapper><Project renderCards={renderCards} /></FoldWrapper>
-      <FoldWrapper><Gallery galleryImages={galleryImages.slice(0, 15)} /></FoldWrapper>
-      <FoldWrapper><Footer /></FoldWrapper>
+      <Gallery galleryImages={galleryImages.slice(0, 15)} />
+      <Footer />
     </div>
   );
 }
