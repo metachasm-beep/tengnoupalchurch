@@ -3,8 +3,14 @@ import { Calendar } from '@phosphor-icons/react';
 
 export default function Sermons({ docx_content }) {
   return (
-    <section id="sermons" className="h-[100dvh] w-full flex items-center bg-forest-800">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="sermons" className="relative h-[100dvh] w-full flex items-center bg-forest-900 overflow-hidden">
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-30 pointer-events-none"
+        style={{ backgroundImage: `url('/assets/bg_sermons.png')` }}
+      />
+      <div className="absolute inset-0 z-0 bg-forest-900/70 pointer-events-none" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="grid md:grid-cols-12 gap-16">
           <div className="md:col-span-5 flex flex-col gap-6">
             <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-bone-50">Latest Message</h2>

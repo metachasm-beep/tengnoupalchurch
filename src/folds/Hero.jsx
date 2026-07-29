@@ -44,7 +44,7 @@ export default function Hero() {
           <img 
             src="/assets/logo.svg" 
             alt="Tengnoupal Christian Church Logo" 
-            className="w-full h-full object-contain opacity-60 scale-[2] md:scale-[4] origin-center"
+            className="w-full h-full object-contain opacity-60 scale-100 md:scale-[2] origin-center"
           />
         </div>
       </div>

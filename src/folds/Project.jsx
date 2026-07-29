@@ -19,10 +19,15 @@ export default function Project({ renderCards }) {
   };
 
   return (
-    <section id="project" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-32">
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-accent to-transparent opacity-50" />
+    <section id="project" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-32 overflow-hidden">
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-30 pointer-events-none"
+        style={{ backgroundImage: `url('/assets/bg_project.png')` }}
+      />
+      <div className="absolute inset-0 z-0 bg-forest-900/70 pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-accent to-transparent opacity-50 z-10" />
       
-      <div className="max-w-7xl mx-auto px-6 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-2xl mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-tight mb-6">The New Church Project</h2>
           <p className="text-bone-100 text-lg leading-relaxed">

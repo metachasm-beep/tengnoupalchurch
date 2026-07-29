@@ -3,15 +3,15 @@ import { MapPin, EnvelopeSimple, Phone } from '@phosphor-icons/react';
 
 export default function Footer() {
   return (
-    <footer id="footer" className="min-h-[50vh] w-full flex flex-col justify-between border-t border-forest-800 text-bone-100 bg-forest-900 px-8 py-16 md:px-24">
+    <footer id="footer" className="w-full flex flex-col justify-between border-t border-forest-800 text-bone-100 bg-forest-900 px-6 py-8 md:px-12">
       
-      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         
         {/* Brand & Motto */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div className="flex items-center gap-4">
-            <img src="/assets/logo.svg" alt="TCC Logo" className="h-16 w-16 bg-bone-50 rounded-full p-1 shadow-md object-contain" />
-            <h2 className="font-serif text-2xl font-bold tracking-tight text-bone-50 leading-tight">
+            <img src="/assets/logo.svg" alt="TCC Logo" className="h-12 w-12 bg-bone-50 rounded-full p-1 shadow-md object-contain" />
+            <h2 className="font-serif text-xl font-bold tracking-tight text-bone-50 leading-tight">
               Tengnoupal<br/>Christian Church
             </h2>
           </div>
