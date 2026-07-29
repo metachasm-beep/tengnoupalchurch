@@ -17,9 +17,13 @@ export default function Project({ renderCards }) {
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {renderCards?.map((card, i) => (
-            <SpotlightCard key={i} className="h-full bg-zinc-900/50 border-zinc-800" spotlightColor="rgba(16, 185, 129, 0.2)">
-              <div className="h-full flex flex-col justify-between min-h-[160px] z-10 relative">
-                <h3 className="text-xl font-medium text-zinc-50 mb-4">{card.title}</h3>
+            <SpotlightCard key={i} className="h-[300px] bg-zinc-900/50 border-zinc-800 p-0 overflow-hidden" spotlightColor="rgba(16, 185, 129, 0.2)">
+              <div className="absolute inset-0 z-0">
+                <img src={card.img} alt={card.title} className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+              </div>
+              <div className="h-full flex flex-col justify-end min-h-[160px] z-10 relative p-6">
+                <h3 className="text-xl font-medium text-zinc-50 mb-2">{card.title}</h3>
                 <p className="text-sm text-zinc-400">{card.desc}</p>
               </div>
             </SpotlightCard>

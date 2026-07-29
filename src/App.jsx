@@ -12,7 +12,7 @@ const galleryModules = import.meta.glob('/public/assets/gallery/*.{webp,jpeg,jpg
 const galleryImages = Object.keys(galleryModules).map((key, index) => {
   return { 
     id: index + 1, 
-    img: key.replace('/public', ''),
+    img: galleryModules[key].default,
     height: 400 + Math.random() * 400 // random height for masonry effect
   };
 });
@@ -21,10 +21,10 @@ function App() {
   const { docx_content } = data;
   
   const renderCards = [
-    { title: "Front View", desc: "Main entrance and facade" },
-    { title: "Axiometric View", desc: "Overall structural perspective" },
-    { title: "Sectional & Interior View", desc: "Inner sanctum layout" },
-    { title: "Environment Rendering", desc: "Integration with surroundings" }
+    { title: "Front View", desc: "Main entrance and facade", img: galleryModules['/public/assets/gallery/PHOTO-2026-07-28-15-49-42.jpg.webp']?.default },
+    { title: "Axiometric View", desc: "Overall structural perspective", img: galleryModules['/public/assets/gallery/PHOTO-2026-07-28-15-49-44.jpg.webp']?.default },
+    { title: "Sectional & Interior View", desc: "Inner sanctum layout", img: galleryModules['/public/assets/gallery/PHOTO-2026-07-28-15-49-45.jpg.webp']?.default },
+    { title: "Environment Rendering", desc: "Integration with surroundings", img: galleryModules['/public/assets/gallery/PHOTO-2026-07-28-15-47-14.jpg.webp']?.default }
   ];
 
   return (
