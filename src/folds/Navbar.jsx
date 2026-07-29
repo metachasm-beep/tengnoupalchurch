@@ -10,7 +10,7 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 glass">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img src="/assets/logo.webp" alt="Logo" className="w-12 h-12 object-contain bg-white rounded-full p-0.5 shadow-md" />
+          <img src="/assets/logo.svg" alt="Logo" className="w-12 h-12 object-contain bg-white rounded-full p-0.5 shadow-md" />
           <span className="font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">Tengnoupal Christian Church</span>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-900 dark:text-zinc-300">

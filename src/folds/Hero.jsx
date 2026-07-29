@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="relative aspect-square md:aspect-[4/5] w-full max-w-md mx-auto pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-tr from-emerald-600/10 to-transparent rounded-3xl mix-blend-multiply dark:mix-blend-screen" />
           <img 
-            src="/assets/logo.webp" 
+            src="/assets/logo.svg" 
             alt="Tengnoupal Christian Church Logo" 
             className="w-full h-full object-contain drop-shadow-2xl p-12"
           />

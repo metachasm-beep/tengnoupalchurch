@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Brand & Motto */}
         <div className="space-y-6">
           <div className="flex items-center gap-4">
-            <img src="/assets/logo.webp" alt="TCC Logo" className="h-16 w-16 bg-white rounded-full p-1 shadow-md object-contain" />
+            <img src="/assets/logo.svg" alt="TCC Logo" className="h-16 w-16 bg-white rounded-full p-1 shadow-md object-contain" />
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-tight">
               Tengnoupal<br/>Christian Church
             </h2>
