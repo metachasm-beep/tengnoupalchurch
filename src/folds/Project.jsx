@@ -19,19 +19,14 @@ export default function Project({ renderCards }) {
   };
 
   return (
-    <section id="project" className="min-h-[100dvh] w-full flex flex-col justify-center bg-forest-900 text-bone-50 relative py-20 md:py-32 overflow-hidden">
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
-        style={{ backgroundImage: `url('/assets/bg_project.png')` }}
-      />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-accent to-transparent opacity-50 z-10" />
+    <section id="project" className="relative min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 py-24 md:py-32 overflow-hidden">
+      <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col gap-12 md:gap-16">
         <div className="max-w-2xl mb-10 md:mb-16 mt-8 md:mt-0">
-          <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight mb-4 md:mb-6">The New Church Project</h2>
+          <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight mb-4 md:mb-6">{content?.title}</h2>
           <p className="text-bone-100 text-base md:text-lg leading-relaxed">
-            We are embarking on a journey to build a new sanctuary for the Tengnoupal Christian Church. 
-            Here are the proposed 3D renderings and structural perspectives.
+            {content?.description}
           </p>
         </div>
         

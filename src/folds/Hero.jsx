@@ -3,7 +3,7 @@ import BlurText from '../components/BlurText/BlurText';
 import { MapPin } from '@phosphor-icons/react';
 import heroBg from '../../public/assets/peace-heaven-green-fields.webp';
 
-export default function Hero() {
+export default function Hero({ content }) {
   return (
     <section id="hero" className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden pt-20 bg-forest-900">
       <div 
@@ -14,22 +14,22 @@ export default function Hero() {
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 w-full flex flex-col items-center justify-center text-center gap-4 md:gap-6">
         <div className="flex flex-col items-center gap-3 md:gap-4 mb-2">
-          <h2 className="font-sans text-sm md:text-base tracking-[0.2em] text-bone-200 uppercase font-medium">Tengnoupal Christian Church</h2>
+          <h2 className="font-sans text-sm md:text-base tracking-[0.2em] text-bone-200 uppercase font-medium">{content?.subtitle}</h2>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-semibold tracking-wider text-amber-accent uppercase">
-            <MapPin weight="bold" /> Manipur
+            <MapPin weight="bold" /> {content?.location}
           </div>
         </div>
         
         <h1 className="font-serif text-4xl md:text-7xl font-medium tracking-tight leading-[1.1] text-bone-50">
           <BlurText 
-            text="A place of worship, community, and grace." 
+            text={content?.headline || ""} 
             delay={50} 
             className="block"
           />
         </h1>
         
         <p className="text-base md:text-lg text-bone-100 max-w-[40ch] leading-relaxed mx-auto">
-          Welcome to Tengnoupal Christian Church. Join us in our journey of faith, love, and building a stronger community.
+          {content?.description}
         </p>
         
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-4 w-full sm:w-auto">

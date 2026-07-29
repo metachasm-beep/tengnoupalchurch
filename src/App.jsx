@@ -8,41 +8,33 @@ import Committee from './folds/Committee';
 import Gallery from './folds/Gallery';
 import Footer from './folds/Footer';
 import FoldWrapper from './components/FoldWrapper';
+import ScrollProvider from './components/ScrollProvider';
+import NavDots, { sections } from './components/NavDots';
+import { getGalleryImages, getProjectRenders } from './stores/AssetStore';
 import data from './data.json';
 
-// Separate InShot (3D renders) from PHOTO (construction gallery)
-const galleryModules = import.meta.glob('/public/assets/gallery/*.{webp,jpeg,jpg,png}', { eager: true });
-const galleryImages = Object.keys(galleryModules)
-  .filter(key => !key.includes('InShot')) // Only use non-InShot photos for Gallery
-  .map((key, index) => {
-    return { 
-      id: index + 1, 
-      img: galleryModules[key].default,
-      height: 400 + Math.random() * 400 // random height for masonry effect
-    };
-  });
-
 function App() {
-  const { docx_content } = data;
+  const { docx_content, hero, project, foundation, committee, footer } = data;
   
-  const renderCards = [
-    { title: "Front View", desc: "Main entrance and facade", img: galleryModules['/public/assets/gallery/InShot_20250701_000923921.jpg.webp']?.default },
-    { title: "Axiometric View", desc: "Overall structural perspective", img: galleryModules['/public/assets/gallery/InShot_20250630_231103059.jpg.webp']?.default },
-    { title: "Sectional & Interior View", desc: "Inner sanctum layout", img: galleryModules['/public/assets/gallery/InShot_20250701_191653072.jpg.webp']?.default },
-    { title: "Environment Rendering", desc: "Integration with surroundings", img: galleryModules['/public/assets/gallery/InShot_20250701_001016010.jpg.webp']?.default }
-  ];
+  const galleryImages = getGalleryImages(15);
+  const renderCards = getProjectRenders();
+  const sectionIds = sections.map(s => s.id);
 
   // We let the body handle the scrolling and snapping (defined in index.css)
   return (
-    <div className="w-full bg-forest-900 font-sans selection:bg-amber-accent selection:text-forest-900 text-bone-50">
-      <Navbar />
-      <div id="nav-hero" className="snap-start"><FoldWrapper><Hero /></FoldWrapper></div>
-      <div id="nav-sermons" className="snap-start"><FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper></div>
-      <div id="nav-project" className="snap-start"><FoldWrapper><Project renderCards={renderCards} /></FoldWrapper></div>
-      <div id="nav-foundation" className="snap-start"><FoldWrapper><Foundation /></FoldWrapper></div>
-      <div id="nav-committee" className="snap-start"><FoldWrapper><Committee /></FoldWrapper></div>
-      <div id="nav-gallery" className="snap-start"><FoldWrapper><Gallery galleryImages={galleryImages.slice(0, 15)} /></FoldWrapper></div>
-    </div>
+    <ScrollProvider sectionIds={sectionIds}>
+      <div className="w-full bg-forest-900 font-sans selection:bg-amber-accent selection:text-forest-900 text-bone-50">
+        <Navbar />
+        <NavDots />
+        <div id="nav-hero" className="snap-start"><FoldWrapper><Hero content={hero} /></FoldWrapper></div>
+        <div id="nav-sermons" className="snap-start"><FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper></div>
+        <div id="nav-project" className="snap-start"><FoldWrapper><Project content={project} renderCards={renderCards} /></FoldWrapper></div>
+        <div id="nav-foundation" className="snap-start"><FoldWrapper><Foundation content={foundation} /></FoldWrapper></div>
+        <div id="nav-committee" className="snap-start"><FoldWrapper><Committee content={committee} /></FoldWrapper></div>
+        <div id="nav-gallery" className="snap-start"><FoldWrapper><Gallery galleryImages={galleryImages} /></FoldWrapper></div>
+        <Footer content={footer} />
+      </div>
+    </ScrollProvider>
   );
 }
 
