@@ -3,7 +3,7 @@ import SpotlightCard from '../components/SpotlightCard/SpotlightCard';
 import { AnimatePresence, motion } from 'motion/react';
 import { X } from '@phosphor-icons/react';
 
-export default function Project({ renderCards }) {
+export default function Project({ content, renderCards }) {
   const [selectedImage, setSelectedImage] = useState(null);
 
   // Define bento grid spans for 4 items:
