@@ -38,9 +38,9 @@ export default function Footer() {
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">Quick Links</h3>
           <ul className="space-y-2">
-            <li><button onClick={() => document.getElementById('sermons')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-500 transition-colors">Sermons</button></li>
-            <li><button onClick={() => document.getElementById('project')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-500 transition-colors">Building Project</button></li>
-            <li><button onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-emerald-500 transition-colors">Photo Gallery</button></li>
+            <li><button onClick={() => { const el = document.getElementById('nav-sermons'); if(el) el.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-emerald-500 transition-colors">Sermons</button></li>
+            <li><button onClick={() => { const el = document.getElementById('nav-project'); if(el) el.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-emerald-500 transition-colors">Building Project</button></li>
+            <li><button onClick={() => { const el = document.getElementById('nav-gallery'); if(el) el.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-emerald-500 transition-colors">Photo Gallery</button></li>
           </ul>
         </div>
       </div>

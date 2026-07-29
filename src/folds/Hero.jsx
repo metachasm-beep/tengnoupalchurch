@@ -30,10 +30,10 @@ export default function Hero() {
           </p>
           
           <div className="flex gap-4 pt-4">
-            <button onClick={() => document.getElementById('sermons')?.scrollIntoView({ behavior: 'smooth' })} className="bg-emerald-600 text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-700 transition-colors hover:scale-[0.98]">
+            <button onClick={() => { const el = document.getElementById('nav-sermons'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="bg-emerald-600 text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-700 transition-colors hover:scale-[0.98]">
               Sunday Services
             </button>
-            <button onClick={() => document.getElementById('project')?.scrollIntoView({ behavior: 'smooth' })} className="glass px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-colors">
+            <button onClick={() => { const el = document.getElementById('nav-project'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="glass px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-colors">
               Our Vision
             </button>
           </div>

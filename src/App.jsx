@@ -34,11 +34,11 @@ function App() {
   return (
     <div className="w-full bg-zinc-950 font-sans selection:bg-emerald-600 selection:text-white">
       <Navbar />
-      <FoldWrapper><Hero /></FoldWrapper>
-      <FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper>
-      <FoldWrapper><Project renderCards={renderCards} /></FoldWrapper>
-      <Gallery galleryImages={galleryImages.slice(0, 15)} />
-      <Footer />
+      <div id="nav-hero"><FoldWrapper><Hero /></FoldWrapper></div>
+      <div id="nav-sermons"><FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper></div>
+      <div id="nav-project"><FoldWrapper><Project renderCards={renderCards} /></FoldWrapper></div>
+      <div id="nav-gallery"><Gallery galleryImages={galleryImages.slice(0, 15)} /></div>
+      <div id="nav-footer"><Footer /></div>
     </div>
   );
 }
