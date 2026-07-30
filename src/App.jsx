@@ -21,7 +21,7 @@ import data from './data.json';
 function App() {
   const { docx_content, hero, project, foundation, committee, houbong, ce, kck, kcn, kcu, footer } = data;
   
-  const galleryImages = getGalleryImages(15);
+  const galleryImages = getGalleryImages(50);
   const renderCards = getProjectRenders();
   const sectionIds = sections.map(s => s.id);
 
