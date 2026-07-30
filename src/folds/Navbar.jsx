@@ -8,11 +8,10 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass">
+    <nav className="fixed top-0 w-full z-50 glass hidden md:block">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <img src="/assets/logo.webp" alt="Logo" className="h-10 w-auto object-contain drop-shadow-md" />
-          <span className="hidden sm:inline font-semibold tracking-tight text-bone-50">Tengnoupal Christian Church</span>
+          <span className="font-semibold tracking-tight text-bone-50">Tengnoupal Christian Church</span>
         </div>
         <div className="hidden md:flex flex-wrap items-center justify-center gap-3 lg:gap-6 text-xs lg:text-sm font-medium text-bone-100">
           <button onClick={() => scrollTo('nav-hero')} className="hover:text-amber-accent transition-colors">Home</button>
