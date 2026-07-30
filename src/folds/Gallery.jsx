@@ -60,14 +60,7 @@ export default function Gallery({ galleryImages }) {
       </div>
       
       <div className="max-w-[1200px] mx-auto px-2 md:px-6 relative w-full flex-1 flex flex-col items-center justify-center">
-        {/* Navigation Arrows */}
-        <button onClick={handlePrev} className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 bg-forest-900/70 hover:bg-forest-900 text-bone-50 rounded-full backdrop-blur-md transition-colors shadow-lg">
-          <CaretLeft size={24} weight="bold" />
-        </button>
-        <button onClick={handleNext} className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 bg-forest-900/70 hover:bg-forest-900 text-bone-50 rounded-full backdrop-blur-md transition-colors shadow-lg">
-          <CaretRight size={24} weight="bold" />
-        </button>
-
+        {/* Image Grid */}
         <div className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden flex items-center justify-center">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
@@ -81,7 +74,7 @@ export default function Gallery({ galleryImages }) {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
               }}
-              className="absolute inset-0 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 px-12 md:px-24 content-center"
+              className="absolute inset-0 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 px-4 md:px-0 content-center"
             >
               {currentImages.map((item, idx) => (
                 <div 
@@ -97,20 +90,31 @@ export default function Gallery({ galleryImages }) {
           </AnimatePresence>
         </div>
 
-        {/* Pagination Dots */}
-        <div className="flex gap-2 mt-4 md:mt-8 z-20">
-          {Array.from({ length: totalPages }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                if (i !== currentPage) {
-                  setDirection(i > currentPage ? 1 : -1);
-                  setCurrentPage(i);
-                }
-              }}
-              className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${currentPage === i ? 'bg-amber-accent w-6' : 'bg-bone-200/50 hover:bg-bone-200'}`}
-            />
-          ))}
+        {/* Navigation Arrows & Pagination Dots */}
+        <div className="flex flex-col items-center gap-4 mt-6 z-20 w-full max-w-2xl mx-auto pb-4">
+          <div className="flex items-center gap-6">
+            <button onClick={handlePrev} className="p-3 bg-forest-900/70 hover:bg-forest-900 text-bone-50 rounded-full backdrop-blur-md transition-colors shadow-lg border border-white/10">
+              <CaretLeft size={24} weight="bold" />
+            </button>
+            <button onClick={handleNext} className="p-3 bg-forest-900/70 hover:bg-forest-900 text-bone-50 rounded-full backdrop-blur-md transition-colors shadow-lg border border-white/10">
+              <CaretRight size={24} weight="bold" />
+            </button>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-2 w-full px-4">
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  if (i !== currentPage) {
+                    setDirection(i > currentPage ? 1 : -1);
+                    setCurrentPage(i);
+                  }
+                }}
+                className={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full transition-all cursor-pointer ${currentPage === i ? 'bg-amber-accent w-5 md:w-6' : 'bg-bone-200/50 hover:bg-bone-200'}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
