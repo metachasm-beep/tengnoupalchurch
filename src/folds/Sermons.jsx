@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Calendar, BookOpenText } from '@phosphor-icons/react';
-import Modal from '../components/Modal';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function Sermons({ docx_content }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <section id="sermons" className="relative min-h-[100dvh] w-full flex items-center bg-forest-900 overflow-hidden">
       <div 
@@ -36,12 +40,26 @@ export default function Sermons({ docx_content }) {
               </div>
 
               {/* Mobile Read Message Button */}
-              <button 
-                onClick={() => setIsModalOpen(true)}
-                className="md:hidden flex items-center justify-center gap-2 mt-4 bg-amber-accent text-forest-900 px-6 py-3 rounded-full font-bold w-full"
-              >
-                <BookOpenText weight="bold" size={20} /> Read Full Message
-              </button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="md:hidden flex items-center justify-center gap-2 mt-4 bg-amber-accent text-forest-900 px-6 py-3 rounded-full font-bold w-full">
+                    <BookOpenText weight="bold" size={20} /> Read Full Message
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="bg-forest-900 border-white/10 text-bone-50 w-[90vw] rounded-2xl max-h-[85vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle className="text-left text-2xl font-serif">Pathen intheng gelkhoh masat pendia kouna awgin</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-6 mt-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-800 text-amber-accent text-xs font-medium border border-white/5 mb-2">
+                      <Calendar weight="bold" /> Haggai 1:1-15 & Ezra 1-4
+                    </div>
+                    {docx_content?.split('\n\n').filter(Boolean).map((para, i) => (
+                      <p key={i} className="leading-relaxed text-bone-100 text-sm font-light tracking-wide">{para}</p>
+                    ))}
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
           
@@ -57,21 +75,6 @@ export default function Sermons({ docx_content }) {
           </div>
         </div>
       </div>
-
-      <Modal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)}
-        title="Pathen intheng gelkhoh masat pendia kouna awgin"
-      >
-        <div className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-800 text-amber-accent text-xs font-medium border border-white/5 mb-2">
-            <Calendar weight="bold" /> Haggai 1:1-15 & Ezra 1-4
-          </div>
-          {docx_content?.split('\n\n').filter(Boolean).map((para, i) => (
-            <p key={i} className="leading-relaxed text-bone-100 text-sm font-light tracking-wide">{para}</p>
-          ))}
-        </div>
-      </Modal>
     </section>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import BlurText from '../components/BlurText/BlurText';
 import { MapPin } from '@phosphor-icons/react';
 import heroBg from '../../public/assets/peace-heaven-green-fields.webp';
+import { Button } from "@/components/ui/button";
 
 export default function Hero({ content }) {
   return (
@@ -38,12 +39,12 @@ export default function Hero({ content }) {
         </p>
         
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-4 w-full sm:w-auto">
-          <button onClick={() => { const el = document.getElementById('nav-sermons'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="bg-amber-accent text-forest-900 px-6 py-3.5 md:py-3 rounded-full font-bold hover:bg-amber-accent-hover transition-colors hover:scale-[0.98] w-full sm:w-auto text-sm md:text-base">
+          <Button onClick={() => { const el = document.getElementById('nav-sermons'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="bg-amber-accent text-forest-900 px-8 py-6 rounded-full font-bold hover:bg-amber-accent-hover transition-colors hover:scale-[0.98] w-full sm:w-auto text-sm md:text-base h-auto">
             Sunday Services
-          </button>
-          <button onClick={() => { const el = document.getElementById('nav-project'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="glass px-6 py-3.5 md:py-3 rounded-full font-medium hover:bg-white/10 transition-colors w-full sm:w-auto text-sm md:text-base">
+          </Button>
+          <Button onClick={() => { const el = document.getElementById('nav-project'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="glass px-8 py-6 rounded-full font-medium hover:bg-white/10 transition-colors w-full sm:w-auto text-sm md:text-base text-bone-50 h-auto">
             Our Vision
-          </button>
+          </Button>
         </div>
       </div>
     </section>

@@ -1,81 +1,78 @@
-import React, { useState } from 'react';
-import SpotlightCard from '../components/SpotlightCard/SpotlightCard';
-import { AnimatePresence, motion } from 'motion/react';
-import { X } from '@phosphor-icons/react';
+import React from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import {
+  Card,
+  CardContent,
+} from "@/components/ui/card";
 
 export default function Project({ content, renderCards }) {
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  // Define bento grid spans for 4 items:
-  // Item 0: Large square (2x2)
-  // Item 1: Wide rectangle (2x1)
-  // Item 2, 3: Small squares (1x1)
-  const getBentoClasses = (i) => {
-    switch (i) {
-      case 0: return 'md:col-span-2 md:row-span-2 md:h-full';
-      case 1: return 'md:col-span-2 md:h-[300px]';
-      default: return 'md:col-span-1 md:h-[300px]';
-    }
-  };
-
   return (
-    <section id="project" className="relative min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 py-24 md:py-32 overflow-hidden">
+    <section id="project" className="relative h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col gap-12 md:gap-16">
-        <div className="max-w-2xl mb-10 md:mb-16 mt-8 md:mt-0">
-          <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight mb-4 md:mb-6">{content?.title}</h2>
-          <p className="text-bone-100 text-base md:text-lg leading-relaxed">
-            {content?.description}
-          </p>
-        </div>
-        
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 pb-6 md:pb-0 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <Carousel 
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className="w-full h-full relative z-10"
+      >
+        <CarouselContent className="h-[100dvh] m-0">
+          
+          {/* Slide 1: Text Intro */}
+          <CarouselItem className="h-full flex items-center justify-center p-6 md:p-16 flex-shrink-0 pl-0">
+            <Card className="max-w-3xl w-full flex flex-col gap-6 md:gap-8 bg-forest-800/50 p-8 md:p-12 rounded-3xl border-white/5 shadow-2xl relative overflow-hidden group backdrop-blur-md text-bone-50">
+              <CardContent className="p-0 z-10 flex flex-col gap-6 md:gap-8">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                <h2 className="font-serif text-4xl md:text-6xl font-medium tracking-tight relative z-10 text-bone-50 leading-[1.1]">
+                  {content?.title}
+                </h2>
+                <p className="text-bone-100/90 text-lg md:text-xl leading-relaxed relative z-10 font-light max-w-2xl">
+                  {content?.description}
+                </p>
+                
+                <div className="mt-8 relative z-10">
+                  <p className="text-sm tracking-widest uppercase text-amber-accent font-semibold flex items-center gap-4">
+                    <span>Swipe to view renders</span>
+                    <span className="w-12 h-[1px] bg-amber-accent/50"></span>
+                    <span className="animate-pulse">→</span>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </CarouselItem>
+          
+          {/* Slide 2+: Renders */}
           {renderCards?.map((card, i) => (
-            <div key={i} className={`flex-shrink-0 w-[85vw] h-[45vh] md:h-auto snap-center md:w-auto ${getBentoClasses(i)}`} onClick={() => setSelectedImage(card)}>
-              <SpotlightCard className="w-full h-full bg-forest-800 border-forest-700 p-0 overflow-hidden cursor-pointer shadow-lg" spotlightColor="rgba(212, 128, 28, 0.15)">
-                <div className="absolute inset-0 z-0">
-                  <img src={card.img} alt={card.title} className="w-full h-full object-cover opacity-60 hover:opacity-100 hover:scale-105 transition-all duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/40 to-transparent" />
+            <CarouselItem key={i} className="h-full flex-shrink-0 pl-0">
+              <div className="relative w-full h-full group">
+                <img 
+                  src={card.img} 
+                  alt={card.title} 
+                  className="w-full h-full object-cover transition-transform duration-[10s] group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-8 md:p-16 max-w-2xl w-full">
+                  <h3 className="font-serif text-3xl md:text-5xl font-medium text-bone-50 mb-3">{card.title}</h3>
+                  <p className="text-base md:text-xl text-bone-100/90">{card.desc}</p>
                 </div>
-                <div className="h-full flex flex-col justify-end z-10 relative p-6 md:p-8">
-                  <h3 className="font-serif text-2xl font-medium text-bone-50 mb-2">{card.title}</h3>
-                  <p className="text-sm text-bone-100 opacity-90">{card.desc}</p>
-                </div>
-              </SpotlightCard>
-            </div>
+              </div>
+            </CarouselItem>
           ))}
+          
+        </CarouselContent>
+        
+        <div className="absolute bottom-12 right-24 md:bottom-16 md:right-32 flex gap-4 z-50">
+          <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-12 w-12 bg-forest-800/80 border-white/10 text-bone-50 hover:bg-amber-accent hover:text-forest-900 backdrop-blur transition-all" />
+          <CarouselNext className="relative static translate-x-0 translate-y-0 h-12 w-12 bg-forest-800/80 border-white/10 text-bone-50 hover:bg-amber-accent hover:text-forest-900 backdrop-blur transition-all" />
         </div>
-      </div>
-
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-forest-900/90 backdrop-blur-md p-4 md:p-12 cursor-zoom-out"
-            onClick={() => setSelectedImage(null)}
-          >
-            <button 
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 md:top-12 md:right-12 text-bone-200 hover:text-amber-accent bg-forest-800/80 hover:bg-forest-700/80 p-3 rounded-full transition-colors cursor-pointer"
-            >
-               <X size={24} weight="bold" />
-            </button>
-            <motion.img 
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.95 }}
-              transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-              src={selectedImage.img} 
-              alt="Full screen render" 
-              className="max-w-full max-h-full object-contain rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]" 
-              onClick={(e) => e.stopPropagation()}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </Carousel>
     </section>
   );
 }

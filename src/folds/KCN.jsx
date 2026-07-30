@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Sparkle, BookOpenText } from '@phosphor-icons/react';
-import Modal from '../components/Modal';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function KCN({ content }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <section id="kcn" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-forest-900/60 pointer-events-none" />
@@ -20,14 +30,19 @@ export default function KCN({ content }) {
         </h2>
         
         {/* Desktop View */}
-        <div className="hidden md:block space-y-6 overflow-y-auto custom-scrollbar px-8 w-full max-w-2xl">
-          {content?.history?.map((para, i) => (
-            <div key={i} className="glass p-4 rounded-xl text-left border border-white/5 hover:bg-white/5 transition-colors">
-              <p className="text-bone-100/90 text-base leading-relaxed font-light">
-                {para}
-              </p>
-            </div>
-          ))}
+        <div className="hidden md:block w-full max-w-2xl text-left">
+          <Accordion type="single" collapsible className="w-full">
+            {content?.history?.map((para, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="border-b-white/10">
+                <AccordionTrigger className="text-bone-50 hover:text-amber-accent font-serif text-lg">
+                  {i === 0 ? "Overview" : para.split(' ').slice(0, 4).join(' ') + "..."}
+                </AccordionTrigger>
+                <AccordionContent className="text-bone-100/90 text-base leading-relaxed font-light">
+                  {para}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
 
         {/* Mobile View */}
@@ -40,31 +55,35 @@ export default function KCN({ content }) {
             </div>
           ))}
           
-          <button 
-            onClick={() => setIsModalOpen(true)}
-            className="flex items-center justify-center gap-2 mt-4 bg-amber-accent text-forest-900 px-6 py-3 rounded-full font-bold w-full"
-          >
-            <BookOpenText weight="bold" size={20} /> Read Full History
-          </button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <button className="flex items-center justify-center gap-2 mt-4 bg-amber-accent text-forest-900 px-6 py-3 rounded-full font-bold w-full">
+                <BookOpenText weight="bold" size={20} /> Read Full History
+              </button>
+            </DialogTrigger>
+            <DialogContent className="bg-forest-900 border-white/10 text-bone-50 w-[90vw] rounded-2xl max-h-[85vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-left text-2xl font-serif">{content?.title}</DialogTitle>
+              </DialogHeader>
+              <div className="mt-4">
+                <Accordion type="single" collapsible className="w-full">
+                  {content?.history?.map((para, i) => (
+                    <AccordionItem key={i} value={`item-${i}`} className="border-b-white/10">
+                      <AccordionTrigger className="text-bone-50 hover:text-amber-accent text-sm text-left">
+                        {i === 0 ? "Overview" : para.split(' ').slice(0, 4).join(' ') + "..."}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-bone-100/90 text-sm leading-relaxed font-light">
+                        {para}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
 
       </div>
-
-      <Modal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)}
-        title={content?.title}
-      >
-        <div className="space-y-4">
-          {content?.history?.map((para, i) => (
-            <div key={i} className="bg-white/5 p-4 rounded-xl text-left border border-white/10">
-              <p className="text-bone-100 text-sm leading-relaxed font-light">
-                {para}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Modal>
     </section>
   );
 }
