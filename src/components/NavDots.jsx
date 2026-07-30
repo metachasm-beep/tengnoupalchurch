@@ -24,7 +24,7 @@ export default function NavDots() {
     setShowActiveLabel(true);
     const timer = setTimeout(() => {
       setShowActiveLabel(false);
-    }, 3000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, [activeSection]);
 
