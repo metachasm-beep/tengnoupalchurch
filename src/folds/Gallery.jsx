@@ -49,7 +49,7 @@ export default function Gallery({ galleryImages }) {
   };
 
   return (
-    <section id="gallery" className="h-[100dvh] w-full flex flex-col items-center justify-center bg-forest-900 relative overflow-hidden">
+    <section id="gallery" className="h-[100dvh] w-full flex flex-col items-center justify-center bg-forest-900 relative overflow-hidden pt-16 md:pt-24">
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
         style={{ backgroundImage: `url('/assets/bg_gallery.webp')` }}
