@@ -56,7 +56,7 @@ export default function Gallery({ galleryImages }) {
       />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 mb-4 md:mb-8 text-center flex-shrink-0">
-        <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight text-bone-50">Community & Construction</h2>
+        <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-widest uppercase text-bone-50">GALLERY</h2>
       </div>
       
       <div className="max-w-[1200px] mx-auto px-2 md:px-6 relative w-full flex-1 flex flex-col items-center justify-center">

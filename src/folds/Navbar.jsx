@@ -63,12 +63,12 @@ export default function Navbar() {
               <SheetHeader className="mb-8 border-b border-white/10 pb-6 text-left">
                 <SheetTitle className="text-amber-accent font-serif text-2xl">Menu</SheetTitle>
               </SheetHeader>
-              <div className="flex flex-col gap-2 flex-grow overflow-y-auto custom-scrollbar pr-2">
+              <div className="grid grid-cols-2 gap-2 flex-grow overflow-y-auto custom-scrollbar pr-2 mt-2">
                 {navLinks.map(link => (
                   <button 
                     key={link.id} 
                     onClick={() => scrollTo(link.id)} 
-                    className="text-left text-xl font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-4 py-3 rounded-xl"
+                    className="text-center text-sm sm:text-base font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-4 rounded-xl glass-dark border border-white/5 shadow-md flex items-center justify-center"
                   >
                     {link.name}
                   </button>

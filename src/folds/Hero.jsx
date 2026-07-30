@@ -25,7 +25,7 @@ export default function Hero({ content }) {
           </div>
         </div>
         
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.1] text-bone-50 my-2 md:my-4">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-semibold tracking-widest uppercase leading-[1.1] text-bone-50 my-2 md:my-4 drop-shadow-lg">
           {content?.subtitle}
         </h1>
         
