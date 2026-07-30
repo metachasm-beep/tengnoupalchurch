@@ -5,6 +5,12 @@ import Sermons from './folds/Sermons';
 import Project from './folds/Project';
 import Foundation from './folds/Foundation';
 import Committee from './folds/Committee';
+import Houbong from './folds/Houbong';
+import GMS from './folds/GMS';
+import CE from './folds/CE';
+import KCK from './folds/KCK';
+import KCN from './folds/KCN';
+import KCU from './folds/KCU';
 import Gallery from './folds/Gallery';
 import Footer from './folds/Footer';
 import FoldWrapper from './components/FoldWrapper';
@@ -14,7 +20,7 @@ import { getGalleryImages, getProjectRenders } from './stores/AssetStore';
 import data from './data.json';
 
 function App() {
-  const { docx_content, hero, project, foundation, committee, footer } = data;
+  const { docx_content, hero, project, foundation, committee, houbong, gms, ce, kck, kcn, kcu, footer } = data;
   
   const galleryImages = getGalleryImages(15);
   const renderCards = getProjectRenders();
@@ -31,6 +37,14 @@ function App() {
         <div id="nav-project" className="snap-start"><FoldWrapper><Project content={project} renderCards={renderCards} /></FoldWrapper></div>
         <div id="nav-foundation" className="snap-start"><FoldWrapper><Foundation content={foundation} /></FoldWrapper></div>
         <div id="nav-committee" className="snap-start"><FoldWrapper><Committee content={committee} /></FoldWrapper></div>
+        
+        <div id="nav-houbong" className="snap-start"><FoldWrapper><Houbong content={houbong} /></FoldWrapper></div>
+        <div id="nav-gms" className="snap-start"><FoldWrapper><GMS content={gms} /></FoldWrapper></div>
+        <div id="nav-ce" className="snap-start"><FoldWrapper><CE content={ce} /></FoldWrapper></div>
+        <div id="nav-kck" className="snap-start"><FoldWrapper><KCK content={kck} /></FoldWrapper></div>
+        <div id="nav-kcn" className="snap-start"><FoldWrapper><KCN content={kcn} /></FoldWrapper></div>
+        <div id="nav-kcu" className="snap-start"><FoldWrapper><KCU content={kcu} /></FoldWrapper></div>
+
         <div id="nav-gallery" className="snap-start"><FoldWrapper><Gallery galleryImages={galleryImages} /></FoldWrapper></div>
         <div id="nav-footer" className="snap-start"><FoldWrapper><Footer content={footer} /></FoldWrapper></div>
       </div>

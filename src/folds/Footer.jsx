@@ -16,6 +16,12 @@ export default function Footer({ content }) {
             <MapPin size={28} weight="fill" className="flex-shrink-0" />
             <span className="text-center md:text-left">{content?.address}</span>
           </p>
+          {(content?.email || content?.phone) && (
+            <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-sm md:text-lg text-bone-200">
+              {content?.email && <a href={`mailto:${content.email}`} className="hover:text-amber-accent transition-colors">{content.email}</a>}
+              {content?.phone && <a href={`tel:${content.phone}`} className="hover:text-amber-accent transition-colors">+91 {content.phone}</a>}
+            </div>
+          )}
           <p className="opacity-80 max-w-md text-sm md:text-base leading-relaxed mt-2 md:mt-0">
             Join us for Sunday Services. All are welcome to worship, learn, and grow together in community.
           </p>

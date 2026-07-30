@@ -7,6 +7,12 @@ export const sections = [
   { id: 'nav-project', label: 'Project' },
   { id: 'nav-foundation', label: 'History' },
   { id: 'nav-committee', label: 'Committee' },
+  { id: 'nav-houbong', label: 'Houbung' },
+  { id: 'nav-gms', label: 'GMS' },
+  { id: 'nav-ce', label: 'CE' },
+  { id: 'nav-kck', label: 'KCK' },
+  { id: 'nav-kcn', label: 'KCN' },
+  { id: 'nav-kcu', label: 'KCU' },
   { id: 'nav-gallery', label: 'Gallery' },
   { id: 'nav-footer', label: 'Visit Us' },
 ];
