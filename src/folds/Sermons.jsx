@@ -55,7 +55,7 @@ export default function Sermons({ docx_content }) {
                       <Calendar weight="bold" /> Haggai 1:1-15 & Ezra 1-4
                     </div>
                     {docx_content?.split('\n\n').filter(Boolean).map((para, i) => (
-                      <p key={i} className="leading-relaxed text-bone-100 text-sm font-light tracking-wide">{para}</p>
+                      <p key={i} className="leading-relaxed text-bone-100/95 text-base font-light tracking-wide max-w-prose">{para}</p>
                     ))}
                   </div>
                 </DialogContent>
@@ -68,7 +68,7 @@ export default function Sermons({ docx_content }) {
             <div className="glass-dark p-6 md:p-12 rounded-[2rem] h-[600px] overflow-y-auto custom-scrollbar shadow-2xl bg-forest-900/50">
               <div className="max-w-prose space-y-6">
                 {docx_content?.split('\n\n').filter(Boolean).map((para, i) => (
-                  <p key={i} className="leading-relaxed text-bone-100 text-lg font-light tracking-wide">{para}</p>
+                  <p key={i} className="leading-relaxed text-bone-100/95 text-base md:text-lg font-light tracking-wide max-w-prose mx-auto md:mx-0">{para}</p>
                 ))}
               </div>
             </div>

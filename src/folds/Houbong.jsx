@@ -55,12 +55,12 @@ export default function Houbong({ content }) {
                   </DialogHeader>
                   <div className="flex flex-col gap-6 overflow-y-auto custom-scrollbar pr-2 pb-4">
                     {tab.id === 'history' && (
-                      <div className="space-y-6 text-bone-100/90 text-sm leading-relaxed font-light">
+                      <div className="space-y-6 text-bone-100/95 text-base leading-relaxed font-light">
                         {content?.history?.map((para, i) => <p key={i}>{para}</p>)}
                       </div>
                     )}
                     {tab.id === 'gms' && (
-                      <div className="space-y-6 text-bone-100/90 text-sm leading-relaxed font-light">
+                      <div className="space-y-6 text-bone-100/95 text-base leading-relaxed font-light">
                         {content?.gms?.map((para, i) => <p key={i}>{para}</p>)}
                       </div>
                     )}
@@ -79,7 +79,7 @@ export default function Houbong({ content }) {
                             {evt.details && (
                               <div className="mt-4 space-y-3">
                                 {evt.details.map((detail, dIdx) => (
-                                  <div key={dIdx} className="bg-white/5 p-4 rounded-xl text-xs text-bone-100 leading-relaxed border-l-2 border-amber-accent">
+                                  <div key={dIdx} className="bg-white/5 p-4 rounded-xl text-sm text-bone-100 leading-relaxed border-l-2 border-amber-accent">
                                     {detail.split(' | ').map((part, pIdx) => <p key={pIdx} className={pIdx > 0 ? "mt-1" : ""}>{part}</p>)}
                                   </div>
                                 ))}
@@ -120,7 +120,7 @@ export default function Houbong({ content }) {
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 className="flex flex-col gap-8"
               >
-                <div className="space-y-6 text-bone-100/90 text-base md:text-lg leading-relaxed font-light">
+                <div className="space-y-6 text-bone-100/95 text-base md:text-lg leading-relaxed font-light max-w-prose">
                   {content?.history?.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
@@ -137,7 +137,7 @@ export default function Houbong({ content }) {
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 className="flex flex-col gap-8"
               >
-                <div className="space-y-6 text-bone-100/90 text-base md:text-lg leading-relaxed font-light">
+                <div className="space-y-6 text-bone-100/95 text-base md:text-lg leading-relaxed font-light max-w-prose">
                   {content?.gms?.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
