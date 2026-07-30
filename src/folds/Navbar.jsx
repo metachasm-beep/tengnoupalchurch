@@ -46,26 +46,39 @@ export default function Navbar() {
         </div>
 
         {/* Mobile FAB Menu */}
-        <div className="md:hidden fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <div className="md:hidden fixed top-4 right-4 sm:top-6 sm:right-6 z-[100] flex flex-col items-end">
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setOpen(!open)}
+            className="w-12 h-12 sm:w-14 sm:h-14 bg-amber-accent text-forest-900 rounded-full flex items-center justify-center shadow-2xl border border-white/10 z-[101]"
+          >
+            <motion.div
+              animate={{ rotate: open ? 180 : 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            >
+              {open ? <X size={24} weight="bold" /> : <List size={24} weight="bold" />}
+            </motion.div>
+          </motion.button>
+
           <AnimatePresence>
             {open && (
               <motion.div
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                initial={{ opacity: 0, scale: 0.8, y: -20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8, y: 20, transition: { duration: 0.2 } }}
+                exit={{ opacity: 0, scale: 0.8, y: -20, transition: { duration: 0.2 } }}
                 transition={{ type: "spring", stiffness: 350, damping: 25 }}
-                className="mb-4 bg-forest-900/95 backdrop-blur-xl border border-white/10 rounded-[32px] p-6 shadow-2xl origin-bottom-right flex flex-col w-[calc(100vw-3rem)] max-w-[320px]"
+                className="mt-4 bg-forest-900/95 backdrop-blur-xl border border-white/10 rounded-[32px] p-6 shadow-2xl origin-top-right flex flex-col w-[calc(100vw-2rem)] sm:w-[calc(100vw-3rem)] max-w-[320px]"
               >
                 <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
                   <span className="text-amber-accent font-serif text-2xl">Menu</span>
                 </div>
-                <div className="grid grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto custom-scrollbar pr-1">
+                <div className="grid grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto custom-scrollbar pr-1">
                   {navLinks.map((link, i) => (
                     <motion.button 
                       key={link.id}
-                      initial={{ opacity: 0, y: 15 }}
+                      initial={{ opacity: 0, y: -15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10, transition: { duration: 0.1 } }}
+                      exit={{ opacity: 0, y: -10, transition: { duration: 0.1 } }}
                       transition={{ delay: i * 0.04, type: "spring", stiffness: 300, damping: 20 }}
                       onClick={() => scrollTo(link.id)} 
                       className="text-center text-sm font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-4 rounded-xl glass-dark border border-white/5 shadow-md flex items-center justify-center"
@@ -75,7 +88,7 @@ export default function Navbar() {
                   ))}
                 </div>
                 <motion.div
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: -15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, transition: { duration: 0.1 } }}
                   transition={{ delay: navLinks.length * 0.04 }}
@@ -88,19 +101,6 @@ export default function Navbar() {
               </motion.div>
             )}
           </AnimatePresence>
-
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setOpen(!open)}
-            className="w-14 h-14 bg-amber-accent text-forest-900 rounded-full flex items-center justify-center shadow-2xl border border-white/10 z-[101]"
-          >
-            <motion.div
-              animate={{ rotate: open ? 180 : 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            >
-              {open ? <X size={28} weight="bold" /> : <List size={28} weight="bold" />}
-            </motion.div>
-          </motion.button>
         </div>
       </div>
     </nav>
