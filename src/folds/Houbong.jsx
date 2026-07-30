@@ -13,7 +13,7 @@ export default function Houbong({ content }) {
   ];
 
   return (
-    <section id="houbong" className="min-h-[100dvh] w-full bg-forest-900 text-bone-50 py-20 px-6 md:px-12 flex flex-col justify-center relative overflow-hidden">
+    <section id="houbong" className="h-[100dvh] w-full bg-forest-900 text-bone-50 pt-24 pb-12 px-6 md:px-12 flex flex-col justify-center relative overflow-hidden">
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
       
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24 items-start">
@@ -107,7 +107,9 @@ export default function Houbong({ content }) {
         </div>
 
         {/* Right Column: Content (Desktop) */}
-        <div className="hidden md:block w-full md:w-2/3 min-h-[50vh] relative">
+        <div className="hidden md:flex w-full md:w-2/3 h-[75vh] relative glass-dark rounded-[32px] border border-white/10 shadow-2xl flex-col overflow-hidden">
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-forest-900/90 to-transparent pointer-events-none z-10" />
+          <div className="flex-1 overflow-y-auto custom-scrollbar p-8 md:p-12 pb-24 relative z-0">
           <AnimatePresence mode="wait">
             {activeTab === 'history' && (
               <motion.div
@@ -208,6 +210,7 @@ export default function Houbong({ content }) {
               </motion.div>
             )}
           </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
