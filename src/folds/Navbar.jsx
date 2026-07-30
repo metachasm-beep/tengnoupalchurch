@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
-import { Cross, List } from '@phosphor-icons/react';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { X, List } from '@phosphor-icons/react';
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -51,36 +45,62 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Nav */}
-        <div className="md:hidden flex items-center pt-2">
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-bone-50 bg-forest-900/50 hover:bg-forest-800 backdrop-blur-md border border-white/10 rounded-full h-12 w-12 shadow-lg">
-                <List size={28} />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-forest-900/95 backdrop-blur-xl border-l border-white/10 text-bone-50 w-[300px] sm:w-[400px] p-8 flex flex-col shadow-2xl">
-              <SheetHeader className="mb-8 border-b border-white/10 pb-6 text-left">
-                <SheetTitle className="text-amber-accent font-serif text-2xl">Menu</SheetTitle>
-              </SheetHeader>
-              <div className="grid grid-cols-2 gap-2 flex-grow overflow-y-auto custom-scrollbar pr-2 mt-2">
-                {navLinks.map(link => (
-                  <button 
-                    key={link.id} 
-                    onClick={() => scrollTo(link.id)} 
-                    className="text-center text-sm sm:text-base font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-4 rounded-xl glass-dark border border-white/5 shadow-md flex items-center justify-center"
-                  >
-                    {link.name}
-                  </button>
-                ))}
-              </div>
-              <div className="mt-6 pt-6 border-t border-white/10">
-                <Button onClick={() => scrollTo('nav-footer')} className="bg-amber-accent text-forest-900 rounded-xl font-bold hover:bg-amber-accent-hover w-full py-6 text-lg shadow-lg">
-                  Visit Us
-                </Button>
-              </div>
-            </SheetContent>
-          </Sheet>
+        {/* Mobile FAB Menu */}
+        <div className="md:hidden fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.8, y: 20, transition: { duration: 0.2 } }}
+                transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                className="mb-4 bg-forest-900/95 backdrop-blur-xl border border-white/10 rounded-[32px] p-6 shadow-2xl origin-bottom-right flex flex-col w-[calc(100vw-3rem)] max-w-[320px]"
+              >
+                <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
+                  <span className="text-amber-accent font-serif text-2xl">Menu</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto custom-scrollbar pr-1">
+                  {navLinks.map((link, i) => (
+                    <motion.button 
+                      key={link.id}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10, transition: { duration: 0.1 } }}
+                      transition={{ delay: i * 0.04, type: "spring", stiffness: 300, damping: 20 }}
+                      onClick={() => scrollTo(link.id)} 
+                      className="text-center text-sm font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-4 rounded-xl glass-dark border border-white/5 shadow-md flex items-center justify-center"
+                    >
+                      {link.name}
+                    </motion.button>
+                  ))}
+                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, transition: { duration: 0.1 } }}
+                  transition={{ delay: navLinks.length * 0.04 }}
+                  className="mt-4 pt-4 border-t border-white/10"
+                >
+                  <Button onClick={() => scrollTo('nav-footer')} className="bg-amber-accent text-forest-900 rounded-xl font-bold hover:bg-amber-accent-hover w-full py-6 text-base shadow-lg">
+                    Visit Us
+                  </Button>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setOpen(!open)}
+            className="w-14 h-14 bg-amber-accent text-forest-900 rounded-full flex items-center justify-center shadow-2xl border border-white/10 z-[101]"
+          >
+            <motion.div
+              animate={{ rotate: open ? 180 : 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            >
+              {open ? <X size={28} weight="bold" /> : <List size={28} weight="bold" />}
+            </motion.div>
+          </motion.button>
         </div>
       </div>
     </nav>
