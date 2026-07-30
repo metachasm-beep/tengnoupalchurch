@@ -18,6 +18,15 @@ export const sections = [
 
 export default function NavDots() {
   const { activeSection } = useScrollState();
+  const [showActiveLabel, setShowActiveLabel] = React.useState(true);
+
+  React.useEffect(() => {
+    setShowActiveLabel(true);
+    const timer = setTimeout(() => {
+      setShowActiveLabel(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [activeSection]);
 
   return (
     <div className="fixed right-4 md:right-6 top-1/2 -translate-y-1/2 z-[100] flex flex-col gap-4 pointer-events-auto">
@@ -36,7 +45,7 @@ export default function NavDots() {
             {/* Tooltip */}
             <span 
               className={`absolute right-6 px-2 py-1 rounded bg-forest-900/90 backdrop-blur-sm text-bone-100 text-xs whitespace-nowrap transition-all duration-300 pointer-events-none border border-forest-800
-                ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'}
+                ${isActive && showActiveLabel ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'}
               `}
             >
               {label}
