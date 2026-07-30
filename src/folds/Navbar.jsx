@@ -24,6 +24,9 @@ export default function Navbar() {
     { name: 'Gallery', id: 'nav-gallery' },
   ];
 
+  const churchLifeLinks = navLinks.filter(l => ['Home', 'Sermons', 'Project', 'Gallery'].includes(l.name));
+  const ministryLinks = navLinks.filter(l => ['Houbung', 'CE', 'KCK', 'KCN', 'KCU'].includes(l.name));
+
   return (
     <nav className="fixed top-0 w-full z-50 md:glass bg-transparent">
       <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-end md:justify-between">
@@ -72,23 +75,53 @@ export default function Navbar() {
                 <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
                   <span className="text-amber-accent font-serif text-2xl">Menu</span>
                 </div>
-                <div className="grid grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto custom-scrollbar pr-1">
-                  {navLinks.map((link, i) => (
-                    <motion.button 
-                      key={link.id}
-                      initial={{ opacity: 0, y: -15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10, transition: { duration: 0.1 } }}
-                      transition={{ delay: i * 0.04, type: "spring", stiffness: 300, damping: 20 }}
-                      onClick={() => scrollTo(link.id)} 
-                      className="text-center text-sm font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-4 rounded-xl glass-dark border border-white/5 shadow-md flex items-center justify-center"
-                    >
-                      {link.name}
-                    </motion.button>
-                  ))}
+                
+                <div className="flex flex-col gap-6 max-h-[60vh] overflow-y-auto custom-scrollbar pr-1 pb-2">
+                  
+                  {/* Church Life Group */}
+                  <div>
+                    <h3 className="text-xs font-semibold tracking-widest text-bone-200/60 uppercase mb-3 ml-1">Church Life</h3>
+                    <div className="grid grid-cols-2 gap-2">
+                      {churchLifeLinks.map((link, i) => (
+                        <motion.button 
+                          key={link.id}
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, transition: { duration: 0.1 } }}
+                          transition={{ delay: i * 0.04, type: "spring", stiffness: 300, damping: 20 }}
+                          onClick={() => scrollTo(link.id)} 
+                          className="text-center text-sm font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-3 rounded-xl glass-dark border border-white/5 shadow-sm flex items-center justify-center"
+                        >
+                          {link.name}
+                        </motion.button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Ministries Group */}
+                  <div>
+                    <h3 className="text-xs font-semibold tracking-widest text-bone-200/60 uppercase mb-3 ml-1">Ministries</h3>
+                    <div className="grid grid-cols-2 gap-2">
+                      {ministryLinks.map((link, i) => (
+                        <motion.button 
+                          key={link.id}
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, transition: { duration: 0.1 } }}
+                          transition={{ delay: (churchLifeLinks.length + i) * 0.04, type: "spring", stiffness: 300, damping: 20 }}
+                          onClick={() => scrollTo(link.id)} 
+                          className="text-center text-sm font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-3 rounded-xl glass-dark border border-white/5 shadow-sm flex items-center justify-center"
+                        >
+                          {link.name}
+                        </motion.button>
+                      ))}
+                    </div>
+                  </div>
+
                 </div>
+
                 <motion.div
-                  initial={{ opacity: 0, y: -15 }}
+                  initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, transition: { duration: 0.1 } }}
                   transition={{ delay: navLinks.length * 0.04 }}
