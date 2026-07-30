@@ -12,16 +12,12 @@ export default function Hero({ content }) {
       />
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
       
-      {/* Absolute Logo */}
-      <div className="absolute top-6 left-6 md:top-8 md:left-8 z-50 pointer-events-none">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 w-full flex flex-col items-center justify-center text-center gap-4 md:gap-6 mt-[-40px]">
         <img 
           src="/assets/logo.webp" 
           alt="Tengnoupal Christian Church Logo" 
-          className="h-16 w-auto object-contain brightness-0 invert opacity-90 drop-shadow-lg"
+          className="h-24 md:h-32 w-auto object-contain brightness-0 invert opacity-90 drop-shadow-lg mb-2"
         />
-      </div>
-      
-      <div className="relative z-10 max-w-4xl mx-auto px-6 w-full flex flex-col items-center justify-center text-center gap-4 md:gap-6">
         <div className="flex flex-col items-center gap-3 md:gap-4 mb-2">
           <h2 className="font-sans text-sm md:text-base tracking-[0.2em] text-bone-200 uppercase font-medium">{content?.subtitle}</h2>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-semibold tracking-wider text-amber-accent uppercase">
