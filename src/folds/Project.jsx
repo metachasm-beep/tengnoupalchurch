@@ -51,16 +51,16 @@ export default function Project({ content, renderCards }) {
           {/* Slide 2+: Renders */}
           {renderCards?.map((card, i) => (
             <CarouselItem key={i} className="h-full flex-shrink-0 pl-0">
-              <div className="relative w-full h-full group">
+              <div className="relative w-full h-full group bg-black flex flex-col items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-b from-forest-900/90 via-forest-900/10 to-transparent z-10 pointer-events-none" />
                 <img 
                   src={card.img} 
                   alt={card.title} 
-                  className="w-full h-full object-cover transition-transform duration-[10s] group-hover:scale-110" 
+                  className="w-full h-full object-contain relative z-0 transition-transform duration-[10s] group-hover:scale-105" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-8 md:p-16 max-w-2xl w-full">
-                  <h3 className="font-serif text-3xl md:text-5xl font-medium text-bone-50 mb-3">{card.title}</h3>
-                  <p className="text-base md:text-xl text-bone-100/90">{card.desc}</p>
+                <div className="absolute top-0 left-0 w-full p-8 md:p-16 pt-24 md:pt-24 flex flex-col items-center text-center z-20 pointer-events-none">
+                  <h3 className="font-serif text-3xl md:text-5xl font-medium text-bone-50 mb-3 drop-shadow-xl">{card.title}</h3>
+                  <p className="text-base md:text-xl text-bone-100 drop-shadow-lg">{card.desc}</p>
                 </div>
               </div>
             </CarouselItem>

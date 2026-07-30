@@ -20,10 +20,10 @@ export default function KCK({ content }) {
         <div className="w-full md:hidden">
           <Tabs defaultValue="history" className="w-full">
             <TabsList className="w-full bg-white/5 border border-white/10 rounded-full mb-6">
-              <TabsTrigger value="history" className="flex-1 rounded-full data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
+              <TabsTrigger value="history" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
                 <BookOpenText className="mr-2" /> History
               </TabsTrigger>
-              <TabsTrigger value="leadership" className="flex-1 rounded-full data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
+              <TabsTrigger value="leadership" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
                 <Users className="mr-2" /> Leadership
               </TabsTrigger>
             </TabsList>

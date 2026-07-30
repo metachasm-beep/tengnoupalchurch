@@ -126,7 +126,7 @@ export default function Houbong({ content }) {
 
                   <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
                     <img 
-                      src="/assets/houbong_1.webp" 
+                      src="/assets/houbong_1.jpeg" 
                       alt="Event Image" 
                       className="w-full h-auto rounded-xl shadow-lg object-cover"
                     />

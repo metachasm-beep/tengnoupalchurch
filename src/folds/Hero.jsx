@@ -20,19 +20,22 @@ export default function Hero({ content }) {
           className="h-24 md:h-32 w-auto object-contain brightness-0 invert opacity-90 drop-shadow-lg mb-2"
         />
         <div className="flex flex-col items-center gap-3 md:gap-4 mb-2">
-          <h2 className="font-sans text-sm md:text-base tracking-[0.2em] text-bone-200 uppercase font-medium">{content?.subtitle}</h2>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-semibold tracking-wider text-amber-accent uppercase">
             <MapPin weight="bold" /> {content?.location}
           </div>
         </div>
         
-        <h1 className="font-serif text-4xl md:text-7xl font-medium tracking-tight leading-[1.1] text-bone-50">
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.1] text-bone-50 my-2 md:my-4">
+          {content?.subtitle}
+        </h1>
+        
+        <h2 className="font-sans text-sm md:text-xl tracking-[0.1em] text-bone-200 uppercase font-medium mb-4">
           <BlurText 
             text={content?.headline || ""} 
             delay={50} 
             className="block"
           />
-        </h1>
+        </h2>
         
         <p className="text-base md:text-lg text-bone-100 max-w-[40ch] leading-relaxed mx-auto">
           {content?.description}

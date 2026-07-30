@@ -33,10 +33,10 @@ export default function CE({ content }) {
         <div className="w-full md:hidden">
           <Tabs defaultValue="staff" className="w-full">
             <TabsList className="w-full bg-white/5 border border-white/10 rounded-full mb-6">
-              <TabsTrigger value="staff" className="flex-1 rounded-full data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
+              <TabsTrigger value="staff" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
                 <Users className="mr-2" /> Staff
               </TabsTrigger>
-              <TabsTrigger value="gallery" className="flex-1 rounded-full data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
+              <TabsTrigger value="gallery" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
                 <Images className="mr-2" /> Gallery
               </TabsTrigger>
             </TabsList>
