@@ -6,7 +6,6 @@ import Project from './folds/Project';
 import Foundation from './folds/Foundation';
 import Committee from './folds/Committee';
 import Houbong from './folds/Houbong';
-import GMS from './folds/GMS';
 import CE from './folds/CE';
 import KCK from './folds/KCK';
 import KCN from './folds/KCN';
@@ -20,7 +19,7 @@ import { getGalleryImages, getProjectRenders } from './stores/AssetStore';
 import data from './data.json';
 
 function App() {
-  const { docx_content, hero, project, foundation, committee, houbong, gms, ce, kck, kcn, kcu, footer } = data;
+  const { docx_content, hero, project, foundation, committee, houbong, ce, kck, kcn, kcu, footer } = data;
   
   const galleryImages = getGalleryImages(15);
   const renderCards = getProjectRenders();
@@ -39,7 +38,6 @@ function App() {
         <div id="nav-committee" className="snap-start"><FoldWrapper><Committee content={committee} /></FoldWrapper></div>
         
         <div id="nav-houbong" className="snap-start"><FoldWrapper><Houbong content={houbong} /></FoldWrapper></div>
-        <div id="nav-gms" className="snap-start"><FoldWrapper><GMS content={gms} /></FoldWrapper></div>
         <div id="nav-ce" className="snap-start"><FoldWrapper><CE content={ce} /></FoldWrapper></div>
         <div id="nav-kck" className="snap-start"><FoldWrapper><KCK content={kck} /></FoldWrapper></div>
         <div id="nav-kcn" className="snap-start"><FoldWrapper><KCN content={kcn} /></FoldWrapper></div>
