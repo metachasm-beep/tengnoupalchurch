@@ -14,11 +14,15 @@ export default function Navbar() {
           <img src="/assets/logo.webp" alt="Logo" className="h-10 w-auto object-contain drop-shadow-md" />
           <span className="hidden sm:inline font-semibold tracking-tight text-bone-50">Tengnoupal Christian Church</span>
         </div>
-        <div className="hidden md:flex gap-8 text-sm font-medium text-bone-100">
+        <div className="hidden md:flex flex-wrap items-center justify-center gap-3 lg:gap-6 text-xs lg:text-sm font-medium text-bone-100">
           <button onClick={() => scrollTo('nav-hero')} className="hover:text-amber-accent transition-colors">Home</button>
-          <button onClick={() => scrollTo('nav-hero')} className="hover:text-amber-accent transition-colors">About</button>
           <button onClick={() => scrollTo('nav-sermons')} className="hover:text-amber-accent transition-colors">Sermons</button>
-          <button onClick={() => scrollTo('nav-project')} className="hover:text-amber-accent transition-colors">Building Project</button>
+          <button onClick={() => scrollTo('nav-project')} className="hover:text-amber-accent transition-colors">Project</button>
+          <button onClick={() => scrollTo('nav-houbong')} className="hover:text-amber-accent transition-colors">Houbung</button>
+          <button onClick={() => scrollTo('nav-ce')} className="hover:text-amber-accent transition-colors">CE</button>
+          <button onClick={() => scrollTo('nav-kck')} className="hover:text-amber-accent transition-colors">KCK</button>
+          <button onClick={() => scrollTo('nav-kcn')} className="hover:text-amber-accent transition-colors">KCN</button>
+          <button onClick={() => scrollTo('nav-kcu')} className="hover:text-amber-accent transition-colors">KCU</button>
           <button onClick={() => scrollTo('nav-gallery')} className="hover:text-amber-accent transition-colors">Gallery</button>
         </div>
         <button onClick={() => scrollTo('nav-footer')} className="bg-amber-accent text-forest-900 px-5 py-2.5 rounded-full text-sm font-bold hover:scale-[0.98] hover:bg-amber-accent-hover transition-all">
