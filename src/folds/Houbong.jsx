@@ -93,14 +93,28 @@ export default function Houbong({ content }) {
                     {tab.id === 'gallery' && (
                       <div className="flex flex-col gap-8">
                         <div className="grid grid-cols-1 gap-4 mt-2">
-                          <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
-                            <img loading="lazy" src="/assets/houbong_lamkai.webp" alt="Houbung lamkai" className="w-full h-auto rounded-xl shadow-lg object-cover" />
-                            <p className="mt-2 text-center text-bone-200/60 text-[10px] italic px-2">2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho</p>
-                          </div>
-                          <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
-                            <img loading="lazy" src="/assets/houbong_1.jpeg" alt="Event Image" className="w-full h-auto rounded-xl shadow-lg object-cover" />
-                            <p className="mt-2 text-center text-bone-200/60 text-[10px] italic px-2">Recent Events</p>
-                          </div>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <button className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full text-left cursor-pointer hover:border-amber-accent transition-colors group focus:outline-none">
+                                <img loading="lazy" src="/assets/houbong_lamkai.webp" alt="Houbung lamkai" className="w-full h-auto rounded-xl shadow-lg object-cover group-hover:opacity-90 transition-opacity" />
+                                <p className="mt-2 text-center text-bone-200/60 text-[10px] italic px-2">2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho</p>
+                              </button>
+                            </DialogTrigger>
+                            <DialogContent className="bg-transparent border-none shadow-none max-w-5xl w-full h-full flex justify-center items-center p-2 pt-12">
+                              <img src="/assets/houbong_lamkai.webp" alt="Houbung lamkai" className="max-w-full max-h-[90vh] object-contain rounded-xl" />
+                            </DialogContent>
+                          </Dialog>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <button className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full text-left cursor-pointer hover:border-amber-accent transition-colors group focus:outline-none">
+                                <img loading="lazy" src="/assets/houbong_1.jpeg" alt="Event Image" className="w-full h-auto rounded-xl shadow-lg object-cover group-hover:opacity-90 transition-opacity" />
+                                <p className="mt-2 text-center text-bone-200/60 text-[10px] italic px-2">Recent Events</p>
+                              </button>
+                            </DialogTrigger>
+                            <DialogContent className="bg-transparent border-none shadow-none max-w-5xl w-full h-full flex justify-center items-center p-2 pt-12">
+                              <img src="/assets/houbong_1.jpeg" alt="Event Image" className="max-w-full max-h-[90vh] object-contain rounded-xl" />
+                            </DialogContent>
+                          </Dialog>
                         </div>
                       </div>
                     )}
@@ -199,29 +213,43 @@ export default function Houbong({ content }) {
                 className="flex flex-col gap-8"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-                  <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
-                    <img 
-                      loading="lazy"
-                      src="/assets/houbong_lamkai.webp" 
-                      alt="Houbung lamkai" 
-                      className="w-full h-auto rounded-xl shadow-lg object-cover"
-                    />
-                    <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">
-                      2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho
-                    </p>
-                  </div>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <button className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full text-left cursor-pointer hover:border-amber-accent transition-colors group focus:outline-none">
+                        <img 
+                          loading="lazy"
+                          src="/assets/houbong_lamkai.webp" 
+                          alt="Houbung lamkai" 
+                          className="w-full h-auto rounded-xl shadow-lg object-cover group-hover:opacity-90 transition-opacity"
+                        />
+                        <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">
+                          2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho
+                        </p>
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="bg-transparent border-none shadow-none max-w-7xl w-[95vw] h-[95vh] flex justify-center items-center p-4">
+                      <img src="/assets/houbong_lamkai.webp" alt="Houbung lamkai" className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" />
+                    </DialogContent>
+                  </Dialog>
 
-                  <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
-                    <img 
-                      loading="lazy"
-                      src="/assets/houbong_1.jpeg" 
-                      alt="Event Image" 
-                      className="w-full h-auto rounded-xl shadow-lg object-cover"
-                    />
-                    <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">
-                      Recent Events
-                    </p>
-                  </div>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <button className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full text-left cursor-pointer hover:border-amber-accent transition-colors group focus:outline-none">
+                        <img 
+                          loading="lazy"
+                          src="/assets/houbong_1.jpeg" 
+                          alt="Event Image" 
+                          className="w-full h-auto rounded-xl shadow-lg object-cover group-hover:opacity-90 transition-opacity"
+                        />
+                        <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">
+                          Recent Events
+                        </p>
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="bg-transparent border-none shadow-none max-w-7xl w-[95vw] h-[95vh] flex justify-center items-center p-4">
+                      <img src="/assets/houbong_1.jpeg" alt="Event Image" className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" />
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </motion.div>
             )}
