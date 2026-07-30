@@ -10,6 +10,7 @@ export default function Houbong({ content }) {
     { id: 'history', label: 'History' },
     { id: 'gms', label: 'GMS Mission' },
     { id: 'events', label: 'Recent Events' },
+    { id: 'gallery', label: 'Gallery' },
   ];
 
   return (
@@ -87,6 +88,10 @@ export default function Houbong({ content }) {
                             )}
                           </div>
                         ))}
+                      </div>
+                    )}
+                    {tab.id === 'gallery' && (
+                      <div className="flex flex-col gap-8">
                         <div className="grid grid-cols-1 gap-4 mt-2">
                           <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
                             <img loading="lazy" src="/assets/houbong_lamkai.webp" alt="Houbung lamkai" className="w-full h-auto rounded-xl shadow-lg object-cover" />
@@ -181,7 +186,18 @@ export default function Houbong({ content }) {
                     )}
                   </div>
                 ))}
-                
+              </motion.div>
+            )}
+
+            {activeTab === 'gallery' && (
+              <motion.div
+                key="gallery"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col gap-8"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                   <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
                     <img 
