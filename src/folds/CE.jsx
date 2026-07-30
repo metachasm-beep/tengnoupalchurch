@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 export default function CE({ content }) {
   const [currentCbs, setCurrentCbs] = useState(0);
-  const cbsImages = [1, 2, 3, 4, 5].map(i => `/assets/cbs_${i}.jpeg`);
+  const cbsImages = [1, 2, 3, 4, 5].map(i => `/assets/cbs_${i}.webp`);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -20,7 +20,7 @@ export default function CE({ content }) {
         {/* Left Column: Staff & Content */}
         <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 h-full">
           <div className="flex items-center gap-4">
-            <img src="/assets/ce_logo.jpeg" alt="CE Logo" className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border border-white/10 shadow-lg" />
+            <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border border-white/10 shadow-lg" />
             <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight text-bone-50">
               {content?.title}
             </h2>
@@ -69,7 +69,7 @@ export default function CE({ content }) {
           
           <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5">
             <img 
-              src="/assets/ce_oja_ho.jpeg" 
+              src="/assets/ce_oja_ho.webp" 
               alt="CE Oja ho" 
               className="w-full h-[25vh] md:h-[30vh] rounded-xl shadow-lg object-cover"
             />

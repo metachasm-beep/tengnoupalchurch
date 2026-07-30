@@ -6,7 +6,7 @@ export default function Sermons({ docx_content }) {
     <section id="sermons" className="relative h-[100dvh] w-full flex items-center bg-forest-900 overflow-hidden">
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-fixed pointer-events-none"
-        style={{ backgroundImage: `url('/assets/bg_sermons.png')` }}
+        style={{ backgroundImage: `url('/assets/bg_sermons.webp')` }}
       />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-20 md:mt-0">
@@ -23,6 +23,14 @@ export default function Sermons({ docx_content }) {
               <p className="leading-relaxed border-l-2 border-amber-accent pl-4 md:pl-5 italic text-base md:text-lg opacity-90">
                 "Vo kamite idia nangho in phatah tah a chenga, kei Houin asesa kijam ham?"
               </p>
+              
+              <div className="mt-4 relative rounded-2xl overflow-hidden glass p-2 border border-white/5 max-w-xs self-start">
+                <img 
+                  src="/assets/pastor.webp" 
+                  alt="Message Speaker" 
+                  className="w-full h-auto rounded-xl shadow-lg object-cover"
+                />
+              </div>
             </div>
           </div>
           

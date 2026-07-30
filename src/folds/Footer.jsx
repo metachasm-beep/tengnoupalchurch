@@ -6,7 +6,7 @@ export default function Footer({ content }) {
     <footer className="h-[100dvh] w-full bg-forest-900 flex flex-col justify-between items-center text-bone-100 z-50 relative overflow-hidden pt-32 pb-8 md:pb-12">
       <div 
         className="absolute inset-0 z-0 opacity-10 bg-cover bg-center bg-fixed pointer-events-none" 
-        style={{ backgroundImage: `url('/assets/bg_project.png')` }} 
+        style={{ backgroundImage: `url('/assets/bg_project.webp')` }} 
       />
       
       <div className="relative z-10 flex flex-col items-center justify-center flex-grow gap-8 md:gap-10 text-center px-6 w-full">

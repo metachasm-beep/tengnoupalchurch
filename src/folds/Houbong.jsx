@@ -25,7 +25,7 @@ export default function Houbong({ content }) {
         <div className="w-full md:w-1/2 flex flex-col gap-3">
           <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5">
             <img 
-              src="/assets/houbong_lamkai.jpeg" 
+              src="/assets/houbong_lamkai.webp" 
               alt="2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho" 
               className="w-full h-auto rounded-xl shadow-lg object-cover"
             />

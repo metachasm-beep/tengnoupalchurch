@@ -26,7 +26,7 @@ export default function KCK({ content }) {
         <div className="w-full md:w-7/12 flex flex-col gap-6 order-1 md:order-2 h-full">
           <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 hidden md:block">
             <img 
-              src="/assets/kck_image.jpeg" 
+              src="/assets/kck_image.webp" 
               alt="Kuki Christian Khangthah" 
               className="w-full h-auto max-h-[250px] rounded-xl shadow-lg object-cover"
             />

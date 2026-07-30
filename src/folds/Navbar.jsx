@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 glass">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Cross size={40} weight="fill" className="text-amber-accent" />
+          <img src="/assets/logo.webp" alt="Logo" className="h-10 w-auto object-contain drop-shadow-md" />
           <span className="hidden sm:inline font-semibold tracking-tight text-bone-50">Tengnoupal Christian Church</span>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium text-bone-100">
