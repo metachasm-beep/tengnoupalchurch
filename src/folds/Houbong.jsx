@@ -49,11 +49,11 @@ export default function Houbong({ content }) {
                     <CaretRight weight="bold" className="text-amber-accent" />
                   </button>
                 </DialogTrigger>
-                <DialogContent className="bg-forest-900 border border-white/10 text-bone-50 w-[95vw] sm:w-[500px] rounded-[32px] p-6 max-h-[85vh] overflow-y-auto custom-scrollbar flex flex-col">
+                <DialogContent className="bg-forest-900 border border-white/10 text-bone-50 w-[95vw] sm:w-[500px] rounded-[32px] p-6 max-h-[85vh] flex flex-col">
                   <DialogHeader className="mb-4">
                     <DialogTitle className="text-left text-2xl font-serif text-amber-accent">{tab.label}</DialogTitle>
                   </DialogHeader>
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-6 overflow-y-auto custom-scrollbar pr-2 pb-4">
                     {tab.id === 'history' && (
                       <div className="space-y-6 text-bone-100/90 text-sm leading-relaxed font-light">
                         {content?.history?.map((para, i) => <p key={i}>{para}</p>)}
@@ -89,11 +89,11 @@ export default function Houbong({ content }) {
                         ))}
                         <div className="grid grid-cols-1 gap-4 mt-2">
                           <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
-                            <img src="/assets/houbong_lamkai.webp" alt="Houbung lamkai" className="w-full h-auto rounded-xl shadow-lg object-cover" />
+                            <img loading="lazy" src="/assets/houbong_lamkai.webp" alt="Houbung lamkai" className="w-full h-auto rounded-xl shadow-lg object-cover" />
                             <p className="mt-2 text-center text-bone-200/60 text-[10px] italic px-2">2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho</p>
                           </div>
                           <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
-                            <img src="/assets/houbong_1.jpeg" alt="Event Image" className="w-full h-auto rounded-xl shadow-lg object-cover" />
+                            <img loading="lazy" src="/assets/houbong_1.jpeg" alt="Event Image" className="w-full h-auto rounded-xl shadow-lg object-cover" />
                             <p className="mt-2 text-center text-bone-200/60 text-[10px] italic px-2">Recent Events</p>
                           </div>
                         </div>
@@ -183,6 +183,7 @@ export default function Houbong({ content }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                   <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
                     <img 
+                      loading="lazy"
                       src="/assets/houbong_lamkai.webp" 
                       alt="Houbung lamkai" 
                       className="w-full h-auto rounded-xl shadow-lg object-cover"
@@ -194,6 +195,7 @@ export default function Houbong({ content }) {
 
                   <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
                     <img 
+                      loading="lazy"
                       src="/assets/houbong_1.jpeg" 
                       alt="Event Image" 
                       className="w-full h-auto rounded-xl shadow-lg object-cover"
