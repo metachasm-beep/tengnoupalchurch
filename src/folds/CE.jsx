@@ -59,8 +59,8 @@ export default function CE({ content }) {
             
             <TabsContent value="staff">
               <div className="w-full flex-col gap-6 flex h-full">
-                <div className="glass p-5 rounded-2xl border border-white/5 flex-1 flex flex-col gap-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
-                  <div className="flex flex-col gap-4 border-b border-white/10 pb-6">
+                <div className="glass p-4 sm:p-5 rounded-2xl border border-white/5 flex-1 flex flex-col gap-4 sm:gap-6 max-h-[75vh] overflow-y-auto custom-scrollbar">
+                  <div className="flex flex-col gap-2 sm:gap-4 border-b border-white/10 pb-4 sm:pb-6">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
                         <ChalkboardTeacher size={24} weight="fill" />
@@ -81,13 +81,13 @@ export default function CE({ content }) {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200 uppercase font-medium mb-4">Teaching Staff</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200 uppercase font-medium mb-3 sm:mb-4">Teaching Staff</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-3">
                       {content?.staff?.teachers?.map((teacher, i) => (
                         <HoverCard key={i}>
                           <HoverCardTrigger asChild>
-                            <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer border border-transparent hover:border-white/5">
-                              <div className="w-2 h-2 rounded-full bg-amber-accent/50 flex-shrink-0" />
+                            <div className="flex items-center gap-2 sm:gap-3 p-1 sm:p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer border border-transparent hover:border-white/5">
+                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-accent/50 flex-shrink-0" />
                               <span className="text-sm text-bone-100">{teacher}</span>
                             </div>
                           </HoverCardTrigger>
