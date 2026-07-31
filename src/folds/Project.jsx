@@ -11,6 +11,13 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Hammer, Play } from '@phosphor-icons/react';
 import { getConstructionImages, getProjectVideos } from '../stores/AssetStore';
 import ImageModal from '../components/ImageModal';
