@@ -3,6 +3,23 @@
 
 const galleryModules = import.meta.glob('/public/assets/gallery/*.{webp,jpeg,jpg,png}', { eager: true });
 const constructionModules = import.meta.glob('/public/assets/construction/*.{webp,jpeg,jpg,png}', { eager: true });
+const kckModules = import.meta.glob('/public/assets/kck/*.{webp,jpeg,jpg,png}', { eager: true });
+const videoModules = import.meta.glob('/public/assets/videos/*.{mp4,mov,avi}', { eager: true });
+
+export function getKCKImages() {
+  return Object.keys(kckModules).map((key, index) => ({
+    id: index + 1,
+    img: kckModules[key].default
+  }));
+}
+
+export function getProjectVideos() {
+  return Object.keys(videoModules).map((key, index) => ({
+    id: index + 1,
+    url: videoModules[key].default,
+    title: key.split('/').pop().replace(/_/g, ' ').replace(/\.(mp4|mov|avi)$/i, '')
+  }));
+}
 
 export function getConstructionImages() {
   return Object.keys(constructionModules)

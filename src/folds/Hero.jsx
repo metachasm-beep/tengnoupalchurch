@@ -1,7 +1,7 @@
 import React from 'react';
 import BlurText from '../components/BlurText/BlurText';
 import { MapPin } from '@phosphor-icons/react';
-import heroBg from '../../public/assets/peace-heaven-green-fields.webp';
+import heroBg from '../../public/assets/hero_bg.webp';
 import { Button } from "@/components/ui/button";
 
 export default function Hero({ content }) {

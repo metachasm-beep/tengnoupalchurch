@@ -17,11 +17,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Hammer } from '@phosphor-icons/react';
-import { getConstructionImages } from '../stores/AssetStore';
+import { Hammer, Play } from '@phosphor-icons/react';
+import { getConstructionImages, getProjectVideos } from '../stores/AssetStore';
 
 export default function Project({ content, renderCards }) {
   const constructionImages = getConstructionImages();
+  const projectVideos = getProjectVideos();
   
   // Basic column split for masonry (same logic used in Gallery)
   const columns = { col1: [], col2: [], col3: [] };
@@ -62,7 +63,45 @@ export default function Project({ content, renderCards }) {
                     <span className="animate-pulse">→</span>
                   </p>
                   
-                  <div className="md:ml-auto">
+                  <div className="md:ml-auto flex flex-col sm:flex-row gap-4">
+                    {/* Watch Videos Button */}
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <button className="flex items-center justify-center gap-2 bg-forest-900/40 hover:bg-forest-900/60 border border-white/20 text-bone-50 px-6 py-3 rounded-full font-bold transition-colors">
+                          <Play weight="bold" size={20} /> Watch Video Updates
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="bg-forest-900 border-white/10 text-bone-50 max-w-5xl w-[95vw] h-[80vh] rounded-3xl overflow-hidden flex flex-col p-0">
+                        <DialogHeader className="p-6 pb-2">
+                          <DialogTitle className="text-left text-2xl md:text-3xl font-serif text-amber-accent">Video Updates</DialogTitle>
+                        </DialogHeader>
+                        <div className="flex-1 w-full relative">
+                          <Carousel opts={{ align: "center", loop: true }} className="w-full h-full pb-16">
+                            <CarouselContent className="h-full">
+                              {projectVideos.map((video) => (
+                                <CarouselItem key={video.id} className="h-full flex flex-col items-center justify-center p-4">
+                                  <div className="w-full max-w-3xl aspect-video bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                    <video 
+                                      src={video.url} 
+                                      controls 
+                                      className="w-full h-full object-contain"
+                                      preload="metadata"
+                                    />
+                                  </div>
+                                  <p className="mt-4 text-bone-100 font-medium text-center px-4">{video.title}</p>
+                                </CarouselItem>
+                              ))}
+                            </CarouselContent>
+                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4">
+                              <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-10 w-10 bg-forest-800 border-white/10 text-bone-50 hover:bg-amber-accent hover:text-forest-900" />
+                              <CarouselNext className="relative static translate-x-0 translate-y-0 h-10 w-10 bg-forest-800 border-white/10 text-bone-50 hover:bg-amber-accent hover:text-forest-900" />
+                            </div>
+                          </Carousel>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+
+                    {/* Construction Progress Button */}
                     <Dialog>
                       <DialogTrigger asChild>
                         <button className="flex items-center justify-center gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 text-amber-accent px-6 py-3 rounded-full font-bold transition-colors">

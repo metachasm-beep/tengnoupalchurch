@@ -10,8 +10,14 @@ export default function KCU({ content }) {
         <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight text-bone-50">
           {content?.title}
         </h2>
-        <div className="w-full max-w-2xl text-bone-100 text-lg opacity-80 mt-8">
-          <p>More information coming soon.</p>
+        <div className="w-full max-w-2xl text-bone-100/90 text-sm md:text-base opacity-90 mt-4 md:mt-8 text-left space-y-4">
+          <div className="glass p-6 md:p-8 rounded-2xl border border-white/5 space-y-4 shadow-xl">
+            {content?.history?.map((para, i) => (
+              <p key={i} className="leading-relaxed font-light">
+                {para}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,8 +1,18 @@
 import React from 'react';
 import { UsersThree, BookOpenText, Users } from '@phosphor-icons/react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { getKCKImages } from '../stores/AssetStore';
 
 export default function KCK({ content }) {
+  const kckImages = getKCKImages();
+  
   return (
     <section id="kck" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
@@ -101,12 +111,29 @@ export default function KCK({ content }) {
           </div>
 
           <div className="w-7/12 flex-col gap-6 flex order-2 h-full">
-            <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5">
-              <img 
-                src="/assets/kck_image.webp" 
-                alt="Kuki Christian Khangthah" 
-                className="w-full h-auto max-h-[250px] rounded-xl shadow-lg object-cover"
-              />
+            <div className="relative rounded-2xl overflow-hidden glass p-4 border border-white/5">
+              <Carousel 
+                opts={{ align: "start", loop: true }}
+                className="w-full relative"
+              >
+                <CarouselContent className="-ml-2">
+                  {kckImages.map((image) => (
+                    <CarouselItem key={image.id} className="pl-2 basis-full">
+                      <img 
+                        src={image.img} 
+                        alt="Kuki Christian Khangthah" 
+                        className="w-full h-[250px] rounded-xl shadow-lg object-cover"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                {kckImages.length > 1 && (
+                  <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-2 pointer-events-none">
+                    <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
+                    <CarouselNext className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
+                  </div>
+                )}
+              </Carousel>
             </div>
 
             <div className="glass p-6 rounded-2xl border border-white/5 flex-1 overflow-y-auto max-h-[40vh] custom-scrollbar">
