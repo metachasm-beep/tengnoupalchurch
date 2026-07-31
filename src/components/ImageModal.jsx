@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogHeader } from 
 import { X } from '@phosphor-icons/react';
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
-export default function ImageModal({ src, alt, className }) {
+export default function ImageModal({ src, alt, className, style }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -11,6 +11,7 @@ export default function ImageModal({ src, alt, className }) {
           src={src} 
           alt={alt} 
           className={`cursor-zoom-in transition-transform duration-300 hover:scale-[1.02] ${className}`} 
+          style={style}
           loading="lazy" 
         />
       </DialogTrigger>

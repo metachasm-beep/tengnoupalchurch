@@ -58,61 +58,31 @@ export default function Project({ content, renderCards }) {
                   {content?.description}
                 </p>
                 
-                <div className="mt-8 relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
-                  <p className="text-sm tracking-widest uppercase text-amber-accent font-semibold flex items-center gap-4">
-                    <span>Swipe to view renders</span>
-                    <span className="w-12 h-[1px] bg-amber-accent/50"></span>
+                <div className="mt-8 relative z-10 flex flex-col items-start gap-6 w-full">
+                  
+                  <div className="flex flex-col sm:flex-row gap-4 w-full">
+                    <Link to="/project-committee" className="flex-1 group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-6 rounded-2xl transition-all duration-300">
+                      <div className="flex items-center gap-3 text-amber-accent mb-2">
+                        <Hammer weight="bold" size={24} className="group-hover:rotate-12 transition-transform" />
+                        <span className="font-serif text-xl font-medium">The Committee</span>
+                      </div>
+                      <p className="text-bone-200/70 text-sm font-light">Meet the dedicated team leading our church building project.</p>
+                    </Link>
+
+                    <Link to="/project-timeline" className="flex-1 group flex flex-col items-start justify-center gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 hover:border-amber-accent/50 p-6 rounded-2xl transition-all duration-300">
+                      <div className="flex items-center gap-3 text-amber-accent mb-2">
+                        <Play weight="bold" size={24} className="group-hover:translate-x-1 transition-transform" />
+                        <span className="font-serif text-xl font-medium">Construction Timeline</span>
+                      </div>
+                      <p className="text-bone-200/70 text-sm font-light">Track our progress with photos, videos, and milestones.</p>
+                    </Link>
+                  </div>
+
+                  <p className="text-sm tracking-widest uppercase text-amber-accent/70 font-semibold flex items-center gap-4 mt-4">
+                    <span>Swipe to view 3D renders</span>
+                    <span className="w-12 h-[1px] bg-amber-accent/30"></span>
                     <span className="animate-pulse">→</span>
                   </p>
-                  
-                  <div className="md:ml-auto flex flex-col sm:flex-row gap-4">
-                    {/* Watch Videos Button */}
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <button className="flex items-center justify-center gap-2 bg-forest-900/40 hover:bg-forest-900/60 border border-white/20 text-bone-50 px-6 py-3 rounded-full font-bold transition-colors">
-                          <Play weight="bold" size={20} /> Watch Video Updates
-                        </button>
-                      </DialogTrigger>
-                      <DialogContent className="bg-forest-900 border-white/10 text-bone-50 max-w-5xl w-[95vw] h-[80vh] rounded-3xl overflow-hidden flex flex-col p-0">
-                        <DialogHeader className="p-6 pb-2">
-                          <DialogTitle className="text-left text-2xl md:text-3xl font-serif text-amber-accent">Video Updates</DialogTitle>
-                        </DialogHeader>
-                        <div className="flex-1 w-full relative">
-                          <Carousel opts={{ align: "center", loop: true }} className="w-full h-full pb-16">
-                            <CarouselContent className="h-full">
-                              {projectVideos.map((video) => (
-                                <CarouselItem key={video.id} className="h-full flex flex-col items-center justify-center p-4">
-                                  <div className="w-full max-w-3xl aspect-video bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                                    <video 
-                                      src={video.url} 
-                                      controls 
-                                      className="w-full h-full object-contain"
-                                      preload="metadata"
-                                    />
-                                  </div>
-                                  <p className="mt-4 text-bone-100 font-medium text-center px-4">{video.title}</p>
-                                </CarouselItem>
-                              ))}
-                            </CarouselContent>
-                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4">
-                              <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-10 w-10 bg-forest-800 border-white/10 text-bone-50 hover:bg-amber-accent hover:text-forest-900" />
-                              <CarouselNext className="relative static translate-x-0 translate-y-0 h-10 w-10 bg-forest-800 border-white/10 text-bone-50 hover:bg-amber-accent hover:text-forest-900" />
-                            </div>
-                          </Carousel>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-
-                    {/* Church Building Committee Button */}
-                    <Link to="/project-committee" className="flex items-center justify-center gap-2 bg-forest-900/40 hover:bg-forest-900/60 border border-white/20 text-bone-50 px-6 py-3 rounded-full font-bold transition-colors">
-                          <Hammer weight="bold" size={20} /> Committee
-                        </Link>
-
-                    {/* Construction Timeline Button */}
-                    <Link to="/project-timeline" className="flex items-center justify-center gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 text-amber-accent px-6 py-3 rounded-full font-bold transition-colors">
-                          <Hammer weight="bold" size={20} /> View Project Timeline
-                        </Link>
-                  </div>
                 </div>
               </CardContent>
             </Card>

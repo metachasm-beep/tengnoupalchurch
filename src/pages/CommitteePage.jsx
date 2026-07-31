@@ -37,6 +37,7 @@ export default function CommitteePage() {
                   src={member.img} 
                   alt={member.name} 
                   className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full mb-6 border-4 border-white/10 shadow-xl"
+                  style={member.name === 'Mr. Ph. Lunkhogin Mate' ? { objectPosition: 'center 20%' } : {}}
                 />
               ) : (
                 <div className="w-40 h-40 md:w-48 md:h-48 bg-forest-900 rounded-full mb-6 border-4 border-white/10 shadow-xl flex items-center justify-center">

@@ -589,7 +589,8 @@
           "/assets/timeline/event_root/WhatsApp Image 2026-07-31 at 11.59.21 PM.webp"
         ],
         "videos": [
-          "/assets/timeline/event_root/WhatsApp Video 2026-07-31 at 11.06.45 PM.mp4"
+          "/assets/timeline/event_root/WhatsApp Video 2026-07-31 at 11.06.45 PM.mp4",
+          "/assets/videos/WhatsApp_Video_20260731_at_110645_PM.mp4"
         ]
       }
     ],
@@ -603,7 +604,7 @@
       {
         "name": "Mr. Lh. Haokholen Mate",
         "role": "Chairman",
-        "img": ""
+        "img": "/assets/timeline/event_6/Chairman.webp"
       },
       {
         "name": "Mr. Ph. Lunkhogin Mate",
