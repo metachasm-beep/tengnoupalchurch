@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/dialog";
 import { Hammer, Play } from '@phosphor-icons/react';
 import { getConstructionImages, getProjectVideos } from '../stores/AssetStore';
+import ImageModal from '../components/ImageModal';
 
 export default function Project({ content, renderCards }) {
   const constructionImages = getConstructionImages();
@@ -101,53 +102,88 @@ export default function Project({ content, renderCards }) {
                       </DialogContent>
                     </Dialog>
 
-                    {/* Construction Progress Button */}
+                    {/* Church Building Committee Button */}
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <button className="flex items-center justify-center gap-2 bg-forest-900/40 hover:bg-forest-900/60 border border-white/20 text-bone-50 px-6 py-3 rounded-full font-bold transition-colors">
+                          <Hammer weight="bold" size={20} /> Committee
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="bg-forest-900 border-white/10 text-bone-50 max-w-5xl w-[95vw] h-[80vh] rounded-3xl overflow-y-auto">
+                        <DialogHeader className="p-6 pb-2">
+                          <DialogTitle className="text-left text-2xl md:text-3xl font-serif text-amber-accent">Church Building Committee</DialogTitle>
+                        </DialogHeader>
+                        <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                          {content?.committeeImages?.map((imgStr, idx) => (
+                            <div key={idx} className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 shadow-xl bg-forest-800">
+                              <ImageModal 
+                                src={imgStr} 
+                                alt="Committee Member" 
+                                className="w-full h-64 object-cover rounded-xl"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+
+                    {/* Construction Timeline Button */}
                     <Dialog>
                       <DialogTrigger asChild>
                         <button className="flex items-center justify-center gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 text-amber-accent px-6 py-3 rounded-full font-bold transition-colors">
-                          <Hammer weight="bold" size={20} /> View Construction Progress
+                          <Hammer weight="bold" size={20} /> View Project Timeline
                         </button>
                       </DialogTrigger>
                       <DialogContent className="bg-forest-900 border-white/10 text-bone-50 max-w-7xl w-[95vw] h-[90vh] rounded-3xl overflow-y-auto">
                         <DialogHeader>
-                          <DialogTitle className="text-left text-2xl md:text-4xl font-serif text-amber-accent mb-4">Construction Progress</DialogTitle>
+                          <DialogTitle className="text-left text-2xl md:text-4xl font-serif text-amber-accent mb-4">Construction Timeline</DialogTitle>
                         </DialogHeader>
-                        <div className="mt-4 pb-12">
-                          {/* Masonry Grid */}
-                          <div className="flex w-full gap-4 relative">
-                            {/* Mobile single column, Tablet 2 col, Desktop 3 col via flex column wrappers */}
-                            <div className="flex flex-col gap-4 w-full md:w-1/2 lg:w-1/3">
-                              {columns.col1.map((image) => (
-                                <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
-                              ))}
-                              {/* Show col2 and col3 here on mobile */}
-                              <div className="md:hidden flex flex-col gap-4">
-                                {columns.col2.map((image) => (
-                                  <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
-                                ))}
-                                {columns.col3.map((image) => (
-                                  <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
-                                ))}
+                        <div className="mt-4 pb-12 relative">
+                          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2"></div>
+                          <div className="flex flex-col gap-12 md:gap-24">
+                            {content?.timeline?.map((event, i) => (
+                              <div key={i} className={`relative flex flex-col md:flex-row gap-8 md:gap-16 w-full ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                                <div className="absolute left-4 md:left-1/2 top-0 w-4 h-4 bg-amber-accent rounded-full -translate-x-1/2 shadow-[0_0_15px_rgba(255,183,77,0.5)] z-10 border-4 border-forest-900"></div>
+                                
+                                <div className="w-full md:w-1/2 pl-12 md:pl-0 flex flex-col pt-1">
+                                  <div className={`flex flex-col ${i % 2 === 0 ? 'md:items-start md:text-left' : 'md:items-end md:text-right'}`}>
+                                    <span className="text-amber-accent font-bold tracking-wider uppercase text-sm mb-2">{event.date}</span>
+                                    <h3 className="font-serif text-xl md:text-2xl font-medium text-bone-50 mb-4 bg-white/5 p-4 rounded-xl border border-white/10 shadow-lg">{event.caption}</h3>
+                                    
+                                    {/* Event Images / Videos Carousel */}
+                                    {(event.images?.length > 0 || event.videos?.length > 0) && (
+                                      <div className="w-full max-w-lg mt-4 glass p-2 rounded-2xl border border-white/5 shadow-xl">
+                                        <Carousel opts={{ align: "start", loop: true }} className="w-full">
+                                          <CarouselContent className="-ml-2">
+                                            {event.videos?.map((vid, vIdx) => (
+                                              <CarouselItem key={`v-${vIdx}`} className="pl-2 basis-full">
+                                                <video src={vid} controls className="w-full h-64 object-cover rounded-xl border border-white/5 bg-black" />
+                                              </CarouselItem>
+                                            ))}
+                                            {event.images?.map((img, idx) => (
+                                              <CarouselItem key={idx} className="pl-2 basis-full">
+                                                <ImageModal 
+                                                  src={img} 
+                                                  alt={event.caption} 
+                                                  className="w-full h-64 object-cover rounded-xl border border-white/5" 
+                                                />
+                                              </CarouselItem>
+                                            ))}
+                                          </CarouselContent>
+                                          {(event.images?.length + (event.videos?.length || 0)) > 1 && (
+                                            <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-2 pointer-events-none">
+                                              <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
+                                              <CarouselNext className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
+                                            </div>
+                                          )}
+                                        </Carousel>
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                                <div className="hidden md:block w-1/2"></div>
                               </div>
-                            </div>
-
-                            <div className="hidden md:flex flex-col gap-4 w-1/2 lg:w-1/3">
-                              {columns.col2.map((image) => (
-                                <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
-                              ))}
-                              {/* Show col3 here on tablet */}
-                              <div className="lg:hidden flex flex-col gap-4">
-                                {columns.col3.map((image) => (
-                                  <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
-                                ))}
-                              </div>
-                            </div>
-
-                            <div className="hidden lg:flex flex-col gap-4 w-1/3">
-                              {columns.col3.map((image) => (
-                                <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
-                              ))}
-                            </div>
+                            ))}
                           </div>
                         </div>
                       </DialogContent>
@@ -163,10 +199,10 @@ export default function Project({ content, renderCards }) {
             <CarouselItem key={i} className="h-full flex-shrink-0 pl-0">
               <div className="relative w-full h-full group bg-black flex flex-col items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-b from-forest-900/90 via-forest-900/10 to-transparent z-10 pointer-events-none" />
-                <img 
+                <ImageModal 
                   src={card.img} 
                   alt={card.title} 
-                  className="w-full h-full object-contain relative z-0 transition-transform duration-[10s] group-hover:scale-105" 
+                  className="w-full h-[100dvh] object-cover relative z-0 transition-transform duration-[10s] group-hover:scale-105" 
                 />
                 <div className="absolute top-0 left-0 w-full p-8 md:p-16 pt-24 md:pt-24 flex flex-col items-center text-center z-20 pointer-events-none">
                   <h3 className="font-serif text-3xl md:text-5xl font-medium text-bone-50 mb-3 drop-shadow-xl">{card.title}</h3>

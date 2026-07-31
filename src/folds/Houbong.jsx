@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CaretRight } from '@phosphor-icons/react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import ImageModal from '../components/ImageModal';
 
 export default function Houbong({ content }) {
   const [activeTab, setActiveTab] = useState('history');
 
   const tabs = [
     { id: 'history', label: 'History' },
+    { id: 'leaders', label: 'Church Leaders' },
     { id: 'gms', label: 'GMS Mission' },
     { id: 'events', label: 'Recent Events' },
     { id: 'gallery', label: 'Gallery' },
@@ -58,6 +60,19 @@ export default function Houbong({ content }) {
                     {tab.id === 'history' && (
                       <div className="space-y-6 text-bone-100/95 text-base leading-relaxed font-light">
                         {content?.history?.map((para, i) => <p key={i}>{para}</p>)}
+                      </div>
+                    )}
+                    {tab.id === 'leaders' && (
+                      <div className="flex flex-col gap-4">
+                        <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium mb-2">2025-2026 kum sunga Lamkai ho</h4>
+                        <div className="space-y-3">
+                          {content?.leaders?.map((leader, idx) => (
+                            <div key={idx} className="bg-white/5 p-4 rounded-xl flex flex-col border border-white/5 shadow-sm">
+                              <span className="text-sm font-medium text-bone-50">{leader.name}</span>
+                              <span className="text-xs text-amber-accent/80 mt-1">{leader.role}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
                     {tab.id === 'gms' && (
@@ -147,6 +162,31 @@ export default function Houbong({ content }) {
               </motion.div>
             )}
 
+            {activeTab === 'leaders' && (
+              <motion.div
+                key="leaders"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col gap-8 h-full"
+              >
+                <div className="glass p-8 rounded-3xl border border-white/10 shadow-lg flex-1">
+                  <h3 className="font-sans text-sm tracking-[0.2em] text-amber-accent uppercase font-medium mb-8 border-b border-white/10 pb-4">
+                    Church Leaders for the term 2025-2026
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {content?.leaders?.map((leader, idx) => (
+                      <div key={idx} className="bg-white/5 p-6 rounded-2xl flex flex-col border border-white/5 hover:bg-white/10 transition-colors">
+                        <span className="text-xl font-medium text-bone-50">{leader.name}</span>
+                        <span className="text-sm font-semibold text-amber-accent/80 tracking-wide mt-2">{leader.role}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
             {activeTab === 'gms' && (
               <motion.div
                 key="gms"
@@ -213,43 +253,27 @@ export default function Houbong({ content }) {
                 className="flex flex-col gap-8"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <button className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full text-left cursor-pointer hover:border-amber-accent transition-colors group focus:outline-none">
-                        <img 
-                          loading="lazy"
-                          src="/assets/houbong_lamkai.webp" 
-                          alt="Houbung lamkai" 
-                          className="w-full h-auto rounded-xl shadow-lg object-cover group-hover:opacity-90 transition-opacity"
-                        />
-                        <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">
-                          2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho
-                        </p>
-                      </button>
-                    </DialogTrigger>
-                    <DialogContent className="bg-transparent border-none shadow-none max-w-7xl w-[95vw] h-[95vh] flex justify-center items-center p-4">
-                      <img src="/assets/houbong_lamkai.webp" alt="Houbung lamkai" className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" />
-                    </DialogContent>
-                  </Dialog>
+                  <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
+                    <ImageModal 
+                      src="/assets/houbong_lamkai.webp" 
+                      alt="Houbung lamkai" 
+                      className="w-full h-auto rounded-xl shadow-lg object-cover"
+                    />
+                    <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">
+                      2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho
+                    </p>
+                  </div>
 
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <button className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full text-left cursor-pointer hover:border-amber-accent transition-colors group focus:outline-none">
-                        <img 
-                          loading="lazy"
-                          src="/assets/houbong_1.jpeg" 
-                          alt="Event Image" 
-                          className="w-full h-auto rounded-xl shadow-lg object-cover group-hover:opacity-90 transition-opacity"
-                        />
-                        <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">
-                          Recent Events
-                        </p>
-                      </button>
-                    </DialogTrigger>
-                    <DialogContent className="bg-transparent border-none shadow-none max-w-7xl w-[95vw] h-[95vh] flex justify-center items-center p-4">
-                      <img src="/assets/houbong_1.jpeg" alt="Event Image" className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" />
-                    </DialogContent>
-                  </Dialog>
+                  <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
+                    <ImageModal 
+                      src="/assets/houbong_1.jpeg" 
+                      alt="Event Image" 
+                      className="w-full h-auto rounded-xl shadow-lg object-cover"
+                    />
+                    <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">
+                      Recent Events
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             )}

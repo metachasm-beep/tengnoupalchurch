@@ -13,6 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import ImageModal from '../components/ImageModal';
 
 export default function KCN({ content }) {
   return (
@@ -84,27 +85,21 @@ export default function KCN({ content }) {
         </div>
 
         <div className="w-full max-w-2xl mt-4 grid grid-cols-2 gap-4">
-          <Dialog>
-            <DialogTrigger asChild>
-              <button className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full text-left cursor-pointer hover:border-amber-accent transition-colors group focus:outline-none">
-                <img loading="lazy" src="/assets/kcn_1.webp" alt="KCN Activity" className="w-full h-40 md:h-56 object-cover rounded-xl shadow-lg group-hover:opacity-90 transition-opacity" />
-              </button>
-            </DialogTrigger>
-            <DialogContent className="bg-transparent border-none shadow-none max-w-7xl w-[95vw] h-[95vh] flex justify-center items-center p-4">
-              <img src="/assets/kcn_1.webp" alt="KCN Activity" className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" />
-            </DialogContent>
-          </Dialog>
+          <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
+            <ImageModal 
+              src="/assets/kcn_1.webp" 
+              alt="KCN Activity" 
+              className="w-full h-40 md:h-56 object-cover rounded-xl shadow-lg" 
+            />
+          </div>
 
-          <Dialog>
-            <DialogTrigger asChild>
-              <button className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full text-left cursor-pointer hover:border-amber-accent transition-colors group focus:outline-none">
-                <img loading="lazy" src="/assets/kcn_2.webp" alt="KCN Activity" className="w-full h-40 md:h-56 object-cover rounded-xl shadow-lg group-hover:opacity-90 transition-opacity" />
-              </button>
-            </DialogTrigger>
-            <DialogContent className="bg-transparent border-none shadow-none max-w-7xl w-[95vw] h-[95vh] flex justify-center items-center p-4">
-              <img src="/assets/kcn_2.webp" alt="KCN Activity" className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" />
-            </DialogContent>
-          </Dialog>
+          <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
+            <ImageModal 
+              src="/assets/kcn_2.webp" 
+              alt="KCN Activity" 
+              className="w-full h-40 md:h-56 object-cover rounded-xl shadow-lg" 
+            />
+          </div>
         </div>
 
       </div>

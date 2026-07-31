@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/carousel";
 import { getKCKImages } from '../stores/AssetStore';
 
+import ImageModal from '../components/ImageModal';
+
 export default function KCK({ content }) {
   const kckImages = getKCKImages();
   
@@ -119,7 +121,7 @@ export default function KCK({ content }) {
                 <CarouselContent className="-ml-2">
                   {kckImages.map((image) => (
                     <CarouselItem key={image.id} className="pl-2 basis-full">
-                      <img 
+                      <ImageModal 
                         src={image.img} 
                         alt="Kuki Christian Khangthah" 
                         className="w-full h-[250px] rounded-xl shadow-lg object-cover"
