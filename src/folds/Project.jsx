@@ -10,8 +10,26 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Hammer } from '@phosphor-icons/react';
+import { getConstructionImages } from '../stores/AssetStore';
 
 export default function Project({ content, renderCards }) {
+  const constructionImages = getConstructionImages();
+  
+  // Basic column split for masonry (same logic used in Gallery)
+  const columns = { col1: [], col2: [], col3: [] };
+  constructionImages.forEach((image, i) => {
+    if (i % 3 === 0) columns.col1.push(image);
+    else if (i % 3 === 1) columns.col2.push(image);
+    else columns.col3.push(image);
+  });
   return (
     <section id="project" className="relative h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
@@ -37,12 +55,65 @@ export default function Project({ content, renderCards }) {
                   {content?.description}
                 </p>
                 
-                <div className="mt-8 relative z-10">
+                <div className="mt-8 relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
                   <p className="text-sm tracking-widest uppercase text-amber-accent font-semibold flex items-center gap-4">
                     <span>Swipe to view renders</span>
                     <span className="w-12 h-[1px] bg-amber-accent/50"></span>
                     <span className="animate-pulse">→</span>
                   </p>
+                  
+                  <div className="md:ml-auto">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <button className="flex items-center justify-center gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 text-amber-accent px-6 py-3 rounded-full font-bold transition-colors">
+                          <Hammer weight="bold" size={20} /> View Construction Progress
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="bg-forest-900 border-white/10 text-bone-50 max-w-7xl w-[95vw] h-[90vh] rounded-3xl overflow-y-auto">
+                        <DialogHeader>
+                          <DialogTitle className="text-left text-2xl md:text-4xl font-serif text-amber-accent mb-4">Construction Progress</DialogTitle>
+                        </DialogHeader>
+                        <div className="mt-4 pb-12">
+                          {/* Masonry Grid */}
+                          <div className="flex w-full gap-4 relative">
+                            {/* Mobile single column, Tablet 2 col, Desktop 3 col via flex column wrappers */}
+                            <div className="flex flex-col gap-4 w-full md:w-1/2 lg:w-1/3">
+                              {columns.col1.map((image) => (
+                                <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
+                              ))}
+                              {/* Show col2 and col3 here on mobile */}
+                              <div className="md:hidden flex flex-col gap-4">
+                                {columns.col2.map((image) => (
+                                  <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
+                                ))}
+                                {columns.col3.map((image) => (
+                                  <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="hidden md:flex flex-col gap-4 w-1/2 lg:w-1/3">
+                              {columns.col2.map((image) => (
+                                <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
+                              ))}
+                              {/* Show col3 here on tablet */}
+                              <div className="lg:hidden flex flex-col gap-4">
+                                {columns.col3.map((image) => (
+                                  <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="hidden lg:flex flex-col gap-4 w-1/3">
+                              {columns.col3.map((image) => (
+                                <img key={image.id} src={image.img} className="w-full rounded-2xl border border-white/5 shadow-xl bg-forest-800 object-cover" loading="lazy" />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
                 </div>
               </CardContent>
             </Card>

@@ -2,6 +2,16 @@
 // It provides a clean interface to fetch project renders and gallery images.
 
 const galleryModules = import.meta.glob('/public/assets/gallery/*.{webp,jpeg,jpg,png}', { eager: true });
+const constructionModules = import.meta.glob('/public/assets/construction/*.{webp,jpeg,jpg,png}', { eager: true });
+
+export function getConstructionImages() {
+  return Object.keys(constructionModules)
+    .map((key, index) => ({
+      id: index + 1,
+      img: constructionModules[key].default,
+      height: 300 + Math.random() * 300
+    }));
+}
 
 export function getGalleryImages(limit = 15) {
   return Object.keys(galleryModules)
