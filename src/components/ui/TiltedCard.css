@@ -24,6 +24,9 @@
   .tilted-card-caption {
     display: none;
   }
+  .tilted-card-img {
+    object-fit: contain;
+  }
 }
 
 .tilted-card-inner {
