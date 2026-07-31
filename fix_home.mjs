@@ -1,0 +1,11 @@
+import fs from 'fs';
+let c = fs.readFileSync('src/pages/Home.jsx', 'utf8');
+c = c.replace(/from '\.\//g, "from '../");
+c = c.replace(/function App/g, 'function Home');
+c = c.replace(/export default App/g, 'export default Home');
+c = c.replace(/import \{ TooltipProvider \} from '@\/components\/ui\/tooltip';\n/, '');
+c = c.replace(/import \{ Toaster \} from '@\/components\/ui\/sonner';\n/, '');
+c = c.replace(/<TooltipProvider>\n/, '');
+c = c.replace(/<\/TooltipProvider>\n/, '');
+c = c.replace(/<Toaster \/>\n/, '');
+fs.writeFileSync('src/pages/Home.jsx', c);
