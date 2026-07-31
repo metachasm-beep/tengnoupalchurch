@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -20,6 +20,112 @@ import {
 import { Hammer, Play } from '@phosphor-icons/react';
 import { getConstructionImages, getProjectVideos } from '../stores/AssetStore';
 import ImageModal from '../components/ImageModal';
+
+function TimelineView({ timeline }) {
+  const years = useMemo(() => {
+    if (!timeline) return [];
+    const yearSet = new Set();
+    timeline.forEach(t => {
+      if (t.date === 'General Progress' || t.date === 'Notice' || t.date.includes('General') || t.date.includes('Notice')) {
+         yearSet.add('General');
+         t.year = 'General';
+      } else {
+         const match = t.date.match(/\d{4}/);
+         if (match) {
+           yearSet.add(match[0]);
+           t.year = match[0];
+         } else {
+           yearSet.add('General');
+           t.year = 'General';
+         }
+      }
+    });
+    return Array.from(yearSet).sort((a, b) => a === 'General' ? 1 : b === 'General' ? -1 : a - b);
+  }, [timeline]);
+
+  const [activeYear, setActiveYear] = useState(years[0] || 'General');
+
+  const events = useMemo(() => {
+    return (timeline || []).filter(t => t.year === activeYear);
+  }, [timeline, activeYear]);
+
+  return (
+    <div className="flex flex-col h-full">
+      <div className="flex gap-4 border-b border-white/10 pb-4 mb-6 overflow-x-auto shrink-0">
+        {years.map(year => (
+          <button
+            key={year}
+            onClick={() => setActiveYear(year)}
+            className={`px-6 py-2 rounded-full font-serif transition-colors whitespace-nowrap ${
+              activeYear === year 
+                ? 'bg-amber-accent text-forest-900 font-bold shadow-[0_0_15px_rgba(255,183,77,0.3)]' 
+                : 'bg-white/5 text-bone-200 hover:bg-white/10'
+            }`}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex-1 min-h-[400px]">
+        {events.length > 0 ? (
+          <Carousel opts={{ align: "start", loop: false }} className="w-full h-full">
+            <CarouselContent className="-ml-4 h-full">
+              {events.map((event, idx) => (
+                <CarouselItem key={idx} className="pl-4 md:basis-1/2 lg:basis-1/3 h-full">
+                  <div className="flex flex-col h-full bg-white/5 border border-white/10 rounded-3xl p-6">
+                    <span className="text-amber-accent font-bold tracking-wider uppercase text-xs mb-2 block">{event.date}</span>
+                    <h3 className="font-serif text-lg font-medium text-bone-50 mb-4 flex-1">{event.caption}</h3>
+                    
+                    {/* Event Images / Videos Carousel */}
+                    {(event.images?.length > 0 || event.videos?.length > 0) && (
+                      <div className="w-full mt-auto glass p-2 rounded-2xl border border-white/5 shadow-xl bg-black/20">
+                        <Carousel opts={{ align: "start", loop: true }} className="w-full">
+                          <CarouselContent className="-ml-2">
+                            {event.videos?.map((vid, vIdx) => (
+                              <CarouselItem key={`v-${vIdx}`} className="pl-2 basis-full">
+                                <video src={vid} controls className="w-full h-48 object-cover rounded-xl border border-white/5 bg-black" />
+                              </CarouselItem>
+                            ))}
+                            {event.images?.map((img, iIdx) => (
+                              <CarouselItem key={iIdx} className="pl-2 basis-full">
+                                <ImageModal 
+                                  src={img} 
+                                  alt={event.caption} 
+                                  className="w-full h-48 object-cover rounded-xl border border-white/5" 
+                                />
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          {(event.images?.length + (event.videos?.length || 0)) > 1 && (
+                            <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-2 pointer-events-none">
+                              <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
+                              <CarouselNext className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
+                            </div>
+                          )}
+                        </Carousel>
+                      </div>
+                    )}
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            {events.length > 3 && (
+              <div className="flex justify-center gap-4 mt-6">
+                <CarouselPrevious className="relative static translate-x-0 translate-y-0 bg-white/5 border-white/10 hover:bg-amber-accent hover:text-forest-900" />
+                <CarouselNext className="relative static translate-x-0 translate-y-0 bg-white/5 border-white/10 hover:bg-amber-accent hover:text-forest-900" />
+              </div>
+            )}
+          </Carousel>
+        ) : (
+          <div className="flex items-center justify-center h-full text-bone-200/50 font-serif text-xl">
+            No events found for {activeYear}.
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function Project({ content, renderCards }) {
   const constructionImages = getConstructionImages();
@@ -113,14 +219,22 @@ export default function Project({ content, renderCards }) {
                         <DialogHeader className="p-6 pb-2">
                           <DialogTitle className="text-left text-2xl md:text-3xl font-serif text-amber-accent">Church Building Committee</DialogTitle>
                         </DialogHeader>
-                        <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                          {content?.committeeImages?.map((imgStr, idx) => (
-                            <div key={idx} className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 shadow-xl bg-forest-800">
-                              <ImageModal 
-                                src={imgStr} 
-                                alt="Committee Member" 
-                                className="w-full h-64 object-cover rounded-xl"
-                              />
+                        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                          {content?.committee?.map((member, idx) => (
+                            <div key={idx} className="relative rounded-2xl overflow-hidden glass p-4 border border-white/5 shadow-xl bg-forest-800 flex flex-col items-center text-center">
+                              {member.img ? (
+                                <ImageModal 
+                                  src={member.img} 
+                                  alt={member.name} 
+                                  className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-4 border-4 border-white/10"
+                                />
+                              ) : (
+                                <div className="w-32 h-32 md:w-40 md:h-40 bg-forest-900 rounded-full mb-4 border-4 border-white/10 flex items-center justify-center">
+                                  <span className="text-4xl text-amber-accent/50 font-serif">{member.name.charAt(4)}</span>
+                                </div>
+                              )}
+                              <h4 className="font-serif text-base md:text-lg text-bone-50 font-medium">{member.name}</h4>
+                              <p className="text-amber-accent/80 text-xs md:text-sm uppercase tracking-wider mt-1">{member.role}</p>
                             </div>
                           ))}
                         </div>
@@ -138,53 +252,8 @@ export default function Project({ content, renderCards }) {
                         <DialogHeader>
                           <DialogTitle className="text-left text-2xl md:text-4xl font-serif text-amber-accent mb-4">Construction Timeline</DialogTitle>
                         </DialogHeader>
-                        <div className="mt-4 pb-12 relative">
-                          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2"></div>
-                          <div className="flex flex-col gap-12 md:gap-24">
-                            {content?.timeline?.map((event, i) => (
-                              <div key={i} className={`relative flex flex-col md:flex-row gap-8 md:gap-16 w-full ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                                <div className="absolute left-4 md:left-1/2 top-0 w-4 h-4 bg-amber-accent rounded-full -translate-x-1/2 shadow-[0_0_15px_rgba(255,183,77,0.5)] z-10 border-4 border-forest-900"></div>
-                                
-                                <div className="w-full md:w-1/2 pl-12 md:pl-0 flex flex-col pt-1">
-                                  <div className={`flex flex-col ${i % 2 === 0 ? 'md:items-start md:text-left' : 'md:items-end md:text-right'}`}>
-                                    <span className="text-amber-accent font-bold tracking-wider uppercase text-sm mb-2">{event.date}</span>
-                                    <h3 className="font-serif text-xl md:text-2xl font-medium text-bone-50 mb-4 bg-white/5 p-4 rounded-xl border border-white/10 shadow-lg">{event.caption}</h3>
-                                    
-                                    {/* Event Images / Videos Carousel */}
-                                    {(event.images?.length > 0 || event.videos?.length > 0) && (
-                                      <div className="w-full max-w-lg mt-4 glass p-2 rounded-2xl border border-white/5 shadow-xl">
-                                        <Carousel opts={{ align: "start", loop: true }} className="w-full">
-                                          <CarouselContent className="-ml-2">
-                                            {event.videos?.map((vid, vIdx) => (
-                                              <CarouselItem key={`v-${vIdx}`} className="pl-2 basis-full">
-                                                <video src={vid} controls className="w-full h-64 object-cover rounded-xl border border-white/5 bg-black" />
-                                              </CarouselItem>
-                                            ))}
-                                            {event.images?.map((img, idx) => (
-                                              <CarouselItem key={idx} className="pl-2 basis-full">
-                                                <ImageModal 
-                                                  src={img} 
-                                                  alt={event.caption} 
-                                                  className="w-full h-64 object-cover rounded-xl border border-white/5" 
-                                                />
-                                              </CarouselItem>
-                                            ))}
-                                          </CarouselContent>
-                                          {(event.images?.length + (event.videos?.length || 0)) > 1 && (
-                                            <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-2 pointer-events-none">
-                                              <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
-                                              <CarouselNext className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
-                                            </div>
-                                          )}
-                                        </Carousel>
-                                      </div>
-                                    )}
-                                  </div>
-                                </div>
-                                <div className="hidden md:block w-1/2"></div>
-                              </div>
-                            ))}
-                          </div>
+                        <div className="mt-4 pb-12 relative flex-1 min-h-0">
+                          <TimelineView timeline={content?.timeline} />
                         </div>
                       </DialogContent>
                     </Dialog>

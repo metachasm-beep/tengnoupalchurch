@@ -89,6 +89,24 @@
         "videos": []
       },
       {
+        "id": "root_2",
+        "caption": "Notice",
+        "date": "15 Feb 2023",
+        "images": [
+          "/assets/timeline/event_root/Notice Nisim 15 Feb 2023.webp"
+        ],
+        "videos": []
+      },
+      {
+        "id": "root_1",
+        "caption": "Notice",
+        "date": "6 Apr 2023",
+        "images": [
+          "/assets/timeline/event_root/Notice 6 Apr 2023.webp"
+        ],
+        "videos": []
+      },
+      {
         "id": "event_16",
         "originalFolder": "On 12th April 2023, the New Church Building Constr",
         "caption": "On 12th April 2023, the New Church Building Constr",
@@ -353,6 +371,15 @@
         "videos": []
       },
       {
+        "id": "root_0",
+        "caption": "Update",
+        "date": "25 Jan 2026",
+        "images": [
+          "/assets/timeline/event_root/January 25 2026.webp"
+        ],
+        "videos": []
+      },
+      {
         "id": "event_20",
         "originalFolder": "On 26 January, 2026, a Social Service was conducte",
         "caption": "On 26 January, 2026, a Social Service was conducte",
@@ -551,9 +578,19 @@
           "/assets/timeline/event_8/WhatsApp Image 2026-07-31 at 10.39.46 PM (2).webp",
           "/assets/timeline/event_8/WhatsApp Image 2026-07-31 at 10.39.46 PM.webp",
           "/assets/timeline/event_8/WhatsApp Image 2026-07-31 at 10.39.47 PM (1).webp",
-          "/assets/timeline/event_8/WhatsApp Image 2026-07-31 at 10.39.47 PM.webp"
+          "/assets/timeline/event_8/WhatsApp Image 2026-07-31 at 10.39.47 PM.webp",
+          "/assets/timeline/event_root/WhatsApp Image 2026-07-31 at 11.06.45 PM.webp",
+          "/assets/timeline/event_root/WhatsApp Image 2026-07-31 at 11.06.46 PM (1).webp",
+          "/assets/timeline/event_root/WhatsApp Image 2026-07-31 at 11.06.46 PM.webp",
+          "/assets/timeline/event_root/WhatsApp Image 2026-07-31 at 11.59.19 PM (1).webp",
+          "/assets/timeline/event_root/WhatsApp Image 2026-07-31 at 11.59.19 PM.webp",
+          "/assets/timeline/event_root/WhatsApp Image 2026-07-31 at 11.59.20 PM (1).webp",
+          "/assets/timeline/event_root/WhatsApp Image 2026-07-31 at 11.59.20 PM.webp",
+          "/assets/timeline/event_root/WhatsApp Image 2026-07-31 at 11.59.21 PM.webp"
         ],
-        "videos": []
+        "videos": [
+          "/assets/timeline/event_root/WhatsApp Video 2026-07-31 at 11.06.45 PM.mp4"
+        ]
       }
     ],
     "committeeImages": [
@@ -561,6 +598,58 @@
       "/assets/timeline/event_6/H Daniel Thangtinlen Mate.webp",
       "/assets/timeline/event_6/Secretary.webp",
       "/assets/timeline/event_6/Upa T Seikholet Baite.webp"
+    ],
+    "committee": [
+      {
+        "name": "Mr. Lh. Haokholen Mate",
+        "role": "Chairman",
+        "img": ""
+      },
+      {
+        "name": "Mr. Ph. Lunkhogin Mate",
+        "role": "Secretary",
+        "img": "/assets/timeline/event_6/Secretary.webp"
+      },
+      {
+        "name": "Mr. Upa T. Seikholet Baite",
+        "role": "Member",
+        "img": "/assets/timeline/event_6/Upa T Seikholet Baite.webp"
+      },
+      {
+        "name": "Mr. Ph Jangkholet Mate",
+        "role": "Member",
+        "img": ""
+      },
+      {
+        "name": "Mr. S. Jamkhokhai Mate",
+        "role": "Member",
+        "img": ""
+      },
+      {
+        "name": "Mr. Ch Ngamson Mate",
+        "role": "Member",
+        "img": ""
+      },
+      {
+        "name": "Mr. H. Jamkhogin Mate",
+        "role": "Member",
+        "img": ""
+      },
+      {
+        "name": "Mr. T. Hemkholen Baite",
+        "role": "Member",
+        "img": ""
+      },
+      {
+        "name": "Mr. H. Daniel Thangtinlen Mate",
+        "role": "Member",
+        "img": "/assets/timeline/event_6/H Daniel Thangtinlen Mate.webp"
+      },
+      {
+        "name": "Mr. Ch Chungmang Mate",
+        "role": "Member",
+        "img": "/assets/timeline/event_6/Ch Chungmang Mate.webp"
+      }
     ]
   },
   "foundation": {
