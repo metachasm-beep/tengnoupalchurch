@@ -47,7 +47,7 @@ export default function TimelinePage() {
   }, [timeline, activeYear]);
 
   return (
-    <div className="min-h-screen bg-forest-900 text-bone-50 p-6 md:p-12 selection:bg-amber-accent selection:text-forest-900 font-sans">
+    <div className="min-h-screen bg-forest-900 text-bone-50 p-4 sm:p-6 md:p-12 selection:bg-amber-accent selection:text-forest-900 font-sans">
       <div className="max-w-7xl mx-auto flex flex-col h-full">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-6 border-b border-white/10 pb-6">
@@ -55,18 +55,18 @@ export default function TimelinePage() {
             <h1 className="text-4xl md:text-5xl font-serif text-amber-accent mb-2">Construction Timeline</h1>
             <p className="text-bone-200/70">Tracking the progress of the New Church Building Project</p>
           </div>
-          <Link to="/#nav-project" className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-bone-50 px-6 py-3 rounded-full font-bold transition-colors w-fit border border-white/10">
-            <ArrowLeft size={20} /> Back to Project
+          <Link to="/#nav-project" className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-bone-50 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full font-bold transition-colors w-fit border border-white/10">
+            <ArrowLeft size={18} className="sm:w-5 sm:h-5" /> Back to Project
           </Link>
         </div>
 
         {/* Year Tabs */}
-        <div className="flex gap-4 border-b border-white/10 pb-4 mb-8 overflow-x-auto shrink-0">
+        <div className="flex gap-2 sm:gap-4 border-b border-white/10 pb-3 sm:pb-4 mb-6 sm:mb-8 overflow-x-auto shrink-0 scrollbar-hide">
           {years.map(year => (
             <button
               key={year}
               onClick={() => setActiveYear(year)}
-              className={`px-8 py-3 rounded-full font-serif transition-colors whitespace-nowrap text-lg ${
+              className={`px-5 py-2 sm:px-8 sm:py-3 rounded-full font-serif transition-colors whitespace-nowrap text-base sm:text-lg ${
                 activeYear === year 
                   ? 'bg-amber-accent text-forest-900 font-bold shadow-[0_0_20px_rgba(255,183,77,0.3)]' 
                   : 'bg-white/5 text-bone-200 hover:bg-white/10 border border-white/5'
@@ -84,7 +84,7 @@ export default function TimelinePage() {
               <CarouselContent className="-ml-6 h-full">
                 {events.map((event, idx) => (
                   <CarouselItem key={idx} className="pl-6 md:basis-1/2 lg:basis-1/3 h-full">
-                    <div className="flex flex-col h-full bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden group">
+                    <div className="flex flex-col h-full bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-6 md:p-8 shadow-2xl relative overflow-hidden group">
                       <div className="absolute top-0 left-0 w-1 h-full bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
                       
                       <span className="text-amber-accent font-bold tracking-widest uppercase text-sm mb-3 block">{event.date}</span>
@@ -111,9 +111,9 @@ export default function TimelinePage() {
                               ))}
                             </CarouselContent>
                             {(event.images?.length + (event.videos?.length || 0)) > 1 && (
-                              <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-3 pointer-events-none">
-                                <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-10 w-10 bg-forest-900/80 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900 text-bone-50" />
-                                <CarouselNext className="relative static translate-x-0 translate-y-0 h-10 w-10 bg-forest-900/80 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900 text-bone-50" />
+                              <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-2 sm:px-3 pointer-events-none">
+                                <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-8 w-8 sm:h-10 sm:w-10 bg-forest-900/80 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900 text-bone-50" />
+                                <CarouselNext className="relative static translate-x-0 translate-y-0 h-8 w-8 sm:h-10 sm:w-10 bg-forest-900/80 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900 text-bone-50" />
                               </div>
                             )}
                           </Carousel>
