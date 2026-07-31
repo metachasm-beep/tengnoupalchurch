@@ -21,6 +21,8 @@ import {
 import { Hammer, Play } from '@phosphor-icons/react';
 import { getConstructionImages, getProjectVideos } from '../stores/AssetStore';
 import ImageModal from '../components/ImageModal';
+import TiltedCard from '../components/ui/TiltedCard';
+import ShinyText from '../components/ui/ShinyText';
 
 export default function Project({ content, renderCards }) {
   const constructionImages = getConstructionImages();
@@ -64,7 +66,7 @@ export default function Project({ content, renderCards }) {
                     <Link to="/project-committee" className="flex-1 group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 text-amber-accent mb-2">
                         <Hammer weight="bold" size={24} className="group-hover:rotate-12 transition-transform" />
-                        <span className="font-serif text-xl font-medium">The Committee</span>
+                        <ShinyText text="The Committee" disabled={false} speed={3} className="font-serif text-xl font-medium" />
                       </div>
                       <p className="text-bone-200/70 text-sm font-light">Meet the dedicated team leading our church building project.</p>
                     </Link>
@@ -72,7 +74,7 @@ export default function Project({ content, renderCards }) {
                     <Link to="/project-timeline" className="flex-1 group flex flex-col items-start justify-center gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 text-amber-accent mb-2">
                         <Play weight="bold" size={24} className="group-hover:translate-x-1 transition-transform" />
-                        <span className="font-serif text-xl font-medium">Construction Timeline</span>
+                        <ShinyText text="Construction Timeline" disabled={false} speed={3} delay={0.5} className="font-serif text-xl font-medium" />
                       </div>
                       <p className="text-bone-200/70 text-sm font-light">Track our progress with photos, videos, and milestones.</p>
                     </Link>
@@ -93,10 +95,17 @@ export default function Project({ content, renderCards }) {
             <CarouselItem key={i} className="h-full flex-shrink-0 pl-0">
               <div className="relative w-full h-full group bg-black flex flex-col items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-b from-forest-900/90 via-forest-900/10 to-transparent z-10 pointer-events-none" />
-                <ImageModal 
-                  src={card.img} 
-                  alt={card.title} 
-                  className="w-full h-[100dvh] object-cover relative z-0 transition-transform duration-[10s] group-hover:scale-105" 
+                <TiltedCard 
+                  imageSrc={card.img} 
+                  altText={card.title} 
+                  containerHeight="100dvh"
+                  containerWidth="100%"
+                  imageHeight="100dvh"
+                  imageWidth="100%"
+                  scaleOnHover={1.05}
+                  rotateAmplitude={5}
+                  showTooltip={false}
+                  showMobileWarning={false}
                 />
                 <div className="absolute top-0 left-0 w-full p-6 sm:p-8 md:p-16 pt-20 sm:pt-24 flex flex-col items-center text-center z-20 pointer-events-none">
                   <h3 className="font-serif text-3xl md:text-5xl font-medium text-bone-50 mb-3 drop-shadow-xl">{card.title}</h3>

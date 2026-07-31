@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import ImageModal from '../components/ImageModal';
+import SpotlightCard from '../components/ui/SpotlightCard';
 import data from '../data.json';
 
 export default function CommitteePage() {
@@ -29,25 +30,25 @@ export default function CommitteePage() {
         {/* Committee Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {committee.map((member, idx) => (
-            <div key={idx} className="relative rounded-3xl overflow-hidden glass p-5 sm:p-6 border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group">
-              <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
-              
-              {member.img ? (
-                <ImageModal 
-                  src={member.img} 
-                  alt={member.name} 
-                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-full mb-4 sm:mb-6 border-4 border-white/10 shadow-xl"
-                  style={member.name === 'Mr. Ph. Lunkhogin Mate' ? { objectPosition: 'center 20%' } : {}}
-                />
-              ) : (
-                <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-forest-900 rounded-full mb-4 sm:mb-6 border-4 border-white/10 shadow-xl flex items-center justify-center">
-                  <span className="text-4xl sm:text-5xl text-amber-accent/30 font-serif">{member.name.charAt(4)}</span>
-                </div>
-              )}
-              
-              <h4 className="font-serif text-xl md:text-2xl text-bone-50 font-medium leading-tight">{member.name}</h4>
-              <p className="text-amber-accent text-sm uppercase tracking-widest mt-2">{member.role}</p>
-            </div>
+              <SpotlightCard key={idx} className="relative rounded-3xl overflow-hidden glass p-5 sm:p-6 border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group" spotlightColor="rgba(255, 183, 77, 0.15)">
+                <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
+                
+                {member.img ? (
+                  <ImageModal 
+                    src={member.img} 
+                    alt={member.name} 
+                    className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-full mb-4 sm:mb-6 border-4 border-white/10 shadow-xl"
+                    style={member.name === 'Mr. Ph. Lunkhogin Mate' ? { objectPosition: 'center 20%' } : {}}
+                  />
+                ) : (
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-forest-900 rounded-full mb-4 sm:mb-6 border-4 border-white/10 shadow-xl flex items-center justify-center">
+                    <span className="text-4xl sm:text-5xl text-amber-accent/30 font-serif">{member.name.charAt(4)}</span>
+                  </div>
+                )}
+                
+                <h4 className="font-serif text-xl md:text-2xl text-bone-50 font-medium leading-tight">{member.name}</h4>
+                <p className="text-amber-accent text-sm uppercase tracking-widest mt-2">{member.role}</p>
+              </SpotlightCard>
           ))}
         </div>
       </div>

@@ -11,6 +11,7 @@ import {
 import { getKCKImages } from '../stores/AssetStore';
 
 import ImageModal from '../components/ImageModal';
+import ScrollFloat from '../components/ui/ScrollFloat';
 
 export default function KCK({ content }) {
   const kckImages = getKCKImages();
@@ -19,6 +20,19 @@ export default function KCK({ content }) {
     <section id="kck" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
       
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center opacity-5 pointer-events-none z-0">
+        <ScrollFloat 
+          animationDuration={1} 
+          ease="back.inOut(2)" 
+          scrollStart="top bottom+=20%" 
+          scrollEnd="bottom top-=20%" 
+          containerClassName="text-[12rem] md:text-[25rem] font-serif font-bold text-bone-50 tracking-tighter whitespace-nowrap" 
+          textClassName="leading-none"
+        >
+          K.C.K
+        </ScrollFloat>
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full flex flex-col gap-6 md:gap-12 items-start">
         
         {/* Mobile Header */}

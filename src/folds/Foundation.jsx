@@ -7,11 +7,19 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import ScrollVelocity from '../components/ui/ScrollVelocity';
 
 export default function Foundation({ content }) {
   return (
     <section id="foundation" className="min-h-[100dvh] w-full flex items-center justify-center bg-forest-900 text-bone-50 relative py-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
+      <div className="absolute inset-0 z-0 flex flex-col items-center justify-center opacity-[0.03] pointer-events-none overflow-hidden h-full">
+        <ScrollVelocity 
+          texts={["ESTABLISHED 1974"]} 
+          velocity={50} 
+          className="text-8xl md:text-[12rem] font-serif font-bold text-amber-accent whitespace-nowrap" 
+        />
+      </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         {/* History Text */}

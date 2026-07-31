@@ -1,6 +1,8 @@
 import React from 'react';
 import { useScrollState } from './ScrollProvider';
 
+import Magnet from './ui/Magnet';
+
 export const sections = [
   { id: 'nav-hero', label: 'Welcome' },
   { id: 'nav-sermons', label: 'Sermons' },
@@ -32,33 +34,40 @@ export default function NavDots() {
       {sections.map(({ id, label }) => {
         const isActive = activeSection === id;
         return (
-          <button
+          <Magnet
             key={id}
-            onClick={() => {
-              const el = document.getElementById(id);
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="group relative flex items-center justify-center w-4 md:w-6"
-            aria-label={`Scroll to ${label}`}
+            padding={30}
+            magnetStrength={3}
+            wrapperClassName="group relative flex items-center justify-center w-4 md:w-6"
+            innerClassName="flex items-center justify-center"
           >
-            {/* Tooltip */}
-            <span 
-              className={`absolute right-6 px-2 py-1 rounded bg-forest-900/90 backdrop-blur-sm text-bone-100 text-xs whitespace-nowrap transition-all duration-300 pointer-events-none border border-forest-800
-                ${isActive && showActiveLabel ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'}
-              `}
+            <button
+              onClick={() => {
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              aria-label={`Scroll to ${label}`}
+              className="flex items-center justify-center relative w-full h-full p-2"
             >
-              {label}
-            </span>
-            
-            {/* Dot */}
-            <div 
-              className={`rounded-full transition-all duration-300 flex-shrink-0 ${
-                isActive 
-                  ? 'bg-amber-accent w-2 h-8 md:w-2.5 md:h-10' 
-                  : 'bg-white/30 hover:bg-white/60 w-2 h-2 md:w-2.5 md:h-2.5'
-              }`}
-            />
-          </button>
+              {/* Tooltip */}
+              <span 
+                className={`absolute right-8 md:right-10 px-2 py-1 rounded bg-forest-900/90 backdrop-blur-sm text-bone-100 text-xs whitespace-nowrap transition-all duration-300 pointer-events-none border border-forest-800
+                  ${isActive && showActiveLabel ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'}
+                `}
+              >
+                {label}
+              </span>
+              
+              {/* Dot */}
+              <div 
+                className={`rounded-full transition-all duration-300 flex-shrink-0 ${
+                  isActive 
+                    ? 'bg-amber-accent w-2 h-8 md:w-2.5 md:h-10' 
+                    : 'bg-white/30 hover:bg-white/60 w-2 h-2 md:w-2.5 md:h-2.5'
+                }`}
+              />
+            </button>
+          </Magnet>
         );
       })}
     </div>
