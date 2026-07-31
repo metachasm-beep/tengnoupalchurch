@@ -4,7 +4,6 @@ import Hero from '../folds/Hero';
 import Sermons from '../folds/Sermons';
 import Project from '../folds/Project';
 import Foundation from '../folds/Foundation';
-import Committee from '../folds/Committee';
 import Houbong from '../folds/Houbong';
 import CE from '../folds/CE';
 import KCK from '../folds/KCK';
@@ -20,7 +19,7 @@ import data from '../data.json';
 
 
 function Home() {
-  const { docx_content, hero, project, foundation, committee, houbong, ce, kck, kcn, kcu, footer } = data;
+  const { docx_content, hero, project, foundation, houbong, ce, kck, kcn, kcu, footer } = data;
   
   const galleryImages = getGalleryImages(50);
   const renderCards = getProjectRenders();
@@ -36,7 +35,6 @@ function Home() {
           <div id="nav-sermons" className="snap-start snap-always"><FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper></div>
           <div id="nav-project" className="snap-start snap-always"><FoldWrapper><Project content={project} renderCards={renderCards} /></FoldWrapper></div>
           <div id="nav-foundation" className="snap-start snap-always"><FoldWrapper><Foundation content={foundation} /></FoldWrapper></div>
-          <div id="nav-committee" className="snap-start snap-always"><FoldWrapper><Committee content={committee} /></FoldWrapper></div>
           
           <div id="nav-houbong" className="snap-start snap-always"><FoldWrapper><Houbong content={houbong} /></FoldWrapper></div>
           <div id="nav-ce" className="snap-start snap-always"><FoldWrapper><CE content={ce} /></FoldWrapper></div>
