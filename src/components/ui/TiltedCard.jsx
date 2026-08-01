@@ -22,7 +22,7 @@ export default function TiltedCard({
   showTooltip = true,
   overlayContent = null,
   displayOverlayContent = false,
-  imageStyle = {}
+  imageClassName = ""
 }) {
   const ref = useRef(null);
 
@@ -105,11 +105,10 @@ export default function TiltedCard({
         <motion.img
           src={imageSrc}
           alt={altText}
-          className="tilted-card-img"
+          className={`tilted-card-img ${imageClassName}`}
           style={{
             width: imageWidth,
-            height: imageHeight,
-            ...imageStyle
+            height: imageHeight
           }}
         />
 
