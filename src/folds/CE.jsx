@@ -125,7 +125,7 @@ export default function CE({ content }) {
                 {allGalleryPhotos.map((photo, idx) => (
                   <CarouselItem key={idx} className="pl-2 basis-[85%] sm:basis-[60%]">
                     <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[28vh] min-h-[200px]">
-                      <img src={photo.src} alt={photo.caption} className="w-full h-full rounded-2xl shadow-lg object-cover" />
+                      <ImageModal src={photo.src} alt={photo.caption} className="w-full h-full rounded-2xl shadow-lg object-cover" />
                       <div className="absolute inset-2 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-2xl" />
                       <p className="absolute bottom-6 left-6 text-xs font-medium text-bone-50 drop-shadow-md z-10">{photo.caption}</p>
                     </div>
@@ -166,16 +166,20 @@ export default function CE({ content }) {
                 {/* Single feature image (Animated Gallery) */}
                 <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[60vh] shrink-0">
                   <AnimatePresence mode="wait">
-                    <motion.img 
+                    <motion.div
                       key={currentCbs}
-                      src={allGalleryPhotos[currentCbs]?.src}
                       initial={{ opacity: 0, scale: 1.05 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.8 }}
-                      className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-2xl object-cover"
-                      alt={allGalleryPhotos[currentCbs]?.caption}
-                    />
+                      className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)]"
+                    >
+                      <ImageModal 
+                        src={allGalleryPhotos[currentCbs]?.src}
+                        alt={allGalleryPhotos[currentCbs]?.caption}
+                        className="w-full h-full rounded-2xl object-cover"
+                      />
+                    </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-2 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-2xl" />
                   <p className="absolute bottom-6 left-6 z-10 text-sm font-medium text-bone-50 drop-shadow-md">
