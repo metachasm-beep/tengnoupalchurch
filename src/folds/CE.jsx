@@ -87,17 +87,25 @@ export default function CE({ content }) {
                         <HoverCard key={i}>
                           <HoverCardTrigger asChild>
                             <div className="flex items-center gap-2 sm:gap-3 p-1 sm:p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer border border-transparent hover:border-white/5">
-                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-accent/50 flex-shrink-0" />
-                              <span className="text-sm text-bone-100">{teacher}</span>
+                              {teacher.img ? (
+                                <img src={teacher.img} alt={teacher.name} className="w-6 h-6 rounded-full object-cover border border-white/10" />
+                              ) : (
+                                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-accent/50 flex-shrink-0" />
+                              )}
+                              <span className="text-sm text-bone-100">{teacher.name}</span>
                             </div>
                           </HoverCardTrigger>
                           <HoverCardContent className="w-64 bg-forest-800 border-white/10 text-bone-50 rounded-xl shadow-xl">
                             <div className="flex justify-between space-x-4">
-                              <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center flex-shrink-0">
-                                <ChalkboardTeacher size={20} className="text-amber-accent" weight="fill" />
-                              </div>
+                              {teacher.img ? (
+                                <img src={teacher.img} alt={teacher.name} className="w-10 h-10 rounded-full object-cover border border-white/10" />
+                              ) : (
+                                <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center flex-shrink-0">
+                                  <ChalkboardTeacher size={20} className="text-amber-accent" weight="fill" />
+                                </div>
+                              )}
                               <div className="space-y-1">
-                                <h4 className="text-sm font-semibold text-bone-50 leading-tight">{teacher}</h4>
+                                <h4 className="text-sm font-semibold text-bone-50 leading-tight">{teacher.name}</h4>
                                 <p className="text-xs text-amber-accent/90">
                                   Teaching Staff
                                 </p>
@@ -117,10 +125,14 @@ export default function CE({ content }) {
             
             <TabsContent value="gallery">
               <div className="w-full flex-col gap-4 flex h-full justify-center">
-                <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5">
-                  <img src="/assets/ce_oja_ho.webp" alt="CE Oja ho" className="w-full h-[25vh] rounded-xl shadow-lg object-cover" />
-                  <p className="absolute bottom-4 left-4 glass px-3 py-1 text-xs font-medium rounded-full">CE Oja ho</p>
-                </div>
+                
+                {content?.images?.map((img, idx) => (
+                  <div key={idx} className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5">
+                    <img src={img} alt="CE Photo" className="w-full h-[25vh] rounded-xl shadow-lg object-cover" />
+                    <p className="absolute bottom-4 left-4 glass px-3 py-1 text-xs font-medium rounded-full">CE Photo</p>
+                  </div>
+                ))}
+
                 <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 h-[30vh]">
                   <AnimatePresence mode="wait">
                     <motion.img 
@@ -184,41 +196,53 @@ export default function CE({ content }) {
                 <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200 uppercase font-medium mb-4">Teaching Staff</h3>
                 <div className="grid grid-cols-2 gap-3">
                   {content?.staff?.teachers?.map((teacher, i) => (
-                    <HoverCard key={i}>
-                      <HoverCardTrigger asChild>
-                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer border border-transparent hover:border-white/5">
-                          <div className="w-2 h-2 rounded-full bg-amber-accent/50 flex-shrink-0" />
-                          <span className="text-sm text-bone-100">{teacher}</span>
-                        </div>
-                      </HoverCardTrigger>
-                      <HoverCardContent className="w-64 bg-forest-800 border-white/10 text-bone-50 rounded-xl shadow-xl">
-                        <div className="flex justify-between space-x-4">
-                          <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center flex-shrink-0">
-                            <ChalkboardTeacher size={20} className="text-amber-accent" weight="fill" />
-                          </div>
-                          <div className="space-y-1">
-                            <h4 className="text-sm font-semibold text-bone-50 leading-tight">{teacher}</h4>
-                            <p className="text-xs text-amber-accent/90">
-                              Teaching Staff
-                            </p>
-                            <p className="text-xs text-bone-100/70 pt-1">
-                              Tengnoupal Christian Church
-                            </p>
-                          </div>
-                        </div>
-                      </HoverCardContent>
-                    </HoverCard>
-                  ))}
+                        <HoverCard key={i}>
+                          <HoverCardTrigger asChild>
+                            <div className="flex items-center gap-2 sm:gap-3 p-1 sm:p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer border border-transparent hover:border-white/5">
+                              {teacher.img ? (
+                                <img src={teacher.img} alt={teacher.name} className="w-6 h-6 rounded-full object-cover border border-white/10" />
+                              ) : (
+                                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-accent/50 flex-shrink-0" />
+                              )}
+                              <span className="text-sm text-bone-100">{teacher.name}</span>
+                            </div>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="w-64 bg-forest-800 border-white/10 text-bone-50 rounded-xl shadow-xl">
+                            <div className="flex justify-between space-x-4">
+                              {teacher.img ? (
+                                <img src={teacher.img} alt={teacher.name} className="w-10 h-10 rounded-full object-cover border border-white/10" />
+                              ) : (
+                                <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center flex-shrink-0">
+                                  <ChalkboardTeacher size={20} className="text-amber-accent" weight="fill" />
+                                </div>
+                              )}
+                              <div className="space-y-1">
+                                <h4 className="text-sm font-semibold text-bone-50 leading-tight">{teacher.name}</h4>
+                                <p className="text-xs text-amber-accent/90">
+                                  Teaching Staff
+                                </p>
+                                <p className="text-xs text-bone-100/70 pt-1">
+                                  Tengnoupal Christian Church
+                                </p>
+                              </div>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
+                      ))}
                 </div>
               </div>
             </div>
           </div>
 
           <div className="w-1/2 flex-col gap-6 flex h-full justify-center">
-            <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5">
-              <img src="/assets/ce_oja_ho.webp" alt="CE Oja ho" className="w-full h-[30vh] rounded-xl shadow-lg object-cover" />
-              <p className="absolute bottom-4 left-4 glass px-3 py-1 text-sm font-medium rounded-full">CE Oja ho</p>
-            </div>
+            
+            {content?.images?.map((img, idx) => (
+              <div key={idx} className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5">
+                <img src={img} alt="CE Photo" className="w-full h-[30vh] rounded-xl shadow-lg object-cover" />
+                <p className="absolute bottom-4 left-4 glass px-3 py-1 text-sm font-medium rounded-full">CE Photo</p>
+              </div>
+            ))}
+
             <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 h-[35vh]">
               <AnimatePresence mode="wait">
                 <motion.img 

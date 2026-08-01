@@ -764,20 +764,49 @@
   "ce": {
     "title": "Christian Education (CE)",
     "staff": {
-      "superintendent": "Pa S Tongkhosei Mate",
-      "secretary": "Pa Ph. Jangkhomang Mate",
+      "superintendent": {
+        "name": "Pa S Tongkhosei Mate",
+        "img": "/assets/ce/Pa S Tongkhosei Mate.webp"
+      },
+      "secretary": {
+        "name": "Pa Ph. Jangkhomang Mate"
+      },
       "teachers": [
-        "Pa Hl. Shonthang Mate",
-        "Pa L. Jamkhokhai Mate",
-        "Pa M. Tongminthang Haokip",
-        "Pa Ph. Seilenjam Mate",
-        "Ng. T. Veikhoneng Baite",
-        "Nu H. Lhunneilhing Mate",
-        "Ng. S. Hatkhonei Mate",
-        "Ng. H. Hatneithem Mate",
-        "Ng. Ch. Chinneichong Mate"
+        {
+          "name": "Pa Hl. Shonthang Mate"
+        },
+        {
+          "name": "Pa L. Jamkhokhai Mate",
+          "img": "/assets/ce/L Jamkhokhai Mate.webp"
+        },
+        {
+          "name": "Pa M. Tongminthang Haokip"
+        },
+        {
+          "name": "Pa Ph. Seilenjam Mate",
+          "img": "/assets/ce/Ph Seilenjam Mate.webp"
+        },
+        {
+          "name": "Ng. T. Veikhoneng Baite"
+        },
+        {
+          "name": "Nu H. Lhunneilhing Mate"
+        },
+        {
+          "name": "Ng. S. Hatkhonei Mate"
+        },
+        {
+          "name": "Ng. H. Hatneithem Mate"
+        },
+        {
+          "name": "Ng. Ch. Chinneichong Mate"
+        }
       ]
-    }
+    },
+    "images": [
+      "/assets/ce/1.webp",
+      "/assets/ce/2.webp"
+    ]
   },
   "kck": {
     "title": "Kuki Christian Khangthah (KCK)",
@@ -858,7 +887,52 @@
       "2007 kum in Pate Seminar anabol'un Thusei in Pr. Jamkhongam Haokip anapang in ahi.",
       "2008 kum in pate khohsahna jalin tolsung KCN ten Pate Revival Camp anabol peh'un hichea chun Pr. Houthang Lhungdim le Evan. Jangkhokai Haokip ana kikou in ahi.",
       "Chuleh 2011 kum in Evan. Tongkhojang Lhouvum ana kikou in Pate Seminar ana kibol in ahi."
-    ]
+    ],
+    "committeeText": "Pa Ch Tongkholet Mate, Chairman\r\nPa Hl Thangkhosei Mate, Secretary \r\n\r\nCommittee : \r\nPa T Hemkhopao  Baite\r\nPa Hl Shonkhopao Mate \r\nPa Ph Shokholal Mate\r\nPa Ch Jangthang Mate \r\nPa Kh Jamkholal Vaiphei\r\nPa Ph Tongthang Mate \r\n\r\nLhacha \r\nPa Ls Thangtinsat Mate",
+    "committee": {
+      "leaders": [
+        {
+          "name": "Pa Ch Tongkholet Mate",
+          "role": "Chairman"
+        },
+        {
+          "name": "Pa Hl Thangkhosei Mate",
+          "role": "Secretary"
+        }
+      ],
+      "members": [
+        {
+          "name": "Pa T Hemkhopao  Baite",
+          "role": "Member"
+        },
+        {
+          "name": "Pa Hl Shonkhopao Mate",
+          "role": "Member"
+        },
+        {
+          "name": "Pa Ph Shokholal Mate",
+          "role": "Member"
+        },
+        {
+          "name": "Pa Ch Jangthang Mate",
+          "role": "Member"
+        },
+        {
+          "name": "Pa Kh Jamkholal Vaiphei",
+          "role": "Member"
+        },
+        {
+          "name": "Pa Ph Tongthang Mate",
+          "role": "Member"
+        }
+      ],
+      "lhacha": [
+        {
+          "name": "Pa Ls Thangtinsat Mate",
+          "role": "Lhacha"
+        }
+      ]
+    }
   },
   "footer": {
     "copyright": "© 2026 Tengnoupal Christian Church.",

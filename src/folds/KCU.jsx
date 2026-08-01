@@ -34,6 +34,50 @@ export default function KCU({ content }) {
             ))}
           </div>
         </div>
+
+          {content?.committee && (
+            <div className="glass p-6 md:p-8 rounded-2xl border border-white/5 mt-8 shadow-xl w-full text-left">
+              <h3 className="text-2xl font-serif text-amber-accent mb-6 text-center">2025-2026 Committee</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h4 className="text-sm tracking-[0.2em] uppercase text-bone-200/50 mb-4 font-semibold">Leaders</h4>
+                  <div className="space-y-4">
+                    {content.committee.leaders?.map((leader, i) => (
+                      <div key={i} className="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span className="text-bone-50 font-medium">{leader.name}</span>
+                        <span className="text-sm text-amber-accent/80">{leader.role}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="text-sm tracking-[0.2em] uppercase text-bone-200/50 mb-4 font-semibold">Members</h4>
+                  <div className="space-y-2">
+                    {content.committee.members?.map((member, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-amber-accent/50"></div>
+                        <span className="text-bone-100">{member.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {content.committee.lhacha?.length > 0 && (
+                <div className="mt-6 border-t border-white/10 pt-6">
+                  <h4 className="text-sm tracking-[0.2em] uppercase text-bone-200/50 mb-4 font-semibold text-center">Lhacha</h4>
+                  <div className="flex justify-center gap-4 flex-wrap">
+                    {content.committee.lhacha.map((l, i) => (
+                      <span key={i} className="bg-white/5 px-4 py-2 rounded-full text-sm font-medium border border-white/10">{l.name}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
       </div>
     </section>
   );
