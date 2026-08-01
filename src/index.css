@@ -43,6 +43,14 @@
   .glass-dark {
     @apply bg-forest-900/60 backdrop-blur-md border border-bone-50/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)];
   }
+  .mask-image-gradient-l {
+    mask-image: linear-gradient(to left, black, transparent);
+    -webkit-mask-image: linear-gradient(to left, black, transparent);
+  }
+  .mask-image-gradient-r {
+    mask-image: linear-gradient(to right, black, transparent);
+    -webkit-mask-image: linear-gradient(to right, black, transparent);
+  }
 }
 
 body {
