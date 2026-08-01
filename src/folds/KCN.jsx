@@ -19,12 +19,12 @@ export default function KCN({ content }) {
       </div>
 
       {/* Mobile Top Image Banner */}
-      <div className="md:hidden absolute top-0 left-0 w-full h-[60vh] z-0 pointer-events-none">
+      <div className="md:hidden absolute top-0 left-0 w-full h-[50vh] z-0 pointer-events-none">
         <img src="/assets/kcn_1.webp" alt="KCN Women" className="w-full h-full object-cover object-top mix-blend-luminosity opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/60 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full h-full flex flex-col md:flex-row items-center gap-12 lg:gap-20 py-24 md:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-20 py-12 md:py-32">
         
         {/* Desktop Left Image (Editorial Split) */}
         <div className="hidden md:block w-5/12 h-[75vh] relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
@@ -37,18 +37,18 @@ export default function KCN({ content }) {
         </div>
 
         {/* Right Content / Mobile Main Content */}
-        <div className="w-full md:w-7/12 flex flex-col items-center md:items-start text-center md:text-left mt-[40vh] md:mt-0">
+        <div className="w-full md:w-7/12 flex flex-col items-center md:items-start text-center md:text-left mt-[35vh] md:mt-0">
           
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-[10px] font-semibold tracking-[0.2em] text-amber-accent uppercase border border-white/10 mb-6 backdrop-blur-md shadow-lg">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-[10px] font-semibold tracking-[0.2em] text-amber-accent uppercase border border-white/10 mb-4 md:mb-6 backdrop-blur-md shadow-lg">
             <Sparkle size={14} weight="fill" className="text-amber-accent" />
             Women's Department
           </div>
           
-          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-8 leading-[1.1] drop-shadow-lg" dangerouslySetInnerHTML={{ __html: content?.title }} />
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-4 md:mb-8 leading-[1.1] drop-shadow-lg" dangerouslySetInnerHTML={{ __html: content?.title }} />
           
           <div className="w-12 h-1 bg-amber-accent/50 rounded-full mb-8 hidden md:block" />
 
-          <p className="italic font-serif text-xl md:text-2xl text-bone-100/90 leading-[1.6] mb-10 md:mb-12 line-clamp-4 md:line-clamp-none md:max-w-xl">
+          <p className="italic font-serif text-xl md:text-2xl text-bone-100/90 leading-[1.6] mb-8 md:mb-12 line-clamp-4 md:line-clamp-none md:max-w-xl">
             {content?.history?.[0]}
           </p>
 
