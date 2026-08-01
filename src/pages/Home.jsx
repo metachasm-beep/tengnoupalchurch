@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../folds/Navbar';
 import Hero from '../folds/Hero';
 import Sermons from '../folds/Sermons';
@@ -17,13 +17,24 @@ import NavDots, { sections } from '../components/NavDots';
 import { getGalleryImages, getProjectRenders } from '../stores/AssetStore';
 import data from '../data.json';
 
-
 function Home() {
   const { docx_content, hero, project, foundation, houbong, ce, kck, kcn, kcu, footer } = data;
   
   const galleryImages = getGalleryImages(50);
   const renderCards = getProjectRenders();
   const sectionIds = sections.map(s => s.id);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
 
   // We let the body handle the scrolling and snapping (defined in index.css)
   return (
