@@ -1,5 +1,6 @@
 import React from 'react';
-import { UserCircle } from '@phosphor-icons/react';
+import { UserCircle, X, BookOpenText } from '@phosphor-icons/react';
+import { Dialog } from "@base-ui/react/dialog";
 import ScrollFloat from '../components/ui/ScrollFloat';
 import SpotlightCard from '../components/ui/SpotlightCard';
 import {
@@ -8,6 +9,30 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import ImageModal from '../components/ImageModal';
+
+const HistoryModal = ({ title, history }) => (
+  <Dialog.Root>
+    <Dialog.Trigger className="text-amber-accent text-xs font-semibold uppercase tracking-widest flex items-center gap-2 hover:text-amber-accent/80 transition-colors mt-2 cursor-pointer z-10 relative">
+      <BookOpenText size={16} /> Read Full History
+    </Dialog.Trigger>
+    <Dialog.Portal>
+      <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-sm duration-200 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
+      <Dialog.Popup className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl z-[100] flex flex-col glass border border-white/10 rounded-3xl p-6 md:p-8 outline-none duration-200 data-open:animate-in data-open:zoom-in-95 data-open:fade-in-0 data-closed:animate-out data-closed:zoom-out-95 data-closed:fade-out-0 shadow-2xl overflow-y-auto custom-scrollbar">
+        <div className="flex justify-between items-center mb-6 shrink-0">
+          <h3 className="font-serif text-2xl text-bone-50">{title}</h3>
+          <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-2 transition-colors outline-none border-none cursor-pointer">
+            <X size={20} weight="bold" />
+          </Dialog.Close>
+        </div>
+        <div className="space-y-4 text-bone-100/90 font-light leading-relaxed">
+          {history?.map((para, i) => (
+            <p key={i}>{para}</p>
+          ))}
+        </div>
+      </Dialog.Popup>
+    </Dialog.Portal>
+  </Dialog.Root>
+);
 
 export default function KCU({ content }) {
   
@@ -69,13 +94,13 @@ export default function KCU({ content }) {
             </h2>
           </div>
 
-          {/* History */}
-          <div className="w-full glass p-6 rounded-3xl border border-white/5 space-y-4 shadow-xl">
-            {content?.history?.map((para, i) => (
-              <p key={i} className="leading-relaxed font-light text-sm text-bone-100/90">
-                {para}
-              </p>
-            ))}
+          {/* History (Mobile Preview) */}
+          <div className="w-full glass p-6 rounded-3xl border border-white/5 shadow-xl relative overflow-hidden flex flex-col items-center text-center">
+            <p className="leading-relaxed font-light text-sm text-bone-100/90 line-clamp-3">
+              {content?.history?.[0]}
+            </p>
+            <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-forest-900 via-forest-900/80 to-transparent pointer-events-none" />
+            <HistoryModal title={content?.title} history={content?.history} />
           </div>
 
           {/* Committee Carousel */}
