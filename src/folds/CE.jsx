@@ -15,6 +15,11 @@ import ImageModal from '../components/ImageModal';
 export default function CE({ content }) {
   const cbsImages = [1, 2, 3, 4, 5].map(i => `/assets/cbs_${i}.webp`);
 
+  const allGalleryPhotos = [
+    ...(content?.images?.map(img => ({ src: img, caption: 'CE Photo' })) || []),
+    ...cbsImages.map(img => ({ src: img, caption: 'Chapang Bible School (CBS) 2025' }))
+  ];
+
   const [currentCbs, setCurrentCbs] = useState(0);
 
   useEffect(() => {
