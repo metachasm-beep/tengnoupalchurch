@@ -68,15 +68,15 @@ export default function KCK({ content }) {
             
             <TabsContent value="leadership">
               <div className="w-full flex-col gap-6 flex h-full">
-                <div className="glass p-4 sm:p-5 rounded-2xl border border-white/5 flex-1 overflow-y-auto max-h-[75vh] custom-scrollbar">
+                <div className="glass p-3 sm:p-4 rounded-2xl border border-white/5 flex-1">
                   <h3 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium mb-3 sm:mb-4 text-center">2025-2026 kum sunga Lamkai ho</h3>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4 sm:gap-y-6">
                     <div>
                       <h4 className="text-[10px] uppercase tracking-wider text-bone-200/50 mb-2 border-b border-white/10 pb-1">Lamkai</h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-1">
                         {content?.lamkai?.map((m, i) => (
-                          <li key={i} className="flex flex-col bg-white/5 p-2 rounded-lg">
+                          <li key={i} className="flex flex-col bg-white/5 p-1.5 px-2 rounded-lg">
                             <span className="text-sm font-medium">{m.name}</span>
                             <span className="text-[10px] text-amber-accent/80">{m.role}</span>
                           </li>
@@ -85,9 +85,9 @@ export default function KCK({ content }) {
                     </div>
                     <div>
                       <h4 className="text-[10px] uppercase tracking-wider text-bone-200/50 mb-2 border-b border-white/10 pb-1">Lhacha</h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-1">
                         {content?.lhacha?.map((m, i) => (
-                          <li key={i} className="flex flex-col bg-white/5 p-2 rounded-lg">
+                          <li key={i} className="flex flex-col bg-white/5 p-1.5 px-2 rounded-lg">
                             <span className="text-sm font-medium">{m.name}</span>
                           </li>
                         ))}
@@ -152,15 +152,15 @@ export default function KCK({ content }) {
               </Carousel>
             </div>
 
-            <div className="glass p-6 rounded-2xl border border-white/5 flex-1 overflow-y-auto max-h-[40vh] custom-scrollbar">
+            <div className="glass p-4 sm:p-5 rounded-2xl border border-white/5 flex-1">
               <h3 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium mb-4 text-center">2025-2026 kum sunga Lamkai ho</h3>
               
-              <div className="grid grid-cols-2 gap-x-4 gap-y-6">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-4">
                 <div>
                   <h4 className="text-[10px] uppercase tracking-wider text-bone-200/50 mb-2 border-b border-white/10 pb-1">Lamkai</h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1">
                     {content?.lamkai?.map((m, i) => (
-                      <li key={i} className="flex flex-col bg-white/5 p-2 rounded-lg">
+                      <li key={i} className="flex flex-col bg-white/5 p-1.5 px-2 rounded-lg">
                         <span className="text-sm font-medium">{m.name}</span>
                         <span className="text-[10px] text-amber-accent/80">{m.role}</span>
                       </li>
@@ -169,9 +169,9 @@ export default function KCK({ content }) {
                 </div>
                 <div>
                   <h4 className="text-[10px] uppercase tracking-wider text-bone-200/50 mb-2 border-b border-white/10 pb-1">Lhacha</h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1">
                     {content?.lhacha?.map((m, i) => (
-                      <li key={i} className="flex flex-col bg-white/5 p-2 rounded-lg">
+                      <li key={i} className="flex flex-col bg-white/5 p-1.5 px-2 rounded-lg">
                         <span className="text-sm font-medium">{m.name}</span>
                       </li>
                     ))}
