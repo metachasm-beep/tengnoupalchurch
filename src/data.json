@@ -619,7 +619,7 @@
       {
         "name": "Mr. Ch Ngamson Mate",
         "role": "Member",
-        "img": ""
+        "img": "/assets/timeline/event_6/Ch Ngamshon Mate.webp"
       },
       {
         "name": "Mr. H. Jamkhogin Mate",
@@ -645,6 +645,11 @@
         "name": "Mr. Ch Chungmang Mate",
         "role": "Member",
         "img": "/assets/timeline/event_6/Ch Chungmang Mate.webp"
+      },
+      {
+        "name": "Mr. Ch Jamkhomang Mate",
+        "role": "Member",
+        "img": "/assets/timeline/event_6/Mr. Ch Jamkhomang Mate.webp"
       }
     ]
   },
