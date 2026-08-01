@@ -21,7 +21,8 @@ export default function TiltedCard({
   showMobileWarning = true,
   showTooltip = true,
   overlayContent = null,
-  displayOverlayContent = false
+  displayOverlayContent = false,
+  imageStyle = {}
 }) {
   const ref = useRef(null);
 
@@ -107,7 +108,8 @@ export default function TiltedCard({
           className="tilted-card-img"
           style={{
             width: imageWidth,
-            height: imageHeight
+            height: imageHeight,
+            ...imageStyle
           }}
         />
 

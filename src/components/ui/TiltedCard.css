@@ -57,6 +57,12 @@
   z-index: 3;
 }
 
+@media (min-width: 769px) {
+  .tilted-card-img {
+    object-position: var(--desk-pos, center);
+  }
+}
+
 @media (max-width: 768px) {
   .tilted-card-mobile-alert {
     display: block;
