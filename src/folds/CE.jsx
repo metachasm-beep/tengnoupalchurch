@@ -62,22 +62,34 @@ export default function CE({ content }) {
                 <div className="glass p-4 sm:p-5 rounded-2xl border border-white/5 flex-1 flex flex-col gap-4 sm:gap-6 max-h-[75vh] overflow-y-auto custom-scrollbar">
                   <div className="flex flex-col gap-2 sm:gap-4 border-b border-white/10 pb-4 sm:pb-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
-                        <ChalkboardTeacher size={24} weight="fill" />
-                      </div>
+                      
+                      {content?.staff?.superintendent?.img ? (
+                        <img src={content.staff.superintendent.img} alt={content.staff.superintendent.name} className="w-10 h-10 rounded-full object-cover border border-white/10" />
+                      ) : (
+                        <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
+                          <ChalkboardTeacher size={24} weight="fill" />
+                        </div>
+                      )}
                       <div>
-                        <h4 className="text-sm font-semibold">{content?.staff?.superintendent}</h4>
+                        <h4 className="text-sm font-semibold">{content?.staff?.superintendent?.name || content?.staff?.superintendent}</h4>
                         <p className="text-xs text-amber-accent/80 font-medium">Superintendent</p>
                       </div>
+  
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
-                        <ChalkboardTeacher size={24} weight="fill" />
-                      </div>
+                      
+                      {content?.staff?.secretary?.img ? (
+                        <img src={content.staff.secretary.img} alt={content.staff.secretary.name} className="w-10 h-10 rounded-full object-cover border border-white/10" />
+                      ) : (
+                        <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
+                          <ChalkboardTeacher size={24} weight="fill" />
+                        </div>
+                      )}
                       <div>
-                        <h4 className="text-sm font-semibold">{content?.staff?.secretary}</h4>
+                        <h4 className="text-sm font-semibold">{content?.staff?.secretary?.name || content?.staff?.secretary}</h4>
                         <p className="text-xs text-amber-accent/80 font-medium">Secretary</p>
                       </div>
+  
                     </div>
                   </div>
                   <div>
@@ -174,22 +186,34 @@ export default function CE({ content }) {
             <div className="glass p-8 rounded-2xl border border-white/5 flex-1 flex flex-col gap-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
               <div className="flex flex-col gap-4 border-b border-white/10 pb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
-                    <ChalkboardTeacher size={24} weight="fill" />
-                  </div>
+                  
+                  {content?.staff?.superintendent?.img ? (
+                    <img src={content.staff.superintendent.img} alt={content.staff.superintendent.name} className="w-12 h-12 rounded-full object-cover border border-white/10" />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
+                      <ChalkboardTeacher size={24} weight="fill" />
+                    </div>
+                  )}
                   <div>
-                    <h4 className="text-base font-semibold">{content?.staff?.superintendent}</h4>
+                    <h4 className="text-base font-semibold">{content?.staff?.superintendent?.name || content?.staff?.superintendent}</h4>
                     <p className="text-sm text-amber-accent/80 font-medium">Superintendent</p>
                   </div>
+  
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
-                    <ChalkboardTeacher size={24} weight="fill" />
-                  </div>
+                  
+                  {content?.staff?.secretary?.img ? (
+                    <img src={content.staff.secretary.img} alt={content.staff.secretary.name} className="w-12 h-12 rounded-full object-cover border border-white/10" />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
+                      <ChalkboardTeacher size={24} weight="fill" />
+                    </div>
+                  )}
                   <div>
-                    <h4 className="text-base font-semibold">{content?.staff?.secretary}</h4>
+                    <h4 className="text-base font-semibold">{content?.staff?.secretary?.name || content?.staff?.secretary}</h4>
                     <p className="text-sm text-amber-accent/80 font-medium">Secretary</p>
                   </div>
+  
                 </div>
               </div>
               <div>
