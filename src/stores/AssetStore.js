@@ -5,6 +5,7 @@ const galleryModules = import.meta.glob('/public/assets/gallery/*.{webp,jpeg,jpg
 const constructionModules = import.meta.glob('/public/assets/construction/*.{webp,jpeg,jpg,png}', { eager: true });
 const kckModules = import.meta.glob('/public/assets/kck/*.{webp,jpeg,jpg,png}', { eager: true });
 const videoModules = import.meta.glob('/public/assets/videos/*.{mp4,mov,avi}', { eager: true });
+const renderModules = import.meta.glob('/public/assets/renders/*.{webp,jpeg,jpg,png}', { eager: true });
 
 export function getKCKImages() {
   return Object.keys(kckModules).map((key, index) => ({
@@ -50,10 +51,47 @@ export function getGalleryImages(limit = 15) {
 }
 
 export function getProjectRenders() {
-  return [
-    { title: "Front View", desc: "Main entrance and facade", img: galleryModules['/public/assets/gallery/InShot_20250701_000923921.jpg.webp']?.default },
-    { title: "Axiometric View", desc: "Overall structural perspective", img: galleryModules['/public/assets/gallery/InShot_20250630_231103059.jpg.webp']?.default, desktopPanClass: "md:object-contain" },
-    { title: "Sectional & Interior View", desc: "Inner sanctum layout", img: galleryModules['/public/assets/gallery/InShot_20250701_191653072.jpg.webp']?.default, desktopPanClass: "md:object-contain" },
-    { title: "Environment Rendering", desc: "Integration with surroundings", img: galleryModules['/public/assets/gallery/InShot_20250701_001016010.jpg.webp']?.default }
-  ];
+  const allRenders = Object.keys(renderModules)
+    .filter(key => key.endsWith('.webp'))
+    .map(key => {
+      let title = "3D Render";
+      let desc = "Church Building Project";
+      let desktopPanClass = "";
+      
+      if (key.includes('InShot_20250701_000923921')) {
+        title = "Front View";
+        desc = "Main entrance and facade";
+      } else if (key.includes('InShot_20250630_231103059')) {
+        title = "Axiometric View";
+        desc = "Overall structural perspective";
+        desktopPanClass = "md:object-contain";
+      } else if (key.includes('InShot_20250701_191653072')) {
+        title = "Sectional & Interior View";
+        desc = "Inner sanctum layout";
+        desktopPanClass = "md:object-contain";
+      } else if (key.includes('InShot_20250701_001016010')) {
+        title = "Environment Rendering";
+        desc = "Integration with surroundings";
+      }
+
+      return {
+        title,
+        desc,
+        img: renderModules[key].default,
+        desktopPanClass
+      };
+    });
+
+  const knownOrder = ["Front View", "Axiometric View", "Sectional & Interior View", "Environment Rendering"];
+  
+  allRenders.sort((a, b) => {
+    const idxA = knownOrder.indexOf(a.title);
+    const idxB = knownOrder.indexOf(b.title);
+    if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+    if (idxA !== -1) return -1;
+    if (idxB !== -1) return 1;
+    return 0; // maintain original order for the rest
+  });
+
+  return allRenders;
 }
