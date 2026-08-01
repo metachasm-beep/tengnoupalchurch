@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { ChalkboardTeacher, Images, Users } from '@phosphor-icons/react';
+import { ChalkboardTeacher } from '@phosphor-icons/react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import ScrollFloat from '../components/ui/ScrollFloat';
+import SpotlightCard from '../components/ui/SpotlightCard';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import ImageModal from '../components/ImageModal';
 
 export default function CE({ content }) {
   const [currentCbs, setCurrentCbs] = useState(0);
@@ -16,8 +23,63 @@ export default function CE({ content }) {
     return () => clearInterval(timer);
   }, [cbsImages.length]);
 
+  // Combine staff into a unified array
+  const staffArray = [];
+  if (content?.staff?.superintendent) {
+    staffArray.push({
+      name: content.staff.superintendent.name || content.staff.superintendent,
+      img: content.staff.superintendent.img,
+      role: 'Superintendent'
+    });
+  }
+  if (content?.staff?.secretary) {
+    staffArray.push({
+      name: content.staff.secretary.name || content.staff.secretary,
+      img: content.staff.secretary.img,
+      role: 'Secretary'
+    });
+  }
+  if (content?.staff?.teachers) {
+    content.staff.teachers.forEach(t => {
+      staffArray.push({
+        name: t.name,
+        img: t.img,
+        role: 'Teaching Staff'
+      });
+    });
+  }
+
+  const allGalleryPhotos = [
+    ...(content?.images?.map(img => ({ src: img, caption: 'CE Photo' })) || []),
+    ...cbsImages.map(img => ({ src: img, caption: 'Chapang Bible School (CBS) 2025' }))
+  ];
+
+  const StaffCard = ({ member, isDesktop = false }) => (
+    <SpotlightCard 
+      spotlightColor="rgba(255, 183, 77, 0.15)"
+      className={`relative rounded-3xl overflow-hidden glass p-4 sm:p-5 border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full ${isDesktop ? '' : 'min-h-[220px]'}`}
+    >
+      <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
+      
+      {member.img ? (
+        <ImageModal 
+          src={member.img} 
+          alt={member.name} 
+          className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg"
+        />
+      ) : (
+        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-forest-900 rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg flex items-center justify-center">
+          <ChalkboardTeacher size={32} weight="fill" className="text-amber-accent/50" />
+        </div>
+      )}
+      
+      <h4 className="font-serif text-base sm:text-lg text-bone-50 font-medium leading-tight line-clamp-2">{member.name}</h4>
+      <p className="text-amber-accent text-xs uppercase tracking-widest mt-1 sm:mt-2">{member.role}</p>
+    </SpotlightCard>
+  );
+
   return (
-    <section id="ce" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-20 md:py-20 overflow-hidden">
+    <section id="ce" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
       
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center opacity-5 pointer-events-none z-0">
@@ -33,119 +95,80 @@ export default function CE({ content }) {
         </ScrollFloat>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full flex flex-col md:flex-row gap-8 md:gap-12 items-start h-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full h-full flex flex-col md:flex-row gap-6 md:gap-12 items-start justify-center">
         
         {/* Mobile Header */}
-        <div className="w-full md:hidden flex flex-col gap-4">
-          <div className="flex items-center gap-4">
-            <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 rounded-full object-cover border border-white/10 shadow-lg" />
-            <h2 className="font-serif text-3xl font-medium tracking-tight text-bone-50">
-              {content?.title}
-            </h2>
+        <div className="w-full md:hidden flex items-center gap-4 mb-2">
+          <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-14 h-14 rounded-full object-cover border border-white/10 shadow-lg" />
+          <h2 className="font-serif text-3xl font-medium tracking-tight text-bone-50">
+            {content?.title}
+          </h2>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="w-full md:hidden flex flex-col gap-6 h-full justify-center">
+          {/* Staff Carousel */}
+          <div className="w-full">
+            <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-3 pl-2">Staff Members</h3>
+            <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
+              <CarouselContent className="-ml-2">
+                {staffArray.map((member, idx) => (
+                  <CarouselItem key={idx} className="pl-2 basis-[55%] sm:basis-[40%]">
+                    <StaffCard member={member} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+
+          {/* Gallery Carousel */}
+          <div className="w-full">
+            <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-3 pl-2">Photographs</h3>
+            <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
+              <CarouselContent className="-ml-2">
+                {allGalleryPhotos.map((photo, idx) => (
+                  <CarouselItem key={idx} className="pl-2 basis-[85%] sm:basis-[60%]">
+                    <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[28vh] min-h-[200px]">
+                      <img src={photo.src} alt={photo.caption} className="w-full h-full rounded-2xl shadow-lg object-cover" />
+                      <div className="absolute inset-2 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-2xl" />
+                      <p className="absolute bottom-6 left-6 text-xs font-medium text-bone-50 drop-shadow-md z-10">{photo.caption}</p>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
 
-        {/* Mobile Tabs Wrapper */}
-        <div className="w-full md:hidden">
-          <Tabs defaultValue="staff" className="w-full">
-            <TabsList className="w-full bg-white/5 border border-white/10 rounded-full mb-6">
-              <TabsTrigger value="staff" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
-                <Users className="mr-2" /> Staff
-              </TabsTrigger>
-              <TabsTrigger value="gallery" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
-                <Images className="mr-2" /> Gallery
-              </TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="staff">
-              <div className="w-full flex-col gap-6 flex h-full">
-                <div className="glass p-4 sm:p-5 rounded-2xl border border-white/5 flex-1 flex flex-col gap-4 sm:gap-6 max-h-[75vh] overflow-y-auto custom-scrollbar">
-                  <div className="flex flex-col gap-2 sm:gap-4 border-b border-white/10 pb-4 sm:pb-6">
-                    <div className="flex items-center gap-3">
-                      
-                      {content?.staff?.superintendent?.img ? (
-                        <img src={content.staff.superintendent.img} alt={content.staff.superintendent.name} className="w-10 h-10 rounded-full object-cover border border-white/10" />
-                      ) : (
-                        <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
-                          <ChalkboardTeacher size={24} weight="fill" />
-                        </div>
-                      )}
-                      <div>
-                        <h4 className="text-sm font-semibold">{content?.staff?.superintendent?.name || content?.staff?.superintendent}</h4>
-                        <p className="text-xs text-amber-accent/80 font-medium">Superintendent</p>
-                      </div>
-  
-                    </div>
-                    <div className="flex items-center gap-3">
-                      
-                      {content?.staff?.secretary?.img ? (
-                        <img src={content.staff.secretary.img} alt={content.staff.secretary.name} className="w-10 h-10 rounded-full object-cover border border-white/10" />
-                      ) : (
-                        <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
-                          <ChalkboardTeacher size={24} weight="fill" />
-                        </div>
-                      )}
-                      <div>
-                        <h4 className="text-sm font-semibold">{content?.staff?.secretary?.name || content?.staff?.secretary}</h4>
-                        <p className="text-xs text-amber-accent/80 font-medium">Secretary</p>
-                      </div>
-  
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200 uppercase font-medium mb-3 sm:mb-4">Teaching Staff</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-3">
-                      {content?.staff?.teachers?.map((teacher, i) => (
-                        <HoverCard key={i}>
-                          <HoverCardTrigger asChild>
-                            <div className="flex items-center gap-2 sm:gap-3 p-1 sm:p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer border border-transparent hover:border-white/5">
-                              {teacher.img ? (
-                                <img src={teacher.img} alt={teacher.name} className="w-6 h-6 rounded-full object-cover border border-white/10" />
-                              ) : (
-                                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-accent/50 flex-shrink-0" />
-                              )}
-                              <span className="text-sm text-bone-100">{teacher.name}</span>
-                            </div>
-                          </HoverCardTrigger>
-                          <HoverCardContent className="w-64 bg-forest-800 border-white/10 text-bone-50 rounded-xl shadow-xl">
-                            <div className="flex justify-between space-x-4">
-                              {teacher.img ? (
-                                <img src={teacher.img} alt={teacher.name} className="w-10 h-10 rounded-full object-cover border border-white/10" />
-                              ) : (
-                                <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center flex-shrink-0">
-                                  <ChalkboardTeacher size={20} className="text-amber-accent" weight="fill" />
-                                </div>
-                              )}
-                              <div className="space-y-1">
-                                <h4 className="text-sm font-semibold text-bone-50 leading-tight">{teacher.name}</h4>
-                                <p className="text-xs text-amber-accent/90">
-                                  Teaching Staff
-                                </p>
-                                <p className="text-xs text-bone-100/70 pt-1">
-                                  Tengnoupal Christian Church
-                                </p>
-                              </div>
-                            </div>
-                          </HoverCardContent>
-                        </HoverCard>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+        {/* Desktop Layout */}
+        <div className="hidden md:flex w-full flex-row gap-8 lg:gap-12 h-full max-h-[80vh] items-stretch">
+          
+          {/* Left Column: Staff */}
+          <div className="w-[55%] flex flex-col h-full">
+            <div className="flex items-center gap-4 mb-6 shrink-0">
+              <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 rounded-full object-cover border border-white/10 shadow-lg" />
+              <div>
+                <h2 className="font-serif text-4xl font-medium tracking-tight text-bone-50">
+                  {content?.title}
+                </h2>
+                <p className="text-amber-accent/80 font-medium tracking-widest uppercase text-xs mt-1">Staff & Teachers</p>
               </div>
-            </TabsContent>
-            
-            <TabsContent value="gallery">
-              <div className="w-full flex-col gap-4 flex h-full justify-center">
-                
-                {content?.images?.map((img, idx) => (
-                  <div key={idx} className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5">
-                    <img src={img} alt="CE Photo" className="w-full h-[25vh] rounded-xl shadow-lg object-cover" />
-                    <p className="absolute bottom-4 left-4 glass px-3 py-1 text-xs font-medium rounded-full">CE Photo</p>
-                  </div>
-                ))}
+            </div>
 
-                <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 h-[30vh]">
+            <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                {staffArray.map((member, idx) => (
+                  <StaffCard key={idx} member={member} isDesktop={true} />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Gallery */}
+          <div className="w-[45%] flex flex-col h-full relative">
+             <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 rounded-3xl flex flex-col gap-4 pb-10">
+                {/* Single feature image (Animated CBS) */}
+                <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[40vh] shrink-0">
                   <AnimatePresence mode="wait">
                     <motion.img 
                       key={currentCbs}
@@ -154,143 +177,32 @@ export default function CE({ content }) {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.8 }}
-                      className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-xl object-cover"
+                      className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-2xl object-cover"
                       alt="Chapang Bible School 2025"
                     />
                   </AnimatePresence>
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-900/80 to-transparent pointer-events-none rounded-2xl" />
-                  <p className="absolute bottom-4 left-4 z-10 px-3 py-1 text-xs font-medium text-bone-50 drop-shadow-md">
+                  <div className="absolute inset-2 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-2xl" />
+                  <p className="absolute bottom-6 left-6 z-10 text-sm font-medium text-bone-50 drop-shadow-md">
                     Chapang Bible School (CBS) 2025
                   </p>
-                  <div className="absolute bottom-4 right-4 z-10 flex gap-1">
+                  <div className="absolute bottom-6 right-6 z-10 flex gap-1.5">
                     {cbsImages.map((_, i) => (
                       <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentCbs ? 'bg-amber-accent' : 'bg-white/30'}`} />
                     ))}
                   </div>
                 </div>
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden md:flex w-full flex-row gap-8 lg:gap-12 items-start h-full">
-          <div className="w-1/2 flex-col gap-8 flex h-full">
-            <div className="flex items-center gap-4">
-              <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-20 h-20 rounded-full object-cover border border-white/10 shadow-lg" />
-              <h2 className="font-serif text-4xl font-medium tracking-tight text-bone-50">
-                {content?.title}
-              </h2>
-            </div>
-
-            <div className="glass p-8 rounded-2xl border border-white/5 flex-1 flex flex-col gap-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
-              <div className="flex flex-col gap-4 border-b border-white/10 pb-6">
-                <div className="flex items-center gap-3">
-                  
-                  {content?.staff?.superintendent?.img ? (
-                    <img src={content.staff.superintendent.img} alt={content.staff.superintendent.name} className="w-12 h-12 rounded-full object-cover border border-white/10" />
-                  ) : (
-                    <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
-                      <ChalkboardTeacher size={24} weight="fill" />
+                {/* Other static images */}
+                <div className="grid grid-cols-2 gap-4">
+                  {content?.images?.map((img, idx) => (
+                    <div key={idx} className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 aspect-square">
+                      <ImageModal src={img} alt="CE Photo" className="w-full h-full rounded-2xl shadow-lg object-cover" />
                     </div>
-                  )}
-                  <div>
-                    <h4 className="text-base font-semibold">{content?.staff?.superintendent?.name || content?.staff?.superintendent}</h4>
-                    <p className="text-sm text-amber-accent/80 font-medium">Superintendent</p>
-                  </div>
-  
+                  ))}
                 </div>
-                <div className="flex items-center gap-3">
-                  
-                  {content?.staff?.secretary?.img ? (
-                    <img src={content.staff.secretary.img} alt={content.staff.secretary.name} className="w-12 h-12 rounded-full object-cover border border-white/10" />
-                  ) : (
-                    <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center text-amber-accent flex-shrink-0">
-                      <ChalkboardTeacher size={24} weight="fill" />
-                    </div>
-                  )}
-                  <div>
-                    <h4 className="text-base font-semibold">{content?.staff?.secretary?.name || content?.staff?.secretary}</h4>
-                    <p className="text-sm text-amber-accent/80 font-medium">Secretary</p>
-                  </div>
-  
-                </div>
-              </div>
-              <div>
-                <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200 uppercase font-medium mb-4">Teaching Staff</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {content?.staff?.teachers?.map((teacher, i) => (
-                        <HoverCard key={i}>
-                          <HoverCardTrigger asChild>
-                            <div className="flex items-center gap-2 sm:gap-3 p-1 sm:p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer border border-transparent hover:border-white/5">
-                              {teacher.img ? (
-                                <img src={teacher.img} alt={teacher.name} className="w-6 h-6 rounded-full object-cover border border-white/10" />
-                              ) : (
-                                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-accent/50 flex-shrink-0" />
-                              )}
-                              <span className="text-sm text-bone-100">{teacher.name}</span>
-                            </div>
-                          </HoverCardTrigger>
-                          <HoverCardContent className="w-64 bg-forest-800 border-white/10 text-bone-50 rounded-xl shadow-xl">
-                            <div className="flex justify-between space-x-4">
-                              {teacher.img ? (
-                                <img src={teacher.img} alt={teacher.name} className="w-10 h-10 rounded-full object-cover border border-white/10" />
-                              ) : (
-                                <div className="w-10 h-10 rounded-full bg-amber-accent/10 flex items-center justify-center flex-shrink-0">
-                                  <ChalkboardTeacher size={20} className="text-amber-accent" weight="fill" />
-                                </div>
-                              )}
-                              <div className="space-y-1">
-                                <h4 className="text-sm font-semibold text-bone-50 leading-tight">{teacher.name}</h4>
-                                <p className="text-xs text-amber-accent/90">
-                                  Teaching Staff
-                                </p>
-                                <p className="text-xs text-bone-100/70 pt-1">
-                                  Tengnoupal Christian Church
-                                </p>
-                              </div>
-                            </div>
-                          </HoverCardContent>
-                        </HoverCard>
-                      ))}
-                </div>
-              </div>
-            </div>
+             </div>
           </div>
 
-          <div className="w-1/2 flex-col gap-6 flex h-full justify-center">
-            
-            {content?.images?.map((img, idx) => (
-              <div key={idx} className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5">
-                <img src={img} alt="CE Photo" className="w-full h-[30vh] rounded-xl shadow-lg object-cover" />
-                <p className="absolute bottom-4 left-4 glass px-3 py-1 text-sm font-medium rounded-full">CE Photo</p>
-              </div>
-            ))}
-
-            <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 h-[35vh]">
-              <AnimatePresence mode="wait">
-                <motion.img 
-                  key={currentCbs}
-                  src={cbsImages[currentCbs]}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-xl object-cover"
-                  alt="Chapang Bible School 2025"
-                />
-              </AnimatePresence>
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-900/80 to-transparent pointer-events-none rounded-2xl" />
-              <p className="absolute bottom-4 left-4 z-10 px-3 py-1 text-sm font-medium text-bone-50 drop-shadow-md">
-                Chapang Bible School (CBS) 2025
-              </p>
-              <div className="absolute bottom-4 right-4 z-10 flex gap-1">
-                {cbsImages.map((_, i) => (
-                  <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentCbs ? 'bg-amber-accent' : 'bg-white/30'}`} />
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>
