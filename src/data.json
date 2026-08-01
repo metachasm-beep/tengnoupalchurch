@@ -612,21 +612,6 @@
         "img": "/assets/timeline/event_6/Secretary.webp"
       },
       {
-        "name": "Ph Mangkholen Mate",
-        "role": "Member",
-        "img": "/assets/timeline/event_6/Ph Mangkholen Mate.webp"
-      },
-      {
-        "name": "M Shonkhopao Haokip",
-        "role": "Member",
-        "img": "/assets/timeline/event_6/M Shonkhopao Haokip.webp"
-      },
-      {
-        "name": "Upa T Thangjang Baite",
-        "role": "Member",
-        "img": "/assets/timeline/event_6/Upa T Seikholet Baite.webp"
-      },
-      {
         "name": "Mr. S. Jamkhokhai Mate",
         "role": "Member",
         "img": ""
@@ -650,11 +635,6 @@
         "name": "Mr. H. Daniel Thangtinlen Mate",
         "role": "Member",
         "img": "/assets/timeline/event_6/H Daniel Thangtinlen Mate.webp"
-      },
-      {
-        "name": "Mr. Ch Chungmang Mate",
-        "role": "Member",
-        "img": "/assets/timeline/event_6/Ch Chungmang Mate.webp"
       }
     ]
   },
@@ -750,15 +730,18 @@
       },
       {
         "role": "Secretary",
-        "name": "Ch Chungmang Mate"
+        "name": "Ch Chungmang Mate",
+        "img": "/assets/timeline/event_6/Ch Chungmang Mate.webp"
       },
       {
         "role": "Finance Secretary",
-        "name": "M Shonkhopao Haokip"
+        "name": "M Shonkhopao Haokip",
+        "img": "/assets/timeline/event_6/M Shonkhopao Haokip.webp"
       },
       {
         "role": "Assistant F/Secy.",
-        "name": "Ph Mangkholen Mate"
+        "name": "Ph Mangkholen Mate",
+        "img": "/assets/timeline/event_6/Ph Mangkholen Mate.webp"
       }
     ]
   },
