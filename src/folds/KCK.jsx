@@ -37,7 +37,7 @@ export default function KCK({ content }) {
         
         {/* Mobile Header */}
         <div className="w-full md:hidden flex flex-col gap-4">
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-bone-50 text-center">
+          <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50 text-center">
             {content?.title}
           </h2>
         </div>
@@ -114,7 +114,7 @@ export default function KCK({ content }) {
         {/* Desktop Layout */}
         <div className="hidden md:flex w-full flex-row gap-8 lg:gap-12 items-start h-full">
           <div className="w-5/12 flex-col gap-6 flex order-1">
-            <h2 className="font-serif text-4xl font-medium tracking-tight text-bone-50">
+            <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-widest uppercase text-bone-50">
               {content?.title}
             </h2>
             <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">

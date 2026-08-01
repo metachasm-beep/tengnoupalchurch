@@ -44,7 +44,7 @@ export default function KCN({ content }) {
             Women's Department
           </div>
           
-          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-4 md:mb-8 leading-[1.1] drop-shadow-lg" dangerouslySetInnerHTML={{ __html: content?.title }} />
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-widest uppercase mb-4 md:mb-8 leading-[1.1] drop-shadow-lg" dangerouslySetInnerHTML={{ __html: content?.title }} />
           
           <div className="w-12 h-1 bg-amber-accent/50 rounded-full mb-8 hidden md:block" />
 

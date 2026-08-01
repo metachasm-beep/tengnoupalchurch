@@ -53,7 +53,7 @@ export default function Project({ content, renderCards }) {
             <Card className="max-w-3xl w-full flex flex-col gap-5 sm:gap-6 md:gap-8 bg-forest-800/50 p-6 md:p-12 rounded-3xl border-white/5 shadow-2xl relative overflow-hidden group backdrop-blur-md text-bone-50">
               <CardContent className="p-0 z-10 flex flex-col gap-6 md:gap-8">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight relative z-10 text-bone-50 leading-[1.1]">
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium tracking-widest uppercase relative z-10 text-bone-50 leading-[1.1]">
                   {content?.title}
                 </h2>
                 <p className="text-bone-100/90 text-base sm:text-lg md:text-xl leading-relaxed relative z-10 font-light max-w-2xl">

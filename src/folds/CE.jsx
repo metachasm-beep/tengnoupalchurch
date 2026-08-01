@@ -101,7 +101,7 @@ export default function CE({ content }) {
         {/* Mobile Header */}
         <div className="w-full md:hidden flex items-center gap-4 mb-2">
           <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-14 h-14 rounded-full object-cover border border-white/10 shadow-lg" />
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-bone-50">
+          <h2 className="font-serif text-2xl md:text-3xl font-medium tracking-widest uppercase text-bone-50">
             {content?.title}
           </h2>
         </div>
@@ -149,7 +149,7 @@ export default function CE({ content }) {
             <div className="flex items-center gap-4 mb-6 shrink-0">
               <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 rounded-full object-cover border border-white/10 shadow-lg" />
               <div>
-                <h2 className="font-serif text-4xl font-medium tracking-tight text-bone-50">
+                <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50">
                   {content?.title}
                 </h2>
                 <p className="text-amber-accent/80 font-medium tracking-widest uppercase text-xs mt-1">Staff & Teachers</p>

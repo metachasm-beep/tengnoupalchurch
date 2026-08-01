@@ -19,7 +19,7 @@ export default function Sermons({ docx_content }) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-24 md:mt-0 py-12 md:py-0">
         <div className="grid md:grid-cols-12 gap-8 md:gap-16">
           <div className="md:col-span-5 flex flex-col gap-4 md:gap-6">
-            <h2 className="font-serif text-3xl md:text-5xl font-medium tracking-tight text-bone-50">Latest Message</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50">Latest Message</h2>
             <div className="flex flex-col gap-4 md:gap-5 text-bone-100">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-900 text-amber-accent text-xs md:text-sm font-medium self-start shadow-sm border border-white/5">
                 <Calendar weight="bold" /> Haggai 1:1-15 & Ezra 1-4

@@ -22,7 +22,7 @@ export default function Committee({ content }) {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full flex flex-col gap-6 md:gap-20">
         
         <div className="mt-8 md:mt-0">
-          <h2 className="font-serif text-3xl md:text-5xl tracking-tight text-bone-50 mb-6 md:mb-12 text-center md:text-left font-medium">
+          <h2 className="font-serif text-3xl md:text-4xl tracking-widest uppercase text-bone-50 mb-6 md:mb-12 text-center md:text-left font-medium">
             {content?.title}
           </h2>
           

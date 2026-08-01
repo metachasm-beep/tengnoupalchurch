@@ -25,7 +25,7 @@ export default function Foundation({ content }) {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-semibold tracking-wider text-amber-accent uppercase mb-6">
              {content?.badge}
           </div>
-          <h2 className="font-serif text-5xl font-medium tracking-tight mb-8 leading-tight drop-shadow-lg" dangerouslySetInnerHTML={{ __html: content?.title }} />
+          <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-widest uppercase mb-8 leading-tight drop-shadow-lg" dangerouslySetInnerHTML={{ __html: content?.title }} />
           
           <div className="space-y-6 text-bone-100 text-lg leading-relaxed border-l-2 border-amber-accent/50 pl-8">
             <p className="italic font-serif text-xl text-bone-50 opacity-90">
@@ -77,7 +77,7 @@ export default function Foundation({ content }) {
                   <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-8 shrink-0" />
 
                   <div className="flex justify-between items-center mb-8 shrink-0">
-                    <h3 className="font-serif text-3xl text-bone-50">Our Foundation</h3>
+                    <h3 className="font-serif text-2xl md:text-3xl text-bone-50 tracking-widest uppercase">Our Foundation</h3>
                     <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-2.5 transition-colors outline-none border-none cursor-pointer shrink-0">
                       <X size={20} weight="bold" />
                     </Dialog.Close>

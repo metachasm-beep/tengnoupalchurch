@@ -89,7 +89,7 @@ export default function KCU({ content }) {
         {/* Mobile Header & Layout */}
         <div className="w-full md:hidden flex flex-col gap-6 h-full justify-center">
           <div className="flex items-center gap-4 mb-2">
-            <h2 className="font-serif text-3xl font-medium tracking-tight text-bone-50">
+            <h2 className="font-serif text-2xl md:text-3xl font-medium tracking-widest uppercase text-bone-50">
               {content?.title}
             </h2>
           </div>
@@ -127,7 +127,7 @@ export default function KCU({ content }) {
           <div className="w-[45%] flex flex-col h-full">
             <div className="flex items-center gap-4 mb-6 shrink-0">
               <div>
-                <h2 className="font-serif text-4xl font-medium tracking-tight text-bone-50 leading-tight">
+                <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50 leading-tight">
                   {content?.title}
                 </h2>
                 <p className="text-amber-accent/80 font-medium tracking-widest uppercase text-xs mt-2">History & Overview</p>

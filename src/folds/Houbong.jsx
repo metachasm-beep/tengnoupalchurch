@@ -153,7 +153,7 @@ export default function Houbong({ content }) {
         
         {/* Left Side: Title */}
         <div className="w-full lg:w-1/3 flex flex-col mb-16 lg:mb-0">
-          <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-bone-50 leading-none drop-shadow-xl">
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium tracking-widest uppercase text-bone-50 leading-none drop-shadow-xl">
             {content?.title || "Tengnoupal\nHoubung"}
           </h2>
           <div className="mt-6 flex items-center gap-4">

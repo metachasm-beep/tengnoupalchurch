@@ -25,7 +25,7 @@ export default function Footer({ content }) {
       />
       
       <div className="relative z-10 flex flex-col items-center justify-center flex-grow gap-8 md:gap-10 text-center px-6 w-full">
-        <h2 className="font-serif text-4xl md:text-6xl text-bone-50 tracking-tight">Visit Us</h2>
+        <h2 className="font-serif text-3xl md:text-5xl text-bone-50 tracking-widest uppercase">Visit Us</h2>
         <div className="flex flex-col items-center gap-4 md:gap-6 text-base md:text-xl font-light">
           <p className="flex flex-col md:flex-row items-center gap-2 md:gap-3 text-amber-accent">
             <MapPin size={28} weight="fill" className="flex-shrink-0" />
