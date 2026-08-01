@@ -69,7 +69,7 @@ export default function Houbong({ content }) {
                           {content?.leaders?.map((leader, idx) => (
                             <div key={idx} className="bg-white/5 p-4 rounded-xl flex items-center gap-4 border border-white/5 shadow-sm">
                               {leader.img ? (
-                                <img src={leader.img} alt={leader.name} className="w-12 h-12 object-cover rounded-full border border-white/10" />
+                                <ImageModal src={leader.img} alt={leader.name} className="w-12 h-12 object-cover rounded-full border border-white/10 cursor-pointer hover:opacity-80 transition-opacity" />
                               ) : (
                                 <div className="w-12 h-12 bg-forest-900 rounded-full border border-white/10 flex items-center justify-center">
                                   <span className="text-lg text-amber-accent/50 font-serif">{leader.name.replace(/(Mr\.|Upa|Ph|Ch)\s*/g, '').charAt(0)}</span>
@@ -188,7 +188,7 @@ export default function Houbong({ content }) {
                     {content?.leaders?.map((leader, idx) => (
                       <div key={idx} className="bg-white/5 p-6 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-5 border border-white/5 hover:bg-white/10 transition-colors text-center sm:text-left">
                         {leader.img ? (
-                          <img src={leader.img} alt={leader.name} className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10" />
+                          <ImageModal src={leader.img} alt={leader.name} className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10 cursor-pointer hover:opacity-80 transition-opacity" />
                         ) : (
                           <div className="w-16 h-16 sm:w-20 sm:h-20 bg-forest-900 rounded-full border-2 border-white/10 flex items-center justify-center shadow-lg">
                             <span className="text-2xl text-amber-accent/50 font-serif">{leader.name.replace(/(Mr\.|Upa|Ph|Ch)\s*/g, '').charAt(0)}</span>

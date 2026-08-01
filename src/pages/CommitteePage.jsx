@@ -22,7 +22,7 @@ export default function CommitteePage() {
             <h1 className="text-4xl md:text-5xl font-serif text-amber-accent mb-2">Church Building Committee</h1>
             <p className="text-bone-200/70">The dedicated team leading our New Church Construction Project</p>
           </div>
-          <Link to="/#nav-project" className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-bone-50 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full font-bold transition-colors w-fit border border-white/10">
+          <Link to="/#project" className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-bone-50 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full font-bold transition-colors w-fit border border-white/10">
             <ArrowLeft size={18} className="sm:w-5 sm:h-5" /> Back to Project
           </Link>
         </div>
