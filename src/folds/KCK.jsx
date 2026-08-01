@@ -68,10 +68,10 @@ export default function KCK({ content }) {
             
             <TabsContent value="leadership">
               <div className="w-full flex-col gap-6 flex h-full">
-                <div className="glass p-5 rounded-2xl border border-white/5 flex-1 overflow-y-auto max-h-[60vh] custom-scrollbar">
-                  <h3 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium mb-4 text-center">2025-2026 kum sunga Lamkai ho</h3>
+                <div className="glass p-4 sm:p-5 rounded-2xl border border-white/5 flex-1 overflow-y-auto max-h-[75vh] custom-scrollbar">
+                  <h3 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium mb-3 sm:mb-4 text-center">2025-2026 kum sunga Lamkai ho</h3>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4 sm:gap-y-6">
                     <div>
                       <h4 className="text-[10px] uppercase tracking-wider text-bone-200/50 mb-2 border-b border-white/10 pb-1">Lamkai</h4>
                       <ul className="space-y-2">

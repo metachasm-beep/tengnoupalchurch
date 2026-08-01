@@ -13,7 +13,7 @@ export default function Hero({ content }) {
       />
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
       
-      <div className="relative z-10 max-w-4xl mx-auto px-6 w-full flex flex-col items-center justify-center text-center gap-4 md:gap-6 mt-[-40px]">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 w-full flex flex-col items-center justify-center text-center gap-4 md:gap-6 mt-0 md:mt-[-40px]">
         <img 
           src="/assets/logo.webp" 
           alt="Tengnoupal Christian Church Logo" 

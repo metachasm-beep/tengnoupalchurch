@@ -40,7 +40,7 @@ export default function TiltedCard({
   const [lastY, setLastY] = useState(0);
 
   function handleMouse(e) {
-    if (!ref.current) return;
+    if (!ref.current || (typeof window !== 'undefined' && window.innerWidth <= 768)) return;
 
     const rect = ref.current.getBoundingClientRect();
     const offsetX = e.clientX - rect.left - rect.width / 2;
@@ -61,11 +61,13 @@ export default function TiltedCard({
   }
 
   function handleMouseEnter() {
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) return;
     scale.set(scaleOnHover);
     opacity.set(1);
   }
 
   function handleMouseLeave() {
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) return;
     opacity.set(0);
     scale.set(1);
     rotateX.set(0);

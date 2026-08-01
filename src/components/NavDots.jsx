@@ -20,6 +20,14 @@ export const sections = [
 export default function NavDots() {
   const { activeSection } = useScrollState();
   const [showActiveLabel, setShowActiveLabel] = React.useState(true);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   React.useEffect(() => {
     setShowActiveLabel(true);
@@ -36,6 +44,7 @@ export default function NavDots() {
         return (
           <Magnet
             key={id}
+            disabled={isMobile}
             padding={30}
             magnetStrength={3}
             wrapperClassName="group relative flex items-center justify-center w-4 md:w-6"

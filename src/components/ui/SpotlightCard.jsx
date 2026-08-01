@@ -5,6 +5,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
   const divRef = useRef(null);
 
   const handleMouseMove = e => {
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) return;
     const rect = divRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;

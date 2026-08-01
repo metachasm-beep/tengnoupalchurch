@@ -74,7 +74,18 @@ export default function Gallery({ galleryImages }) {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
               }}
-              className="absolute inset-0 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 px-4 md:px-0 content-center"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = offset.x * velocity.x;
+                if (swipe < -5000) {
+                  handleNext();
+                } else if (swipe > 5000) {
+                  handlePrev();
+                }
+              }}
+              className="absolute inset-0 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 px-4 md:px-0 content-center cursor-grab active:cursor-grabbing"
             >
               {currentImages.map((item, idx) => (
                 <div 
