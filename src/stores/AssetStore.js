@@ -52,28 +52,14 @@ export function getGalleryImages(limit = 15) {
 
 export function getProjectRenders() {
   const allRenders = Object.keys(renderModules)
-    .filter(key => key.endsWith('.webp'))
+    .filter(key => key.endsWith('.webp') || key.endsWith('.jpeg') || key.endsWith('.jpg') || key.endsWith('.png'))
     .map(key => {
-      let title = "3D Render";
+      // Extract filename without extension
+      let filename = key.split('/').pop().replace(/\.(webp|jpeg|jpg|png)$/i, '');
+      let title = filename;
       let desc = "Church Building Project";
-      let desktopPanClass = "";
+      let desktopPanClass = "scale-[0.8] object-contain";
       
-      if (key.includes('InShot_20250701_000923921')) {
-        title = "Front View";
-        desc = "Main entrance and facade";
-      } else if (key.includes('InShot_20250630_231103059')) {
-        title = "Axiometric View";
-        desc = "Overall structural perspective";
-        desktopPanClass = "md:object-contain";
-      } else if (key.includes('InShot_20250701_191653072')) {
-        title = "Sectional & Interior View";
-        desc = "Inner sanctum layout";
-        desktopPanClass = "md:object-contain";
-      } else if (key.includes('InShot_20250701_001016010')) {
-        title = "Environment Rendering";
-        desc = "Integration with surroundings";
-      }
-
       return {
         title,
         desc,
@@ -82,16 +68,8 @@ export function getProjectRenders() {
       };
     });
 
-  const knownOrder = ["Front View", "Axiometric View", "Sectional & Interior View", "Environment Rendering"];
-  
-  allRenders.sort((a, b) => {
-    const idxA = knownOrder.indexOf(a.title);
-    const idxB = knownOrder.indexOf(b.title);
-    if (idxA !== -1 && idxB !== -1) return idxA - idxB;
-    if (idxA !== -1) return -1;
-    if (idxB !== -1) return 1;
-    return 0; // maintain original order for the rest
-  });
+  // Sort alphabetically by title
+  allRenders.sort((a, b) => a.title.localeCompare(b.title));
 
   return allRenders;
 }
