@@ -171,10 +171,10 @@ export default function Houbong({ content }) {
             
             <Tabs defaultValue="2026" className="w-full">
               <TabsList className="w-full sm:w-auto flex flex-wrap bg-white/5 border border-white/10 p-1 rounded-xl mb-6 sticky top-0 z-10 backdrop-blur-xl">
-                <TabsTrigger value="2026" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
+                <TabsTrigger value="2026" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase text-bone-100/70 hover:text-bone-50 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
                   2026 List
                 </TabsTrigger>
-                <TabsTrigger value="2025" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
+                <TabsTrigger value="2025" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase text-bone-100/70 hover:text-bone-50 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
                   2025 List
                 </TabsTrigger>
               </TabsList>
