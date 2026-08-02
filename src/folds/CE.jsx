@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChalkboardTeacher } from '@phosphor-icons/react';
+import { ChalkboardTeacher, CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { motion, AnimatePresence } from 'motion/react';
 import ScrollFloat from '../components/ui/ScrollFloat';
 import SpotlightCard from '../components/ui/SpotlightCard';
@@ -58,7 +58,7 @@ export default function CE({ content }) {
   const StaffCard = ({ member, isDesktop = false }) => (
     <SpotlightCard 
       spotlightColor="rgba(255, 183, 77, 0.15)"
-      className={`relative rounded-3xl overflow-hidden glass p-4 sm:p-5 border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full ${isDesktop ? '' : 'min-h-[220px]'}`}
+      className={`relative rounded-3xl overflow-hidden glass border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full ${isDesktop ? 'p-3' : 'p-4 sm:p-5 min-h-[220px]'}`}
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
       
@@ -66,16 +66,16 @@ export default function CE({ content }) {
         <ImageModal 
           src={member.img} 
           alt={member.name} 
-          className={`w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : ''}`}
+          className={`${isDesktop ? 'w-14 h-14 sm:w-16 sm:h-16 mb-2' : 'w-20 h-20 sm:w-24 sm:h-24 mb-3 sm:mb-4'} object-cover rounded-full border-2 border-white/10 shadow-lg ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : ''} shrink-0`}
         />
       ) : (
-        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-forest-900 rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg flex items-center justify-center">
-          <ChalkboardTeacher size={32} weight="fill" className="text-amber-accent/50" />
+        <div className={`${isDesktop ? 'w-14 h-14 sm:w-16 sm:h-16 mb-2' : 'w-20 h-20 sm:w-24 sm:h-24 mb-3 sm:mb-4'} bg-forest-900 rounded-full border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
+          <ChalkboardTeacher size={isDesktop ? 24 : 32} weight="fill" className="text-amber-accent/50" />
         </div>
       )}
       
-      <h4 className="font-serif text-base sm:text-lg text-bone-50 font-medium leading-tight line-clamp-2">{member.name}</h4>
-      <p className="text-amber-accent text-xs uppercase tracking-widest mt-1 sm:mt-2">{member.role}</p>
+      <h4 className={`font-serif text-bone-50 font-medium leading-tight line-clamp-2 ${isDesktop ? 'text-sm sm:text-base' : 'text-base sm:text-lg'}`}>{member.name}</h4>
+      <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[10px] mt-1' : 'text-xs mt-1 sm:mt-2'}`}>{member.role}</p>
     </SpotlightCard>
   );
 
@@ -145,9 +145,24 @@ export default function CE({ content }) {
         <div className="hidden md:flex w-full flex-row gap-8 lg:gap-12 h-full max-h-[80vh] items-stretch">
           
           {/* Left Column: Gallery */}
-          <div className="w-[45%] flex flex-col h-full relative">
+          <div className="w-[55%] flex flex-col h-full relative">
              <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 rounded-3xl flex flex-col gap-4 pb-10">
                 <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[60vh] shrink-0">
+                  
+                  {/* Navigation Buttons */}
+                  <button 
+                    onClick={() => setCurrentCbs(prev => (prev - 1 + allGalleryPhotos.length) % allGalleryPhotos.length)}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full backdrop-blur-sm transition-all border border-white/10 cursor-pointer"
+                  >
+                    <CaretLeft size={24} weight="bold" />
+                  </button>
+                  <button 
+                    onClick={() => setCurrentCbs(prev => (prev + 1) % allGalleryPhotos.length)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full backdrop-blur-sm transition-all border border-white/10 cursor-pointer"
+                  >
+                    <CaretRight size={24} weight="bold" />
+                  </button>
+
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentCbs}
@@ -165,7 +180,7 @@ export default function CE({ content }) {
                     </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-2 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-2xl" />
-                  <p className="absolute bottom-6 left-6 z-10 text-sm font-medium text-bone-50 drop-shadow-md">
+                  <p className="absolute bottom-6 left-6 z-10 text-sm font-medium text-bone-50 drop-shadow-md pr-16">
                     {allGalleryPhotos[currentCbs]?.caption}
                   </p>
                   <div className="absolute bottom-6 right-6 z-10 flex gap-1.5 flex-wrap justify-end max-w-[50%]">
@@ -178,7 +193,7 @@ export default function CE({ content }) {
           </div>
 
           {/* Right Column: Staff */}
-          <div className="w-[55%] flex flex-col h-full">
+          <div className="w-[45%] flex flex-col h-full">
             <div className="flex items-center gap-4 mb-6 shrink-0">
               <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 rounded-full object-cover border border-white/10 shadow-lg" />
               <div>
