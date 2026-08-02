@@ -146,7 +146,7 @@ export default function CE({ content }) {
         <div className="hidden md:flex w-full flex-row gap-8 lg:gap-12 h-full max-h-[80vh] items-stretch">
           
           {/* Left Column: Gallery */}
-          <div className="w-[40%] flex flex-col h-full relative transform-gpu scale-[1.2] translate-y-[20%] -translate-x-[10%] origin-center">
+          <div className="w-[45%] flex flex-col h-full relative">
              <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 rounded-3xl flex flex-col gap-4 pb-10">
                 <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[60vh] shrink-0">
                   
@@ -195,7 +195,7 @@ export default function CE({ content }) {
           </div>
 
           {/* Right Column: Staff */}
-          <div className="w-[60%] flex flex-col h-full z-10">
+          <div className="w-[55%] flex flex-col h-full z-10 pl-4 lg:pl-8">
             <div className="flex items-center gap-4 mb-6 shrink-0">
               <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 rounded-full object-cover border border-white/10 shadow-lg" />
               <div>
@@ -206,12 +206,20 @@ export default function CE({ content }) {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10">
-              <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
-                {staffArray.map((member, idx) => (
-                  <StaffCard key={idx} member={member} isDesktop={true} />
-                ))}
-              </div>
+            <div className="w-full mt-8">
+              <Carousel opts={{ align: "start", dragFree: true }} className="w-full relative">
+                <CarouselContent className="-ml-4 py-4">
+                  {staffArray.map((member, idx) => (
+                    <CarouselItem key={idx} className="pl-4 basis-1/2 lg:basis-1/3">
+                      <StaffCard member={member} isDesktop={true} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="hidden lg:block">
+                  <CarouselPrevious className="-left-6" />
+                  <CarouselNext className="-right-6" />
+                </div>
+              </Carousel>
             </div>
           </div>
 
