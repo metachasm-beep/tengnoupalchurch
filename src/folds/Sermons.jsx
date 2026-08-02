@@ -65,9 +65,9 @@ export default function Sermons({ docx_content }) {
           </div>
           
           {/* Desktop Text Container (Hidden on mobile) */}
-          <div className="hidden md:block md:col-span-7 relative h-[600px]">
+          <div className="hidden md:block md:col-span-7 relative h-[720px] translate-y-[10%]">
             <div className="glass-dark rounded-[2rem] h-full shadow-2xl bg-forest-900/50 overflow-hidden relative">
-              <PaginatedReader text={docx_content} maxChars={1000} />
+              <PaginatedReader text={docx_content} maxChars={1200} />
             </div>
           </div>
         </div>
