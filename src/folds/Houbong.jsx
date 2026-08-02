@@ -67,8 +67,21 @@ export default function Houbong({ content }) {
         );
       case 'gms':
         return (
-          <div className="space-y-4 text-bone-100/90 font-light leading-relaxed text-base md:text-lg">
-            {content?.gms?.map((para, i) => <p key={i}>{para}</p>)}
+          <div className="flex flex-col gap-6">
+            <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
+              GMS Mission
+            </h4>
+            <div className="w-full mb-2">
+              <ImageModal 
+                src="/assets/GMS Committee.jpeg" 
+                alt="GMS Committee" 
+                className="w-full h-auto max-h-[40vh] object-cover rounded-2xl shadow-xl border border-white/10"
+              />
+              <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">GMS Committee</p>
+            </div>
+            <div className="space-y-4 text-bone-100/90 font-light leading-relaxed text-base md:text-lg">
+              {content?.gms?.map((para, i) => <p key={i}>{para}</p>)}
+            </div>
           </div>
         );
       case 'leaders':
