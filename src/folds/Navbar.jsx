@@ -39,11 +39,11 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-bone-100">
           {navLinks.map(link => (
-            <button key={link.id} onClick={() => scrollTo(link.id)} className="hover:text-amber-accent transition-colors">
+            <button key={link.id} onClick={() => scrollTo(link.id)} className="hover:text-amber-accent transition-colors cursor-pointer">
               {link.name}
             </button>
           ))}
-          <Button onClick={() => scrollTo('nav-footer')} className="bg-amber-accent text-forest-900 rounded-full font-bold hover:bg-amber-accent-hover transition-all">
+          <Button onClick={() => scrollTo('nav-footer')} className="bg-amber-accent text-forest-900 rounded-full font-bold hover:bg-amber-accent-hover transition-all cursor-pointer">
             Visit Us
           </Button>
         </div>
@@ -53,7 +53,7 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setOpen(!open)}
-            className="w-12 h-12 sm:w-14 sm:h-14 bg-amber-accent text-forest-900 rounded-full flex items-center justify-center shadow-2xl border border-white/10 z-[101]"
+            className="w-12 h-12 sm:w-14 sm:h-14 bg-amber-accent text-forest-900 rounded-full flex items-center justify-center shadow-2xl border border-white/10 z-[101] cursor-pointer"
           >
             <motion.div
               animate={{ rotate: open ? 180 : 0 }}
@@ -90,7 +90,7 @@ export default function Navbar() {
                           exit={{ opacity: 0, transition: { duration: 0.1 } }}
                           transition={{ delay: i * 0.04, type: "spring", stiffness: 300, damping: 20 }}
                           onClick={() => scrollTo(link.id)} 
-                          className="text-center text-sm font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-3 rounded-xl glass-dark border border-white/5 shadow-sm flex items-center justify-center"
+                          className="text-center text-sm font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-3 rounded-xl glass-dark border border-white/5 shadow-sm flex items-center justify-center cursor-pointer"
                         >
                           {link.name}
                         </motion.button>
@@ -110,7 +110,7 @@ export default function Navbar() {
                           exit={{ opacity: 0, transition: { duration: 0.1 } }}
                           transition={{ delay: (churchLifeLinks.length + i) * 0.04, type: "spring", stiffness: 300, damping: 20 }}
                           onClick={() => scrollTo(link.id)} 
-                          className="text-center text-sm font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-3 rounded-xl glass-dark border border-white/5 shadow-sm flex items-center justify-center"
+                          className="text-center text-sm font-medium text-bone-100 hover:text-forest-900 hover:bg-amber-accent transition-all px-2 py-3 rounded-xl glass-dark border border-white/5 shadow-sm flex items-center justify-center cursor-pointer"
                         >
                           {link.name}
                         </motion.button>
@@ -127,7 +127,7 @@ export default function Navbar() {
                   transition={{ delay: navLinks.length * 0.04 }}
                   className="mt-4 pt-4 border-t border-white/10"
                 >
-                  <Button onClick={() => scrollTo('nav-footer')} className="bg-amber-accent text-forest-900 rounded-xl font-bold hover:bg-amber-accent-hover w-full py-6 text-base shadow-lg">
+                  <Button onClick={() => scrollTo('nav-footer')} className="bg-amber-accent text-forest-900 rounded-xl font-bold hover:bg-amber-accent-hover w-full py-6 text-base shadow-lg cursor-pointer">
                     Visit Us
                   </Button>
                 </motion.div>
