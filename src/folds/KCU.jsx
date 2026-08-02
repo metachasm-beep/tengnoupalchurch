@@ -37,11 +37,13 @@ const HistoryModal = ({ title, history }) => (
 export default function KCU({ content }) {
   
   // Combine all committee members into a unified array
-  const allMembers = [
-    ...(content?.committee?.leaders || []),
-    ...(content?.committee?.members || []),
-    ...(content?.committee?.lhacha || [])
-  ];
+  const allMembers = Array.isArray(content?.committee) 
+    ? content.committee 
+    : [
+        ...(content?.committee?.leaders || []),
+        ...(content?.committee?.members || []),
+        ...(content?.committee?.lhacha || [])
+      ];
 
   const MemberCard = ({ member, isDesktop = false }) => (
     <SpotlightCard 

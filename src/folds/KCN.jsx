@@ -1,9 +1,42 @@
 import React from 'react';
-import { Sparkle, ArrowRight, X } from '@phosphor-icons/react';
+import { Sparkle, ArrowRight, X, UserCircle } from '@phosphor-icons/react';
 import { Dialog } from "@base-ui/react/dialog";
 import ScrollVelocity from '../components/ui/ScrollVelocity';
+import SpotlightCard from '../components/ui/SpotlightCard';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import ImageModal from '../components/ImageModal';
 
 export default function KCN({ content }) {
+  const allMembers = Array.isArray(content?.committee) ? content.committee : [];
+
+  const MemberCard = ({ member }) => (
+    <SpotlightCard 
+      spotlightColor="rgba(255, 183, 77, 0.15)"
+      className="relative rounded-3xl overflow-hidden glass p-4 sm:p-5 border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full min-h-[220px]"
+    >
+      <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
+      
+      {member.img ? (
+        <ImageModal 
+          src={member.img} 
+          alt={member.name} 
+          className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg"
+        />
+      ) : (
+        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-forest-900 rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg flex items-center justify-center">
+          <UserCircle size={40} weight="light" className="text-amber-accent/50" />
+        </div>
+      )}
+      
+      <h4 className="font-serif text-base sm:text-lg text-bone-50 font-medium leading-tight line-clamp-2">{member.name}</h4>
+      <p className="text-amber-accent text-xs uppercase tracking-widest mt-1 sm:mt-2">{member.role || 'Member'}</p>
+    </SpotlightCard>
+  );
+
   return (
     <section id="kcn" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative overflow-hidden">
       
@@ -87,6 +120,22 @@ export default function KCN({ content }) {
               </Dialog.Popup>
             </Dialog.Portal>
           </Dialog.Root>
+
+          {/* Committee Carousel */}
+          {allMembers.length > 0 && (
+            <div className="w-full mt-10 md:mt-12">
+              <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-4 pl-2 border-l-2 border-amber-accent/50 leading-none">2025-2026 Committee</h3>
+              <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
+                <CarouselContent className="-ml-2">
+                  {allMembers.map((member, idx) => (
+                    <CarouselItem key={idx} className="pl-2 basis-[55%] sm:basis-[40%] md:basis-[45%] lg:basis-[30%]">
+                      <MemberCard member={member} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          )}
 
         </div>
       </div>

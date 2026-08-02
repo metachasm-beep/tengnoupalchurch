@@ -49,7 +49,8 @@ export default function Houbong({ content }) {
     { id: 'leaders', number: '02', label: 'Leaders', bg: '/assets/houbong_lamkai.webp', filter: 'grayscale-[20%]' },
     { id: 'gms', number: '03', label: 'GMS Mission', bg: '/assets/houbong_1.jpeg', filter: 'sepia-[50%] hue-rotate-180' },
     { id: 'events', number: '04', label: 'Events', bg: '/assets/houbong_1.jpeg', filter: 'hue-rotate-[220deg]' },
-    { id: 'gallery', number: '05', label: 'Gallery', bg: '/assets/houbong_lamkai.webp', filter: 'contrast-125 saturate-150' },
+    { id: 'ordainees', number: '05', label: 'Ordainees', bg: '/assets/houbong_lamkai.webp', filter: 'sepia-[20%] hue-rotate-90' },
+    { id: 'gallery', number: '06', label: 'Gallery', bg: '/assets/houbong_lamkai.webp', filter: 'contrast-125 saturate-150' },
   ];
 
   const getModalContent = (id) => {
@@ -76,6 +77,21 @@ export default function Houbong({ content }) {
               {content?.leaders?.map((leader, idx) => (
                 <LeaderCard key={idx} leader={leader} />
               ))}
+            </div>
+          </div>
+        );
+      case 'ordainees':
+        return (
+          <div className="flex flex-col gap-6">
+            <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
+              Ordainees
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {content?.ordainees?.length > 0 ? content.ordainees.map((person, idx) => (
+                <LeaderCard key={idx} leader={person} />
+              )) : (
+                <p className="text-bone-100/60 italic text-sm">No ordainees listed yet.</p>
+              )}
             </div>
           </div>
         );

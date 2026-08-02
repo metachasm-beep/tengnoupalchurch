@@ -602,7 +602,7 @@
     ],
     "committee": [
       {
-        "name": "Mr. Lh. Haokholen Mate",
+        "name": "S Thongkhothang Haokip",
         "role": "Chairman",
         "img": "/assets/timeline/event_6/Chairman.webp"
       },
@@ -759,7 +759,8 @@
         "name": "Ph Mangkholen Mate",
         "img": "/assets/timeline/event_6/Ph Mangkholen Mate.webp"
       }
-    ]
+    ],
+    "ordainees": []
   },
   "ce": {
     "title": "Christian Education (CE)",
@@ -877,6 +878,68 @@
       "2. 2005 kum in nuten insung tao-gol ananei'un ahi.",
       "3. 2008 kum in Tolsunga Nuten Pate Revival Camp anabol peh'un ahi.",
       "4. 2010 kum in houbunga mandin chakhon 100 tobang ana chodoh'un ahi. Hiche kum a hin Seminar khat anabol'un ahi."
+    ],
+    "committee": [
+      {
+        "name": "Nu H Tinkholhing Mate",
+        "role": "Chairperson",
+        "img": "/assets/kcn/Tinkholhing .jpeg"
+      },
+      {
+        "name": "Nu Ch Themneichong Mate",
+        "role": "Secretary",
+        "img": "/assets/kcn/Ch Themneichong.jpeg"
+      },
+      {
+        "name": "Nu Ph Nemvah Mate",
+        "role": "Committee Member",
+        "img": "/assets/kcn/Ph Nemvah.jpeg"
+      },
+      {
+        "name": "Nu Ch Phalkim Mate",
+        "role": "Committee Member",
+        "img": "/assets/kcn/Ch Phalkim.jpeg"
+      },
+      {
+        "name": "Nu Ph Vahneilhing Mate",
+        "role": "Committee Member",
+        "img": "/assets/kcn/Ph Vahneilhing.jpeg"
+      },
+      {
+        "name": "Nu Ls Nengkim Mate",
+        "role": "Committee Member",
+        "img": "/assets/kcn/Ls Nengkim.jpeg"
+      },
+      {
+        "name": "Nu H Nengkholhing Mate",
+        "role": "Committee Member",
+        "img": "/assets/kcn/H Nengkholhing.jpeg"
+      },
+      {
+        "name": "Nu Hl Hoineichong Mate",
+        "role": "Committee Member",
+        "img": "/assets/kcn/Hl Hoineichong.jpeg"
+      },
+      {
+        "name": "Nu Ch Kimneichong Mate",
+        "role": "Committee Member",
+        "img": "/assets/kcn/Ch Kimneichong.jpeg"
+      },
+      {
+        "name": "Nu Ph Deikholhing Mate",
+        "role": "Committee Member",
+        "img": ""
+      },
+      {
+        "name": "Nu Neijahat Touthang",
+        "role": "Lhacha",
+        "img": "/assets/kcn/Neijahat Touthang.jpeg"
+      },
+      {
+        "name": "Nu S Hoineichong Mate",
+        "role": "Lhacha",
+        "img": ""
+      }
     ]
   },
   "kcu": {
@@ -889,50 +952,48 @@
       "Chuleh 2011 kum in Evan. Tongkhojang Lhouvum ana kikou in Pate Seminar ana kibol in ahi."
     ],
     "committeeText": "Pa Ch Tongkholet Mate, Chairman\r\nPa Hl Thangkhosei Mate, Secretary \r\n\r\nCommittee : \r\nPa T Hemkhopao  Baite\r\nPa Hl Shonkhopao Mate \r\nPa Ph Shokholal Mate\r\nPa Ch Jangthang Mate \r\nPa Kh Jamkholal Vaiphei\r\nPa Ph Tongthang Mate \r\n\r\nLhacha \r\nPa Ls Thangtinsat Mate",
-    "committee": {
-      "leaders": [
-        {
-          "name": "Pa Ch Tongkholet Mate",
-          "role": "Chairman"
-        },
-        {
-          "name": "Pa Hl Thangkhosei Mate",
-          "role": "Secretary"
-        }
-      ],
-      "members": [
-        {
-          "name": "Pa T Hemkhopao  Baite",
-          "role": "Member"
-        },
-        {
-          "name": "Pa Hl Shonkhopao Mate",
-          "role": "Member"
-        },
-        {
-          "name": "Pa Ph Shokholal Mate",
-          "role": "Member"
-        },
-        {
-          "name": "Pa Ch Jangthang Mate",
-          "role": "Member"
-        },
-        {
-          "name": "Pa Kh Jamkholal Vaiphei",
-          "role": "Member"
-        },
-        {
-          "name": "Pa Ph Tongthang Mate",
-          "role": "Member"
-        }
-      ],
-      "lhacha": [
-        {
-          "name": "Pa Ls Thangtinsat Mate",
-          "role": "Lhacha"
-        }
-      ]
-    }
+    "committee": [
+      {
+        "name": "Ch Jangthang",
+        "role": "Committee Member",
+        "img": "/assets/kcu/Ch Jangthang.jpeg"
+      },
+      {
+        "name": "Ch Tongkholet",
+        "role": "Chairman",
+        "img": "/assets/kcu/Ch Tongkholet.jpeg"
+      },
+      {
+        "name": "Hl Shonkhopao",
+        "role": "Committee Member",
+        "img": "/assets/kcu/Hl Shonkhopao.jpeg"
+      },
+      {
+        "name": "Hl Thangkhosei",
+        "role": "Committee Member",
+        "img": "/assets/kcu/Hl Thangkhosei.jpeg"
+      },
+      {
+        "name": "Kh Jamkholal",
+        "role": "Committee Member",
+        "img": "/assets/kcu/Kh Jamkholal.jpeg"
+      },
+      {
+        "name": "Ph Shokholal",
+        "role": "Committee Member",
+        "img": "/assets/kcu/Ph Shokholal.jpeg"
+      },
+      {
+        "name": "Ph Tongthang",
+        "role": "Committee Member",
+        "img": "/assets/kcu/Ph Tongthang.jpeg"
+      },
+      {
+        "name": "T Hemkhopao",
+        "role": "Committee Member",
+        "img": "/assets/kcu/T Hemkhopao.jpeg"
+      }
+    ]
   },
   "footer": {
     "copyright": "© 2026 Tengnoupal Christian Church.",
