@@ -59,7 +59,7 @@ export default function KCN({ content }) {
           <CarouselContent className="h-full ml-0">
             {(content?.gallery?.length ? content.gallery : [{img: "/assets/kcn_1.webp"}]).map((item, idx) => (
               <CarouselItem key={idx} className="pl-0 h-[40vh]">
-                <img src={item.img} alt="KCN Women" className="w-full h-full object-cover object-top mix-blend-luminosity opacity-80" />
+                <img src={item.img} alt="KCN Women" className="w-full h-full object-cover mix-blend-luminosity opacity-80" style={{ objectPosition: idx === 1 ? '50% 40%' : 'top' }} />
               </CarouselItem>
             ))}
           </CarouselContent>
