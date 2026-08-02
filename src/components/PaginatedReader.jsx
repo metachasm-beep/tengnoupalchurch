@@ -26,13 +26,45 @@ export default function PaginatedReader({ text, maxChars = 800 }) {
   let currentLength = 0;
 
   paragraphs.forEach((p) => {
-    if (currentLength + p.length > maxChars && currentPage.length > 0) {
-      pages.push(currentPage);
-      currentPage = [p];
-      currentLength = p.length;
+    if (p.length > maxChars) {
+      const words = p.split(' ');
+      let currentChunk = [];
+      let currentChunkLength = 0;
+      
+      words.forEach(w => {
+        if (currentChunkLength + w.length + 1 > maxChars && currentChunk.length > 0) {
+          if (currentPage.length > 0) {
+            pages.push(currentPage);
+            currentPage = [];
+            currentLength = 0;
+          }
+          pages.push([currentChunk.join(' ')]);
+          currentChunk = [w];
+          currentChunkLength = w.length;
+        } else {
+          currentChunk.push(w);
+          currentChunkLength += w.length + 1;
+        }
+      });
+      if (currentChunk.length > 0) {
+        if (currentLength + currentChunkLength > maxChars && currentPage.length > 0) {
+          pages.push(currentPage);
+          currentPage = [currentChunk.join(' ')];
+          currentLength = currentChunkLength;
+        } else {
+          currentPage.push(currentChunk.join(' '));
+          currentLength += currentChunkLength;
+        }
+      }
     } else {
-      currentPage.push(p);
-      currentLength += p.length;
+      if (currentLength + p.length > maxChars && currentPage.length > 0) {
+        pages.push(currentPage);
+        currentPage = [p];
+        currentLength = p.length;
+      } else {
+        currentPage.push(p);
+        currentLength += p.length;
+      }
     }
   });
   if (currentPage.length > 0) pages.push(currentPage);
@@ -88,7 +120,7 @@ export default function PaginatedReader({ text, maxChars = 800 }) {
             }}
             className="w-full h-full flex items-center"
           >
-            <div className="max-w-prose mx-auto space-y-6 w-full max-h-full overflow-y-auto custom-scrollbar pr-2 pb-4">
+            <div className="max-w-prose mx-auto space-y-6 w-full">
               {pages[pageIdx].map((para, i) => (
                 <p key={i} className="leading-relaxed text-bone-100/95 text-base md:text-lg font-light tracking-wide">
                   {para}
