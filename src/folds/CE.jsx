@@ -58,29 +58,25 @@ export default function CE({ content }) {
   const StaffCard = ({ member, isDesktop = false }) => (
     <SpotlightCard 
       spotlightColor="rgba(255, 183, 77, 0.15)"
-      className={`relative rounded-3xl overflow-hidden glass border border-white/5 shadow-2xl bg-forest-800 flex flex-col group h-full p-0`}
+      className={`relative rounded-3xl overflow-hidden glass p-3 md:p-4 border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full justify-center ${isDesktop ? 'min-h-[140px]' : 'min-h-[220px]'}`}
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors z-20"></div>
       
-      <div className={`w-full relative shrink-0 overflow-hidden ${isDesktop ? 'h-24 md:h-28' : 'h-48 sm:h-56'}`}>
-        {member.img ? (
-          <ImageModal 
-            src={member.img} 
-            alt={member.name}
-            caption={`${member.name} - ${member.role}`}
-            className={`w-full h-full object-cover ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : 'object-top'}`}
-          />
-        ) : (
-          <div className="w-full h-full bg-forest-900 flex items-center justify-center">
-            <ChalkboardTeacher size={isDesktop ? 32 : 48} weight="fill" className="text-amber-accent/50" />
-          </div>
-        )}
-      </div>
+      {member.img ? (
+        <ImageModal 
+          src={member.img} 
+          alt={member.name}
+          caption={`${member.name} - ${member.role}`}
+          className={`w-16 h-16 md:w-20 md:h-20 object-cover rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg shrink-0 ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : 'object-top'}`}
+        />
+      ) : (
+        <div className={`w-16 h-16 md:w-20 md:h-20 bg-forest-900 rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
+          <ChalkboardTeacher size={isDesktop ? 32 : 40} weight="fill" className="text-amber-accent/50" />
+        </div>
+      )}
       
-      <div className={`flex flex-col flex-1 items-center justify-center text-center w-full ${isDesktop ? 'p-2 py-2.5' : 'p-4 sm:p-5'}`}>
-        <h4 className={`font-serif text-bone-50 font-medium leading-tight w-full px-1 ${isDesktop ? 'text-xs' : 'text-lg sm:text-xl'}`}>{member.name}</h4>
-        <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[9px] mt-1' : 'text-sm mt-1 sm:mt-2'}`}>{member.role}</p>
-      </div>
+      <h4 className={`font-serif text-bone-50 font-medium leading-tight w-full ${isDesktop ? 'text-xs md:text-sm' : 'text-base sm:text-lg'}`}>{member.name}</h4>
+      <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[9px] md:text-[10px] mt-1' : 'text-xs mt-1 sm:mt-2'}`}>{member.role}</p>
     </SpotlightCard>
   );
 
@@ -150,7 +146,7 @@ export default function CE({ content }) {
         <div className="hidden md:flex w-full flex-row gap-8 lg:gap-12 h-full max-h-[80vh] items-stretch">
           
           {/* Left Column: Gallery */}
-          <div className="w-[55%] flex flex-col h-full relative">
+          <div className="w-[40%] flex flex-col h-full relative transform-gpu scale-[1.2] translate-y-[20%] -translate-x-[10%] origin-center">
              <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 rounded-3xl flex flex-col gap-4 pb-10">
                 <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[60vh] shrink-0">
                   
@@ -199,7 +195,7 @@ export default function CE({ content }) {
           </div>
 
           {/* Right Column: Staff */}
-          <div className="w-[45%] flex flex-col h-full">
+          <div className="w-[60%] flex flex-col h-full z-10">
             <div className="flex items-center gap-4 mb-6 shrink-0">
               <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 rounded-full object-cover border border-white/10 shadow-lg" />
               <div>
@@ -211,7 +207,7 @@ export default function CE({ content }) {
             </div>
 
             <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10">
-              <div className="grid grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3">
+              <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
                 {staffArray.map((member, idx) => (
                   <StaffCard key={idx} member={member} isDesktop={true} />
                 ))}
