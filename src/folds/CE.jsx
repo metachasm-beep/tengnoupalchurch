@@ -175,6 +175,7 @@ export default function CE({ content }) {
                       <ImageModal 
                         src={allGalleryPhotos[currentCbs]?.src}
                         alt={allGalleryPhotos[currentCbs]?.caption}
+                        caption={allGalleryPhotos[currentCbs]?.caption}
                         className="w-full h-full rounded-2xl object-contain object-center"
                       />
                     </motion.div>
