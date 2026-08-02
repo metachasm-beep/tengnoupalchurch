@@ -948,7 +948,7 @@
         "name": "Upa Thenkhomang Mate ",
         "period": "1992 - till date",
         "remarks": "Ordained kibol ni 19th January, 1992",
-        "img": ""
+        "img": "/assets/houbong/ordainee_Upa_Thenkhomang_Mate.jpeg"
       },
       {
         "name": "Upa T Seikholet Baite ",
@@ -966,7 +966,13 @@
         "name": "Upa Shonkholen Mate",
         "period": "2022 - till date",
         "remarks": "Ordained kibol ni 22th May, 2022",
-        "img": ""
+        "img": "/assets/houbong/ordainee_Upa_Shonkholen_Mate.jpeg"
+      },
+      {
+        "name": "Upa Seikholet Baite",
+        "period": "",
+        "remarks": "",
+        "img": "/assets/houbong/ordainee_Upa_Seikholet_Baite.jpeg"
       }
     ],
     "theologians": [
@@ -978,7 +984,7 @@
       {
         "name": "Pr. Thangkholam Chongloi",
         "degree": "Bachelor of Theology (B.Th)",
-        "img": ""
+        "img": "/assets/houbong/theo_Thangkholam_Chongloi.jpeg"
       },
       {
         "name": "Pastor Zamminlen Mate",
@@ -998,7 +1004,7 @@
       {
         "name": "Gl. Letgoulal Mate",
         "degree": "Bachelor of Divinity (BD)",
-        "img": ""
+        "img": "/assets/houbong/theo_Gl_Letgoulal_Mate.jpeg"
       },
       {
         "name": "Ng. M. Nengneithem Haokip ",
@@ -1009,6 +1015,41 @@
         "name": "Gl. M. Thangjamang Haokip",
         "degree": "Bachelor of Divinity (BD)",
         "img": ""
+      },
+      {
+        "name": "M Nengneithem Haokip",
+        "degree": "",
+        "img": "/assets/houbong/theo_M_Nengneithem_Haokip.jpeg"
+      }
+    ],
+    "gallery": [
+      {
+        "img": "/assets/houbong_lamkai.webp",
+        "caption": "2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho"
+      },
+      {
+        "img": "/assets/houbong_1.jpeg",
+        "caption": "Recent Events"
+      },
+      {
+        "img": "/assets/houbong/houbong_gallery_1785694809728_1.jpeg",
+        "caption": "2025 2026 Tolsung Committee Kipaman hop na"
+      },
+      {
+        "img": "/assets/houbong/houbong_gallery_1785694809730_2.jpeg",
+        "caption": "2025 2026 Tolsung Committee Kipaman hop na"
+      },
+      {
+        "img": "/assets/houbong/houbong_gallery_1785694809731_WhatsApp_Image_2026-08-02_at_10.45.07_PM_(1).jpeg",
+        "caption": "2025 Christmas 2026 New Year Collection In-Charge"
+      },
+      {
+        "img": "/assets/houbong/houbong_gallery_1785694809733_WhatsApp_Image_2026-08-02_at_10.45.07_PM.jpeg",
+        "caption": "2025 Christmas 2026 New Year Collection In-Charge"
+      },
+      {
+        "img": "/assets/houbong/houbong_gallery_1785694809734_WhatsApp_Image_2026-08-02_at_10.45.08_PM.jpeg",
+        "caption": "2025 Christmas 2026 New Year Collection In-Charge"
       }
     ]
   },
@@ -1153,6 +1194,48 @@
       {
         "name": "Gl Ch Jangminthang Mate",
         "role": "Lhacha"
+      }
+    ],
+    "gallery": [
+      {
+        "img": "/assets/kck/kck_gen_1.jpeg",
+        "caption": "KCK Event"
+      },
+      {
+        "img": "/assets/kck/kck_gen_10.jpeg",
+        "caption": "KCK Event"
+      },
+      {
+        "img": "/assets/kck/kck_gen_2.jpeg",
+        "caption": "KCK Event"
+      },
+      {
+        "img": "/assets/kck/kck_gen_3.jpeg",
+        "caption": "KCK Event"
+      },
+      {
+        "img": "/assets/kck/kck_gen_4.jpeg",
+        "caption": "KCK Event"
+      },
+      {
+        "img": "/assets/kck/kck_gen_5.jpeg",
+        "caption": "KCK Event"
+      },
+      {
+        "img": "/assets/kck/kck_gen_6.jpeg",
+        "caption": "KCK Event"
+      },
+      {
+        "img": "/assets/kck/kck_gen_7.jpeg",
+        "caption": "KCK Event"
+      },
+      {
+        "img": "/assets/kck/kck_gen_8.jpeg",
+        "caption": "KCK Event"
+      },
+      {
+        "img": "/assets/kck/kck_gen_9.jpeg",
+        "caption": "KCK Event"
       }
     ]
   },

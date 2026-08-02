@@ -114,10 +114,15 @@ export default function KCK({ content }) {
         {/* Mobile Tabs Wrapper */}
         <div className="w-full md:hidden">
           <Tabs defaultValue="history" className="w-full">
-            <TabsList className="w-full bg-white/5 border border-white/10 rounded-full mb-6">
+            <TabsList className="w-full bg-white/5 border border-white/10 rounded-full mb-6 flex">
               <TabsTrigger value="history" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
                 <BookOpenText className="mr-2" /> History
               </TabsTrigger>
+              {content?.gallery?.length > 0 && (
+                <TabsTrigger value="gallery" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
+                  <ImageSquare className="mr-2" /> Gallery
+                </TabsTrigger>
+              )}
             </TabsList>
             
             <TabsContent value="history">
@@ -131,6 +136,26 @@ export default function KCK({ content }) {
                 </div>
               </div>
             </TabsContent>
+            
+            {content?.gallery?.length > 0 && (
+              <TabsContent value="gallery">
+                <div className="w-full flex-col gap-6 flex">
+                  <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
+                    <CarouselContent className="-ml-2">
+                      {content.gallery.map((image, idx) => (
+                        <CarouselItem key={idx} className="pl-2 basis-[85%] sm:basis-[60%]">
+                          <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[28vh] min-h-[200px]">
+                            <ImageModal src={image.img} alt={image.caption} className="w-full h-full rounded-2xl shadow-lg object-cover" />
+                            <div className="absolute inset-2 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-2xl" />
+                            <p className="absolute bottom-6 left-6 text-xs font-medium text-bone-50 drop-shadow-md z-10">{image.caption}</p>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                  </Carousel>
+                </div>
+              </TabsContent>
+            )}
           </Tabs>
         </div>
 
@@ -158,6 +183,26 @@ export default function KCK({ content }) {
                   {allMembers.map((member, idx) => (
                     <CarouselItem key={idx} className="pl-2 basis-[45%] lg:basis-[20%]">
                       <MemberCard member={member} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          )}
+
+          {/* Gallery Carousel (Desktop Only) */}
+          {content?.gallery?.length > 0 && (
+            <div className="w-full mt-12 hidden md:block">
+              <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-4 pl-2 border-l-2 border-amber-accent/50 leading-none">Gallery</h3>
+              <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
+                <CarouselContent className="-ml-2">
+                  {content.gallery.map((image, idx) => (
+                    <CarouselItem key={idx} className="pl-2 basis-[45%] lg:basis-[30%]">
+                      <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 h-[250px]">
+                        <ImageModal src={image.img} alt={image.caption} className="w-full h-full rounded-xl shadow-lg object-cover" />
+                        <div className="absolute inset-2 bg-gradient-to-t from-forest-900/80 via-transparent to-transparent pointer-events-none rounded-xl" />
+                        <p className="absolute bottom-4 left-4 text-xs font-medium text-bone-50 drop-shadow-md z-10">{image.caption}</p>
+                      </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>

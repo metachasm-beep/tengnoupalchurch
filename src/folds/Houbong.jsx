@@ -151,14 +151,12 @@ export default function Houbong({ content }) {
               Gallery
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
-                <ImageModal src="/assets/houbong_lamkai.webp" alt="Houbung lamkai" className="w-full h-auto rounded-xl shadow-lg object-cover" />
-                <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">2025-2026 kum sunga Houngbung lamkai holeh Upa Ngapdet ho</p>
-              </div>
-              <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
-                <ImageModal src="/assets/houbong_1.jpeg" alt="Event Image" className="w-full h-auto rounded-xl shadow-lg object-cover" />
-                <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">Recent Events</p>
-              </div>
+              {content?.gallery?.map((item, idx) => (
+                <div key={idx} className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
+                  <ImageModal src={item.img} alt="Houbung lamkai" className="w-full h-auto rounded-xl shadow-lg object-cover" />
+                  <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">{item.caption}</p>
+                </div>
+              ))}
             </div>
           </div>
         );

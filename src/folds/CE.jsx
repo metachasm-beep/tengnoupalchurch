@@ -66,7 +66,7 @@ export default function CE({ content }) {
         <ImageModal 
           src={member.img} 
           alt={member.name} 
-          className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg"
+          className={`w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : ''}`}
         />
       ) : (
         <div className="w-20 h-20 sm:w-24 sm:h-24 bg-forest-900 rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg flex items-center justify-center">
