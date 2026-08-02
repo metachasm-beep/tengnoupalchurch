@@ -136,45 +136,16 @@ export default function KCK({ content }) {
 
         {/* Desktop Layout */}
         <div className="hidden md:flex w-full flex-col items-start h-full">
-          <div className="flex flex-row gap-8 lg:gap-12 items-start w-full">
-            <div className="w-5/12 flex-col gap-6 flex order-1">
-              <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-widest uppercase text-bone-50">
-                {content?.title}
-              </h2>
-              <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
-                {content?.history?.map((para, i) => (
-                  <p key={i} className="text-bone-100/90 text-sm leading-relaxed font-light">
-                    {para}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            <div className="w-7/12 flex-col gap-6 flex order-2 h-full">
-              <div className="relative rounded-2xl overflow-hidden glass p-4 border border-white/5">
-                <Carousel 
-                  opts={{ align: "start", loop: true }}
-                  className="w-full relative"
-                >
-                  <CarouselContent className="-ml-2">
-                    {kckImages.map((image) => (
-                      <CarouselItem key={image.id} className="pl-2 basis-full">
-                        <ImageModal 
-                          src={image.img} 
-                          alt="Kuki Christian Khangthah" 
-                          className="w-full h-[250px] rounded-xl shadow-lg object-cover"
-                        />
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  {kckImages.length > 1 && (
-                    <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-2 pointer-events-none">
-                      <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
-                      <CarouselNext className="relative static translate-x-0 translate-y-0 h-8 w-8 bg-forest-900/50 border-none pointer-events-auto hover:bg-amber-accent hover:text-forest-900" />
-                    </div>
-                  )}
-                </Carousel>
-              </div>
+          <div className="flex-1 flex flex-col gap-6 md:gap-8 max-w-4xl">
+            <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-widest uppercase text-bone-50">
+              {content?.title}
+            </h2>
+            <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+              {content?.history?.map((para, i) => (
+                <p key={i} className="text-bone-100/90 text-sm leading-relaxed font-light">
+                  {para}
+                </p>
+              ))}
             </div>
           </div>
           
