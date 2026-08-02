@@ -1,5 +1,5 @@
-import React from 'react';
-import { UsersThree, BookOpenText, Users, UserCircle, ArrowRight, X, ImageSquare } from '@phosphor-icons/react';
+import React, { useState } from 'react';
+import { UsersThree, BookOpenText, Users, UserCircle, ArrowRight, X, ImageSquare, CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog } from "@base-ui/react/dialog";
 import {
@@ -18,6 +18,9 @@ import ScrollFloat from '../components/ui/ScrollFloat';
 export default function KCK({ content }) {
   const kckImages = getKCKImages();
   
+  const [memberPage, setMemberPage] = useState(0);
+  const MEMBERS_PER_PAGE = 9;
+  
   // Combine all members into one array for the carousel/grid
   const allMembers = [
     ...(content?.lamkai || []),
@@ -28,7 +31,7 @@ export default function KCK({ content }) {
   const MemberCard = ({ member, isDesktop = false }) => (
     <SpotlightCard 
       spotlightColor="rgba(255, 183, 77, 0.15)"
-      className={`relative rounded-3xl overflow-hidden glass border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full justify-center ${isDesktop ? 'p-1.5 min-h-[110px]' : 'p-2 sm:p-3 min-h-[240px]'}`}
+      className={`relative rounded-3xl overflow-hidden glass p-4 sm:p-5 border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full ${isDesktop ? '' : 'min-h-[220px]'}`}
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
       
@@ -37,16 +40,16 @@ export default function KCK({ content }) {
           src={member.img} 
           alt={member.name} 
           caption={`${member.name} - ${member.role || 'Member'}`}
-          className={`${isDesktop ? 'w-[68px] h-[68px] mb-1.5' : 'w-28 h-28 mb-3'} object-cover rounded-full border-2 border-white/10 shadow-lg shrink-0`}
+          className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg"
         />
       ) : (
-        <div className={`${isDesktop ? 'w-[68px] h-[68px] mb-1.5' : 'w-28 h-28 mb-3'} bg-forest-900 rounded-full border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
-          <UserCircle size={isDesktop ? 32 : 48} weight="light" className="text-amber-accent/50" />
+        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-forest-900 rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg flex items-center justify-center">
+          <UserCircle size={40} weight="light" className="text-amber-accent/50" />
         </div>
       )}
       
-      <h4 className={`font-serif text-bone-50 font-medium leading-tight w-full px-1 ${isDesktop ? 'text-xs' : 'text-lg sm:text-xl'}`}>{member.name}</h4>
-      <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[10px] mt-1' : 'text-sm mt-1 sm:mt-2'}`}>{member.role || 'Member'}</p>
+      <h4 className="font-serif text-base sm:text-lg text-bone-50 font-medium leading-tight line-clamp-2">{member.name}</h4>
+      <p className="text-amber-accent text-xs uppercase tracking-widest mt-1 sm:mt-2">{member.role || 'Member'}</p>
     </SpotlightCard>
   );
 
@@ -202,18 +205,52 @@ export default function KCK({ content }) {
           </div>
           
           {/* Right Column: Committee */}
-          {allMembers.length > 0 && (
-            <div className="w-[55%] flex flex-col h-full">
-              <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-6 pl-2 border-l-2 border-amber-accent/50 leading-none">2025-2026 Committee</h3>
-              <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10">
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                  {allMembers.map((member, idx) => (
-                    <MemberCard key={idx} member={member} isDesktop={true} />
-                  ))}
-                </div>
+          {/* Committee Pagination Grid */}
+          <div className="w-[55%] flex flex-col h-full pl-4 lg:pl-8">
+            <div className="flex items-center gap-4 mb-6 shrink-0">
+              <div>
+                <h3 className="font-serif text-2xl font-medium tracking-tight text-bone-50">
+                  2025-2026 Committee
+                </h3>
+                <p className="text-amber-accent/80 font-medium tracking-widest uppercase text-xs mt-1">Leaders & Members</p>
               </div>
             </div>
-          )}
+
+            <div className="flex-1 flex flex-col justify-between pr-4 pb-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                {allMembers.slice(memberPage * MEMBERS_PER_PAGE, (memberPage + 1) * MEMBERS_PER_PAGE).map((member, idx) => (
+                  <MemberCard key={idx} member={member} isDesktop={true} />
+                ))}
+              </div>
+
+              {Math.ceil(allMembers.length / MEMBERS_PER_PAGE) > 1 && (
+                <div className="flex items-center justify-center gap-4 mt-6">
+                  <button 
+                    onClick={() => setMemberPage(prev => Math.max(0, prev - 1))}
+                    disabled={memberPage === 0}
+                    className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
+                  >
+                    <CaretLeft size={20} weight="bold" />
+                  </button>
+                  <div className="flex gap-2">
+                    {Array.from({ length: Math.ceil(allMembers.length / MEMBERS_PER_PAGE) }).map((_, i) => (
+                      <div 
+                        key={i} 
+                        className={`w-2 h-2 rounded-full transition-colors ${i === memberPage ? 'bg-amber-accent' : 'bg-white/30'}`}
+                      />
+                    ))}
+                  </div>
+                  <button 
+                    onClick={() => setMemberPage(prev => Math.min(Math.ceil(allMembers.length / MEMBERS_PER_PAGE) - 1, prev + 1))}
+                    disabled={memberPage === Math.ceil(allMembers.length / MEMBERS_PER_PAGE) - 1}
+                    className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
+                  >
+                    <CaretRight size={20} weight="bold" />
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
 
         </div>
 

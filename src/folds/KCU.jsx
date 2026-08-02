@@ -1,5 +1,5 @@
-import React from 'react';
-import { UserCircle, X, BookOpenText } from '@phosphor-icons/react';
+import React, { useState } from 'react';
+import { UserCircle, X, BookOpenText, CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { Dialog } from "@base-ui/react/dialog";
 import ScrollFloat from '../components/ui/ScrollFloat';
 import SpotlightCard from '../components/ui/SpotlightCard';
@@ -35,8 +35,10 @@ const HistoryModal = ({ title, history }) => (
 );
 
 export default function KCU({ content }) {
-  
-  // Combine all committee members into a unified array
+  const [memberPage, setMemberPage] = useState(0);
+  const MEMBERS_PER_PAGE = 9;
+
+  // Flatten the committee hierarchy into a single array for rendering
   const allMembers = Array.isArray(content?.committee) 
     ? content.committee 
     : [
@@ -158,13 +160,40 @@ export default function KCU({ content }) {
               </div>
             </div>
 
-             <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10">
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                  {allMembers.map((member, idx) => (
-                    <MemberCard key={idx} member={member} isDesktop={true} />
-                  ))}
+            <div className="flex-1 flex flex-col justify-between pr-4 pb-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                {allMembers.slice(memberPage * MEMBERS_PER_PAGE, (memberPage + 1) * MEMBERS_PER_PAGE).map((member, idx) => (
+                  <MemberCard key={idx} member={member} isDesktop={true} />
+                ))}
+              </div>
+
+              {Math.ceil(allMembers.length / MEMBERS_PER_PAGE) > 1 && (
+                <div className="flex items-center justify-center gap-4 mt-6">
+                  <button 
+                    onClick={() => setMemberPage(prev => Math.max(0, prev - 1))}
+                    disabled={memberPage === 0}
+                    className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
+                  >
+                    <CaretLeft size={20} weight="bold" />
+                  </button>
+                  <div className="flex gap-2">
+                    {Array.from({ length: Math.ceil(allMembers.length / MEMBERS_PER_PAGE) }).map((_, i) => (
+                      <div 
+                        key={i} 
+                        className={`w-2 h-2 rounded-full transition-colors ${i === memberPage ? 'bg-amber-accent' : 'bg-white/30'}`}
+                      />
+                    ))}
+                  </div>
+                  <button 
+                    onClick={() => setMemberPage(prev => Math.min(Math.ceil(allMembers.length / MEMBERS_PER_PAGE) - 1, prev + 1))}
+                    disabled={memberPage === Math.ceil(allMembers.length / MEMBERS_PER_PAGE) - 1}
+                    className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
+                  >
+                    <CaretRight size={20} weight="bold" />
+                  </button>
                 </div>
-             </div>
+              )}
+            </div>
           </div>
 
         </div>

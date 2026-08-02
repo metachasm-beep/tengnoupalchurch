@@ -21,6 +21,8 @@ export default function CE({ content }) {
   ];
 
   const [currentCbs, setCurrentCbs] = useState(0);
+  const [memberPage, setMemberPage] = useState(0);
+  const MEMBERS_PER_PAGE = 9;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -67,7 +69,7 @@ export default function CE({ content }) {
           src={member.img} 
           alt={member.name}
           caption={`${member.name} - ${member.role}`}
-          className={`w-20 h-20 md:w-24 md:h-24 object-cover rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg shrink-0 ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : 'object-top'}`}
+          className={`w-20 h-20 md:w-24 md:h-24 object-cover rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg shrink-0 object-top`}
         />
       ) : (
         <div className={`w-20 h-20 md:w-24 md:h-24 bg-forest-900 rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
@@ -206,12 +208,39 @@ export default function CE({ content }) {
           {/* Right Column: Staff */}
           <div className="w-[55%] flex flex-col h-full z-10 pl-4 lg:pl-8">
 
-            <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10">
+            <div className="flex-1 flex flex-col justify-between pr-4 pb-4">
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                {staffArray.map((member, idx) => (
+                {staffArray.slice(memberPage * MEMBERS_PER_PAGE, (memberPage + 1) * MEMBERS_PER_PAGE).map((member, idx) => (
                   <StaffCard key={idx} member={member} isDesktop={true} />
                 ))}
               </div>
+              
+              {Math.ceil(staffArray.length / MEMBERS_PER_PAGE) > 1 && (
+                <div className="flex items-center justify-center gap-4 mt-6">
+                  <button 
+                    onClick={() => setMemberPage(prev => Math.max(0, prev - 1))}
+                    disabled={memberPage === 0}
+                    className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
+                  >
+                    <CaretLeft size={20} weight="bold" />
+                  </button>
+                  <div className="flex gap-2">
+                    {Array.from({ length: Math.ceil(staffArray.length / MEMBERS_PER_PAGE) }).map((_, i) => (
+                      <div 
+                        key={i} 
+                        className={`w-2 h-2 rounded-full transition-colors ${i === memberPage ? 'bg-amber-accent' : 'bg-white/30'}`}
+                      />
+                    ))}
+                  </div>
+                  <button 
+                    onClick={() => setMemberPage(prev => Math.min(Math.ceil(staffArray.length / MEMBERS_PER_PAGE) - 1, prev + 1))}
+                    disabled={memberPage === Math.ceil(staffArray.length / MEMBERS_PER_PAGE) - 1}
+                    className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
+                  >
+                    <CaretRight size={20} weight="bold" />
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
