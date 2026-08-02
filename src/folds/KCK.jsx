@@ -48,7 +48,46 @@ export default function KCK({ content }) {
       <p className="text-amber-accent text-xs uppercase tracking-widest mt-1 sm:mt-2">{member.role || 'Member'}</p>
     </SpotlightCard>
   );
-  
+
+  const GalleryCTA = () => (
+    <Dialog.Root>
+      <Dialog.Trigger asChild>
+        <button className="group flex items-center gap-4 bg-transparent border border-amber-accent text-amber-accent px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-amber-accent hover:text-forest-900 transition-all hover:scale-105 active:scale-95 outline-none w-fit shrink-0">
+          View Gallery
+          <ImageSquare size={18} weight="bold" className="group-hover:translate-x-1.5 transition-transform" />
+        </button>
+      </Dialog.Trigger>
+      
+      <Dialog.Portal>
+        <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-xl duration-300 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
+        <Dialog.Popup className="fixed inset-x-0 bottom-0 top-12 z-[100] flex flex-col glass-dark border-t border-x border-white/10 rounded-t-[2.5rem] p-6 sm:p-8 outline-none duration-500 data-open:animate-in data-open:slide-in-from-bottom-full data-closed:animate-out data-closed:slide-out-to-bottom-full shadow-[0_-20px_60px_rgba(0,0,0,0.5)] overflow-hidden max-w-5xl mx-auto">
+          <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-6 shrink-0" />
+          <div className="flex justify-between items-center mb-6 shrink-0">
+            <div className="flex flex-col">
+              <span className="text-amber-accent text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">K.C.K</span>
+              <h3 className="font-serif text-3xl text-bone-50">Gallery</h3>
+            </div>
+            <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-2 transition-colors outline-none border-none cursor-pointer shrink-0">
+              <X size={20} weight="bold" />
+            </Dialog.Close>
+          </div>
+          
+          <div className="flex-1 overflow-y-auto custom-scrollbar pb-10">
+            <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 space-y-4">
+              {content?.gallery?.map((image, idx) => (
+                <div key={idx} className="relative rounded-xl overflow-hidden glass p-1 border border-white/5 break-inside-avoid">
+                  <ImageModal src={image.img} alt={image.caption} className="w-full h-auto rounded-lg shadow-lg object-cover" />
+                  <div className="absolute inset-1 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-lg" />
+                  {image.caption && <p className="absolute bottom-3 left-3 text-[10px] font-medium text-bone-50 drop-shadow-md z-10 leading-tight pr-2">{image.caption}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </Dialog.Popup>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+
   return (
     <section id="kck" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-forest-900/40 pointer-events-none" />
@@ -69,60 +108,59 @@ export default function KCK({ content }) {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full flex flex-col gap-6 md:gap-12 items-start">
         
         {/* Mobile Header */}
-        <div className="w-full md:hidden flex flex-col gap-4 items-center">
+        <div className="w-full md:hidden flex flex-col gap-5 items-center">
           <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50 text-center">
             {content?.title}
           </h2>
           
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <button className="group flex items-center gap-4 bg-transparent border border-amber-accent text-amber-accent px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-amber-accent hover:text-forest-900 transition-all hover:scale-105 active:scale-95 outline-none">
-                View Committee 
-                <ArrowRight size={18} weight="bold" className="group-hover:translate-x-1.5 transition-transform" />
-              </button>
-            </Dialog.Trigger>
-            
-            <Dialog.Portal>
-              <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-xl duration-300 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
-              <Dialog.Popup className="fixed inset-x-0 bottom-0 top-12 z-[100] flex flex-col glass-dark border-t border-x border-white/10 rounded-t-[2.5rem] p-6 sm:p-8 outline-none duration-500 data-open:animate-in data-open:slide-in-from-bottom-full data-closed:animate-out data-closed:slide-out-to-bottom-full shadow-[0_-20px_60px_rgba(0,0,0,0.5)] overflow-hidden max-w-4xl mx-auto">
-                
-                {/* Pull Tab Indicator */}
-                <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-6 shrink-0" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button className="group flex items-center justify-center gap-4 bg-transparent border border-amber-accent text-amber-accent px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-amber-accent hover:text-forest-900 transition-all hover:scale-105 active:scale-95 outline-none w-full sm:w-auto">
+                  View Committee 
+                  <ArrowRight size={18} weight="bold" className="group-hover:translate-x-1.5 transition-transform" />
+                </button>
+              </Dialog.Trigger>
+              
+              <Dialog.Portal>
+                <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-xl duration-300 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
+                <Dialog.Popup className="fixed inset-x-0 bottom-0 top-12 z-[100] flex flex-col glass-dark border-t border-x border-white/10 rounded-t-[2.5rem] p-6 sm:p-8 outline-none duration-500 data-open:animate-in data-open:slide-in-from-bottom-full data-closed:animate-out data-closed:slide-out-to-bottom-full shadow-[0_-20px_60px_rgba(0,0,0,0.5)] overflow-hidden max-w-4xl mx-auto">
+                  
+                  {/* Pull Tab Indicator */}
+                  <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-6 shrink-0" />
 
-                <div className="flex justify-between items-center mb-6 shrink-0">
-                  <div className="flex flex-col">
-                    <span className="text-amber-accent text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">2025-2026</span>
-                    <h3 className="font-serif text-3xl text-bone-50">Committee</h3>
+                  <div className="flex justify-between items-center mb-6 shrink-0">
+                    <div className="flex flex-col">
+                      <span className="text-amber-accent text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">2025-2026</span>
+                      <h3 className="font-serif text-3xl text-bone-50">Committee</h3>
+                    </div>
+                    <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-2 transition-colors outline-none border-none cursor-pointer shrink-0">
+                      <X size={20} weight="bold" />
+                    </Dialog.Close>
                   </div>
-                  <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-2 transition-colors outline-none border-none cursor-pointer shrink-0">
-                    <X size={20} weight="bold" />
-                  </Dialog.Close>
-                </div>
-                
-                <div className="flex-1 overflow-y-auto custom-scrollbar pb-10">
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                    {allMembers.map((member, idx) => (
-                      <MemberCard key={idx} member={member} />
-                    ))}
+                  
+                  <div className="flex-1 overflow-y-auto custom-scrollbar pb-10">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                      {allMembers.map((member, idx) => (
+                        <MemberCard key={idx} member={member} />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </Dialog.Popup>
-            </Dialog.Portal>
-          </Dialog.Root>
+                </Dialog.Popup>
+              </Dialog.Portal>
+            </Dialog.Root>
+
+            {content?.gallery?.length > 0 && <GalleryCTA />}
+          </div>
         </div>
 
         {/* Mobile Tabs Wrapper */}
         <div className="w-full md:hidden">
           <Tabs defaultValue="history" className="w-full">
-            <TabsList className="w-full bg-white/5 border border-white/10 rounded-full mb-6 flex">
+            <TabsList className="w-full bg-white/5 border border-white/10 rounded-full mb-6">
               <TabsTrigger value="history" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
                 <BookOpenText className="mr-2" /> History
               </TabsTrigger>
-              {content?.gallery?.length > 0 && (
-                <TabsTrigger value="gallery" className="flex-1 rounded-full text-bone-100 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900">
-                  <ImageSquare className="mr-2" /> Gallery
-                </TabsTrigger>
-              )}
             </TabsList>
             
             <TabsContent value="history">
@@ -136,35 +174,18 @@ export default function KCK({ content }) {
                 </div>
               </div>
             </TabsContent>
-            
-            {content?.gallery?.length > 0 && (
-              <TabsContent value="gallery">
-                <div className="w-full flex-col gap-6 flex">
-                  <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
-                    <CarouselContent className="-ml-2">
-                      {content.gallery.map((image, idx) => (
-                        <CarouselItem key={idx} className="pl-2 basis-[85%] sm:basis-[60%]">
-                          <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[28vh] min-h-[200px]">
-                            <ImageModal src={image.img} alt={image.caption} className="w-full h-full rounded-2xl shadow-lg object-cover" />
-                            <div className="absolute inset-2 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-2xl" />
-                            <p className="absolute bottom-6 left-6 text-xs font-medium text-bone-50 drop-shadow-md z-10">{image.caption}</p>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                  </Carousel>
-                </div>
-              </TabsContent>
-            )}
           </Tabs>
         </div>
 
         {/* Desktop Layout */}
         <div className="hidden md:flex w-full flex-col items-start h-full">
-          <div className="flex-1 flex flex-col gap-6 md:gap-8 max-w-4xl">
+          <div className="flex flex-row items-center justify-between w-full mb-8">
             <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-widest uppercase text-bone-50">
               {content?.title}
             </h2>
+            {content?.gallery?.length > 0 && <GalleryCTA />}
+          </div>
+          <div className="flex-1 flex flex-col gap-6 max-w-4xl">
             <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
               {content?.history?.map((para, i) => (
                 <p key={i} className="text-bone-100/90 text-sm leading-relaxed font-light">
@@ -183,26 +204,6 @@ export default function KCK({ content }) {
                   {allMembers.map((member, idx) => (
                     <CarouselItem key={idx} className="pl-2 basis-[45%] lg:basis-[20%]">
                       <MemberCard member={member} />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-            </div>
-          )}
-
-          {/* Gallery Carousel (Desktop Only) */}
-          {content?.gallery?.length > 0 && (
-            <div className="w-full mt-12 hidden md:block">
-              <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-4 pl-2 border-l-2 border-amber-accent/50 leading-none">Gallery</h3>
-              <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
-                <CarouselContent className="-ml-2">
-                  {content.gallery.map((image, idx) => (
-                    <CarouselItem key={idx} className="pl-2 basis-[45%] lg:basis-[30%]">
-                      <div className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 h-[250px]">
-                        <ImageModal src={image.img} alt={image.caption} className="w-full h-full rounded-xl shadow-lg object-cover" />
-                        <div className="absolute inset-2 bg-gradient-to-t from-forest-900/80 via-transparent to-transparent pointer-events-none rounded-xl" />
-                        <p className="absolute bottom-4 left-4 text-xs font-medium text-bone-50 drop-shadow-md z-10">{image.caption}</p>
-                      </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
