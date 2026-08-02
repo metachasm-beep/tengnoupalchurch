@@ -206,20 +206,12 @@ export default function CE({ content }) {
               </div>
             </div>
 
-            <div className="w-full mt-8">
-              <Carousel opts={{ align: "start", dragFree: true }} className="w-full relative">
-                <CarouselContent className="-ml-4 py-4">
-                  {staffArray.map((member, idx) => (
-                    <CarouselItem key={idx} className="pl-4 basis-1/2 lg:basis-1/3">
-                      <StaffCard member={member} isDesktop={true} />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <div className="hidden lg:block">
-                  <CarouselPrevious className="-left-6" />
-                  <CarouselNext className="-right-6" />
-                </div>
-              </Carousel>
+            <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10 mt-8">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                {staffArray.map((member, idx) => (
+                  <StaffCard key={idx} member={member} isDesktop={true} />
+                ))}
+              </div>
             </div>
           </div>
 
