@@ -264,20 +264,20 @@ export default function Houbong({ content }) {
         </div>
 
         {/* Right Side: Editorial List */}
-        <div className="w-full lg:w-2/3 flex flex-col items-start lg:items-end gap-2 lg:gap-4">
+        <div className="w-full lg:w-2/3 flex flex-col items-start lg:items-end gap-2 lg:gap-3">
           {nodes.map((node, i) => (
             <Dialog.Root key={node.id}>
               <Dialog.Trigger asChild>
                 <div 
-                  className="group cursor-pointer flex items-baseline gap-4 md:gap-8 outline-none border-b lg:border-b-0 border-white/10 lg:border-transparent w-full lg:w-auto pb-4 lg:pb-0"
+                  className="group cursor-pointer flex items-baseline gap-4 md:gap-8 outline-none border-b lg:border-b-0 border-white/10 lg:border-transparent w-full lg:w-auto pb-3 lg:pb-0"
                   onMouseEnter={() => setHoveredNode(node)}
                   onMouseLeave={() => setHoveredNode(null)}
                   onTouchStart={() => setHoveredNode(node)}
                 >
-                  <span className="font-sans text-sm md:text-xl font-light text-bone-200/50 group-hover:text-amber-accent transition-colors duration-500">
+                  <span className="font-sans text-xs md:text-lg font-light text-bone-200/50 group-hover:text-amber-accent transition-colors duration-500">
                     {node.number}
                   </span>
-                  <h3 className="font-serif text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-bone-100/70 group-hover:text-bone-50 transition-all duration-500 transform group-hover:translate-x-4 lg:group-hover:-translate-x-6 origin-right italic group-hover:not-italic">
+                  <h3 className="font-serif text-3xl md:text-5xl lg:text-5xl xl:text-6xl text-bone-100/70 group-hover:text-bone-50 transition-all duration-500 transform group-hover:translate-x-4 lg:group-hover:-translate-x-6 origin-right italic group-hover:not-italic">
                     {node.label}
                   </h3>
                 </div>
