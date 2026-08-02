@@ -73,14 +73,31 @@ export default function Houbong({ content }) {
             <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
               GMS Mission
             </h4>
-            <div className="w-full mb-2">
-              <ImageModal 
-                src="/assets/GMS Committee.jpeg" 
-                alt="GMS Committee" 
-                caption="GMS Committee"
-                className="w-full h-auto max-h-[40vh] object-cover rounded-2xl shadow-xl border border-white/10"
-              />
-              <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">GMS Committee</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+              <div className="w-full">
+                <ImageModal 
+                  src="/assets/GMS Committee.jpeg" 
+                  alt="GMS Committee" 
+                  caption="GMS Committee"
+                  className="w-full h-48 sm:h-56 object-cover rounded-2xl shadow-xl border border-white/10"
+                />
+              </div>
+              <div className="w-full">
+                <ImageModal 
+                  src="/assets/GMS 2.jpeg" 
+                  alt="GMS Mission 2" 
+                  caption="GMS Mission"
+                  className="w-full h-48 sm:h-56 object-cover rounded-2xl shadow-xl border border-white/10"
+                />
+              </div>
+              <div className="w-full">
+                <ImageModal 
+                  src="/assets/GMS 3.jpeg" 
+                  alt="GMS Mission 3" 
+                  caption="GMS Mission"
+                  className="w-full h-48 sm:h-56 object-cover rounded-2xl shadow-xl border border-white/10"
+                />
+              </div>
             </div>
             <div className="space-y-4 text-bone-100/90 font-light leading-relaxed text-base md:text-lg">
               {content?.gms?.map((para, i) => <p key={i}>{para}</p>)}
