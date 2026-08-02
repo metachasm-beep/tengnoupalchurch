@@ -58,25 +58,29 @@ export default function CE({ content }) {
   const StaffCard = ({ member, isDesktop = false }) => (
     <SpotlightCard 
       spotlightColor="rgba(255, 183, 77, 0.15)"
-      className={`relative rounded-3xl overflow-hidden glass border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full justify-center ${isDesktop ? 'p-1 min-h-[110px]' : 'p-2 sm:p-3 min-h-[240px]'}`}
+      className={`relative rounded-3xl overflow-hidden glass border border-white/5 shadow-2xl bg-forest-800 flex flex-col group h-full p-0`}
     >
-      <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
+      <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors z-20"></div>
       
-      {member.img ? (
-        <ImageModal 
-          src={member.img} 
-          alt={member.name}
-          caption={`${member.name} - ${member.role}`}
-          className={`${isDesktop ? 'w-[68px] h-[68px] mb-1.5' : 'w-28 h-28 mb-3'} object-cover rounded-full border-2 border-white/10 shadow-lg ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : ''} shrink-0`}
-        />
-      ) : (
-        <div className={`${isDesktop ? 'w-[68px] h-[68px] mb-1.5' : 'w-28 h-28 mb-3'} bg-forest-900 rounded-full border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
-          <ChalkboardTeacher size={isDesktop ? 32 : 48} weight="fill" className="text-amber-accent/50" />
-        </div>
-      )}
+      <div className={`w-full relative shrink-0 overflow-hidden ${isDesktop ? 'h-24 md:h-28' : 'h-48 sm:h-56'}`}>
+        {member.img ? (
+          <ImageModal 
+            src={member.img} 
+            alt={member.name}
+            caption={`${member.name} - ${member.role}`}
+            className={`w-full h-full object-cover ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : 'object-top'}`}
+          />
+        ) : (
+          <div className="w-full h-full bg-forest-900 flex items-center justify-center">
+            <ChalkboardTeacher size={isDesktop ? 32 : 48} weight="fill" className="text-amber-accent/50" />
+          </div>
+        )}
+      </div>
       
-      <h4 className={`font-serif text-bone-50 font-medium leading-tight w-full px-1 ${isDesktop ? 'text-xs' : 'text-lg sm:text-xl'}`}>{member.name}</h4>
-      <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[10px] mt-1' : 'text-sm mt-1 sm:mt-2'}`}>{member.role}</p>
+      <div className={`flex flex-col flex-1 items-center justify-center text-center w-full ${isDesktop ? 'p-2 py-2.5' : 'p-4 sm:p-5'}`}>
+        <h4 className={`font-serif text-bone-50 font-medium leading-tight w-full px-1 ${isDesktop ? 'text-xs' : 'text-lg sm:text-xl'}`}>{member.name}</h4>
+        <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[9px] mt-1' : 'text-sm mt-1 sm:mt-2'}`}>{member.role}</p>
+      </div>
     </SpotlightCard>
   );
 
