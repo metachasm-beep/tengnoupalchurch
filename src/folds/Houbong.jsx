@@ -188,11 +188,11 @@ export default function Houbong({ content }) {
             </h4>
             
             <Tabs defaultValue="2026" className="w-full">
-              <TabsList className="w-full sm:w-auto flex flex-wrap bg-white/5 border border-white/10 p-1 rounded-xl mb-6 sticky top-0 z-10 backdrop-blur-xl">
-                <TabsTrigger value="2026" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase text-bone-100/70 hover:text-bone-50 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
+              <TabsList className="w-full sm:w-auto flex flex-wrap bg-forest-900/40 border border-white/20 p-1 rounded-xl mb-6 sticky top-0 z-10 backdrop-blur-xl shadow-lg">
+                <TabsTrigger value="2026" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase text-bone-50/90 hover:text-white data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
                   2026 List
                 </TabsTrigger>
-                <TabsTrigger value="2025" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase text-bone-100/70 hover:text-bone-50 data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
+                <TabsTrigger value="2025" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase text-bone-50/90 hover:text-white data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
                   2025 List
                 </TabsTrigger>
               </TabsList>
@@ -292,10 +292,10 @@ export default function Houbong({ content }) {
                   onMouseLeave={() => setHoveredNode(null)}
                   onTouchStart={() => setHoveredNode(node)}
                 >
-                  <span className="font-sans text-xs md:text-lg font-light text-bone-200/50 group-hover:text-amber-accent transition-colors duration-500">
+                  <span className="font-sans text-[10px] md:text-sm font-light text-bone-200/50 group-hover:text-amber-accent transition-colors duration-500">
                     {node.number}
                   </span>
-                  <h3 className="font-serif text-3xl md:text-5xl lg:text-5xl xl:text-6xl text-bone-100/70 group-hover:text-bone-50 transition-all duration-500 transform group-hover:translate-x-4 lg:group-hover:-translate-x-6 origin-right italic group-hover:not-italic">
+                  <h3 className="font-serif text-2xl md:text-4xl lg:text-4xl xl:text-5xl text-bone-100/70 group-hover:text-bone-50 transition-all duration-500 transform group-hover:translate-x-4 lg:group-hover:-translate-x-6 origin-right italic group-hover:not-italic">
                     {node.label}
                   </h3>
                 </div>
