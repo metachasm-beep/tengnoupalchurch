@@ -12,15 +12,18 @@ import ImageModal from '../components/ImageModal';
 const LeaderCard = ({ leader }) => (
   <div className="bg-white/5 p-4 md:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4 border border-white/5 hover:bg-white/10 transition-colors text-center sm:text-left h-full shadow-lg backdrop-blur-md">
     {leader.img ? (
-      <ImageModal src={leader.img} alt={leader.name} className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10 cursor-pointer hover:opacity-80 transition-opacity" />
+      <ImageModal src={leader.img} alt={leader.name} className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10 cursor-pointer hover:opacity-80 transition-opacity shrink-0" />
     ) : (
-      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-forest-900 rounded-full border-2 border-white/10 flex items-center justify-center shadow-lg">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-forest-900 rounded-full border-2 border-white/10 flex items-center justify-center shadow-lg shrink-0">
         <UserCircle size={40} weight="light" className="text-amber-accent/50" />
       </div>
     )}
-    <div className="flex flex-col flex-1 justify-center h-full">
+    <div className="flex flex-col flex-1 justify-center h-full w-full">
       <span className="text-lg font-medium text-bone-50 leading-tight">{leader.name}</span>
-      <span className="text-xs font-semibold text-amber-accent/80 tracking-wide mt-1 uppercase">{leader.role}</span>
+      {leader.role && <span className="text-xs font-semibold text-amber-accent/80 tracking-wide mt-1 uppercase">{leader.role}</span>}
+      {leader.degree && <span className="text-[10px] text-bone-100/90 tracking-widest mt-1.5 uppercase bg-white/5 inline-block px-2 py-0.5 rounded-full self-center sm:self-start border border-white/10 break-words">{leader.degree}</span>}
+      {leader.period && <span className="text-xs font-mono text-amber-accent/70 mt-1.5 bg-forest-900/50 inline-block px-2 py-0.5 rounded border border-amber-accent/10 self-center sm:self-start">{leader.period}</span>}
+      {leader.remarks && <span className="text-[11px] text-bone-100/60 mt-2 italic leading-relaxed text-balance">{leader.remarks}</span>}
     </div>
   </div>
 );
@@ -50,7 +53,8 @@ export default function Houbong({ content }) {
     { id: 'gms', number: '03', label: 'GMS Mission', bg: '/assets/houbong_1.jpeg', filter: 'sepia-[50%] hue-rotate-180' },
     { id: 'events', number: '04', label: 'Events', bg: '/assets/houbong_1.jpeg', filter: 'hue-rotate-[220deg]' },
     { id: 'ordainees', number: '05', label: 'Ordainees', bg: '/assets/houbong_lamkai.webp', filter: 'sepia-[20%] hue-rotate-90' },
-    { id: 'gallery', number: '06', label: 'Gallery', bg: '/assets/houbong_lamkai.webp', filter: 'contrast-125 saturate-150' },
+    { id: 'theologians', number: '06', label: 'Theologians', bg: '/assets/houbong_lamkai.webp', filter: 'sepia-[40%] hue-rotate-[270deg]' },
+    { id: 'gallery', number: '07', label: 'Gallery', bg: '/assets/houbong_lamkai.webp', filter: 'contrast-125 saturate-150' },
   ];
 
   const getModalContent = (id) => {
@@ -86,11 +90,26 @@ export default function Houbong({ content }) {
             <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
               Ordainees
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {content?.ordainees?.length > 0 ? content.ordainees.map((person, idx) => (
                 <LeaderCard key={idx} leader={person} />
               )) : (
                 <p className="text-bone-100/60 italic text-sm">No ordainees listed yet.</p>
+              )}
+            </div>
+          </div>
+        );
+      case 'theologians':
+        return (
+          <div className="flex flex-col gap-6">
+            <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
+              Theologians
+            </h4>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {content?.theologians?.length > 0 ? content.theologians.map((person, idx) => (
+                <LeaderCard key={idx} leader={person} />
+              )) : (
+                <p className="text-bone-100/60 italic text-sm">No theologians listed yet.</p>
               )}
             </div>
           </div>

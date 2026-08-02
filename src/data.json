@@ -760,7 +760,110 @@
         "img": "/assets/timeline/event_6/Ph Mangkholen Mate.webp"
       }
     ],
-    "ordainees": []
+    "ordainees": [
+      {
+        "name": "Upa M Jamkholun Haokip",
+        "period": "1987- 1990",
+        "remarks": "9th September 1990 nikho in alei hinkho ana beitai",
+        "img": ""
+      },
+      {
+        "name": "Upa Ch Jilkhothang Mate",
+        "period": "1987 - 1991",
+        "remarks": "September 1991 nikho in alei hinkho ana beitai",
+        "img": ""
+      },
+      {
+        "name": "Upa H Jamkhokhai Mate ",
+        "period": "1988 - 2003",
+        "remarks": "26th May, 2003 nikho in alei hinkho ana beitai",
+        "img": ""
+      },
+      {
+        "name": "Upa Ph Onkhohem Mate",
+        "period": "1987 - 2013",
+        "remarks": "Ordained kibol ni 11th January, 1987",
+        "img": ""
+      },
+      {
+        "name": "Upa H Janghem Khongsai",
+        "period": "1987 - 2013",
+        "remarks": "Ordained kibol ni 14th January, 1987",
+        "img": ""
+      },
+      {
+        "name": "Upa S Tongkhohem Mate ",
+        "period": "1992 - till date",
+        "remarks": "Ordained kibol ni 19th January, 1992",
+        "img": ""
+      },
+      {
+        "name": "Upa Thenkhomang Mate ",
+        "period": "1992 - till date",
+        "remarks": "Ordained kibol ni 19th January, 1992",
+        "img": ""
+      },
+      {
+        "name": "Upa T Seikholet Baite ",
+        "period": "1992 - till date",
+        "remarks": "Ordained kibol ni 19th January, 1992",
+        "img": ""
+      },
+      {
+        "name": "Upa T Thangjang Baite",
+        "period": "2022 - till date",
+        "remarks": "Ordained kibol ni 22th May, 2022",
+        "img": ""
+      },
+      {
+        "name": "Upa Shonkholen Mate",
+        "period": "2022 - till date",
+        "remarks": "Ordained kibol ni 22th May, 2022",
+        "img": ""
+      }
+    ],
+    "theologians": [
+      {
+        "name": "Pastor Ch. Doukholun Mate",
+        "degree": "Master of Divinity (M.Div)",
+        "img": ""
+      },
+      {
+        "name": "Pr. Thangkholam Chongloi",
+        "degree": "Bachelor of Theology (B.Th)",
+        "img": ""
+      },
+      {
+        "name": "Pastor Zamminlen Mate",
+        "degree": "Bachelor of Divinity (BD)",
+        "img": ""
+      },
+      {
+        "name": "Pastor Ch. Lunminthang Mate",
+        "degree": "Master of Theology (Counselling) (M.Th) ",
+        "img": ""
+      },
+      {
+        "name": "Upa T. Thangjang Baite",
+        "degree": "Bachelor of Theology (B.Th)",
+        "img": ""
+      },
+      {
+        "name": "Gl. Letgoulal Mate",
+        "degree": "Bachelor of Divinity (BD)",
+        "img": ""
+      },
+      {
+        "name": "Ng. M. Nengneithem Haokip ",
+        "degree": "Bachelor of Divinity (BD)",
+        "img": ""
+      },
+      {
+        "name": "Gl. M. Thangjamang Haokip",
+        "degree": "Bachelor of Divinity (BD)",
+        "img": ""
+      }
+    ]
   },
   "ce": {
     "title": "Christian Education (CE)",
