@@ -105,6 +105,7 @@ export default function TimelinePage() {
                                   <ImageModal 
                                     src={img} 
                                     alt={event.caption} 
+                                    caption={event.caption}
                                     className="w-full h-64 object-cover rounded-xl border border-white/5" 
                                   />
                                 </CarouselItem>

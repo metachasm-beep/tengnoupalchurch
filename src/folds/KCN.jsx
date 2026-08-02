@@ -27,6 +27,7 @@ export default function KCN({ content }) {
         <ImageModal 
           src={member.img} 
           alt={member.name} 
+          caption={`${member.name} - ${member.role || 'Member'}`}
           className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mb-3 sm:mb-4 border-2 border-white/10 shadow-lg"
         />
       ) : (

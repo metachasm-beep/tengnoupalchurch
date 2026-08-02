@@ -13,7 +13,7 @@ import ImageModal from '../components/ImageModal';
 const LeaderCard = ({ leader }) => (
   <div className="bg-white/5 p-4 md:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4 border border-white/5 hover:bg-white/10 transition-colors text-center sm:text-left h-full shadow-lg backdrop-blur-md">
     {leader.img ? (
-      <ImageModal src={leader.img} alt={leader.name} className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10 cursor-pointer hover:opacity-80 transition-opacity shrink-0" />
+      <ImageModal src={leader.img} alt={leader.name} caption={`${leader.name} - ${leader.title || 'Leader'}`} className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10 cursor-pointer hover:opacity-80 transition-opacity shrink-0" />
     ) : (
       <div className="w-16 h-16 sm:w-20 sm:h-20 bg-forest-900 rounded-full border-2 border-white/10 flex items-center justify-center shadow-lg shrink-0">
         <UserCircle size={40} weight="light" className="text-amber-accent/50" />
@@ -77,6 +77,7 @@ export default function Houbong({ content }) {
               <ImageModal 
                 src="/assets/GMS Committee.jpeg" 
                 alt="GMS Committee" 
+                caption="GMS Committee"
                 className="w-full h-auto max-h-[40vh] object-cover rounded-2xl shadow-xl border border-white/10"
               />
               <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">GMS Committee</p>
@@ -155,7 +156,7 @@ export default function Houbong({ content }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {content?.gallery?.map((item, idx) => (
                 <div key={idx} className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
-                  <ImageModal src={item.img} alt="Houbung lamkai" className="w-full h-auto rounded-xl shadow-lg object-cover" />
+                  <ImageModal src={item.img} alt="Houbung lamkai" caption={item.caption} className="w-full h-auto rounded-xl shadow-lg object-cover" />
                   <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">{item.caption}</p>
                 </div>
               ))}
