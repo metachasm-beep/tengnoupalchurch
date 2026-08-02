@@ -67,16 +67,16 @@ export default function CE({ content }) {
           src={member.img} 
           alt={member.name}
           caption={`${member.name} - ${member.role}`}
-          className={`w-16 h-16 md:w-20 md:h-20 object-cover rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg shrink-0 ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : 'object-top'}`}
+          className={`w-20 h-20 md:w-24 md:h-24 object-cover rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg shrink-0 ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : 'object-top'}`}
         />
       ) : (
-        <div className={`w-16 h-16 md:w-20 md:h-20 bg-forest-900 rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
-          <ChalkboardTeacher size={isDesktop ? 32 : 40} weight="fill" className="text-amber-accent/50" />
+        <div className={`w-20 h-20 md:w-24 md:h-24 bg-forest-900 rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
+          <ChalkboardTeacher size={isDesktop ? 40 : 48} weight="fill" className="text-amber-accent/50" />
         </div>
       )}
       
-      <h4 className={`font-serif text-bone-50 font-medium leading-tight w-full ${isDesktop ? 'text-xs md:text-sm' : 'text-base sm:text-lg'}`}>{member.name}</h4>
-      <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[9px] md:text-[10px] mt-1' : 'text-xs mt-1 sm:mt-2'}`}>{member.role}</p>
+      <h4 className={`font-serif text-bone-50 font-medium leading-tight w-full ${isDesktop ? 'text-sm md:text-base' : 'text-base sm:text-lg'}`}>{member.name}</h4>
+      <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[10px] md:text-[11px] mt-1' : 'text-xs mt-1 sm:mt-2'}`}>{member.role}</p>
     </SpotlightCard>
   );
 
@@ -147,6 +147,15 @@ export default function CE({ content }) {
           
           {/* Left Column: Gallery */}
           <div className="w-[45%] flex flex-col h-full relative">
+            <div className="flex items-center gap-4 mb-6 shrink-0">
+              <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 rounded-full object-cover border border-white/10 shadow-lg" />
+              <div>
+                <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50">
+                  {content?.title}
+                </h2>
+                <p className="text-amber-accent/80 font-medium tracking-widest uppercase text-xs mt-1">Staff & Teachers</p>
+              </div>
+            </div>
              <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 rounded-3xl flex flex-col gap-4 pb-10">
                 <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[60vh] shrink-0">
                   
@@ -196,17 +205,8 @@ export default function CE({ content }) {
 
           {/* Right Column: Staff */}
           <div className="w-[55%] flex flex-col h-full z-10 pl-4 lg:pl-8">
-            <div className="flex items-center gap-4 mb-6 shrink-0">
-              <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 rounded-full object-cover border border-white/10 shadow-lg" />
-              <div>
-                <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50">
-                  {content?.title}
-                </h2>
-                <p className="text-amber-accent/80 font-medium tracking-widest uppercase text-xs mt-1">Staff & Teachers</p>
-              </div>
-            </div>
 
-            <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10 mt-8">
+            <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10">
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 {staffArray.map((member, idx) => (
                   <StaffCard key={idx} member={member} isDesktop={true} />
