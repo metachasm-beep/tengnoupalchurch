@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import PaginatedReader from '../components/PaginatedReader';
 
 export default function Sermons({ docx_content }) {
   return (
@@ -50,13 +51,13 @@ export default function Sermons({ docx_content }) {
                   <DialogHeader>
                     <DialogTitle className="text-left text-2xl font-serif">Pathen intheng gelkhoh masat pendia kouna awgin</DialogTitle>
                   </DialogHeader>
-                  <div className="space-y-6 mt-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-800 text-amber-accent text-xs font-medium border border-white/5 mb-2">
+                  <div className="h-[70vh] flex flex-col mt-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-800 text-amber-accent text-xs font-medium border border-white/5 mb-4 w-fit shrink-0">
                       <Calendar weight="bold" /> Haggai 1:1-15 & Ezra 1-4
                     </div>
-                    {docx_content?.split('\n\n').filter(Boolean).map((para, i) => (
-                      <p key={i} className="leading-relaxed text-bone-100/95 text-base font-light tracking-wide max-w-prose">{para}</p>
-                    ))}
+                    <div className="flex-1 relative overflow-hidden -mx-4 md:mx-0">
+                      <PaginatedReader text={docx_content} maxChars={600} />
+                    </div>
                   </div>
                 </DialogContent>
               </Dialog>
@@ -64,13 +65,9 @@ export default function Sermons({ docx_content }) {
           </div>
           
           {/* Desktop Text Container (Hidden on mobile) */}
-          <div className="hidden md:block md:col-span-7 relative">
-            <div className="glass-dark p-6 md:p-12 rounded-[2rem] h-[600px] overflow-y-auto custom-scrollbar shadow-2xl bg-forest-900/50">
-              <div className="max-w-prose mx-auto space-y-6">
-                {docx_content?.split('\n\n').filter(Boolean).map((para, i) => (
-                  <p key={i} className="leading-relaxed text-bone-100/95 text-base md:text-lg font-light tracking-wide">{para}</p>
-                ))}
-              </div>
+          <div className="hidden md:block md:col-span-7 relative h-[600px]">
+            <div className="glass-dark rounded-[2rem] h-full shadow-2xl bg-forest-900/50 overflow-hidden relative">
+              <PaginatedReader text={docx_content} maxChars={1000} />
             </div>
           </div>
         </div>
