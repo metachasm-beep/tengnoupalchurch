@@ -28,7 +28,7 @@ export default function KCK({ content }) {
   const MemberCard = ({ member, isDesktop = false }) => (
     <SpotlightCard 
       spotlightColor="rgba(255, 183, 77, 0.15)"
-      className={`relative rounded-3xl overflow-hidden glass border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full ${isDesktop ? 'p-3' : 'p-4 sm:p-5 min-h-[220px]'}`}
+      className={`relative rounded-3xl overflow-hidden glass border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full justify-center ${isDesktop ? 'p-1.5 min-h-[90px]' : 'p-3 sm:p-4 min-h-[200px]'}`}
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
       
@@ -36,16 +36,17 @@ export default function KCK({ content }) {
         <ImageModal 
           src={member.img} 
           alt={member.name} 
-          className={`${isDesktop ? 'w-14 h-14 sm:w-16 sm:h-16 mb-2' : 'w-20 h-20 sm:w-24 sm:h-24 mb-3 sm:mb-4'} object-cover rounded-full border-2 border-white/10 shadow-lg shrink-0`}
+          caption={`${member.name} - ${member.role || 'Member'}`}
+          className={`${isDesktop ? 'w-14 h-14 mb-1' : 'w-24 h-24 mb-3'} object-cover rounded-full border-2 border-white/10 shadow-lg shrink-0`}
         />
       ) : (
-        <div className={`${isDesktop ? 'w-14 h-14 sm:w-16 sm:h-16 mb-2' : 'w-20 h-20 sm:w-24 sm:h-24 mb-3 sm:mb-4'} bg-forest-900 rounded-full border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
-          <UserCircle size={isDesktop ? 24 : 32} weight="light" className="text-amber-accent/50" />
+        <div className={`${isDesktop ? 'w-14 h-14 mb-1' : 'w-24 h-24 mb-3'} bg-forest-900 rounded-full border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
+          <UserCircle size={isDesktop ? 24 : 36} weight="light" className="text-amber-accent/50" />
         </div>
       )}
       
-      <h4 className={`font-serif text-bone-50 font-medium leading-tight line-clamp-2 ${isDesktop ? 'text-sm sm:text-base' : 'text-base sm:text-lg'}`}>{member.name}</h4>
-      <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[10px] mt-1' : 'text-xs mt-1 sm:mt-2'}`}>{member.role || 'Member'}</p>
+      <h4 className={`font-serif text-bone-50 font-medium leading-tight w-full px-1 ${isDesktop ? 'text-[11px]' : 'text-base sm:text-lg'}`}>{member.name}</h4>
+      <p className={`text-amber-accent uppercase tracking-widest ${isDesktop ? 'text-[8px] mt-1' : 'text-xs mt-1 sm:mt-2'}`}>{member.role || 'Member'}</p>
     </SpotlightCard>
   );
 

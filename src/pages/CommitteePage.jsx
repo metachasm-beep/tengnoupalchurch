@@ -37,6 +37,7 @@ export default function CommitteePage() {
                   <ImageModal 
                     src={member.img} 
                     alt={member.name} 
+                    caption={`${member.name} - ${member.role}`}
                     className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-cover rounded-full mb-3 md:mb-4 border-2 border-white/10 shadow-xl shrink-0"
                     style={member.name === 'Mr. Ph. Lunkhogin Mate' ? { objectPosition: 'center 20%' } : {}}
                   />
