@@ -58,7 +58,7 @@ export function getProjectRenders() {
       let filename = key.split('/').pop().replace(/\.(webp|jpeg|jpg|png)$/i, '');
       let title = filename;
       let desc = "Church Building Project";
-      let desktopPanClass = "scale-[0.8] !object-contain";
+      let desktopPanClass = "!object-contain";
       
       return {
         title,
