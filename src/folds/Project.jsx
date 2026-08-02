@@ -108,10 +108,6 @@ export default function Project({ content, renderCards }) {
                   showMobileWarning={false}
                   imageClassName={card.desktopPanClass || ""}
                 />
-                <div className="absolute top-0 left-0 w-full p-6 sm:p-8 md:p-16 pt-20 sm:pt-24 flex flex-col items-center text-center z-20 pointer-events-none">
-                  <h3 className="font-serif text-3xl md:text-5xl font-medium text-bone-50 mb-3 drop-shadow-xl">{card.title}</h3>
-                  <p className="text-base md:text-xl text-bone-100 drop-shadow-lg">{card.desc}</p>
-                </div>
               </div>
             </CarouselItem>
           ))}
