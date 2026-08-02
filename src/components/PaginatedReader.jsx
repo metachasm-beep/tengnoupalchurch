@@ -88,7 +88,7 @@ export default function PaginatedReader({ text, maxChars = 800 }) {
             }}
             className="w-full h-full flex items-center"
           >
-            <div className="max-w-prose mx-auto space-y-6 w-full">
+            <div className="max-w-prose mx-auto space-y-6 w-full max-h-full overflow-y-auto custom-scrollbar pr-2 pb-4">
               {pages[pageIdx].map((para, i) => (
                 <p key={i} className="leading-relaxed text-bone-100/95 text-base md:text-lg font-light tracking-wide">
                   {para}

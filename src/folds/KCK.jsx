@@ -170,7 +170,7 @@ export default function KCK({ content }) {
             
             <TabsContent value="history">
               <div className="w-full flex-col gap-6 flex h-[60vh] bg-white/5 rounded-xl border border-white/5 relative overflow-hidden">
-                <PaginatedReader text={content?.history?.join('\n\n')} maxChars={500} />
+                <PaginatedReader text={content?.history?.join('\n\n')} maxChars={300} />
               </div>
             </TabsContent>
           </Tabs>

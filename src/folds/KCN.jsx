@@ -9,6 +9,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import ImageModal from '../components/ImageModal';
+import Autoplay from "embla-carousel-autoplay";
 
 export default function KCN({ content }) {
   const allMembers = Array.isArray(content?.committee) ? content.committee : [];
@@ -54,20 +55,36 @@ export default function KCN({ content }) {
 
       {/* Mobile Top Image Banner */}
       <div className="md:hidden absolute top-0 left-0 w-full h-[40vh] z-0 pointer-events-none">
-        <img src="/assets/kcn_1.webp" alt="KCN Women" className="w-full h-full object-cover object-top mix-blend-luminosity opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/60 to-transparent" />
+        <Carousel opts={{ loop: true }} plugins={typeof window !== 'undefined' ? [Autoplay({ delay: 4000, stopOnInteraction: false })] : []} className="w-full h-full">
+          <CarouselContent className="h-full ml-0">
+            {(content?.gallery?.length ? content.gallery : [{img: "/assets/kcn_1.webp"}]).map((item, idx) => (
+              <CarouselItem key={idx} className="pl-0 h-[40vh]">
+                <img src={item.img} alt="KCN Women" className="w-full h-full object-cover object-top mix-blend-luminosity opacity-80" />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/60 to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col md:flex-row items-center gap-6 md:gap-12 lg:gap-20 py-8 md:py-32">
         
         {/* Desktop Left Image (Editorial Split) */}
         <div className="hidden md:block w-5/12 h-[75vh] relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
-          <div className="absolute inset-0 bg-forest-900/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-700" />
-          <img 
-            src="/assets/kcn_1.webp" 
-            alt="KCN Women's Department" 
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000"
-          />
+          <div className="absolute inset-0 bg-forest-900/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-700 pointer-events-none" />
+          <Carousel opts={{ loop: true }} plugins={typeof window !== 'undefined' ? [Autoplay({ delay: 4000, stopOnInteraction: false })] : []} className="w-full h-full">
+            <CarouselContent className="h-full ml-0">
+              {(content?.gallery?.length ? content.gallery : [{img: "/assets/kcn_1.webp"}]).map((item, idx) => (
+                <CarouselItem key={idx} className="pl-0 h-[75vh]">
+                  <img 
+                    src={item.img} 
+                    alt="KCN Women's Department" 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
 
         {/* Right Content / Mobile Main Content */}
