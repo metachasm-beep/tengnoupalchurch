@@ -13,7 +13,7 @@ import {
 import ImageModal from '../components/ImageModal';
 
 export default function CE({ content }) {
-  const cbsImages = [1, 2, 3, 4, 5].map(i => `/assets/cbs_${i}.webp`);
+  const cbsImages = content?.cbs_images || [];
 
   const allGalleryPhotos = [
     ...(content?.images?.map(img => ({ src: img, caption: 'CE Photo' })) || []),
