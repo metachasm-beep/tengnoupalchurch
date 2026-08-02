@@ -2274,108 +2274,42 @@
     ],
     "gallery": [
       {
-        "img": "/assets/kck/kck_gen_1.jpeg",
-        "caption": "KCK Event"
+        "title": "General Activities",
+        "thumbnail": "/assets/kck/kck_gen_1.jpeg",
+        "images": [
+          "/assets/kck/kck_gen_1.jpeg",
+          "/assets/kck/kck_gen_2.jpeg",
+          "/assets/kck/kck_gen_3.jpeg",
+          "/assets/kck/kck_gen_4.jpeg",
+          "/assets/kck/kck_gen_5.jpeg",
+          "/assets/kck/kck_gen_6.jpeg",
+          "/assets/kck/kck_gen_7.jpeg",
+          "/assets/kck/kck_gen_8.jpeg",
+          "/assets/kck/kck_gen_9.jpeg",
+          "/assets/kck/kck_gen_10.jpeg"
+        ]
       },
       {
-        "img": "/assets/kck/kck_gen_10.jpeg",
-        "caption": "KCK Event"
-      },
-      {
-        "img": "/assets/kck/kck_gen_2.jpeg",
-        "caption": "KCK Event"
-      },
-      {
-        "img": "/assets/kck/kck_gen_3.jpeg",
-        "caption": "KCK Event"
-      },
-      {
-        "img": "/assets/kck/kck_gen_4.jpeg",
-        "caption": "KCK Event"
-      },
-      {
-        "img": "/assets/kck/kck_gen_5.jpeg",
-        "caption": "KCK Event"
-      },
-      {
-        "img": "/assets/kck/kck_gen_6.jpeg",
-        "caption": "KCK Event"
-      },
-      {
-        "img": "/assets/kck/kck_gen_7.jpeg",
-        "caption": "KCK Event"
-      },
-      {
-        "img": "/assets/kck/kck_gen_8.jpeg",
-        "caption": "KCK Event"
-      },
-      {
-        "img": "/assets/kck/kck_gen_9.jpeg",
-        "caption": "KCK Event"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_1.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_2.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_3.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_4.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_5.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_6.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_7.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_8.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_9.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_10.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_11.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_12.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_13.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_14.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_15.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
-      },
-      {
-        "img": "/assets/kck/kck_seminar_2026_1785697150085_16.jpeg",
-        "caption": "Kuki Christian Khangthah, Tengnoupal Gambih, Synod KCK Nikho cum Seminar, Duration 07 - 09 November, 2026, Venue : Tengnoupal"
+        "title": "Synod KCK Nikho cum Seminar (Nov 2026)",
+        "thumbnail": "/assets/kck/kck_seminar_2026_1785697150085_1.jpeg",
+        "images": [
+          "/assets/kck/kck_seminar_2026_1785697150085_1.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_2.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_3.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_4.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_5.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_6.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_7.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_8.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_9.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_10.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_11.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_12.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_13.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_14.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_15.jpeg",
+          "/assets/kck/kck_seminar_2026_1785697150085_16.jpeg"
+        ]
       }
     ]
   },

@@ -54,44 +54,73 @@ export default function KCK({ content }) {
     </SpotlightCard>
   );
 
-  const GalleryCTA = () => (
-    <Dialog.Root>
-      <Dialog.Trigger asChild>
-        <button className="group flex items-center gap-4 bg-transparent border border-amber-accent text-amber-accent px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-amber-accent hover:text-forest-900 transition-all hover:scale-105 active:scale-95 outline-none w-fit shrink-0">
-          View Gallery
-          <ImageSquare size={18} weight="bold" className="group-hover:translate-x-1.5 transition-transform" />
-        </button>
-      </Dialog.Trigger>
-      
-      <Dialog.Portal>
-        <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-xl duration-300 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
-        <Dialog.Popup className="fixed inset-x-0 bottom-0 top-12 z-[100] flex flex-col glass-dark border-t border-x border-white/10 rounded-t-[2.5rem] p-6 sm:p-8 outline-none duration-500 data-open:animate-in data-open:slide-in-from-bottom-full data-closed:animate-out data-closed:slide-out-to-bottom-full shadow-[0_-20px_60px_rgba(0,0,0,0.5)] overflow-hidden max-w-5xl mx-auto">
-          <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-6 shrink-0" />
-          <div className="flex justify-between items-center mb-6 shrink-0">
-            <div className="flex flex-col">
-              <span className="text-amber-accent text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">K.C.K</span>
-              <h3 className="font-serif text-3xl text-bone-50">Gallery</h3>
-            </div>
-            <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-2 transition-colors outline-none border-none cursor-pointer shrink-0">
-              <X size={20} weight="bold" />
-            </Dialog.Close>
-          </div>
-          
-          <div className="flex-1 overflow-y-auto custom-scrollbar pb-10">
-            <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 space-y-4">
-              {content?.gallery?.map((image, idx) => (
-                <div key={idx} className="relative rounded-xl overflow-hidden glass p-1 border border-white/5 break-inside-avoid">
-                  <ImageModal src={image.img} alt={image.caption} caption={image.caption} className="w-full h-auto rounded-lg shadow-lg object-cover" />
-                  <div className="absolute inset-1 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-lg" />
-                  {image.caption && <p className="absolute bottom-3 left-3 text-[10px] font-medium text-bone-50 drop-shadow-md z-10 leading-tight pr-2">{image.caption}</p>}
+  const GalleryCTA = () => {
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    return (
+      <Dialog.Root onOpenChange={(open) => { if (!open) setSelectedEvent(null); }}>
+        <Dialog.Trigger asChild>
+          <button className="group flex items-center gap-4 bg-transparent border border-amber-accent text-amber-accent px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-amber-accent hover:text-forest-900 transition-all hover:scale-105 active:scale-95 outline-none w-fit shrink-0">
+            View Gallery
+            <ImageSquare size={18} weight="bold" className="group-hover:translate-x-1.5 transition-transform" />
+          </button>
+        </Dialog.Trigger>
+        
+        <Dialog.Portal>
+          <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-xl duration-300 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
+          <Dialog.Popup className="fixed inset-x-0 bottom-0 top-12 z-[100] flex flex-col glass-dark border-t border-x border-white/10 rounded-t-[2.5rem] p-6 sm:p-8 outline-none duration-500 data-open:animate-in data-open:slide-in-from-bottom-full data-closed:animate-out data-closed:slide-out-to-bottom-full shadow-[0_-20px_60px_rgba(0,0,0,0.5)] overflow-hidden max-w-5xl mx-auto">
+            <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-6 shrink-0" />
+            <div className="flex justify-between items-center mb-6 shrink-0">
+              <div className="flex flex-col">
+                <div className="flex items-center gap-2 mb-1">
+                  {selectedEvent && (
+                    <button onClick={() => setSelectedEvent(null)} className="text-bone-200 hover:text-amber-accent transition-colors flex items-center pr-2 border-r border-white/20">
+                      <CaretLeft size={16} weight="bold" />
+                    </button>
+                  )}
+                  <span className="text-amber-accent text-[10px] uppercase tracking-[0.2em] font-semibold">K.C.K</span>
                 </div>
-              ))}
+                <h3 className="font-serif text-2xl md:text-3xl text-bone-50 leading-tight">
+                  {selectedEvent ? selectedEvent.title : "Gallery"}
+                </h3>
+              </div>
+              <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-2 transition-colors outline-none border-none cursor-pointer shrink-0">
+                <X size={20} weight="bold" />
+              </Dialog.Close>
             </div>
-          </div>
-        </Dialog.Popup>
-      </Dialog.Portal>
-    </Dialog.Root>
-  );
+            
+            <div className="flex-1 overflow-y-auto custom-scrollbar pb-10">
+              {!selectedEvent ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {content?.gallery?.map((eventItem, idx) => (
+                    <div 
+                      key={idx} 
+                      onClick={() => setSelectedEvent(eventItem)}
+                      className="group relative rounded-xl overflow-hidden glass border border-white/5 cursor-pointer aspect-video shadow-lg"
+                    >
+                      <img src={eventItem.thumbnail} alt={eventItem.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-70 group-hover:opacity-100" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+                      <div className="absolute bottom-4 left-4 pr-4">
+                        <h4 className="font-serif text-lg md:text-xl text-bone-50 group-hover:text-amber-accent transition-colors leading-tight drop-shadow-md">{eventItem.title}</h4>
+                        <p className="text-bone-100/70 text-xs mt-1 font-medium">{eventItem.images?.length || 0} Photos</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 space-y-4">
+                  {selectedEvent.images?.map((imgSrc, idx) => (
+                    <div key={idx} className="relative rounded-xl overflow-hidden glass p-1 border border-white/5 break-inside-avoid">
+                      <ImageModal src={imgSrc} alt={`${selectedEvent.title} - ${idx + 1}`} caption="" className="w-full h-auto rounded-lg shadow-lg object-cover" />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </Dialog.Popup>
+        </Dialog.Portal>
+      </Dialog.Root>
+    );
+  };
 
   return (
     <section id="kck" className="min-h-[100dvh] w-full flex items-center bg-forest-900 text-bone-50 relative py-12 md:py-20 overflow-hidden">
