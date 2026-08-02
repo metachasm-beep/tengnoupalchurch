@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Sparkle, ArrowRight, X, UserCircle, CaretLeft, CaretRight } from '@phosphor-icons/react';
+import React from 'react';
+import { Sparkle, ArrowRight, X, UserCircle } from '@phosphor-icons/react';
 import { Dialog } from "@base-ui/react/dialog";
 import ScrollVelocity from '../components/ui/ScrollVelocity';
 import SpotlightCard from '../components/ui/SpotlightCard';
@@ -11,9 +11,6 @@ import {
 import ImageModal from '../components/ImageModal';
 
 export default function KCN({ content }) {
-  const [memberPage, setMemberPage] = useState(0);
-  const MEMBERS_PER_PAGE = 9;
-
   const allMembers = Array.isArray(content?.committee) ? content.committee : [];
 
   const MemberCard = ({ member }) => (
@@ -166,43 +163,19 @@ export default function KCN({ content }) {
             )}
           </div>
 
-          {/* Committee Pagination Grid (Desktop Only) */}
+          {/* Committee Carousel (Desktop Only) */}
           {allMembers.length > 0 && (
             <div className="w-full mt-10 md:mt-12 hidden md:block">
-              <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-6 pl-2 border-l-2 border-amber-accent/50 leading-none">2025-2026 Committee</h3>
-              
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                {allMembers.slice(memberPage * MEMBERS_PER_PAGE, (memberPage + 1) * MEMBERS_PER_PAGE).map((member, idx) => (
-                  <MemberCard key={idx} member={member} />
-                ))}
-              </div>
-
-              {Math.ceil(allMembers.length / MEMBERS_PER_PAGE) > 1 && (
-                <div className="flex items-center justify-center gap-4 mt-8">
-                  <button 
-                    onClick={() => setMemberPage(prev => Math.max(0, prev - 1))}
-                    disabled={memberPage === 0}
-                    className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
-                  >
-                    <CaretLeft size={20} weight="bold" />
-                  </button>
-                  <div className="flex gap-2">
-                    {Array.from({ length: Math.ceil(allMembers.length / MEMBERS_PER_PAGE) }).map((_, i) => (
-                      <div 
-                        key={i} 
-                        className={`w-2 h-2 rounded-full transition-colors ${i === memberPage ? 'bg-amber-accent' : 'bg-white/30'}`}
-                      />
-                    ))}
-                  </div>
-                  <button 
-                    onClick={() => setMemberPage(prev => Math.min(Math.ceil(allMembers.length / MEMBERS_PER_PAGE) - 1, prev + 1))}
-                    disabled={memberPage === Math.ceil(allMembers.length / MEMBERS_PER_PAGE) - 1}
-                    className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
-                  >
-                    <CaretRight size={20} weight="bold" />
-                  </button>
-                </div>
-              )}
+              <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-4 pl-2 border-l-2 border-amber-accent/50 leading-none">2025-2026 Committee</h3>
+              <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
+                <CarouselContent className="-ml-2">
+                  {allMembers.map((member, idx) => (
+                    <CarouselItem key={idx} className="pl-2 basis-[45%] lg:basis-[30%]">
+                      <MemberCard member={member} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
           )}
 

@@ -2164,10 +2164,6 @@
   "ce": {
     "title": "Christian Education (CE)",
     "staff": {
-      "superintendent": {
-        "name": "Pa S Tongkhosei Mate",
-        "img": "/assets/ce/Pa S Tongkhosei Mate.webp"
-      },
       "secretary": {
         "name": "Pa Ph. Jangkhomang Mate"
       },
@@ -2204,14 +2200,6 @@
         {
           "name": "L Jamkhokhai Mate",
           "img": "/assets/ce/L Jamkhokhai Mate.jpeg"
-        },
-        {
-          "name": "Pa S Tongkhosei Mate",
-          "img": "/assets/ce/Pa S Tongkhosei Mate.jpeg"
-        },
-        {
-          "name": "Ph Seilenjam Mate",
-          "img": "/assets/ce/Ph Seilenjam Mate.jpeg"
         }
       ]
     },
