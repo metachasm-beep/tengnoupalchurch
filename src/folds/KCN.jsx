@@ -85,50 +85,91 @@ export default function KCN({ content }) {
             {content?.history?.[0]}
           </p>
 
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <button className="group flex items-center gap-4 bg-amber-accent text-forest-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm shadow-[0_10px_30px_rgba(212,128,28,0.2)] hover:bg-bone-50 transition-all hover:scale-105 active:scale-95 outline-none">
-                Read Full History 
-                <ArrowRight size={18} weight="bold" className="group-hover:translate-x-1.5 transition-transform" />
-              </button>
-            </Dialog.Trigger>
-            
-            <Dialog.Portal>
-              <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-xl duration-300 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
-              <Dialog.Popup className="fixed inset-x-0 bottom-0 top-12 md:top-24 z-[100] flex flex-col glass-dark border-t border-x border-white/10 rounded-t-[2.5rem] p-8 md:p-12 outline-none duration-500 data-open:animate-in data-open:slide-in-from-bottom-full data-closed:animate-out data-closed:slide-out-to-bottom-full shadow-[0_-20px_60px_rgba(0,0,0,0.5)] overflow-hidden max-w-4xl mx-auto">
-                
-                {/* Pull Tab Indicator */}
-                <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-8 shrink-0" />
+          <div className="flex flex-col sm:flex-row gap-4 items-center w-full justify-center md:justify-start">
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button className="group flex items-center gap-4 bg-amber-accent text-forest-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm shadow-[0_10px_30px_rgba(212,128,28,0.2)] hover:bg-bone-50 transition-all hover:scale-105 active:scale-95 outline-none">
+                  Read Full History 
+                  <ArrowRight size={18} weight="bold" className="group-hover:translate-x-1.5 transition-transform" />
+                </button>
+              </Dialog.Trigger>
+              
+              <Dialog.Portal>
+                <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-xl duration-300 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
+                <Dialog.Popup className="fixed inset-x-0 bottom-0 top-12 md:top-24 z-[100] flex flex-col glass-dark border-t border-x border-white/10 rounded-t-[2.5rem] p-8 md:p-12 outline-none duration-500 data-open:animate-in data-open:slide-in-from-bottom-full data-closed:animate-out data-closed:slide-out-to-bottom-full shadow-[0_-20px_60px_rgba(0,0,0,0.5)] overflow-hidden max-w-4xl mx-auto">
+                  
+                  {/* Pull Tab Indicator */}
+                  <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-8 shrink-0" />
 
-                <div className="flex justify-between items-center mb-10 shrink-0">
-                  <div className="flex flex-col">
-                    <span className="text-amber-accent text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">Our Story</span>
-                    <h3 className="font-serif text-3xl md:text-4xl text-bone-50">{content?.title}</h3>
+                  <div className="flex justify-between items-center mb-10 shrink-0">
+                    <div className="flex flex-col">
+                      <span className="text-amber-accent text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">Our Story</span>
+                      <h3 className="font-serif text-3xl md:text-4xl text-bone-50">{content?.title}</h3>
+                    </div>
+                    <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-3 transition-colors outline-none border-none cursor-pointer shrink-0">
+                      <X size={24} weight="bold" />
+                    </Dialog.Close>
                   </div>
-                  <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-3 transition-colors outline-none border-none cursor-pointer shrink-0">
-                    <X size={24} weight="bold" />
-                  </Dialog.Close>
-                </div>
-                
-                <div className="flex-1 overflow-y-auto custom-scrollbar pb-10 space-y-8 pr-4">
-                  {content?.history?.map((para, i) => (
-                    <p key={i} className={`text-bone-100/90 leading-relaxed md:leading-loose ${i === 0 ? 'italic font-serif text-xl text-amber-accent/90' : 'text-base font-light tracking-wide'}`}>
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </Dialog.Popup>
-            </Dialog.Portal>
-          </Dialog.Root>
+                  
+                  <div className="flex-1 overflow-y-auto custom-scrollbar pb-10 space-y-8 pr-4">
+                    {content?.history?.map((para, i) => (
+                      <p key={i} className={`text-bone-100/90 leading-relaxed md:leading-loose ${i === 0 ? 'italic font-serif text-xl text-amber-accent/90' : 'text-base font-light tracking-wide'}`}>
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                </Dialog.Popup>
+              </Dialog.Portal>
+            </Dialog.Root>
 
-          {/* Committee Carousel */}
+            {/* Mobile Committee CTA */}
+            {allMembers.length > 0 && (
+              <Dialog.Root>
+                <Dialog.Trigger asChild>
+                  <button className="md:hidden group flex items-center gap-4 bg-transparent border border-amber-accent text-amber-accent px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-amber-accent hover:text-forest-900 transition-all hover:scale-105 active:scale-95 outline-none">
+                    View Committee 
+                    <ArrowRight size={18} weight="bold" className="group-hover:translate-x-1.5 transition-transform" />
+                  </button>
+                </Dialog.Trigger>
+                
+                <Dialog.Portal>
+                  <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-xl duration-300 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
+                  <Dialog.Popup className="fixed inset-x-0 bottom-0 top-12 z-[100] flex flex-col glass-dark border-t border-x border-white/10 rounded-t-[2.5rem] p-6 sm:p-8 outline-none duration-500 data-open:animate-in data-open:slide-in-from-bottom-full data-closed:animate-out data-closed:slide-out-to-bottom-full shadow-[0_-20px_60px_rgba(0,0,0,0.5)] overflow-hidden max-w-4xl mx-auto">
+                    
+                    {/* Pull Tab Indicator */}
+                    <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-6 shrink-0" />
+
+                    <div className="flex justify-between items-center mb-6 shrink-0">
+                      <div className="flex flex-col">
+                        <span className="text-amber-accent text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">2025-2026</span>
+                        <h3 className="font-serif text-3xl text-bone-50">Committee</h3>
+                      </div>
+                      <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-2 transition-colors outline-none border-none cursor-pointer shrink-0">
+                        <X size={20} weight="bold" />
+                      </Dialog.Close>
+                    </div>
+                    
+                    <div className="flex-1 overflow-y-auto custom-scrollbar pb-10">
+                      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                        {allMembers.map((member, idx) => (
+                          <MemberCard key={idx} member={member} />
+                        ))}
+                      </div>
+                    </div>
+                  </Dialog.Popup>
+                </Dialog.Portal>
+              </Dialog.Root>
+            )}
+          </div>
+
+          {/* Committee Carousel (Desktop Only) */}
           {allMembers.length > 0 && (
-            <div className="w-full mt-10 md:mt-12">
+            <div className="w-full mt-10 md:mt-12 hidden md:block">
               <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-4 pl-2 border-l-2 border-amber-accent/50 leading-none">2025-2026 Committee</h3>
               <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
                 <CarouselContent className="-ml-2">
                   {allMembers.map((member, idx) => (
-                    <CarouselItem key={idx} className="pl-2 basis-[55%] sm:basis-[40%] md:basis-[45%] lg:basis-[30%]">
+                    <CarouselItem key={idx} className="pl-2 basis-[45%] lg:basis-[30%]">
                       <MemberCard member={member} />
                     </CarouselItem>
                   ))}
