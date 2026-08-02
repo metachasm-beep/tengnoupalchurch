@@ -25,10 +25,10 @@ export default function KCK({ content }) {
     ...(content?.committee || [])
   ];
 
-  const MemberCard = ({ member }) => (
+  const MemberCard = ({ member, isDesktop = false }) => (
     <SpotlightCard 
       spotlightColor="rgba(255, 183, 77, 0.15)"
-      className="relative rounded-3xl overflow-hidden glass p-4 sm:p-5 border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full min-h-[220px]"
+      className={`relative rounded-3xl overflow-hidden glass p-4 sm:p-5 border border-white/5 shadow-2xl bg-forest-800 flex flex-col items-center text-center group h-full ${isDesktop ? '' : 'min-h-[220px]'}`}
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-amber-accent/50 group-hover:bg-amber-accent transition-colors"></div>
       
@@ -178,38 +178,42 @@ export default function KCK({ content }) {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex w-full flex-col items-start h-full">
-          <div className="flex flex-row items-center justify-between w-full mb-8">
-            <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-widest uppercase text-bone-50">
-              {content?.title}
-            </h2>
-            {content?.gallery?.length > 0 && <GalleryCTA />}
-          </div>
-          <div className="flex-1 flex flex-col gap-6 max-w-4xl">
-            <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
-              {content?.history?.map((para, i) => (
-                <p key={i} className="text-bone-100/90 text-sm leading-relaxed font-light">
-                  {para}
-                </p>
-              ))}
+        <div className="hidden md:flex w-full flex-row gap-8 lg:gap-12 h-full max-h-[80vh] items-stretch">
+          
+          {/* Left Column: History & Gallery CTA */}
+          <div className="w-[45%] flex flex-col h-full">
+            <div className="flex flex-row items-center justify-between w-full mb-6 shrink-0">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50 leading-tight">
+                {content?.title}
+              </h2>
+              {content?.gallery?.length > 0 && <GalleryCTA />}
+            </div>
+
+            <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10">
+              <div className="glass p-8 rounded-3xl border border-white/5 space-y-4 shadow-xl">
+                {content?.history?.map((para, i) => (
+                  <p key={i} className="leading-relaxed font-light text-bone-100/90">
+                    {para}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
           
-          {/* Committee Carousel (Desktop Only) */}
+          {/* Right Column: Committee */}
           {allMembers.length > 0 && (
-            <div className="w-full mt-12 hidden md:block">
-              <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-4 pl-2 border-l-2 border-amber-accent/50 leading-none">2025-2026 Committee</h3>
-              <Carousel opts={{ align: "start", dragFree: true }} className="w-full">
-                <CarouselContent className="-ml-2">
+            <div className="w-[55%] flex flex-col h-full">
+              <h3 className="font-sans text-xs tracking-[0.2em] text-bone-200/70 uppercase font-medium mb-6 pl-2 border-l-2 border-amber-accent/50 leading-none">2025-2026 Committee</h3>
+              <div className="flex-1 overflow-y-auto custom-scrollbar pr-4 rounded-3xl pb-10">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   {allMembers.map((member, idx) => (
-                    <CarouselItem key={idx} className="pl-2 basis-[45%] lg:basis-[20%]">
-                      <MemberCard member={member} />
-                    </CarouselItem>
+                    <MemberCard key={idx} member={member} isDesktop={true} />
                   ))}
-                </CarouselContent>
-              </Carousel>
+                </div>
+              </div>
             </div>
           )}
+
         </div>
 
       </div>

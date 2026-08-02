@@ -66,9 +66,9 @@ export default function Sermons({ docx_content }) {
           {/* Desktop Text Container (Hidden on mobile) */}
           <div className="hidden md:block md:col-span-7 relative">
             <div className="glass-dark p-6 md:p-12 rounded-[2rem] h-[600px] overflow-y-auto custom-scrollbar shadow-2xl bg-forest-900/50">
-              <div className="max-w-prose space-y-6">
+              <div className="max-w-prose mx-auto space-y-6">
                 {docx_content?.split('\n\n').filter(Boolean).map((para, i) => (
-                  <p key={i} className="leading-relaxed text-bone-100/95 text-base md:text-lg font-light tracking-wide max-w-prose mx-auto md:mx-0">{para}</p>
+                  <p key={i} className="leading-relaxed text-bone-100/95 text-base md:text-lg font-light tracking-wide">{para}</p>
                 ))}
               </div>
             </div>

@@ -144,7 +144,40 @@ export default function CE({ content }) {
         {/* Desktop Layout */}
         <div className="hidden md:flex w-full flex-row gap-8 lg:gap-12 h-full max-h-[80vh] items-stretch">
           
-          {/* Left Column: Staff */}
+          {/* Left Column: Gallery */}
+          <div className="w-[45%] flex flex-col h-full relative">
+             <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 rounded-3xl flex flex-col gap-4 pb-10">
+                <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[60vh] shrink-0">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentCbs}
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.8 }}
+                      className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] flex items-center justify-center bg-black/20 rounded-2xl"
+                    >
+                      <ImageModal 
+                        src={allGalleryPhotos[currentCbs]?.src}
+                        alt={allGalleryPhotos[currentCbs]?.caption}
+                        className="w-full h-full rounded-2xl object-contain object-center"
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                  <div className="absolute inset-2 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-2xl" />
+                  <p className="absolute bottom-6 left-6 z-10 text-sm font-medium text-bone-50 drop-shadow-md">
+                    {allGalleryPhotos[currentCbs]?.caption}
+                  </p>
+                  <div className="absolute bottom-6 right-6 z-10 flex gap-1.5 flex-wrap justify-end max-w-[50%]">
+                    {allGalleryPhotos.map((_, i) => (
+                      <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentCbs ? 'bg-amber-accent' : 'bg-white/30'}`} />
+                    ))}
+                  </div>
+                </div>
+             </div>
+          </div>
+
+          {/* Right Column: Staff */}
           <div className="w-[55%] flex flex-col h-full">
             <div className="flex items-center gap-4 mb-6 shrink-0">
               <img src="/assets/ce_logo.webp" alt="CE Logo" className="w-16 h-16 rounded-full object-cover border border-white/10 shadow-lg" />
@@ -163,40 +196,6 @@ export default function CE({ content }) {
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* Right Column: Gallery */}
-          <div className="w-[45%] flex flex-col h-full relative">
-             <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 rounded-3xl flex flex-col gap-4 pb-10">
-                {/* Single feature image (Animated Gallery) */}
-                <div className="relative rounded-3xl overflow-hidden glass p-2 border border-white/5 h-[60vh] shrink-0">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentCbs}
-                      initial={{ opacity: 0, scale: 1.05 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.8 }}
-                      className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)]"
-                    >
-                      <ImageModal 
-                        src={allGalleryPhotos[currentCbs]?.src}
-                        alt={allGalleryPhotos[currentCbs]?.caption}
-                        className="w-full h-full rounded-2xl object-cover"
-                      />
-                    </motion.div>
-                  </AnimatePresence>
-                  <div className="absolute inset-2 bg-gradient-to-t from-forest-900/90 via-transparent to-transparent pointer-events-none rounded-2xl" />
-                  <p className="absolute bottom-6 left-6 z-10 text-sm font-medium text-bone-50 drop-shadow-md">
-                    {allGalleryPhotos[currentCbs]?.caption}
-                  </p>
-                  <div className="absolute bottom-6 right-6 z-10 flex gap-1.5 flex-wrap justify-end max-w-[50%]">
-                    {allGalleryPhotos.map((_, i) => (
-                      <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentCbs ? 'bg-amber-accent' : 'bg-white/30'}`} />
-                    ))}
-                  </div>
-                </div>
-             </div>
           </div>
 
         </div>
