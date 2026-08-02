@@ -1,5 +1,5 @@
 import React from 'react';
-import { UsersThree, BookOpenText, Users, UserCircle, ArrowRight, X } from '@phosphor-icons/react';
+import { UsersThree, BookOpenText, Users, UserCircle, ArrowRight, X, ImageSquare } from '@phosphor-icons/react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog } from "@base-ui/react/dialog";
 import {
