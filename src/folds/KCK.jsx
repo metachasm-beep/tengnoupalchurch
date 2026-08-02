@@ -14,6 +14,7 @@ import SpotlightCard from '../components/ui/SpotlightCard';
 
 import ImageModal from '../components/ImageModal';
 import ScrollFloat from '../components/ui/ScrollFloat';
+import PaginatedReader from '../components/PaginatedReader';
 
 export default function KCK({ content }) {
   const kckImages = getKCKImages();
@@ -168,14 +169,8 @@ export default function KCK({ content }) {
             </TabsList>
             
             <TabsContent value="history">
-              <div className="w-full flex-col gap-6 flex">
-                <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
-                  {content?.history?.map((para, i) => (
-                    <p key={i} className="text-bone-100/90 text-sm leading-relaxed font-light bg-white/5 p-4 rounded-xl border border-white/5">
-                      {para}
-                    </p>
-                  ))}
-                </div>
+              <div className="w-full flex-col gap-6 flex h-[60vh] bg-white/5 rounded-xl border border-white/5 relative overflow-hidden">
+                <PaginatedReader text={content?.history?.join('\n\n')} maxChars={500} />
               </div>
             </TabsContent>
           </Tabs>
