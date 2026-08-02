@@ -1129,21 +1129,26 @@
       "1982 kum in Pathen in houbung sunga Khangthah te ahin mangchan Pathen vahchoina lasah le Pathen thu lam'ah machalna ahung umdoh kittan ahileh vahchoina la toh thoding tumging thei Electric Guiter-2 (ni) chuleh Harmonium-1 (khat) akichodoh tan ahi. 1983 kum in KCK(A) Khoppi akilan ahi. 1999 kum in KCK ten music instrument Keyboard khat ana lamdoh'un ahi. 2000 kum in houbung in ananei khah lou hou-in'a manchah din Battery khat Pu. Jamkhoshon Mate (EE-Electricity) in KCK te anachoh peh in chuleh KCK te Music Project tohgon noiya Pu. L. Doukhosei Mate (IRS) in Amply 1500 Watts khat ana choh peh'un ahi.",
       "1998 kum in Pr. Ch. Doukholun Mate le Pr. Jangshon Touthang lamkai nan gamkai sunga Dingpi le Laijang gambih a preaching ana cheuvin ahi. Khengjang Synod KCK khoppi'ah tolsung KCK ten jong pan analauvin ahi. 1996 kum in KCK ten Khongkhang Chothe Baptist Church Golden Jubilee chuleh 2004 kum in Saivom BYF te Golden Jubilee a Choir-seat analo uvin ahi. 2008 kum in Molding houbung'a um Manipur Synod KCK Gospel Olympic a pan anala uvin ahi. 2013 kum in 'Mobile Phone Mandan Aphatna le Asema Essay Writing Competition anabol'un ahi. Hiche kum 'a kipat in KCK ten An-ngol taona jong ahinbol pan uvin ahi."
     ],
-    "lamkai": [
+    "committee": [
       {
         "name": "Gl. S Thanggoulen Mate",
-        "role": "Chairman"
+        "role": "Chairman",
+        "img": "/assets/kck/S Thanggoulen Mate.jpeg"
       },
       {
         "name": "Gl. Seigoulal Mate",
-        "role": "Secretary"
-      }
-    ],
-    "committee": [
+        "role": "Secretary",
+        "img": "/assets/kck/Ls Seigoulal.jpeg"
+      },
       {
         "name": "Ch Jangminthang",
-        "role": "Member",
+        "role": "Lhacha",
         "img": "/assets/kck/Ch Jangminthang .jpeg"
+      },
+      {
+        "name": "Hl Seiminlal Lhacha",
+        "role": "Lhacha",
+        "img": "/assets/kck/Hl Seiminlal Lhacha.jpeg"
       },
       {
         "name": "H Tongminlen",
@@ -1156,19 +1161,9 @@
         "img": "/assets/kck/Hl Lhingkhohoi.jpeg"
       },
       {
-        "name": "Hl Seiminlal Lhacha",
-        "role": "Member",
-        "img": "/assets/kck/Hl Seiminlal Lhacha.jpeg"
-      },
-      {
         "name": "Ls Janggoukhup",
         "role": "Member",
         "img": "/assets/kck/Ls Janggoukhup.jpeg"
-      },
-      {
-        "name": "Ls Seigoulal",
-        "role": "Member",
-        "img": "/assets/kck/Ls Seigoulal.jpeg"
       },
       {
         "name": "Ph Hemgoulen",
@@ -1179,21 +1174,6 @@
         "name": "S Lamjadim Mate",
         "role": "Member",
         "img": "/assets/kck/S Lamjadim Mate.jpeg"
-      },
-      {
-        "name": "S Thanggoulen Mate",
-        "role": "Member",
-        "img": "/assets/kck/S Thanggoulen Mate.jpeg"
-      }
-    ],
-    "lhacha": [
-      {
-        "name": "Gl. Hl Seiminlal Mate",
-        "role": "Lhacha"
-      },
-      {
-        "name": "Gl Ch Jangminthang Mate",
-        "role": "Lhacha"
       }
     ],
     "gallery": [
