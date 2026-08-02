@@ -592,6 +592,60 @@
           "/assets/timeline/event_root/WhatsApp Video 2026-07-31 at 11.06.45 PM.mp4",
           "/assets/videos/WhatsApp_Video_20260731_at_110645_PM.mp4"
         ]
+      },
+      {
+        "id": "social_service",
+        "date": "General Progress",
+        "caption": "Social Service Report - Men Society KCU and Youth KCK coming together for social service towards the New Church Building Project.",
+        "images": [
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.37 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.37 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.38 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.38 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.39 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.39 PM (2).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.39 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.40 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.40 PM (2).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.40 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.41 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.41 PM (2).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.41 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.34.42 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.23 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.24 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.24 PM (2).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.24 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.25 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.25 PM (2).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.25 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.26 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.26 PM (2).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.26 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.27 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.27 PM.jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.28 PM (1).jpeg",
+          "/assets/project/social_service/WhatsApp Image 2026-07-31 at 11.35.28 PM.jpeg"
+        ],
+        "videos": []
+      },
+      {
+        "id": "calendar_sale",
+        "date": "General Progress",
+        "caption": "Calendar Fundraising - The New Church Building Construction Committee undertaking the sale of calendars in surrounding village churches for fundraising.",
+        "images": [
+          "/assets/project/calendar_sale/Calender 2025.jpeg",
+          "/assets/project/calendar_sale/Chahmol Baptist Church.jpeg",
+          "/assets/project/calendar_sale/Chehlep Christian Church.jpeg",
+          "/assets/project/calendar_sale/Khongkhang Baptist Church .jpeg",
+          "/assets/project/calendar_sale/Lamjang Baptist Church.jpeg",
+          "/assets/project/calendar_sale/Phalbung Baptist Church.jpeg",
+          "/assets/project/calendar_sale/Tuipi Baptist Church.jpeg",
+          "/assets/project/calendar_sale/Wapi Baptist Church.jpeg",
+          "/assets/project/calendar_sale/WhatsApp Image 2026-07-31 at 11.21.29 PM (1).jpeg",
+          "/assets/project/calendar_sale/WhatsApp Image 2026-07-31 at 11.21.30 PM (2).jpeg"
+        ],
+        "videos": []
       }
     ],
     "committeeImages": [
@@ -930,36 +984,49 @@
     ],
     "committee": [
       {
-        "name": "Gl. Ch Songoukhup Mate",
-        "role": "Member"
+        "name": "Ch Jangminthang",
+        "role": "Member",
+        "img": "/assets/kck/Ch Jangminthang .jpeg"
       },
       {
-        "name": "Gl. Ls Janggoukhup Mate",
-        "role": "Member"
+        "name": "H Tongminlen",
+        "role": "Member",
+        "img": "/assets/kck/H Tongminlen.jpeg"
       },
       {
-        "name": "Gl. Ph Hemgoulen Mate",
-        "role": "Member"
+        "name": "Hl Lhingkhohoi",
+        "role": "Member",
+        "img": "/assets/kck/Hl Lhingkhohoi.jpeg"
       },
       {
-        "name": "Gl. Sh Seiminlal Mate",
-        "role": "Member"
+        "name": "Hl Seiminlal Lhacha",
+        "role": "Lhacha",
+        "img": "/assets/kck/Hl Seiminlal Lhacha.jpeg"
       },
       {
-        "name": "Ng. Hl. Hoineichong Mate",
-        "role": "Member"
+        "name": "Ls Janggoukhup",
+        "role": "Member",
+        "img": "/assets/kck/Ls Janggoukhup.jpeg"
       },
       {
-        "name": "Ng. Hl. Lhingkhohoi Mate",
-        "role": "Member"
+        "name": "Ls Seigoulal",
+        "role": "Member",
+        "img": "/assets/kck/Ls Seigoulal.jpeg"
       },
       {
-        "name": "Ng. M. Chinneimoi Haokip",
-        "role": "Member"
+        "name": "Ph Hemgoulen",
+        "role": "Member",
+        "img": "/assets/kck/Ph Hemgoulen .jpeg"
       },
       {
-        "name": "Ng. S. Lamjadim Mate",
-        "role": "Member"
+        "name": "S Lamjadim Mate",
+        "role": "Member",
+        "img": "/assets/kck/S Lamjadim Mate.jpeg"
+      },
+      {
+        "name": "S Thanggoulen Mate",
+        "role": "Member",
+        "img": "/assets/kck/S Thanggoulen Mate.jpeg"
       }
     ],
     "lhacha": [
@@ -1057,14 +1124,14 @@
     "committeeText": "Pa Ch Tongkholet Mate, Chairman\r\nPa Hl Thangkhosei Mate, Secretary \r\n\r\nCommittee : \r\nPa T Hemkhopao  Baite\r\nPa Hl Shonkhopao Mate \r\nPa Ph Shokholal Mate\r\nPa Ch Jangthang Mate \r\nPa Kh Jamkholal Vaiphei\r\nPa Ph Tongthang Mate \r\n\r\nLhacha \r\nPa Ls Thangtinsat Mate",
     "committee": [
       {
-        "name": "Ch Jangthang",
-        "role": "Committee Member",
-        "img": "/assets/kcu/Ch Jangthang.jpeg"
-      },
-      {
         "name": "Ch Tongkholet",
         "role": "Chairman",
         "img": "/assets/kcu/Ch Tongkholet.jpeg"
+      },
+      {
+        "name": "Ch Jangthang",
+        "role": "Committee Member",
+        "img": "/assets/kcu/Ch Jangthang.jpeg"
       },
       {
         "name": "Hl Shonkhopao",
