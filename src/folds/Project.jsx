@@ -18,7 +18,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Hammer, Play, ClipboardText } from '@phosphor-icons/react';
+import { Hammer, Play, ClipboardText, HandHeart } from '@phosphor-icons/react';
 import { getConstructionImages, getProjectVideos } from '../stores/AssetStore';
 import ImageModal from '../components/ImageModal';
 import TiltedCard from '../components/ui/TiltedCard';
@@ -62,8 +62,8 @@ export default function Project({ content, renderCards }) {
                 
                 <div className="mt-8 relative z-10 flex flex-col items-start gap-6 w-full">
                   
-                  <div className="flex flex-col sm:flex-row gap-4 w-full">
-                    <Link to="/project-committee" className="flex-1 group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                    <Link to="/project-committee" className="group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 text-amber-accent mb-2">
                         <Hammer weight="bold" size={24} className="group-hover:rotate-12 transition-transform" />
                         <ShinyText text="The Committee" disabled={false} speed={3} className="font-serif text-xl font-medium" />
@@ -71,7 +71,7 @@ export default function Project({ content, renderCards }) {
                       <p className="text-bone-200/70 text-sm font-light">Meet the dedicated team leading our church building project.</p>
                     </Link>
 
-                    <Link to="/project-timeline" className="flex-1 group flex flex-col items-start justify-center gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
+                    <Link to="/project-timeline" className="group flex flex-col items-start justify-center gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 text-amber-accent mb-2">
                         <Play weight="bold" size={24} className="group-hover:translate-x-1 transition-transform" />
                         <ShinyText text="Construction Timeline" disabled={false} speed={3} delay={0.5} className="font-serif text-xl font-medium" />
@@ -79,12 +79,20 @@ export default function Project({ content, renderCards }) {
                       <p className="text-bone-200/70 text-sm font-light">Track our progress with photos, videos, and milestones.</p>
                     </Link>
 
-                    <Link to="/project-services" className="flex-1 group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
+                    <Link to="/project-services" className="group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 text-amber-accent mb-2">
                         <ClipboardText weight="bold" size={24} className="group-hover:-translate-y-1 transition-transform" />
                         <ShinyText text="Services & Pensioners" disabled={false} speed={3} delay={0.2} className="font-serif text-xl font-medium" />
                       </div>
                       <p className="text-bone-200/70 text-sm font-light">Members serving and retired in our community.</p>
+                    </Link>
+
+                    <Link to="/project-donors" className="group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
+                      <div className="flex items-center gap-3 text-amber-accent mb-2">
+                        <HandHeart weight="bold" size={24} className="group-hover:scale-110 transition-transform" />
+                        <ShinyText text="Donors' List" disabled={false} speed={3} delay={0.4} className="font-serif text-xl font-medium" />
+                      </div>
+                      <p className="text-bone-200/70 text-sm font-light">With profound gratitude for your generous contributions.</p>
                     </Link>
                   </div>
 

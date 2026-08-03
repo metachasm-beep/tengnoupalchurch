@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import TimelinePage from './pages/TimelinePage';
 import CommitteePage from './pages/CommitteePage';
 import ServicesPage from './pages/ServicesPage';
+import DonorsPage from './pages/DonorsPage';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
 import ClickSpark from './components/ui/ClickSpark';
@@ -17,6 +18,7 @@ function App() {
           <Route path="/project-timeline" element={<TimelinePage />} />
           <Route path="/project-committee" element={<CommitteePage />} />
           <Route path="/project-services" element={<ServicesPage />} />
+          <Route path="/project-donors" element={<DonorsPage />} />
         </Routes>
       </ClickSpark>
       <Toaster />
