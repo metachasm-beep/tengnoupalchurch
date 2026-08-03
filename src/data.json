@@ -912,7 +912,7 @@
         "name": "Upa M Jamkholun Haokip",
         "period": "1987- 1990",
         "remarks": "9th September 1990 nikho in alei hinkho ana beitai",
-        "img": ""
+        "img": "/assets/houbong/Upa H Jamkhokhai Mate.jpeg"
       },
       {
         "name": "Upa Ch Jilkhothang Mate",
@@ -928,15 +928,15 @@
       },
       {
         "name": "Upa Ph Onkhohem Mate",
-        "period": "1987 - 2013",
+        "period": "1987 - 2019",
         "remarks": "Ordained kibol ni 11th January, 1987",
-        "img": ""
+        "img": "/assets/houbong/Upa Ph Onkhohem Mate.jpeg"
       },
       {
         "name": "Upa H Janghem Khongsai",
         "period": "1987 - 2013",
         "remarks": "Ordained kibol ni 14th January, 1987",
-        "img": ""
+        "img": "/assets/houbong/Upa Janghem Khongsai.jpeg"
       },
       {
         "name": "Upa S Tongkhohem Mate ",
@@ -979,7 +979,7 @@
       {
         "name": "Pastor Ch. Doukholun Mate",
         "degree": "Master of Divinity (M.Div)",
-        "img": ""
+        "img": "/assets/houbong/Upa T Thangjang Baite.jpeg"
       },
       {
         "name": "Pr. Thangkholam Chongloi",
@@ -1014,12 +1014,22 @@
       {
         "name": "Gl. M. Thangjamang Haokip",
         "degree": "Bachelor of Divinity (BD)",
-        "img": ""
+        "img": "/assets/houbong/M. Thangjamang Haokip.jpeg"
       },
       {
         "name": "M Nengneithem Haokip",
         "degree": "",
         "img": "/assets/houbong/theo_M_Nengneithem_Haokip.jpeg"
+      },
+      {
+        "name": "Haolim Hoikholhing Mate",
+        "degree": "",
+        "img": "/assets/houbong/Haolim Hoikholhing Mate.jpeg"
+      },
+      {
+        "name": "S Phalneikim Mate",
+        "degree": "",
+        "img": "/assets/houbong/S Phalneikim  Mate.jpeg"
       }
     ],
     "gallery": [
@@ -1050,6 +1060,22 @@
       {
         "img": "/assets/houbong/houbong_gallery_1785694809734_WhatsApp_Image_2026-08-02_at_10.45.08_PM.jpeg",
         "caption": "2025 Christmas 2026 New Year Collection In-Charge"
+      },
+      {
+        "img": "/assets/houbong/houbong_gallery_7.jpeg",
+        "caption": ""
+      },
+      {
+        "img": "/assets/houbong/houbong_gallery_8.jpeg",
+        "caption": ""
+      },
+      {
+        "img": "/assets/houbong/houbong_gallery_9.jpeg",
+        "caption": ""
+      },
+      {
+        "img": "/assets/houbong/houbong_gallery_10.jpeg",
+        "caption": ""
       }
     ],
     "service_pensioners_2025": [
@@ -2173,14 +2199,15 @@
         },
         {
           "name": "Pa L. Jamkhokhai Mate",
-          "img": "/assets/ce/L Jamkhokhai Mate.webp"
+          "img": "/assets/ce/L Jamkhokhai Mate.jpeg"
         },
         {
-          "name": "Pa M. Tongminthang Haokip"
+          "name": "Pa M. Tongminthang Haokip",
+          "img": "/assets/ce/Pa M Tongminthang Haokip.jpeg"
         },
         {
           "name": "Pa Ph. Seilenjam Mate",
-          "img": "/assets/ce/Ph Seilenjam Mate.webp"
+          "img": "/assets/ce/Ph Seilenjam Mate.jpeg"
         },
         {
           "name": "Ng. T. Veikhoneng Baite"
@@ -2200,6 +2227,10 @@
         {
           "name": "L Jamkhokhai Mate",
           "img": "/assets/ce/L Jamkhokhai Mate.jpeg"
+        },
+        {
+          "name": "Pa S Tongkhosei Mate",
+          "img": "/assets/ce/Pa S Tongkhosei Mate.jpeg"
         }
       ]
     },
@@ -2270,6 +2301,11 @@
         "name": "S Lamjadim Mate",
         "role": "Member",
         "img": "/assets/kck/S Lamjadim Mate.jpeg"
+      },
+      {
+        "name": "S Chinneimoi Haokip",
+        "role": "Member",
+        "img": "/assets/kck/S Chinneimoi Haokip.jpeg"
       }
     ],
     "gallery": [
@@ -2282,11 +2318,7 @@
           "/assets/kck/kck_gen_3.jpeg",
           "/assets/kck/kck_gen_4.jpeg",
           "/assets/kck/kck_gen_5.jpeg",
-          "/assets/kck/kck_gen_6.jpeg",
-          "/assets/kck/kck_gen_7.jpeg",
-          "/assets/kck/kck_gen_8.jpeg",
-          "/assets/kck/kck_gen_9.jpeg",
-          "/assets/kck/kck_gen_10.jpeg"
+          "/assets/kck/kck_gen_6.jpeg"
         ]
       },
       {

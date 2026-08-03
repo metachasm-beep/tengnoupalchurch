@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpenText, Users, CalendarHeart, GlobeHemisphereWest, ImageSquare, X, UserCircle } from '@phosphor-icons/react';
+import { BookOpenText, Users, CalendarHeart, GlobeHemisphereWest, ImageSquare, X, UserCircle, CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { Dialog } from "@base-ui/react/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -47,6 +47,8 @@ const EventCard = ({ evt }) => (
 
 export default function Houbong({ content }) {
   const [hoveredNode, setHoveredNode] = useState(null);
+  const [galleryPage, setGalleryPage] = useState(0);
+  const GALLERY_PER_PAGE = 4;
 
   const nodes = [
     { id: 'history', number: '01', label: 'History', bg: '/assets/houbong_1.jpeg', filter: 'hue-rotate-15' },
@@ -165,19 +167,51 @@ export default function Houbong({ content }) {
           </div>
         );
       case 'gallery':
+        const galleryItems = content?.gallery || [];
+        const totalGalleryPages = Math.ceil(galleryItems.length / GALLERY_PER_PAGE);
+        const currentGalleryItems = galleryItems.slice(galleryPage * GALLERY_PER_PAGE, (galleryPage + 1) * GALLERY_PER_PAGE);
+
         return (
           <div className="flex flex-col gap-6">
             <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
               Gallery
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {content?.gallery?.map((item, idx) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 min-h-[300px]">
+              {currentGalleryItems.map((item, idx) => (
                 <div key={idx} className="relative rounded-2xl overflow-hidden glass p-2 border border-white/5 w-full">
                   <ImageModal src={item.img} alt="Houbung lamkai" caption={item.caption} className="w-full h-auto rounded-xl shadow-lg object-cover" />
                   <p className="mt-3 text-center text-bone-200/60 text-xs italic px-2">{item.caption}</p>
                 </div>
               ))}
             </div>
+            
+            {totalGalleryPages > 1 && (
+              <div className="flex justify-center items-center gap-6 mt-4">
+                <button 
+                  onClick={() => setGalleryPage(p => Math.max(0, p - 1))}
+                  disabled={galleryPage === 0}
+                  className="p-2 disabled:opacity-30 text-amber-accent hover:bg-white/5 rounded-full transition-colors"
+                >
+                  <CaretLeft size={24} />
+                </button>
+                <div className="flex gap-2">
+                  {Array.from({length: totalGalleryPages}).map((_, i) => (
+                    <button 
+                      key={i}
+                      onClick={() => setGalleryPage(i)}
+                      className={`w-2 h-2 rounded-full transition-colors ${galleryPage === i ? 'bg-amber-accent' : 'bg-white/20 hover:bg-white/40'}`}
+                    />
+                  ))}
+                </div>
+                <button 
+                  onClick={() => setGalleryPage(p => Math.min(totalGalleryPages - 1, p + 1))}
+                  disabled={galleryPage === totalGalleryPages - 1}
+                  className="p-2 disabled:opacity-30 text-amber-accent hover:bg-white/5 rounded-full transition-colors"
+                >
+                  <CaretRight size={24} />
+                </button>
+              </div>
+            )}
           </div>
         );
       case 'service':
