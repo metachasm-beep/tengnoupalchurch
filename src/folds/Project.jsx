@@ -18,7 +18,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Hammer, Play } from '@phosphor-icons/react';
+import { Hammer, Play, ClipboardText } from '@phosphor-icons/react';
 import { getConstructionImages, getProjectVideos } from '../stores/AssetStore';
 import ImageModal from '../components/ImageModal';
 import TiltedCard from '../components/ui/TiltedCard';
@@ -77,6 +77,14 @@ export default function Project({ content, renderCards }) {
                         <ShinyText text="Construction Timeline" disabled={false} speed={3} delay={0.5} className="font-serif text-xl font-medium" />
                       </div>
                       <p className="text-bone-200/70 text-sm font-light">Track our progress with photos, videos, and milestones.</p>
+                    </Link>
+
+                    <Link to="/project-services" className="flex-1 group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
+                      <div className="flex items-center gap-3 text-amber-accent mb-2">
+                        <ClipboardText weight="bold" size={24} className="group-hover:-translate-y-1 transition-transform" />
+                        <ShinyText text="Services & Pensioners" disabled={false} speed={3} delay={0.2} className="font-serif text-xl font-medium" />
+                      </div>
+                      <p className="text-bone-200/70 text-sm font-light">Members serving and retired in our community.</p>
                     </Link>
                   </div>
 

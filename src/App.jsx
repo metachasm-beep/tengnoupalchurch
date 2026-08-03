@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import TimelinePage from './pages/TimelinePage';
 import CommitteePage from './pages/CommitteePage';
+import ServicesPage from './pages/ServicesPage';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
 import ClickSpark from './components/ui/ClickSpark';
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/project-timeline" element={<TimelinePage />} />
           <Route path="/project-committee" element={<CommitteePage />} />
+          <Route path="/project-services" element={<ServicesPage />} />
         </Routes>
       </ClickSpark>
       <Toaster />

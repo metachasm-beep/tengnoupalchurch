@@ -58,7 +58,6 @@ export default function Houbong({ content }) {
     { id: 'ordainees', number: '05', label: 'Ordainees', bg: '/assets/houbong_lamkai.webp', filter: 'sepia-[20%] hue-rotate-90' },
     { id: 'theologians', number: '06', label: 'Theologians', bg: '/assets/houbong_lamkai.webp', filter: 'sepia-[40%] hue-rotate-[270deg]' },
     { id: 'gallery', number: '07', label: 'Gallery', bg: '/assets/houbong_lamkai.webp', filter: 'contrast-125 saturate-150' },
-    { id: 'service', number: '08', label: 'Service & Pensioners', bg: '/assets/houbong_1.jpeg', filter: 'hue-rotate-[100deg]' },
   ];
 
   const getModalContent = (id) => {
@@ -212,59 +211,6 @@ export default function Houbong({ content }) {
                 </button>
               </div>
             )}
-          </div>
-        );
-      case 'service':
-        return (
-          <div className="flex flex-col gap-6">
-            <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
-              Service & Pensioners
-            </h4>
-            
-            <Tabs defaultValue="2026" className="w-full">
-              <TabsList className="w-full sm:w-auto flex flex-wrap bg-forest-900/40 border border-white/20 p-1 rounded-xl mb-6 sticky top-0 z-10 backdrop-blur-xl shadow-lg">
-                <TabsTrigger value="2026" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase text-bone-50/90 hover:text-white data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
-                  2026 List
-                </TabsTrigger>
-                <TabsTrigger value="2025" className="flex-1 sm:flex-none text-xs sm:text-sm font-semibold tracking-widest uppercase text-bone-50/90 hover:text-white data-[state=active]:bg-amber-accent data-[state=active]:text-forest-900 rounded-lg transition-all py-2.5">
-                  2025 List
-                </TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="2026" className="mt-0 focus-visible:outline-none">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                  {content?.service_pensioners_2026?.map((person, idx) => (
-                    <div key={idx} className="bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors flex flex-col h-full shadow-md">
-                      <span className="text-base font-medium text-bone-50 leading-tight mb-1">{person.name}</span>
-                      <div className="mt-auto flex items-center justify-between pt-2">
-                        <span className={`text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded border ${person.status?.toLowerCase().includes('pensioner') ? 'bg-bone-200/10 text-bone-200 border-bone-200/20' : 'bg-amber-accent/10 text-amber-accent border-amber-accent/20'}`}>
-                          {person.status}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="2025" className="mt-0 focus-visible:outline-none">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                  {content?.service_pensioners_2025?.map((person, idx) => (
-                    <div key={idx} className="bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors flex flex-col h-full shadow-md">
-                      <span className="text-base font-medium text-bone-50 leading-tight mb-2">{person.name}</span>
-                      <div className="space-y-1 mb-3">
-                        {person.designation && <p className="text-xs text-bone-100/90"><span className="text-[9px] uppercase tracking-widest text-amber-accent/80 mr-1 block sm:inline">Designation</span> {person.designation}</p>}
-                        {person.department && <p className="text-xs text-bone-100/90"><span className="text-[9px] uppercase tracking-widest text-amber-accent/80 mr-1 block sm:inline">Department</span> {person.department}</p>}
-                      </div>
-                      <div className="mt-auto flex items-center justify-between pt-2">
-                        <span className={`text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded border ${person.remarks?.toLowerCase().includes('pensioner') ? 'bg-bone-200/10 text-bone-200 border-bone-200/20' : 'bg-amber-accent/10 text-amber-accent border-amber-accent/20'}`}>
-                          {person.remarks}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </TabsContent>
-            </Tabs>
           </div>
         );
       default:
