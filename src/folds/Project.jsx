@@ -49,54 +49,54 @@ export default function Project({ content, renderCards }) {
         <CarouselContent className="h-[100dvh] m-0">
           
           {/* Slide 1: Text Intro */}
-          <CarouselItem className="h-full flex items-center justify-center p-4 sm:p-6 md:p-16 flex-shrink-0 pl-0">
-            <Card className="max-w-3xl w-full flex flex-col gap-5 sm:gap-6 md:gap-8 bg-forest-800/50 p-6 md:p-12 rounded-3xl border-white/5 shadow-2xl relative overflow-hidden group backdrop-blur-md text-bone-50">
-              <CardContent className="p-0 z-10 flex flex-col gap-6 md:gap-8">
+          <CarouselItem className="h-full flex items-center justify-center p-3 sm:p-6 md:p-16 flex-shrink-0 pl-0">
+            <Card className="max-w-3xl w-full flex flex-col gap-3 sm:gap-6 md:gap-8 bg-forest-800/50 p-4 sm:p-6 md:p-12 rounded-3xl border-white/5 shadow-2xl relative overflow-hidden group backdrop-blur-md text-bone-50">
+              <CardContent className="p-0 z-10 flex flex-col gap-4 md:gap-8">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium tracking-widest uppercase relative z-10 text-bone-50 leading-[1.1]">
+                <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-medium tracking-widest uppercase relative z-10 text-bone-50 leading-[1.1]">
                   {content?.title}
                 </h2>
-                <p className="text-bone-100/90 text-base sm:text-lg md:text-xl leading-relaxed relative z-10 font-light max-w-2xl">
+                <p className="text-bone-100/90 text-sm sm:text-lg md:text-xl leading-relaxed relative z-10 font-light max-w-2xl">
                   {content?.description}
                 </p>
                 
-                <div className="mt-8 relative z-10 flex flex-col items-start gap-6 w-full">
+                <div className="mt-2 sm:mt-8 relative z-10 flex flex-col items-start gap-4 sm:gap-6 w-full">
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                    <Link to="/project-committee" className="group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
-                      <div className="flex items-center gap-3 text-amber-accent mb-2">
-                        <Hammer weight="bold" size={24} className="group-hover:rotate-12 transition-transform" />
-                        <ShinyText text="The Committee" disabled={false} speed={3} className="font-serif text-xl font-medium" />
+                  <div className="grid grid-cols-2 gap-2 sm:gap-4 w-full">
+                    <Link to="/project-committee" className="group flex flex-col items-start justify-center gap-1 sm:gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-3 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl transition-all duration-300">
+                      <div className="flex items-center gap-2 sm:gap-3 text-amber-accent mb-1 sm:mb-2">
+                        <Hammer weight="bold" className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform" />
+                        <ShinyText text="The Committee" disabled={false} speed={3} className="font-serif text-sm sm:text-xl font-medium" />
                       </div>
-                      <p className="text-bone-200/70 text-sm font-light">Meet the dedicated team leading our church building project.</p>
+                      <p className="text-bone-200/70 text-xs sm:text-sm font-light hidden sm:block">Meet the dedicated team leading our church building project.</p>
                     </Link>
 
-                    <Link to="/project-timeline" className="group flex flex-col items-start justify-center gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
-                      <div className="flex items-center gap-3 text-amber-accent mb-2">
-                        <Play weight="bold" size={24} className="group-hover:translate-x-1 transition-transform" />
-                        <ShinyText text="Construction Timeline" disabled={false} speed={3} delay={0.5} className="font-serif text-xl font-medium" />
+                    <Link to="/project-timeline" className="group flex flex-col items-start justify-center gap-1 sm:gap-2 bg-amber-accent/10 hover:bg-amber-accent/20 border border-amber-accent/20 hover:border-amber-accent/50 p-3 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl transition-all duration-300">
+                      <div className="flex items-center gap-2 sm:gap-3 text-amber-accent mb-1 sm:mb-2">
+                        <Play weight="bold" className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+                        <ShinyText text="Construction Timeline" disabled={false} speed={3} delay={0.5} className="font-serif text-sm sm:text-xl font-medium" />
                       </div>
-                      <p className="text-bone-200/70 text-sm font-light">Track our progress with photos, videos, and milestones.</p>
+                      <p className="text-bone-200/70 text-xs sm:text-sm font-light hidden sm:block">Track our progress with photos, videos, and milestones.</p>
                     </Link>
 
-                    <Link to="/project-services" className="group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
-                      <div className="flex items-center gap-3 text-amber-accent mb-2">
-                        <ClipboardText weight="bold" size={24} className="group-hover:-translate-y-1 transition-transform" />
-                        <ShinyText text="Services & Pensioners" disabled={false} speed={3} delay={0.2} className="font-serif text-xl font-medium" />
+                    <Link to="/project-services" className="group flex flex-col items-start justify-center gap-1 sm:gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-3 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl transition-all duration-300">
+                      <div className="flex items-center gap-2 sm:gap-3 text-amber-accent mb-1 sm:mb-2">
+                        <ClipboardText weight="bold" className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-y-1 transition-transform" />
+                        <ShinyText text="Services & Pensioners" disabled={false} speed={3} delay={0.2} className="font-serif text-sm sm:text-xl font-medium" />
                       </div>
-                      <p className="text-bone-200/70 text-sm font-light">Members serving and retired in our community.</p>
+                      <p className="text-bone-200/70 text-xs sm:text-sm font-light hidden sm:block">Members serving and retired in our community.</p>
                     </Link>
 
-                    <Link to="/project-donors" className="group flex flex-col items-start justify-center gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-4 sm:p-5 md:p-6 rounded-2xl transition-all duration-300">
-                      <div className="flex items-center gap-3 text-amber-accent mb-2">
-                        <HandHeart weight="bold" size={24} className="group-hover:scale-110 transition-transform" />
-                        <ShinyText text="Donors' List" disabled={false} speed={3} delay={0.4} className="font-serif text-xl font-medium" />
+                    <Link to="/project-donors" className="group flex flex-col items-start justify-center gap-1 sm:gap-2 bg-forest-900/60 hover:bg-forest-900/80 border border-white/10 hover:border-amber-accent/50 p-3 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl transition-all duration-300">
+                      <div className="flex items-center gap-2 sm:gap-3 text-amber-accent mb-1 sm:mb-2">
+                        <HandHeart weight="bold" className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
+                        <ShinyText text="Donors' List" disabled={false} speed={3} delay={0.4} className="font-serif text-sm sm:text-xl font-medium" />
                       </div>
-                      <p className="text-bone-200/70 text-sm font-light">With profound gratitude for your generous contributions.</p>
+                      <p className="text-bone-200/70 text-xs sm:text-sm font-light hidden sm:block">With profound gratitude for your generous contributions.</p>
                     </Link>
                   </div>
 
-                  <p className="text-sm tracking-widest uppercase text-amber-accent/70 font-semibold flex items-center gap-4 mt-4">
+                  <p className="text-xs sm:text-sm tracking-widest uppercase text-amber-accent/70 font-semibold flex items-center gap-2 sm:gap-4 mt-2 sm:mt-4">
                     <span>Swipe to view 3D renders</span>
                     <span className="w-12 h-[1px] bg-amber-accent/30"></span>
                     <span className="animate-pulse">→</span>
