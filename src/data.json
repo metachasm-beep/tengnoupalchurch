@@ -909,12 +909,6 @@
     ],
     "ordainees": [
       {
-        "name": "Upa M Jamkholun Haokip",
-        "period": "1987- 1990",
-        "remarks": "9th September 1990 nikho in alei hinkho ana beitai",
-        "img": "/assets/houbong/Upa H Jamkhokhai Mate.jpeg"
-      },
-      {
         "name": "Upa Ch Jilkhothang Mate",
         "period": "1987 - 1991",
         "remarks": "September 1991 nikho in alei hinkho ana beitai",
@@ -924,7 +918,7 @@
         "name": "Upa H Jamkhokhai Mate ",
         "period": "1988 - 2003",
         "remarks": "26th May, 2003 nikho in alei hinkho ana beitai",
-        "img": ""
+        "img": "/assets/houbong/Upa H Jamkhokhai Mate.jpeg"
       },
       {
         "name": "Upa Ph Onkhohem Mate",
@@ -948,13 +942,13 @@
         "name": "Upa Thenkhomang Mate ",
         "period": "1992 - till date",
         "remarks": "Ordained kibol ni 19th January, 1992",
-        "img": "/assets/houbong/ordainee_Upa_Thenkhomang_Mate.jpeg"
+        "img": "/assets/houbong/Upa Thenkhomang Mate.jpeg"
       },
       {
         "name": "Upa T Seikholet Baite ",
         "period": "1992 - till date",
         "remarks": "Ordained kibol ni 19th January, 1992",
-        "img": ""
+        "img": "/assets/houbong/Upa Seikholet Baite.jpeg"
       },
       {
         "name": "Upa T Thangjang Baite",
@@ -966,13 +960,7 @@
         "name": "Upa Shonkholen Mate",
         "period": "2022 - till date",
         "remarks": "Ordained kibol ni 22th May, 2022",
-        "img": "/assets/houbong/ordainee_Upa_Shonkholen_Mate.jpeg"
-      },
-      {
-        "name": "Upa Seikholet Baite",
-        "period": "",
-        "remarks": "",
-        "img": "/assets/houbong/ordainee_Upa_Seikholet_Baite.jpeg"
+        "img": "/assets/houbong/Upa Shonkholen Mate.jpeg"
       }
     ],
     "theologians": [
