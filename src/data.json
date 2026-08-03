@@ -2205,12 +2205,12 @@
         },
         {
           "name": "Ng. Ch. Chinneichong Mate"
-        },
-        {
-          "name": "Pa S Tongkhosei Mate",
-          "img": "/assets/ce/Pa S Tongkhosei Mate.jpeg"
         }
-      ]
+      ],
+      "superintendent": {
+        "name": "Pa S Tongkhosei Mate",
+        "img": "/assets/ce/Pa S Tongkhosei Mate.jpeg"
+      }
     },
     "images": [
       "/assets/ce/1.webp",
