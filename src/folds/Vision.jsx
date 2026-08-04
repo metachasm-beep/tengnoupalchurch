@@ -50,7 +50,7 @@ export default function Vision({ content }) {
                   </DialogHeader>
                   <div className="h-[70vh] flex flex-col mt-4">
                     <div className="flex-1 relative overflow-hidden -mx-4 md:mx-0">
-                      <PaginatedReader text={content?.join('\n\n')} maxChars={600} />
+                      <PaginatedReader text={content?.join('\n\n')} maxChars={550} />
                     </div>
                   </div>
                 </DialogContent>
@@ -61,7 +61,7 @@ export default function Vision({ content }) {
           {/* Desktop Text Container (Hidden on mobile) */}
           <div className="hidden md:block md:col-span-7 relative h-[720px] translate-y-[10%]">
             <div className="glass-dark rounded-[2rem] h-full shadow-2xl bg-forest-900/50 overflow-hidden relative">
-              <PaginatedReader text={content?.join('\n\n')} maxChars={1200} />
+              <PaginatedReader text={content?.join('\n\n')} maxChars={550} />
             </div>
           </div>
         </div>
