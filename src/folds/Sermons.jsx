@@ -55,7 +55,7 @@ export default function Sermons({ sermons }) {
         </div>
 
         {/* Carousel Viewport */}
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="overflow-hidden pt-8 -mt-8" ref={emblaRef}>
           <div className="flex">
             {sermons?.map((sermon, idx) => (
               <div key={idx} className="flex-[0_0_100%] min-w-0 pr-4 md:pr-10">
