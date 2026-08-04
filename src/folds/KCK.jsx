@@ -20,7 +20,9 @@ export default function KCK({ content }) {
   const kckImages = getKCKImages();
   
   const [memberPage, setMemberPage] = useState(0);
+  const [mobileMemberPage, setMobileMemberPage] = useState(0);
   const MEMBERS_PER_PAGE = 9;
+  const MOBILE_MEMBERS_PER_PAGE = 4;
   
   // Combine all members into one array for the carousel/grid
   const allMembers = [
@@ -173,12 +175,39 @@ export default function KCK({ content }) {
                     </Dialog.Close>
                   </div>
                   
-                  <div className="flex-1 overflow-y-auto custom-scrollbar pb-10">
+                  <div className="flex-1 flex flex-col justify-between overflow-hidden pb-4">
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                      {allMembers.map((member, idx) => (
+                      {allMembers.slice(mobileMemberPage * MOBILE_MEMBERS_PER_PAGE, (mobileMemberPage + 1) * MOBILE_MEMBERS_PER_PAGE).map((member, idx) => (
                         <MemberCard key={idx} member={member} />
                       ))}
                     </div>
+
+                    {Math.ceil(allMembers.length / MOBILE_MEMBERS_PER_PAGE) > 1 && (
+                      <div className="flex items-center justify-center gap-4 mt-4">
+                        <button 
+                          onClick={() => setMobileMemberPage(prev => Math.max(0, prev - 1))}
+                          disabled={mobileMemberPage === 0}
+                          className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
+                        >
+                          <CaretLeft size={20} weight="bold" />
+                        </button>
+                        <div className="flex gap-2">
+                          {Array.from({ length: Math.ceil(allMembers.length / MOBILE_MEMBERS_PER_PAGE) }).map((_, i) => (
+                            <div 
+                              key={i} 
+                              className={`w-2 h-2 rounded-full transition-colors ${i === mobileMemberPage ? 'bg-amber-accent' : 'bg-white/30'}`}
+                            />
+                          ))}
+                        </div>
+                        <button 
+                          onClick={() => setMobileMemberPage(prev => Math.min(Math.ceil(allMembers.length / MOBILE_MEMBERS_PER_PAGE) - 1, prev + 1))}
+                          disabled={mobileMemberPage === Math.ceil(allMembers.length / MOBILE_MEMBERS_PER_PAGE) - 1}
+                          className="p-2 rounded-full bg-forest-800/80 text-bone-50 hover:bg-forest-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-white/10"
+                        >
+                          <CaretRight size={20} weight="bold" />
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </Dialog.Popup>
               </Dialog.Portal>

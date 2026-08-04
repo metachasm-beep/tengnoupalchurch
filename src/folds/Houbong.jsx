@@ -13,7 +13,7 @@ import ImageModal from '../components/ImageModal';
 const LeaderCard = ({ leader }) => (
   <div className="bg-white/5 p-4 md:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4 border border-white/5 hover:bg-white/10 transition-colors text-center sm:text-left h-full shadow-lg backdrop-blur-md">
     {leader.img ? (
-      <ImageModal src={leader.img} alt={leader.name} caption={`${leader.name} - ${leader.title || 'Leader'}`} className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10 cursor-pointer hover:opacity-80 transition-opacity shrink-0" />
+      <ImageModal src={leader.img} alt={leader.name} caption={`${leader.name} - ${leader.title || 'Leader'}`} className={`w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10 cursor-pointer hover:opacity-80 transition-opacity shrink-0 ${leader.name?.includes('Shonkholen') ? 'object-[center_20%]' : 'object-top'}`} />
     ) : (
       <div className="w-16 h-16 sm:w-20 sm:h-20 bg-forest-900 rounded-full border-2 border-white/10 flex items-center justify-center shadow-lg shrink-0">
         <UserCircle size={40} weight="light" className="text-amber-accent/50" />
@@ -65,20 +65,20 @@ export default function Houbong({ content }) {
     switch (id) {
       case 'vision':
         return (
-          <div className="flex flex-col gap-6">
-            <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
+          <div className="flex flex-col gap-4 h-full">
+            <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-2 shrink-0">
               Our Vision
             </h4>
-            <div className="w-full mb-4">
+            <div className="w-full h-40 sm:h-48 shrink-0 flex justify-center">
               <ImageModal 
                 src="/assets/houbong/vision/1.jpeg" 
                 alt="Our Vision" 
                 caption="Our Vision"
-                className="w-full h-48 sm:h-64 object-cover rounded-2xl shadow-xl border border-white/10"
+                className="max-w-full max-h-full object-contain rounded-xl shadow-lg border border-white/10"
               />
             </div>
-            <div className="space-y-4 text-bone-100/90 font-light leading-relaxed text-base md:text-lg">
-              {content?.vision?.map((para, i) => <p key={i}>{para}</p>)}
+            <div className="flex-1 w-full flex-col flex bg-white/5 rounded-xl border border-white/5 relative overflow-hidden min-h-[250px]">
+              <PaginatedReader text={content?.vision?.join('\n\n')} maxChars={250} />
             </div>
           </div>
         );
