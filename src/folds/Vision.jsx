@@ -29,7 +29,7 @@ export default function Vision({ content }) {
                 Building a Foundation of Faith
               </h3>
               
-              <div className="mt-2 md:mt-4 relative rounded-2xl overflow-hidden glass p-2 border border-white/5 max-w-[200px] md:max-w-xs self-start">
+              <div className="mt-2 md:mt-4 relative rounded-2xl overflow-hidden glass p-2 border border-white/5 max-w-[140px] md:max-w-[200px] self-start">
                 <img 
                   src="/assets/houbong/vision/1.jpeg" 
                   alt="Our Vision" 
