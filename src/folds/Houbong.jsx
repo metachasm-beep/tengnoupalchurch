@@ -67,34 +67,10 @@ export default function Houbong({ content }) {
     { id: 'ordainees', number: '05', label: 'Ordainees', bg: '/assets/houbong_lamkai.webp', filter: 'sepia-[20%] hue-rotate-90' },
     { id: 'theologians', number: '06', label: 'Theologians', bg: '/assets/houbong_lamkai.webp', filter: 'sepia-[40%] hue-rotate-[270deg]' },
     { id: 'gallery', number: '07', label: 'Gallery', bg: '/assets/houbong_lamkai.webp', filter: 'contrast-125 saturate-150' },
-    { id: 'vision', number: '08', label: 'Our Vision', bg: '/assets/houbong/vision/1.jpeg', filter: 'hue-rotate-[180deg]' },
   ];
 
   const getModalContent = (id) => {
     switch (id) {
-      case 'vision':
-        return (
-          <div className="flex flex-col gap-4 h-full">
-            <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-2 shrink-0">
-              Our Vision
-            </h4>
-            <div className="flex-1 w-full flex-col flex bg-white/5 rounded-xl border border-white/5 relative overflow-hidden min-h-[350px]">
-              <PaginatedReader 
-                text={content?.vision?.join('\n\n')} 
-                maxChars={600} 
-                renderImage={() => (
-                  <div className="float-left mr-5 mb-3 w-1/3 sm:w-1/4 min-w-[120px] max-w-[200px]">
-                    <img 
-                      src="/assets/houbong/vision/1.jpeg" 
-                      alt="Our Vision" 
-                      className="w-full h-auto object-cover rounded-xl shadow-lg border border-white/10"
-                    />
-                  </div>
-                )}
-              />
-            </div>
-          </div>
-        );
       case 'history':
         return (
           <div className="space-y-4 text-bone-100/90 font-light leading-relaxed text-base md:text-lg">

@@ -42,7 +42,7 @@ function Home() {
         <div className="w-full bg-forest-900 font-sans selection:bg-amber-accent selection:text-forest-900 text-bone-50">
           <Navbar />
           <NavDots />
-          <div id="nav-hero" className="snap-start snap-always"><FoldWrapper><Hero content={hero} /></FoldWrapper></div>
+          <div id="nav-hero" className="snap-start snap-always"><FoldWrapper><Hero content={hero} visionContent={houbong?.vision} /></FoldWrapper></div>
           <div id="nav-sermons" className="snap-start snap-always"><FoldWrapper><Sermons docx_content={docx_content} /></FoldWrapper></div>
           <div id="nav-project" className="snap-start snap-always"><FoldWrapper><Project content={project} renderCards={renderCards} /></FoldWrapper></div>
           <div id="nav-foundation" className="snap-start snap-always"><FoldWrapper><Foundation content={foundation} /></FoldWrapper></div>
