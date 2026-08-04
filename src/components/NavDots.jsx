@@ -5,6 +5,7 @@ import Magnet from './ui/Magnet';
 
 export const sections = [
   { id: 'nav-hero', label: 'Welcome' },
+  { id: 'nav-vision', label: 'Vision' },
   { id: 'nav-sermons', label: 'Sermons' },
   { id: 'nav-project', label: 'Project' },
   { id: 'nav-foundation', label: 'History' },

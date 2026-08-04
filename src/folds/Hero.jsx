@@ -1,12 +1,10 @@
 import React from 'react';
 import BlurText from '../components/BlurText/BlurText';
-import { MapPin, X } from '@phosphor-icons/react';
+import { MapPin } from '@phosphor-icons/react';
 import heroBg from '../../public/assets/hero_bg.webp';
 import { Button } from "@/components/ui/button";
-import { Dialog } from "@base-ui/react/dialog";
-import PaginatedReader from '../components/PaginatedReader';
 
-export default function Hero({ content, visionContent }) {
+export default function Hero({ content }) {
   return (
     <section id="hero" className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden pt-20 bg-forest-900">
       <div 
@@ -47,41 +45,9 @@ export default function Hero({ content, visionContent }) {
           <Button onClick={() => { const el = document.getElementById('nav-sermons'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="bg-amber-accent text-forest-900 px-8 py-6 rounded-full font-bold hover:bg-amber-accent-hover transition-colors hover:scale-[0.98] w-full sm:w-auto text-sm md:text-base h-auto">
             Sunday Services
           </Button>
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <Button className="glass px-8 py-6 rounded-full font-medium hover:bg-white/10 transition-colors w-full sm:w-auto text-sm md:text-base text-bone-50 h-auto">
-                Our Vision
-              </Button>
-            </Dialog.Trigger>
-            <Dialog.Portal>
-              <Dialog.Backdrop className="fixed inset-0 isolate z-[90] bg-black/80 backdrop-blur-md duration-300 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0" />
-              <Dialog.Popup className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-3xl z-[100] flex flex-col glass-dark border border-white/10 rounded-[2rem] p-6 md:p-10 outline-none duration-300 data-open:animate-in data-open:zoom-in-95 data-open:fade-in-0 data-closed:animate-out data-closed:zoom-out-95 data-closed:fade-out-0 shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden">
-                <div className="flex justify-between items-center mb-8 shrink-0 border-b border-white/5 pb-4">
-                  <h3 className="font-serif text-2xl md:text-4xl text-bone-50 flex items-center gap-4">
-                    Our Vision
-                  </h3>
-                  <Dialog.Close className="bg-white/5 hover:bg-white/10 text-white rounded-full p-2.5 transition-colors outline-none border-none cursor-pointer">
-                    <X size={20} weight="bold" />
-                  </Dialog.Close>
-                </div>
-                <div className="w-full flex-1 flex-col flex bg-white/5 rounded-xl border border-white/5 relative overflow-hidden min-h-[350px]">
-                  <PaginatedReader 
-                    text={visionContent?.join('\n\n')} 
-                    maxChars={600} 
-                    renderImage={() => (
-                      <div className="float-left mr-5 mb-3 w-1/3 sm:w-1/4 min-w-[120px] max-w-[200px]">
-                        <img 
-                          src="/assets/houbong/vision/1.jpeg" 
-                          alt="Our Vision" 
-                          className="w-full h-auto object-cover rounded-xl shadow-lg border border-white/10"
-                        />
-                      </div>
-                    )}
-                  />
-                </div>
-              </Dialog.Popup>
-            </Dialog.Portal>
-          </Dialog.Root>
+          <Button onClick={() => { const el = document.getElementById('nav-vision'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="glass px-8 py-6 rounded-full font-medium hover:bg-white/10 transition-colors w-full sm:w-auto text-sm md:text-base text-bone-50 h-auto">
+            Our Vision
+          </Button>
         </div>
       </div>
     </section>
