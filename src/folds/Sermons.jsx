@@ -32,7 +32,7 @@ export default function Sermons({ sermons }) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-20 md:mt-28 py-6 md:py-0 overflow-hidden">
         
         {/* Navigation Controls */}
-        <div className="flex flex-col items-center justify-center gap-4 mb-6 md:mb-10 w-full">
+        <div className="flex flex-col items-center justify-center gap-4 mb-6 md:mb-6 w-full">
           <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50 text-center">Messages</h2>
           {sermons?.length > 1 && (
             <div className="flex items-center gap-4">
@@ -110,7 +110,7 @@ export default function Sermons({ sermons }) {
                   </div>
                   
                   {/* Right Side: Desktop Text Container (Hidden on mobile) */}
-                  <div className="hidden md:block md:col-span-7 relative h-[720px] translate-y-[10%]">
+                  <div className="hidden md:block md:col-span-7 relative h-[65vh] min-h-[450px] max-h-[720px]">
                     <div className="glass-dark rounded-[2rem] h-full shadow-2xl bg-forest-900/50 overflow-hidden relative">
                       <PaginatedReader text={sermon.content} maxChars={1200} />
                     </div>
