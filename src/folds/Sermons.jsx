@@ -62,7 +62,7 @@ export default function Sermons({ sermons }) {
                 <div className="grid md:grid-cols-12 gap-8 md:gap-16">
                   
                   {/* Left Side: Sermon Metadata */}
-                  <div className="md:col-span-5 flex flex-col gap-3 md:gap-6">
+                  <div className="md:col-span-5 flex flex-col gap-3 md:gap-6 md:-translate-y-6">
                     <div className="flex flex-col gap-3 md:gap-5 text-bone-100">
                       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-900 text-amber-accent text-xs md:text-sm font-medium self-start shadow-sm border border-white/5">
                         <Calendar weight="bold" /> {sermon.date}
@@ -110,9 +110,9 @@ export default function Sermons({ sermons }) {
                   </div>
                   
                   {/* Right Side: Desktop Text Container (Hidden on mobile) */}
-                  <div className="hidden md:block md:col-span-7 relative h-[65vh] min-h-[450px] max-h-[720px]">
+                  <div className="hidden md:block md:col-span-7 relative h-[70vh] min-h-[450px] max-h-[650px]">
                     <div className="glass-dark rounded-[2rem] h-full shadow-2xl bg-forest-900/50 overflow-hidden relative">
-                      <PaginatedReader text={sermon.content} maxChars={1200} />
+                      <PaginatedReader text={sermon.content} maxChars={900} />
                     </div>
                   </div>
 
