@@ -32,20 +32,20 @@ export default function Sermons({ sermons }) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-20 md:mt-0 py-6 md:py-0 overflow-hidden">
         
         {/* Navigation Controls */}
-        <div className="flex justify-between items-center mb-4 md:mb-10">
-          <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50">Messages</h2>
+        <div className="flex flex-col items-center justify-center gap-4 mb-6 md:mb-10 w-full">
+          <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50 text-center">Messages</h2>
           {sermons?.length > 1 && (
-            <div className="flex gap-2">
+            <div className="flex items-center gap-4">
               <button 
                 onClick={scrollPrev}
-                className="p-2 rounded-full glass border border-white/10 text-bone-50 hover:bg-white/10 transition-colors"
+                className="p-2.5 rounded-full glass border border-white/10 text-bone-50 hover:bg-white/10 transition-colors"
                 aria-label="Previous sermon"
               >
                 <CaretLeft weight="bold" size={20} />
               </button>
               <button 
                 onClick={scrollNext}
-                className="p-2 rounded-full glass border border-white/10 text-bone-50 hover:bg-white/10 transition-colors"
+                className="p-2.5 rounded-full glass border border-white/10 text-bone-50 hover:bg-white/10 transition-colors"
                 aria-label="Next sermon"
               >
                 <CaretRight weight="bold" size={20} />
