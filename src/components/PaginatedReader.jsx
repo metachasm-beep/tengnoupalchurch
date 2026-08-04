@@ -105,7 +105,7 @@ export default function PaginatedReader({ text, maxChars = 800, renderImage = nu
       </div>
 
       {/* Pages Container */}
-      <div className="relative w-full h-full overflow-hidden px-14 py-4 md:py-8 flex-1 flex items-center">
+      <div className="relative w-full h-full overflow-hidden px-14 py-4 md:py-8 flex-1 flex items-start md:items-center">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={pageIdx}
@@ -118,7 +118,7 @@ export default function PaginatedReader({ text, maxChars = 800, renderImage = nu
               x: { type: 'spring', stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 },
             }}
-            className="w-full h-full flex items-center"
+            className="w-full h-full flex items-start md:items-center overflow-y-auto"
           >
             <div className="max-w-prose mx-auto space-y-6 w-full relative">
               {pageIdx === 0 && renderImage && renderImage()}

@@ -32,7 +32,7 @@ export default function Vision({ content }) {
               {/* Mobile Text Container */}
               <div className="md:hidden w-full relative h-[280px] mt-1">
                 <div className="glass-dark rounded-2xl h-full shadow-lg bg-forest-900/50 overflow-hidden relative border border-white/5">
-                  <PaginatedReader text={content?.join('\n\n')} maxChars={280} />
+                  <PaginatedReader text={content?.join('\n\n')} maxChars={220} />
                 </div>
               </div>
             </div>
