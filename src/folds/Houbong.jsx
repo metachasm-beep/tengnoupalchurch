@@ -11,10 +11,17 @@ import {
 import ImageModal from '../components/ImageModal';
 import PaginatedReader from '../components/PaginatedReader';
 
-const LeaderCard = ({ leader }) => (
+const LeaderCard = ({ leader }) => {
+  const getObjectPosition = (name) => {
+    if (name?.includes('Shonkholen')) return 'object-[center_20%]';
+    if (name?.includes('Thangjamang') || name?.includes('Ph Thangkhosei')) return 'object-top';
+    return 'object-[center_40%]';
+  };
+
+  return (
   <div className="bg-white/5 p-4 md:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4 border border-white/5 hover:bg-white/10 transition-colors text-center sm:text-left h-full shadow-lg backdrop-blur-md">
     {leader.img ? (
-      <ImageModal src={leader.img} alt={leader.name} caption={`${leader.name} - ${leader.title || 'Leader'}`} className={`w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10 cursor-pointer hover:opacity-80 transition-opacity shrink-0 ${leader.name?.includes('Shonkholen') ? 'object-[center_20%]' : 'object-top'}`} />
+      <ImageModal src={leader.img} alt={leader.name} caption={`${leader.name} - ${leader.title || 'Leader'}`} className={`w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full shadow-lg border-2 border-white/10 cursor-pointer hover:opacity-80 transition-opacity shrink-0 ${getObjectPosition(leader.name)}`} />
     ) : (
       <div className="w-16 h-16 sm:w-20 sm:h-20 bg-forest-900 rounded-full border-2 border-white/10 flex items-center justify-center shadow-lg shrink-0">
         <UserCircle size={40} weight="light" className="text-amber-accent/50" />
@@ -28,7 +35,8 @@ const LeaderCard = ({ leader }) => (
       {leader.remarks && <span className="text-[11px] text-bone-100/60 mt-2 italic leading-relaxed text-balance">{leader.remarks}</span>}
     </div>
   </div>
-);
+  );
+};
 
 const EventCard = ({ evt }) => (
   <div className="bg-white/5 p-5 md:p-6 rounded-2xl border border-white/5 shadow-lg h-full flex flex-col backdrop-blur-md">
@@ -70,16 +78,20 @@ export default function Houbong({ content }) {
             <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-2 shrink-0">
               Our Vision
             </h4>
-            <div className="w-full h-40 sm:h-48 shrink-0 flex justify-center">
-              <ImageModal 
-                src="/assets/houbong/vision/1.jpeg" 
-                alt="Our Vision" 
-                caption="Our Vision"
-                className="max-w-full max-h-full object-contain rounded-xl shadow-lg border border-white/10"
+            <div className="flex-1 w-full flex-col flex bg-white/5 rounded-xl border border-white/5 relative overflow-hidden min-h-[350px]">
+              <PaginatedReader 
+                text={content?.vision?.join('\n\n')} 
+                maxChars={600} 
+                renderImage={() => (
+                  <div className="float-left mr-5 mb-3 w-1/3 sm:w-1/4 min-w-[120px] max-w-[200px]">
+                    <img 
+                      src="/assets/houbong/vision/1.jpeg" 
+                      alt="Our Vision" 
+                      className="w-full h-auto object-cover rounded-xl shadow-lg border border-white/10"
+                    />
+                  </div>
+                )}
               />
-            </div>
-            <div className="flex-1 w-full flex-col flex bg-white/5 rounded-xl border border-white/5 relative overflow-hidden min-h-[250px]">
-              <PaginatedReader text={content?.vision?.join('\n\n')} maxChars={250} />
             </div>
           </div>
         );

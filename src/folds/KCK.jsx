@@ -21,7 +21,7 @@ export default function KCK({ content }) {
   
   const [memberPage, setMemberPage] = useState(0);
   const [mobileMemberPage, setMobileMemberPage] = useState(0);
-  const MEMBERS_PER_PAGE = 9;
+  const MEMBERS_PER_PAGE = 6;
   const MOBILE_MEMBERS_PER_PAGE = 4;
   
   // Combine all members into one array for the carousel/grid

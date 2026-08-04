@@ -19,7 +19,7 @@ const slideVariants = {
   }),
 };
 
-export default function PaginatedReader({ text, maxChars = 800 }) {
+export default function PaginatedReader({ text, maxChars = 800, renderImage = null }) {
   const paragraphs = text?.split('\n\n').filter(Boolean) || [];
   const pages = [];
   let currentPage = [];
@@ -120,7 +120,8 @@ export default function PaginatedReader({ text, maxChars = 800 }) {
             }}
             className="w-full h-full flex items-center"
           >
-            <div className="max-w-prose mx-auto space-y-6 w-full">
+            <div className="max-w-prose mx-auto space-y-6 w-full relative">
+              {pageIdx === 0 && renderImage && renderImage()}
               {pages[pageIdx].map((para, i) => (
                 <p key={i} className="leading-relaxed text-bone-100/95 text-base md:text-lg font-light tracking-wide">
                   {para}
