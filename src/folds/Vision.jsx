@@ -17,19 +17,19 @@ export default function Vision({ content }) {
         style={{ backgroundImage: `url('/assets/bg_sermons.webp')` }}
       />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-24 md:mt-0 py-12 md:py-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-20 md:mt-0 py-6 md:py-0">
         <div className="grid md:grid-cols-12 gap-8 md:gap-16">
           <div className="md:col-span-5 flex flex-col gap-4 md:gap-6">
-            <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50">Our Vision</h2>
-            <div className="flex flex-col gap-4 md:gap-5 text-bone-100">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-900 text-amber-accent text-xs md:text-sm font-medium self-start shadow-sm border border-white/5">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50 text-center md:text-left">Our Vision</h2>
+            <div className="flex flex-col gap-4 md:gap-5 text-bone-100 items-center md:items-start text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-900 text-amber-accent text-xs md:text-sm font-medium self-center md:self-start shadow-sm border border-white/5">
                 <Eye weight="bold" /> Church Vision & Mission
               </div>
               <h3 className="font-serif text-2xl md:text-3xl font-medium text-bone-50 leading-snug">
                 Building a Foundation of Faith
               </h3>
               
-              <div className="mt-2 md:mt-4 relative rounded-2xl overflow-hidden glass p-2 border border-white/5 max-w-[140px] md:max-w-[200px] self-start">
+              <div className="mt-2 md:mt-4 relative rounded-2xl overflow-hidden glass p-2 border border-white/5 max-w-[140px] md:max-w-[200px] self-center md:self-start">
                 <img 
                   src="/assets/houbong/vision/1.jpeg" 
                   alt="Our Vision" 
@@ -40,7 +40,7 @@ export default function Vision({ content }) {
               {/* Mobile Read Message Button */}
               <Dialog>
                 <DialogTrigger asChild>
-                  <button className="md:hidden flex items-center justify-center gap-2 mt-4 bg-amber-accent text-forest-900 px-6 py-3 rounded-full font-bold w-full">
+                  <button className="md:hidden flex items-center justify-center gap-2 mt-2 bg-amber-accent text-forest-900 px-6 py-2.5 rounded-full font-bold w-full text-sm">
                     <BookOpenText weight="bold" size={20} /> Read Our Vision
                   </button>
                 </DialogTrigger>
