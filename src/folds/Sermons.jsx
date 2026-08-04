@@ -29,10 +29,10 @@ export default function Sermons({ sermons }) {
         style={{ backgroundImage: `url('/assets/bg_sermons.webp')` }}
       />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-24 md:mt-0 py-12 md:py-0 overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-20 md:mt-0 py-6 md:py-0 overflow-hidden">
         
         {/* Navigation Controls */}
-        <div className="flex justify-between items-center mb-6 md:mb-10">
+        <div className="flex justify-between items-center mb-4 md:mb-10">
           <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-widest uppercase text-bone-50">Messages</h2>
           {sermons?.length > 1 && (
             <div className="flex gap-2">
@@ -62,8 +62,8 @@ export default function Sermons({ sermons }) {
                 <div className="grid md:grid-cols-12 gap-8 md:gap-16">
                   
                   {/* Left Side: Sermon Metadata */}
-                  <div className="md:col-span-5 flex flex-col gap-4 md:gap-6">
-                    <div className="flex flex-col gap-4 md:gap-5 text-bone-100">
+                  <div className="md:col-span-5 flex flex-col gap-3 md:gap-6">
+                    <div className="flex flex-col gap-3 md:gap-5 text-bone-100">
                       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-900 text-amber-accent text-xs md:text-sm font-medium self-start shadow-sm border border-white/5">
                         <Calendar weight="bold" /> {sermon.date}
                       </div>
@@ -71,12 +71,12 @@ export default function Sermons({ sermons }) {
                         {sermon.title}
                       </h3>
                       {sermon.quote && (
-                        <p className="leading-relaxed border-l-2 border-amber-accent pl-4 md:pl-5 italic text-sm md:text-lg opacity-90">
+                        <p className="leading-relaxed border-l-2 border-amber-accent pl-3 md:pl-5 italic text-xs md:text-lg opacity-90 line-clamp-3 md:line-clamp-none">
                           "{sermon.quote}"
                         </p>
                       )}
                       
-                      <div className="mt-2 md:mt-4 relative rounded-2xl overflow-hidden glass p-2 border border-white/5 max-w-[200px] md:max-w-xs self-start flex flex-col items-center gap-2">
+                      <div className="mt-1 md:mt-4 relative rounded-2xl overflow-hidden glass p-1.5 border border-white/5 max-w-[120px] md:max-w-xs self-start flex flex-col items-center gap-2">
                         <img 
                           src={sermon.img} 
                           alt={sermon.author} 
@@ -88,7 +88,7 @@ export default function Sermons({ sermons }) {
                       {/* Mobile Read Message Button */}
                       <Dialog>
                         <DialogTrigger asChild>
-                          <button className="md:hidden flex items-center justify-center gap-2 mt-4 bg-amber-accent text-forest-900 px-6 py-3 rounded-full font-bold w-full">
+                          <button className="md:hidden flex items-center justify-center gap-2 mt-2 bg-amber-accent text-forest-900 px-6 py-2.5 rounded-full font-bold w-full text-sm">
                             <BookOpenText weight="bold" size={20} /> Read Full Message
                           </button>
                         </DialogTrigger>
