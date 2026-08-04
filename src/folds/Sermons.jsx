@@ -29,7 +29,7 @@ export default function Sermons({ sermons }) {
         style={{ backgroundImage: `url('/assets/bg_sermons.webp')` }}
       />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-20 md:mt-0 py-6 md:py-0 overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full mt-20 md:mt-28 py-6 md:py-0 overflow-hidden">
         
         {/* Navigation Controls */}
         <div className="flex flex-col items-center justify-center gap-4 mb-6 md:mb-10 w-full">
