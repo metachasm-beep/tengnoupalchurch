@@ -39,8 +39,8 @@ function Home() {
 
   // We let the body handle the scrolling and snapping (defined in index.css)
   return (
-          <ScrollProvider sectionIds={sectionIds}>
-        <div className="w-full bg-forest-900 font-sans selection:bg-amber-accent selection:text-forest-900 text-bone-50">
+      <ScrollProvider sectionIds={sectionIds}>
+        <div className="w-full overflow-x-hidden bg-forest-900 font-sans selection:bg-amber-accent selection:text-forest-900 text-bone-50">
           <Navbar />
           <NavDots />
           <div id="nav-hero" className="snap-start snap-always"><FoldWrapper><Hero content={hero} /></FoldWrapper></div>
