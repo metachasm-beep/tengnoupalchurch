@@ -58,10 +58,30 @@ export default function Houbong({ content }) {
     { id: 'ordainees', number: '05', label: 'Ordainees', bg: '/assets/houbong_lamkai.webp', filter: 'sepia-[20%] hue-rotate-90' },
     { id: 'theologians', number: '06', label: 'Theologians', bg: '/assets/houbong_lamkai.webp', filter: 'sepia-[40%] hue-rotate-[270deg]' },
     { id: 'gallery', number: '07', label: 'Gallery', bg: '/assets/houbong_lamkai.webp', filter: 'contrast-125 saturate-150' },
+    { id: 'vision', number: '08', label: 'Our Vision', bg: '/assets/houbong/vision/1.jpeg', filter: 'hue-rotate-[180deg]' },
   ];
 
   const getModalContent = (id) => {
     switch (id) {
+      case 'vision':
+        return (
+          <div className="flex flex-col gap-6">
+            <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
+              Our Vision
+            </h4>
+            <div className="w-full mb-4">
+              <ImageModal 
+                src="/assets/houbong/vision/1.jpeg" 
+                alt="Our Vision" 
+                caption="Our Vision"
+                className="w-full h-48 sm:h-64 object-cover rounded-2xl shadow-xl border border-white/10"
+              />
+            </div>
+            <div className="space-y-4 text-bone-100/90 font-light leading-relaxed text-base md:text-lg">
+              {content?.vision?.map((para, i) => <p key={i}>{para}</p>)}
+            </div>
+          </div>
+        );
       case 'history':
         return (
           <div className="space-y-4 text-bone-100/90 font-light leading-relaxed text-base md:text-lg">
@@ -74,6 +94,18 @@ export default function Houbong({ content }) {
             <h4 className="font-sans text-xs tracking-[0.2em] text-amber-accent uppercase font-medium border-b border-white/10 pb-4">
               GMS Mission
             </h4>
+
+            {content?.gms_committee && (
+              <div className="mb-2">
+                <h5 className="font-sans text-[10px] tracking-widest text-bone-200/70 uppercase mb-4 pl-1">Mission Committee (2025 - 2026)</h5>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {content.gms_committee.map((member, idx) => (
+                    <LeaderCard key={idx} leader={member} />
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
               <div className="w-full">
                 <ImageModal 

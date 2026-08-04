@@ -2261,13 +2261,60 @@
         "name": "V Thongkhosei Haokip",
         "status": "Service"
       }
+    ],
+    "gms_committee": [
+      {
+        "name": "Upa Shonkholen Mate",
+        "role": "Chairman",
+        "img": "/assets/gms/Upa Shonkholen Mate.jpeg"
+      },
+      {
+        "name": "S Tongkholun Mate",
+        "role": "Secretary",
+        "img": "/assets/gms/S Tongkholun Mate.jpeg"
+      },
+      {
+        "name": "Ph Thangkhosei Mate",
+        "role": "Committee Member",
+        "img": "/assets/gms/Ph Thangkhosei Mate.jpeg"
+      },
+      {
+        "name": "S Tilkhohao Mate",
+        "role": "Committee Member",
+        "img": "/assets/gms/S Tilkhohao Mate.jpeg"
+      },
+      {
+        "name": "Hl Seikholen Mate",
+        "role": "Committee Member",
+        "img": "/assets/gms/Hl Seikholen Mate.jpeg"
+      },
+      {
+        "name": "H Thangjamang Mate",
+        "role": "Committee Member",
+        "img": "/assets/gms/H Thangjamang Mate.jpeg"
+      },
+      {
+        "name": "H Thangkhosei Mate",
+        "role": "Committee Member",
+        "img": "/assets/gms/H Thangkhosei Mate.jpeg"
+      }
+    ],
+    "vision": [
+      "Website hin visit jouse Pakai Jesu Christa min in kahin lem uve.",
+      "Hiche website ahung kisem lo napen hi ahileh tukhang leiset khantou dungjui a houbung sung hilen jalhang hinkho lah hijong leh Digital lam a awareness nasatah aum theina ding le houbung sunga houbung a man ding a hung kisem website chu ahi.",
+      "Hiche website hi data ti chu (Houbung kivai homna, Houin sah ban ijakai het jing nading, Nu te Pate chuleh khangthah teho) kivai hom na masang a sanga ahung lhung ding nikho hoa maban a houbung sung khantouna ding a kisem ahi.",
+      "Chule tulai leiset khantou dungjui a thil ijakai hi Internet mangcha a kibol ngen ahitah jeh in Houbung record a itih a mang talou ding Website nei kiti apoimo dan ho jong houbung mite/ mipi hetding in ahung kitah lang nom in ahi.",
+      "Hetthei khat chu tukhang digital era a hi thil akibol ho jouse hi sum le pai hol na lam ahung hi kittan ahi vang hi eiho man pen website hi sum leh pai hol na lam hilou a Houbung data koitup nading joh hiding ahi.",
+      "Pathen in Houbung mite jouse phatthei eiboh cheh tauhen.",
+      "Gigin Mate"
     ]
   },
   "ce": {
     "title": "Christian Education (CE)",
     "staff": {
       "secretary": {
-        "name": "Pa Ph. Jangkhomang Mate"
+        "name": "Pa Ph. Jangkhomang Mate",
+        "img": "/assets/ce/Ph Jangkhomang Mate.jpeg"
       },
       "teachers": [
         {
@@ -2340,16 +2387,6 @@
         "img": "/assets/kck/Ls Seigoulal.jpeg"
       },
       {
-        "name": "Ch Jangminthang",
-        "role": "Lhacha",
-        "img": "/assets/kck/Ch Jangminthang .jpeg"
-      },
-      {
-        "name": "Hl Seiminlal Lhacha",
-        "role": "Lhacha",
-        "img": "/assets/kck/Hl Seiminlal Lhacha.jpeg"
-      },
-      {
         "name": "H Tongminlen",
         "role": "Member",
         "img": "/assets/kck/H Tongminlen.jpeg"
@@ -2378,6 +2415,16 @@
         "name": "S Chinneimoi Haokip",
         "role": "Member",
         "img": "/assets/kck/S Chinneimoi Haokip.jpeg"
+      },
+      {
+        "name": "Ch Jangminthang",
+        "role": "Information Secretary",
+        "img": "/assets/kck/Ch Jangminthang .jpeg"
+      },
+      {
+        "name": "Hl Seiminlal Lhacha",
+        "role": "Information Secretary",
+        "img": "/assets/kck/Hl Seiminlal Lhacha.jpeg"
       }
     ],
     "gallery": [

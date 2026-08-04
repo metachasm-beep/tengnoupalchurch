@@ -1,0 +1,59 @@
+{
+  "title": "Christian Education (CE)",
+  "staff": {
+    "secretary": {
+      "name": "Pa Ph. Jangkhomang Mate"
+    },
+    "teachers": [
+      {
+        "name": "Pa Hl. Shonthang Mate"
+      },
+      {
+        "name": "Pa L. Jamkhokhai Mate",
+        "img": "/assets/ce/L Jamkhokhai Mate.jpeg"
+      },
+      {
+        "name": "Pa M. Tongminthang Haokip",
+        "img": "/assets/ce/Pa M Tongminthang Haokip.jpeg"
+      },
+      {
+        "name": "Pa Ph. Seilenjam Mate",
+        "img": "/assets/ce/Ph Seilenjam Mate.jpeg"
+      },
+      {
+        "name": "Ng. T. Veikhoneng Baite"
+      },
+      {
+        "name": "Nu H. Lhunneilhing Mate"
+      },
+      {
+        "name": "Ng. S. Hatkhonei Mate"
+      },
+      {
+        "name": "Ng. H. Hatneithem Mate"
+      },
+      {
+        "name": "Ng. Ch. Chinneichong Mate"
+      }
+    ],
+    "superintendent": {
+      "name": "Pa S Tongkhosei Mate",
+      "img": "/assets/ce/Pa S Tongkhosei Mate.jpeg"
+    }
+  },
+  "images": [
+    "/assets/ce/1.webp",
+    "/assets/ce/2.webp",
+    "/assets/ce/ce_gen_1.jpeg",
+    "/assets/ce/ce_gen_2.jpeg",
+    "/assets/ce/ce_gen_3.jpeg",
+    "/assets/ce/ce_gen_4.jpeg"
+  ],
+  "cbs_images": [
+    "/assets/ce/cbs_2.jpeg",
+    "/assets/ce/cbs_3.jpeg",
+    "/assets/ce/cbs_4.jpeg",
+    "/assets/ce/cbs_5.jpeg",
+    "/assets/ce/cbs_WhatsApp_Image_2026-07-31_at_12.09.14_AM.jpeg"
+  ]
+}

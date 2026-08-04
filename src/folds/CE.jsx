@@ -69,7 +69,7 @@ export default function CE({ content }) {
           src={member.img} 
           alt={member.name}
           caption={`${member.name} - ${member.role}`}
-          className={`w-20 h-20 md:w-24 md:h-24 object-cover rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg shrink-0 ${member.name?.includes('Seilenjam') ? 'object-[center_60%]' : member.name?.includes('Tongminthang') || member.name?.includes('Tongkhosei') ? 'object-[center_30%]' : 'object-top'}`}
+          className={`w-20 h-20 md:w-24 md:h-24 object-cover rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg shrink-0 ${member.name?.includes('Seilenjam') ? 'object-[center_20%]' : member.name?.includes('Tongminthang') || member.name?.includes('Tongkhosei') ? 'object-[center_30%]' : 'object-top'}`}
         />
       ) : (
         <div className={`w-20 h-20 md:w-24 md:h-24 bg-forest-900 rounded-full mb-2 md:mb-3 border-2 border-white/10 shadow-lg flex items-center justify-center shrink-0`}>
