@@ -67,9 +67,6 @@ export default function Sermons({ sermons }) {
                       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-900 text-amber-accent text-xs md:text-sm font-medium self-start shadow-sm border border-white/5">
                         <Calendar weight="bold" /> {sermon.date}
                       </div>
-                      <h3 className="font-serif text-2xl md:text-3xl font-medium text-bone-50 leading-snug">
-                        {sermon.title}
-                      </h3>
                       {sermon.quote && (
                         <p className="leading-relaxed border-l-2 border-amber-accent pl-3 md:pl-5 italic text-xs md:text-lg opacity-90 line-clamp-3 md:line-clamp-none">
                           "{sermon.quote}"
@@ -100,8 +97,10 @@ export default function Sermons({ sermons }) {
                             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-800 text-amber-accent text-xs font-medium border border-white/5 mb-4 w-fit shrink-0">
                               <Calendar weight="bold" /> {sermon.date}
                             </div>
-                            <div className="flex-1 relative overflow-hidden -mx-4 md:mx-0">
-                              <PaginatedReader text={sermon.content} maxChars={600} />
+                            <div className="flex-1 relative overflow-hidden -mx-4 md:mx-0 flex flex-col">
+                              <div className="flex-1 relative">
+                                <PaginatedReader text={sermon.content} maxChars={600} />
+                              </div>
                             </div>
                           </div>
                         </DialogContent>
@@ -111,8 +110,16 @@ export default function Sermons({ sermons }) {
                   
                   {/* Right Side: Desktop Text Container (Hidden on mobile) */}
                   <div className="hidden md:block md:col-span-7 relative h-[70vh] min-h-[450px] max-h-[650px]">
-                    <div className="glass-dark rounded-[2rem] h-full shadow-2xl bg-forest-900/50 overflow-hidden relative">
-                      <PaginatedReader text={sermon.content} maxChars={900} />
+                    <div className="glass-dark rounded-[2rem] h-full shadow-2xl bg-forest-900/50 overflow-hidden relative flex flex-col">
+                      <div className="pt-10 px-14 pb-2 shrink-0 z-10 relative">
+                        <h3 className="font-serif text-2xl md:text-4xl font-medium text-bone-50 leading-snug">
+                          {sermon.title}
+                        </h3>
+                        <div className="w-12 h-1 bg-amber-accent mt-4 rounded-full opacity-50"></div>
+                      </div>
+                      <div className="flex-1 relative -mt-4">
+                        <PaginatedReader text={sermon.content} maxChars={900} />
+                      </div>
                     </div>
                   </div>
 
