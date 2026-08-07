@@ -35,9 +35,6 @@ export default function Vision({ content }) {
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-900 text-amber-accent text-xs md:text-sm font-medium self-start shadow-sm border border-white/5">
                       <Eye weight="bold" /> Church Vision & Mission
                     </div>
-                    <h3 className="font-serif text-2xl md:text-3xl font-medium text-bone-50 leading-snug">
-                      Building a Foundation of Faith
-                    </h3>
                     
                     <div className="mt-1 md:mt-4 relative rounded-2xl overflow-hidden glass p-1.5 border border-white/5 max-w-[120px] md:max-w-xs self-start flex flex-col items-center gap-2">
                       <img 
@@ -62,8 +59,10 @@ export default function Vision({ content }) {
                           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-800 text-amber-accent text-xs font-medium border border-white/5 mb-4 w-fit shrink-0">
                             <Eye weight="bold" /> Church Vision & Mission
                           </div>
-                          <div className="flex-1 relative overflow-hidden -mx-4 md:mx-0">
-                            <PaginatedReader text={content?.join('\n\n')} maxChars={600} />
+                          <div className="flex-1 relative overflow-hidden -mx-4 md:mx-0 flex flex-col">
+                            <div className="flex-1 relative">
+                              <PaginatedReader text={content?.join('\n\n')} maxChars={600} />
+                            </div>
                           </div>
                         </div>
                       </DialogContent>
@@ -73,8 +72,16 @@ export default function Vision({ content }) {
                 
                 {/* Right Side: Desktop Text Container (Hidden on mobile) */}
                 <div className="hidden md:block md:col-span-7 relative h-[70vh] min-h-[450px] max-h-[650px]">
-                  <div className="glass-dark rounded-[2rem] h-full shadow-2xl bg-forest-900/50 overflow-hidden relative">
-                    <PaginatedReader text={content?.join('\n\n')} maxChars={900} />
+                  <div className="glass-dark rounded-[2rem] h-full shadow-2xl bg-forest-900/50 overflow-hidden relative flex flex-col">
+                    <div className="pt-10 px-14 pb-2 shrink-0 z-10 relative">
+                      <h3 className="font-serif text-2xl md:text-4xl font-medium text-bone-50 leading-snug">
+                        Building a Foundation of Faith
+                      </h3>
+                      <div className="w-12 h-1 bg-amber-accent mt-4 rounded-full opacity-50"></div>
+                    </div>
+                    <div className="flex-1 relative -mt-4">
+                      <PaginatedReader text={content?.join('\n\n')} maxChars={900} />
+                    </div>
                   </div>
                 </div>
 
